@@ -4,14 +4,15 @@ module.exports = {
   mode: 'development',
   entry: './src/example.js',
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
   },
   devServer: {
     port: 9000,
+    hot: true,
   },
   output: {
     filename: 'example.js',
-    path: path.join(__dirname, 'dist')
+    publicPath: path.join(__dirname, 'dist'),
   },
-  devtool: 'sourcemap'
+  devtool: 'sourcemap',
 };

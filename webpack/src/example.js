@@ -5,5 +5,4 @@ document.addEventListener('DOMContentLoaded', function () {
   const ds = new LocalDataProvider(false);
   const grid = new GridView(container);
   grid.setDataSource(ds);
-  console.log('hot2');
 });
