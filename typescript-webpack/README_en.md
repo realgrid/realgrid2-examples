@@ -27,7 +27,7 @@ npm run watch
 npm run clean
 ```
 
-## 테스트
+## Test
 
 > Via [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) 
 
