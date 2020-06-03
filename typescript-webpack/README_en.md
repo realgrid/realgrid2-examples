@@ -31,7 +31,7 @@ npm run clean
 
 > Via [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) 
 
-RealGrid2 is licensed under the domain license policy. You cannot access RealGrid2 at `index.html` that includes only the javascript bundle. (You will face with an error).
+RealGrid2 is licensed under the domain license policy. You cannot access RealGrid2 at `index.html` that includes only the javascript bundle. (You will be faced with an error).
 
 For convenient use, run the scripts:
 

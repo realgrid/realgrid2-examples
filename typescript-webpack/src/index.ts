@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (button) {
         button.onclick = loadData;
     }
-
 });
 
 
@@ -27,4 +26,6 @@ const loadData = function() {
 
     grid.header.height = 60;
     grid.displayOptions.rowHeight = 60;
+
+    grid.header.showTooltip = true;
 }
