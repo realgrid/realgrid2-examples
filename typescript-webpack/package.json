@@ -11,7 +11,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "realgrid": "^2.0.1-alpha.8"
+    "realgrid": "^2.0.2"
   },
   "devDependencies": {
     "ts-loader": "^7.0.5",

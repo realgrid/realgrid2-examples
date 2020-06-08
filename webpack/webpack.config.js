@@ -9,10 +9,11 @@ module.exports = {
   devServer: {
     port: 9000,
     hot: true,
+    publicPath: "/dist/"
   },
   output: {
     filename: 'example.js',
-    publicPath: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
   },
   devtool: 'sourcemap',
 };

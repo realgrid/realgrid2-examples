@@ -72,6 +72,48 @@ export const rows = [
 		"Email": "Nunc@blanditenimconsequat.co.uk",
 		"Company": "Lorem Lorem Luctus PC",
 		"Age": "22"
+    },
+    {
+		"Name": "Aristotle",
+		"FullName": "Ora C. Rowe",
+		"Email": "sed.orci@libero.edu",
+		"Company": "Integer Aliquam Corporation",
+		"Age": 53
+	},
+	{
+		"Name": "Anthony",
+		"FullName": "Alea Bailey",
+		"Email": "orci.luctus.et@Cum.ca",
+		"Company": "Eros Nam Corp.",
+		"Age": 58
+	},
+	{
+		"Name": "Hakeem",
+		"FullName": "Kadeem J. Patel",
+		"Email": "aliquet.diam.Sed@penatibuset.com",
+		"Company": "Ligula Aenean Gravida Consulting",
+		"Age": 36
+	},
+	{
+		"Name": "Raja",
+		"FullName": "Chloe Valentine",
+		"Email": "Cras.dictum@vulputatenisi.ca",
+		"Company": "Erat Eget Tincidunt Institute",
+		"Age": 40
+	},
+	{
+		"Name": "Shad",
+		"FullName": "Zoe P. Boyd",
+		"Email": "Sed@semperpretium.edu",
+		"Company": "Amet LLP",
+		"Age": 22
+	},
+	{
+		"Name": "Autumn",
+		"FullName": "Brittany U. Copeland",
+		"Email": "sit.amet@interdumSedauctor.co.uk",
+		"Company": "Nisi Cum Sociis PC",
+		"Age": 36
 	},
 ]
 

@@ -24,8 +24,10 @@ const loadData = function() {
     grid.setColumns(columns);
     ds.setRows(rows);
 
-    grid.header.height = 60;
-    grid.displayOptions.rowHeight = 60;
+    grid.header.height = 35;
+    grid.displayOptions.rowHeight = 35;
 
     grid.header.showTooltip = true;
+
+    grid.fixedOptions.colCount = 2;
 }

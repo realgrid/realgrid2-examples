@@ -9,7 +9,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "realgrid": "^2.0.1-alpha.7"
+    "realgrid": "^2.0.2"
   },
   "devDependencies": {
     "webpack": "^4.29.0",
