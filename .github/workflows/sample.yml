@@ -2,7 +2,10 @@ name: Deploy sample site
 
 on:
   push:
+    branches:
+    - 'master'
     paths:
+    - '.github/workflows/sample.yml'
     - 'sample/**'
 
 jobs:
