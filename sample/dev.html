@@ -1,0 +1,380 @@
+---
+layout: default
+title : 'RealGrid2'
+---
+
+<style>
+body{
+    overflow-y:auto;
+    background: #fff !important;
+    color:#222 !important;
+}
+.container{
+    padding:50px; padding-top:40px;
+}
+.todolist-table{ width:100%; border-spacing: 0; border-collapse: separate;}
+.todolist-table thead {}
+.todolist-table thead td{background:#eaeaea;padding:5px; color:#4c4c4c; }
+.todolist-table tbody {}
+.todolist-table tbody tr:hover td{background:#F4F6FA;}
+.todolist-table tbody td{border-bottom:1px solid #ccc; padding:5px;}
+.todolist-table tbody td:last-child{text-align: center;}
+.todolist-table tbody td i{}
+.todolist-table tbody td .icon-check{color: #27AE35;}
+.todolist-table tbody td .icon-archive{color: #4c4c4c;}
+.todolist-table tbody td .icon-block{color: #FF3B30;}
+</style>
+
+<div class="container">
+<h1>To do list</h1>
+
+<table class="todolist-table">
+    <colgroup>
+        <col width="200px"/>
+        <col width="200px" />
+        <col  />
+        <col width="80px" />
+    </colgroup>
+    <thead>
+        <tr>
+            <td>항목</td>
+            <td>링크</td>
+            <td>상세</td>
+            <td>작업상태</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>로딩 <i class="icon-bell"></i></td>
+            <td><a href="/sample/loading/">/loading</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>스와이프 <i class="icon-bell"></i></td>
+            <td><a href="/sample/swipe/">/swipe</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>폼 <i class="icon-bell"></i></td>
+            <td><a href="/sample/form/">/form</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>오버뷰 <i class="icon-bell"></i></td>
+            <td><a href="/sample/overview/">/overview</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>Employee <i class="icon-bell"></i></td>
+            <td><a href="/sample/employee/">/Employee</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>필터</td>
+            <td><a href="/sample/filter/">/filter</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>바코드 <i class="icon-bell"></i></td>
+            <td><a href="/sample/barcodes/">/barcodes</a></td>
+            <td>Bar 및 바코드 색상 점검</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>체크바 <i class="icon-bell"></i></td>
+            <td><a href="/sample/checkbar/">/checkbar</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>컬럼 <i class="icon-bell"></i></td>
+            <td><a href="/sample/column/">/column</a></td>
+            <td>다양한 스타일을 점검 가능 주로 전체 색상 점검</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>컬럼 필터링 1 <i class="icon-bell"></i></td>
+            <td><a href="/sample/columnFiltering/">/columnFiltering</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>컬럼 높이 <i class="icon-bell"></i></td>
+            <td><a href="/sample/columns-height/">/columns-height</a></td>
+            <td>Layout4에 Group 높이가 상이한 오류 있음(개발자 지원요청)</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>커스텀 렌더러 <i class="icon-bell"></i></td>
+            <td><a href="/sample/customRenderer">/customRenderer</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>날짜 에디터 <i class="icon-bell"></i></td>
+            <td><a href="/sample/dateEditor">/dateEditor</a></td>
+            <td>달력 스타일 확인</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>에디터 <i class="icon-bell"></i></td>
+            <td><a href="/sample/editor">/editor</a></td>
+            <td>멀티체크 점검 / 드롭다운(CustomID)점검 / Fixed Column시 스타일 깨지는 현상 있음(개발자 지원요청)</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>푸터스 <i class="icon-bell"></i></td>
+            <td><a href="/sample/footers">/footers</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>그룹핑 <i class="icon-bell"></i></td>
+            <td><a href="/sample/grouping">/grouping</a></td>
+            <td>expanded.png, collapsed.png 이 두개 이미지는 css가 아닌 js상에서 인라인 코드, 가능하면 class명으로 변경(개발자 지원요청)</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>헤더 <i class="icon-bell"></i></td>
+            <td><a href="/sample/header">/header</a></td>
+            <td>툴팁 확인 점검, 토스트는 어디서 점검 가능한가?</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>헤더 렌더러 <i class="icon-bell"></i></td>
+            <td><a href="/sample/header-renderer">/header-renderer</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>라지 컬럼 <i class="icon-bell"></i></td>
+            <td><a href="/sample/largeColumn">/largeColumn</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>팝업메뉴 <i class="icon-bell"></i></td>
+            <td><a href="/sample/popupMenu">/popupMenu</a></td>
+            <td>우클릭 팝업 메뉴 점검</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>트리뷰 <i class="icon-bell"></i></td>
+            <td><a href="/sample/treeview">/treeview</a></td>
+            <td>트리메뉴 점검</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>툴팁 <i class="icon-bell"></i></td>
+            <td><a href="/sample/tooltip">/tooltip</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>상태바 <i class="icon-bell"></i></td>
+            <td><a href="/sample/stateBar">/stateBar</a></td>
+            <td></td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>시리즈 컬럼 <i class="icon-bell"></i></td>
+            <td><a href="/sample/seriesColumns">/seriesColumns</a></td>
+            <td>시리즈 차트의 스타일 점검</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>SVG 렌더러 <i class="icon-bell"></i></td>
+            <td><a href="/sample/svgrenderers">/svgrenderers</a></td>
+            <td>그래픽요소 색상보기</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>버튼 <i class="icon-bell"></i></td>
+            <td><a href="/sample/button">/button</a></td>
+            <td>드롭다운 버튼, 팝업다운 버튼 등</td>
+            <td><i class="icon-check"></i></td>
+        </tr>
+        <tr>
+            <td>클립보드</td>
+            <td><a href="/sample/clipboard">/clipboard</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>컬럼 피팅</td>
+            <td><a href="/sample/columnFitting">/columnFitting</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>컬럼 그룹</td>
+            <td><a href="/sample/columnGroup">/columnGroup</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>컬럼스 </td>
+            <td><a href="/sample/columns">/columns</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>푸터 콜백 생성</td>
+            <td><a href="/sample/createFooterCallback">/createFooterCallback</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>데이터 로드</td>
+            <td><a href="/sample/dataLoad">/dataLoad</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>드롭다운</td>
+            <td><a href="/sample/dropdown">/dropdown</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>다이나믹 스타일</td>
+            <td><a href="/sample/dynamicStyle">/dynamicStyle</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>에디팅</td>
+            <td><a href="/sample/editing">/editing</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>이벤트</td>
+            <td><a href="/sample/event">/event</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>내보내기</td>
+            <td><a href="/sample/export">/export</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>푸터</td>
+            <td><a href="/sample/footer">/footer</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>포멧</td>
+            <td><a href="/sample/formats">/formats</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>인디케이터</td>
+            <td><a href="/sample/indicator">/indicator</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>룩업 디스플레이</td>
+            <td><a href="/sample/lookupDisplay">/lookupDisplay</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>메모리테스트</td>
+            <td><a href="/sample/memoryTest">/memoryTest</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>병합</td>
+            <td><a href="/sample/merge">/merge</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>그룹병합</td>
+            <td><a href="/sample/mergedGroup">/mergedGroup</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>페이징</td>
+            <td><a href="/sample/paging">/paging</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>트리언두</td>
+            <td><a href="/sample/treeundo">/treeundo</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>템플릿 렌더러</td>
+            <td><a href="/sample/templateRenderer">/templateRenderer</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>스피드</td>
+            <td><a href="/sample/speed">/speed</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>정렬</td>
+            <td><a href="/sample/sorting">/sorting</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>검색</td>
+            <td><a href="/sample/search">/search</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>컬럼 스팬</td>
+            <td><a href="/sample/column-spans">/column-spans</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>컬럼 필터링 2</td>
+            <td><a href="/sample/columnFiltering2">/columnFiltering2</a></td>
+            <td>중복</td>
+            <td><i class="icon-archive"></i></td>
+        </tr>
+        <tr>
+            <td>CY템플릿</td>
+            <td><a href="/sample/cytemplate">/cytemplate</a></td>
+            <td>동작이상</td>
+            <td><i class="icon-block"></i></td>
+        </tr>
+        <tr>
+            <td>그리드체크바</td>
+            <td><a href="/sample/grid_checkBarTest">/grid_checkBarTest</a></td>
+            <td>동작이상</td>
+            <td><i class="icon-block"></i></td>
+        </tr>
+        <tr>
+            <td>그리드포지션</td>
+            <td><a href="/sample/gridEltPosition">/gridEltPosition</a></td>
+            <td>동작이상</td>
+            <td><i class="icon-block"></i></td>
+        </tr>
+    </tbody>
+</table>
+
+</div>

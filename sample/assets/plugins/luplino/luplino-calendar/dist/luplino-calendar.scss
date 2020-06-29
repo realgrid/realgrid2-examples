@@ -1,0 +1,360 @@
+---
+---
+
+@import "luplino";
+@import "luplino-mixin";
+@import "luplino-utils";
+
+//== calendar
+$localendar-control-bg: ($panel-default-heading-bg) !default; // color, (color1, color2), (pos, color1, color2) 모두 사용가능
+$localendar-control-border: 1px solid $panel-default-border !default;
+$localendar-control-border-radius: 5px !default;
+$localendar-control-font-size: ceil(($font-size-base * 1.25)) !default;
+$localendar-control-text-color: $panel-default-text !default;
+$localendar-control-hover-text-color: $brand-primary !default;
+$localendar-control-padding: 0 !default;
+
+$localendar-header-bg: (#FFFFFF, #FFFFFF) !default;
+$localendar-header-border: 0px none !default;
+$localendar-header-padding: 0px 2px !default;
+$localendar-header-font-size: ceil(($font-size-base * 0.8)) !default;
+
+$localendar-body-bg: (#FFFFFF, #FFFFFF) !default;
+$localendar-body-border: 0px none !default;
+$localendar-body-font-size: ceil(($font-size-base * 1)) !default;
+$localendar-body-animation-in: lo-ui-calendar-fadein !default;
+$localendar-body-animation-out: lo-ui-calendar-fadeout !default;
+
+$localendar-sun-text-color: #C78B81 !default;
+$localendar-sat-text-color: #32B4DC !default;
+
+$localendar-date-bg: (#FFFFFF, #FFFFFF) !default;
+$localendar-date-text-color: #C3C4C6 !default;
+$localendar-live-bg: (#F0F0F0, #F0F0F0) !default;
+$localendar-live-text-color: #6D6E70 !default;
+$localendar-hover-bg: (#32B4DC, #32B4DC) !default;
+$localendar-hover-text-color: #fff !default;
+$localendar-focus-bg: (#E67241, #E67241) !default;
+$localendar-focus-text-color: #fff !default;
+$localendar-period-bg: (#82d3fa, #82d3fa) !default;
+$localendar-period-text-color: #fff !default;
+
+
+$localendar-item-day-radius: 5px !default;
+$localendar-item-month-radius: 5px !default;
+$localendar-item-year-radius: 5px !default;
+
+
+@mixin extend-item-theme() {
+  &.holiday {
+    color: $localendar-sun-text-color;
+  }
+}
+
+// mixins --------------------------------------------- end
+
+@include keyframes(lo-ui-calendar-fadeout) {
+  from {
+    opacity: 1.0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@include keyframes(lo-ui-calendar-fadein) {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+.lo-ui-calendar {
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+  position: relative;
+  .calendar-control {
+    position: relative;
+    box-sizing: content-box;
+    @include lo-background($localendar-control-bg);
+    border: $localendar-control-border;
+    border-radius: $localendar-control-border-radius;
+    font-size: $localendar-control-font-size;
+    margin-bottom: 5px;
+    padding: $localendar-control-padding;
+
+    .date-move-left, .date-move-right {
+      display: block;
+      position: absolute;
+      overflow: hidden;
+
+      text-align: center;
+      font-size: ceil($localendar-control-font-size * 1.2);
+      cursor: pointer;
+      text-decoration: none;
+      padding: $localendar-control-padding;
+      i, span {
+        line-height: inherit;
+      }
+    }
+
+    .date-move-left {
+      left: 0px;
+      top: 0px;
+    }
+    .date-move-right {
+      right: 0px;
+      top: 0px;
+    }
+    .date-display {
+      text-align: center;
+      [data-calendar-display] {
+        margin: 0px 10px;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    color: $localendar-control-text-color;
+    a {
+      color: $localendar-control-text-color;
+    }
+    a:hover {
+      color: $localendar-control-hover-text-color;
+    }
+  }
+  .calendar-body {
+    &.fadein {
+      @include animation($localendar-body-animation-in 0.1s ease-in-out);
+      opacity: 1.0;
+    }
+    &.fadeout {
+      @include animation($localendar-body-animation-out 0.1s ease-in-out);
+      opacity: 0.0;
+    }
+
+    table {
+      box-sizing: border-box;
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 0px;
+      border: 0px none;
+      thead {
+        td, th {
+          box-sizing: border-box;
+          vertical-align: middle;
+          line-height: 1em;
+          cursor: pointer;
+          text-align: center;
+          font-size: $localendar-header-font-size;
+          padding: $localendar-header-padding;
+          border: $localendar-header-border;
+          overflow: hidden;
+          @include lo-background($localendar-header-bg);
+
+          color: $localendar-live-text-color;
+          &.calendar-col-0 {
+            color: $localendar-sun-text-color;
+          }
+          &.calendar-col-6 {
+            color: $localendar-sat-text-color;
+          }
+        }
+      }
+      tbody {
+        td, th {
+          box-sizing: border-box;
+          vertical-align: middle;
+          line-height: 1em;
+          cursor: pointer;
+          text-align: center;
+          font-size: $localendar-body-font-size;
+
+          border: $localendar-body-border;
+          @include lo-background($localendar-body-bg);
+
+          overflow: hidden;
+          .calendar-item-day {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            border-radius: $localendar-item-day-radius;
+            overflow: hidden;
+            line-height: inherit;
+            @include lo-background($localendar-date-bg);
+            color: $localendar-date-text-color;
+            font-size: $localendar-body-font-size;
+
+            span.addon {
+              position: absolute;
+              width: 100%;
+              text-align: center;
+              line-height: $localendar-body-font-size * 0.8;
+              font-size: $localendar-body-font-size * 0.8;
+
+              &.addon-header {
+                left: 0px;
+                top: 1px;
+              }
+              &.addon-footer {
+                left: 0px;
+                bottom: 1px;
+              }
+            }
+
+            &.live {
+              @include lo-background($localendar-live-bg);
+              color: $localendar-live-text-color;
+              span.addon {
+                color: #A1A1A1;
+              }
+              &.sunday {
+                color: $localendar-sun-text-color;
+              }
+              &.saturday {
+                color: $localendar-sat-text-color;
+              }
+            }
+            &.focus {
+              @include lo-background($localendar-focus-bg);
+              color: $localendar-focus-text-color;
+              span.addon {
+                color: $localendar-focus-text-color;
+              }
+              &.hover {
+                @include lo-background($localendar-hover-bg);
+                color: $localendar-hover-text-color !important;
+                span.addon {
+                  color: $localendar-hover-text-color;
+                }
+              }
+            }
+            &.period {
+              @include lo-background($localendar-period-bg);
+              color: $localendar-period-text-color !important;
+              span.addon {
+                color: $localendar-period-text-color;
+              }
+            }
+            &.selected-day {
+              @include lo-background($localendar-hover-bg);
+              color: $localendar-hover-text-color !important;
+              span.addon {
+                color: $localendar-hover-text-color;
+              }
+            }
+            &.disable {
+              @include lo-background($localendar-date-bg);
+              color: lighten($localendar-date-text-color, 10%);
+            }
+
+            @include extend-item-theme();
+          }
+          .calendar-item-month {
+            display: block;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            border-radius: $localendar-item-month-radius;
+            overflow: hidden;
+            line-height: inherit;
+            @include lo-background($localendar-date-bg);
+            color: $localendar-date-text-color;
+            font-size: $localendar-body-font-size;
+
+            &.live {
+              @include lo-background($localendar-live-bg);
+              color: $localendar-live-text-color;
+            }
+            &.hover {
+              @include lo-background($localendar-hover-bg);
+              color: $localendar-hover-text-color;
+            }
+            &.focus {
+              @include lo-background($localendar-focus-bg);
+              color: $localendar-focus-text-color;
+            }
+            &.selected-month {
+              @include lo-background($localendar-hover-bg);
+              color: $localendar-hover-text-color !important;
+              span.addon {
+                color: $localendar-hover-text-color;
+              }
+              span.lunar {
+                color: $localendar-hover-text-color;
+              }
+            }
+            &.disable {
+              @include lo-background($localendar-date-bg);
+              color: lighten($localendar-date-text-color, 10%);
+            }
+            @include extend-item-theme();
+          }
+          .calendar-item-year {
+            display: block;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            border-radius: $localendar-item-year-radius;
+            overflow: hidden;
+            line-height: inherit;
+            @include lo-background($localendar-date-bg);
+            color: $localendar-date-text-color;
+            font-size: $localendar-body-font-size;
+
+            &.live {
+              @include lo-background($localendar-live-bg);
+              color: $localendar-live-text-color;
+            }
+            &.hover {
+              @include lo-background($localendar-hover-bg);
+              color: $localendar-hover-text-color;
+            }
+            &.focus {
+              @include lo-background($localendar-focus-bg);
+              color: $localendar-focus-text-color;
+            }
+            &.selected-year {
+              @include lo-background($localendar-hover-bg);
+              color: $localendar-hover-text-color !important;
+              span.addon {
+                color: $localendar-hover-text-color;
+              }
+              span.lunar {
+                color: $localendar-hover-text-color;
+              }
+            }
+            &.disable {
+              @include lo-background($localendar-date-bg);
+              color: lighten($localendar-date-text-color, 10%);
+            }
+            @include extend-item-theme();
+          }
+
+          /*
+          &.calendar-col-0 {
+              .calendar-item-day.live {
+                  color: $localendar-sun-text-color;
+                  @include extend-item-theme();
+              }
+          }
+          &.calendar-col-6 {
+              .calendar-item-day.live {
+                  color: $localendar-sat-text-color;
+                  @include extend-item-theme();
+              }
+          }
+          */
+
+        }
+      }
+    }
+  }
+
+}

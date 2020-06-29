@@ -1,0 +1,289 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    {% include luplina-head.html %}
+    <title>Hola Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-select/dist/luplino-select.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.css"/>
+
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
+    <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
+    <script src="/assets/plugins/luplino/luplino-select/dist/luplino-select.js"></script>
+    <script src="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+
+
+    <script type="text/javascript">
+
+        var userGrid = new luplino.ui.grid();
+        var userGridList = [
+            {uid: "system", uname: "시스템 관리자", lang:"대한민국", use:"Y"},
+            {uid: "guest", uname: "방문자", lang:"대한민국", use:"N"}
+        ];
+
+        var roleGrid = new luplino.ui.grid();
+        var roleGridList = [
+            {rcode: "ASP_ACCESS", rname: "관리시스템 접근 롤"},
+            {rcode: "SYSTEM_MANAGER", rname: "시스템 관리자 롤"},
+            {rcode: "ASP_MANAGER", rname: "일반관리자 롤"},
+            {rcode: "NORMAL_USER", rname: "일반사용자 롤"}
+        ];
+
+        $(document.body).ready(function() {
+            $('[data-lolayout]').lolayout();
+            $('[data-lo-select]').loselect();
+
+            userGrid.setConfig({
+                target: $('[data-logrid="user-grid"]'),
+                showLineNumber: true,
+                multipleSelect: true,
+                lineNumberColumnWidth:30,
+                rowSelectorColumnWidth:29,
+                sortable: false,
+                header: {align: 'center'},
+                body: {
+                    onClick: function () {
+                        this.self.select(this.dindex, {selectedClear: true});
+                    }
+                },
+                columns: [
+                    {key: "uid", label: "아이디", width:80, align:"center"},
+                    {key: "uname", label: "사용자명", width:120, align:"center"},
+                    {key: "lang", label: "언어", width:80, align:"center"},
+                    {key: "use", label: "사용여부", width:50, align:"center"}
+                ]
+            });
+            userGrid.setData(userGridList);
+
+            roleGrid.setConfig({
+                target: $('[data-logrid="role-grid"]'),
+                showRowSelector: true,
+                multipleSelect: true,
+                lineNumberColumnWidth:30,
+                rowSelectorColumnWidth:29,
+                sortable: false,
+                header: {align: 'center'},
+                body: {
+                    onClick: function () {
+                        this.self.select(this.dindex, {selectedClear: true});
+                    }
+                },
+                columns: [
+                    {key: "rcode", label: "역할코드", width:200, align:"center"},
+                    {key: "rname", label: "역할명", width:300, align:"center"}
+                ]
+            });
+            roleGrid.setData(roleGridList);
+        });
+    </script>
+</head>
+<body>
+
+<div class="page-root">
+    <div class="page-title">
+        <div class="left"><i class="icon icon-users"></i>&nbsp;<h1>사용자 관리</h1></div>
+        <div class="right">
+            <div class="la-button-group">
+                <a href="#" class="la-button large" data-ztree-view-btn="add"><i class="icon icon-install"></i>&nbsp;<span class="text">저장</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-fixed with-title">
+
+        <div data-lolayout="row-1" data-config="{layout:'split-panel', orientation: 'horizontal'}">
+            <div data-split-panel="{height: '85', minHeight:50}">
+
+                <div class="pad-cont full-height">
+                    <div class="pad">
+                        <div class="pad-head">
+                            <div class="left"><span class="title">조회</span></div>
+                            <div class="right">
+                                <div class="la-button-group">
+                                    <a href="#" class="la-button primary"><i class="icon icon-magnifying-glass"></i>&nbsp;<span class="text">조회</span></a>
+                                    <a href="#" class="la-button"><i class="icon icon-cross"></i>&nbsp;<span class="text">취소</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pad-body with-head">
+                            <div class="pad-row">
+                                <div class="la-input-group">
+                                    <label for="input-1-1">검색어</label>
+                                    <input type="text" id="input-1-1" class="la-input" style="width:130px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div data-splitter="{}"></div>
+            <div data-split-panel="{height: '*'}">
+
+                <div data-lolayout="col-1" data-config="{layout:'split-panel', orientation: 'vertical'}">
+                    <div data-split-panel="{width: '400', minWidth:50}">
+
+                        <div class="pad-cont full-height">
+                            <div class="pad">
+                                <div class="pad-head">
+                                    <div class="left"><span class="title">사용자 목록</span></div>
+                                    <div class="right">&nbsp;</div>
+                                </div>
+                                <div class="pad-body with-head">
+                                    <style>
+                                        [data-logrid-container="root"] {border:none !important; }
+                                    </style>
+                                    <div data-logrid="user-grid" data-fit-height-content="user-grid" style="height:100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div data-splitter="{}"></div>
+                    <div data-split-panel="{width: '*'}">
+
+                        <div class="pad-cont full-height">
+                            <div class="pad">
+                                <div class="pad-head">
+                                    <div class="left"><span class="title">사용자 정보</span></div>
+                                    <div class="right">&nbsp;</div>
+                                </div>
+                                <div class="pad-body with-head">
+                                    <table class="pad-table border-bottom">
+                                        <colgroup>
+                                            <col width="120px" />
+                                            <col />
+                                            <col width="120px" />
+                                            <col />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <td class="label">사용자명</td>
+                                            <td><input type="text" class="la-input" style="width:120px;" /></td>
+                                            <td class="label">아이디</td>
+                                            <td><input type="text" class="la-input" style="width:120px;" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">비밀번호</td>
+                                            <td><input type="text" class="la-input disabled" disabled="disabled" style="width:120px;" /></td>
+                                            <td class="label">비밀번호 확인</td>
+                                            <td>
+                                                <input type="text" class="la-input disabled" disabled="disabled" style="width:120px;" />
+                                                <input type="checkbox" class="lo-checkbox primary" id="lcb1">
+                                                <label for="lcb1">비밀번호 변경</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">이메일</td>
+                                            <td><input type="text" class="la-input" style="width:160px;" placeholder="abc@abc.com" /></td>
+                                            <td class="label">휴대폰번호</td>
+                                            <td><input type="text" class="la-input" style="width:120px;" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">언어</td>
+                                            <td colspan="3">
+                                                <div data-lo-select="select1" data-lo-select-config="{
+                                                            name: 'select1',
+                                                            minWidth: 150,
+                                                            options:[
+                                                                {value:'0', text:'한국어'},
+                                                                {value:'1', text:'English'}
+                                                                ]
+                                                            }"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">사용여부</td>
+                                            <td>
+                                                <div data-lo-select="select2" data-lo-select-config="{
+                                                            name: 'select2',
+                                                            minWidth: 100,
+                                                            options:[
+                                                                {value:'0', text:'사용'},
+                                                                {value:'1', text:'사용안함'}
+                                                                ]
+                                                            }"></div>
+                                            </td>
+                                            <td class="label">계정상태</td>
+                                            <td>
+                                                <div data-lo-select="select3" data-lo-select-config="{
+                                                            name: 'select3',
+                                                            minWidth: 100,
+                                                            options:[
+                                                                {value:'0', text:'활성'},
+                                                                {value:'1', text:'잠김'}
+                                                                ]
+                                                            }"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">비고</td>
+                                            <td colspan="3"><input type="text" class="la-input" style="width:100%;" /></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="title-sub">메뉴그룹 설정</div>
+                                    <table class="pad-table border-bottom border-top">
+                                        <colgroup>
+                                            <col width="120px" />
+                                            <col />
+                                        </colgroup>
+                                        <tr>
+                                            <td class="label">메뉴그룹</td>
+                                            <td>
+                                                <div data-lo-select="select4" data-lo-select-config="{
+                                                        name: 'select4',
+                                                        minWidth: 100,
+                                                        options:[
+                                                            {value:'0', text:'사용자 관리자 그룹'},
+                                                            {value:'1', text:'사용자 그룹'}
+                                                            ]
+                                                        }"></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="title-sub">권한그룹 설정</div>
+                                    <table class="pad-table border-bottom border-top">
+                                        <colgroup>
+                                            <col width="120px" />
+                                            <col />
+                                        </colgroup>
+                                        <tr>
+                                            <td class="label">권한 그룹</td>
+                                            <td style="padding:0;">
+                                                <div class="la-input-group">
+                                                    <input type="checkbox" class="lo-checkbox primary" id="pcb1">
+                                                    <label for="pcb1">사용자 관리자 그룹</label>
+                                                </div>
+                                                <div class="la-input-group">
+                                                    <input type="checkbox" class="lo-checkbox primary" id="pcb2">
+                                                    <label for="pcb2">사용자 관리자 그룹</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="title-sub">역할 설정</div>
+                                    <div data-logrid="role-grid" data-fit-height-content="role-grid" style="height:200px; border-top:1px solid #BEBEBE;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

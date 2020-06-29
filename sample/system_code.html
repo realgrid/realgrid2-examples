@@ -1,0 +1,148 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    {% include luplina-head.html %}
+    <title>Hola Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.css"/>
+
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
+    <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
+    <script src="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+    <script type="text/javascript">
+
+        var codeGrid = new luplino.ui.grid();
+        var gridList = [
+            {b1: "USER_STATUS", b2: "계정상태", c1:"NORMAL", c2:"활성", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "USER_STATUS", b2: "계정상태", c1:"ACCOUNT_LOCK", c2:"잠김", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "AUTH_GROUP", b2: "권한그룹", c1:"S0001", c2:"시스템관리자 그룹", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "AUTH_GROUP", b2: "권한그룹", c1:"S0002", c2:"사용자 그룹", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "LOCALE", b2: "로케일", c1:"ko_KR", c2:"대한민국", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "LOCALE", b2: "로케일", c1:"en_US", c2:"미국", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "MENU_GROUP", b2: "메뉴그룹", c1:"SYSTEM_MANAGER", c2:"시스템관리자 그룹", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "MENU_GROUP", b2: "메뉴그룹", c1:"USER", c2:"사용자 그룹", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "USE_YN", b2: "사용여부", c1:"Y", c2:"사용", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "USE_YN", b2: "사용여부", c1:"Y", c2:"사용안함", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "USE_ROLE", b2: "사용자 룰", c1:"ASP_ACCESS", c2:"관리시스템 접근 룰", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "USE_ROLE", b2: "사용자 룰", c1:"SYSTEM_MANAGER", c2:"시스템 관리자 룰", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "USE_ROLE", b2: "사용자 룰", c1:"ASP_MANAGER", c2:"일반관리자 룰", a:"3", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "USE_ROLE", b2: "사용자 룰", c1:"NORMAL_USER", c2:"일반 사용자 룰", a:"4", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "USE_ROLE", b2: "사용자 룰", c1:"API", c2:"API 접근 룰", a:"5", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "DEL_YN", b2: "삭제여부", c1:"N", c2:"미삭제", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
+            {b1: "DEL_YN", b2: "삭제여부", c1:"Y", c2:"삭제", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""}
+        ];
+
+
+        $(document.body).ready(function() {
+            $('[data-lolayout]').lolayout();
+
+            codeGrid.setConfig({
+                target: $('[data-logrid="code-grid"]'),
+                showLineNumber: true,
+                showRowSelector: true,
+                multipleSelect: true,
+                lineNumberColumnWidth:50,
+                rowSelectorColumnWidth:29,
+                sortable: true,
+                header: {align: 'center'},
+                body: {
+                    //columnHeight: 26
+                },
+                columns: [
+                    {key: "b1", label: "분류코드", width:150},
+                    {key: "b2", label: "분류명"},
+                    {key: "c1", label: "코드", width:150},
+                    {key: "c2", label: "코드값", width:150},
+                    {key: "a", label: "정렬", width:50, align:"center"},
+                    {key: "u", label: "사용여부", width:80, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "x", label: "비고"},
+                    {key: "d1", label: "데이터1"},
+                    {key: "d2", label: "데이터2"},
+                    {key: "d3", label: "데이터3"},
+                    {key: "d4", label: "데이터4"}
+                ]
+            });
+            codeGrid.setData(gridList);
+
+        });
+    </script>
+</head>
+<body>
+
+<div class="page-root">
+    <div class="page-title">
+        <div class="left"><i class="icon icon-code"></i>&nbsp;<h1>공통코드 관리</h1></div>
+        <div class="right">
+            <div class="la-button-group">
+                <a href="#" class="la-button large"><i class="icon icon-install"></i>&nbsp;<span class="text">저장</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-fixed with-title">
+
+        <div data-lolayout="row-1" data-config="{layout:'split-panel', orientation: 'horizontal'}">
+            <div data-split-panel="{height: '85', minHeight:50}">
+
+                <div class="pad-cont full-height">
+                    <div class="pad">
+                        <div class="pad-head">
+                            <div class="left"><span class="title">조회</span></div>
+                            <div class="right">
+                                <div class="la-button-group">
+                                    <a href="#" class="la-button primary"><i class="icon icon-magnifying-glass"></i>&nbsp;<span class="text">조회</span></a>
+                                    <a href="#" class="la-button"><i class="icon icon-cross"></i>&nbsp;<span class="text">취소</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pad-body with-head">
+                            <div class="pad-row">
+                                <div class="la-input-group">
+                                    <label for="input-1-1">검색어</label>
+                                    <input type="text" id="input-1-1" class="la-input" style="width:130px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div data-splitter="{}"></div>
+            <div data-split-panel="{height: '*'}">
+
+                <div class="pad-cont full-height">
+                    <div class="pad" style="overflow: hidden;">
+                        <div class="pad-head">
+                            <div class="left"><span class="title">코드 목록</span></div>
+                            <div class="right">
+                                <a href="#"><i class="icon icon-circle-with-plus"></i>&nbsp;<span class="text">추가</span></a>&nbsp;&nbsp;
+                                <a href="#"><i class="icon icon-circle-with-minus"></i>&nbsp;<span class="text">삭제</span></a>
+                            </div>
+                        </div>
+                        <div class="pad-body with-head">
+                            <style>
+                                [data-logrid-container="root"] {border:none !important; }
+                            </style>
+                            <div data-logrid="code-grid" data-fit-height-content="code-grid" style="height:100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

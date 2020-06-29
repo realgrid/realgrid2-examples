@@ -1,0 +1,29 @@
+{
+	"name": "ax5ui-grid",
+	"version": "1.4.131",
+	"description": "A grid plugin that works with Bootstrap & jQuery",
+	"authors": [
+		"ThomasJ <tom@axisj.com>"
+	],
+	"main": "dist/ax5grid.js",
+	"keywords": [
+		"bootstrap",
+		"jquery",
+		"ax5ui",
+		"plugin",
+		"bootstrap jQuery plugins",
+		"grid",
+		"ax5ui-grid",
+		"javascript ui"
+	],
+	"dependencies": {
+		"jquery": "",
+		"ax5core": ">=1.4.115",
+		"ax5ui-menu": "",
+		"ax5ui-formatter": "",
+		"ax5ui-calendar": "",
+		"ax5ui-picker": ""
+	},
+	"license": "MIT",
+	"homepage": "ax5.io"
+}

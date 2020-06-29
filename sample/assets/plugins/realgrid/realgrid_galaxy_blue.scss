@@ -1,0 +1,1823 @@
+---
+테마    : 리얼그리드 갤럭시 블루(Galaxy Blue)
+스타일   : 갤럭시 블루
+타입    : LIGHT
+---
+
+@import "rg-utils";
+
+// TEST //////////////////////////////////////////
+body{
+  background:#fff !important;
+}
+
+// PRESET ////////////////////////////////////////
+$rgc-primary    :#1D2C98;   //그리드 테마의 아이덴티티를 부여하는 컬러(주로 selection을 기준으로 하거나 포인트를 줄때)
+$rgc-secondary  :#52B0EB;   //주색외에 보조컬러가 필요한 경우 설정한다. (테마가 화려해야될 경우, 보통은 설정하지 않는다.)
+$rgc-spot       :#F3A6A7;   //별색으로 주로 sum과 같이 전혀 느낌이 다른 색상을 부여할 때 설정
+$rgc-dark       :#CDD0D8;   //그리드의 Border의 기준을 정한다.(확장은 font-color 등)
+$rgc-light      :#F6F6F6;   //그리드의 Background-color를 기준으로 정의한다.(확장은 Scroll 등)
+
+$rgc-white      :#FFFFFF;   //기본값은 #ffffff
+$rgc-black      :#000000;   //기본값은 #000000
+$rgc-red        :#EB394F;   //기본값은 #ff0000
+$rgc-green      :#A5E42F;   //기본값은 #00ff00
+$rgc-blue       :#1772B0;   //기본값은 #0000ff
+
+// DEFINE COLOR FOR RENDERERS ////////////////////////////////
+$rgc-bar:         (#87eeee, #17bdf9);
+$rgc-svg          :$rgc-secondary;
+$rgc-signalbar    :(darken($rgc-light,10), lighten($rgc-secondary,10)); //1.fill, 2.active-fill
+$rgc-sparkline    :(darken($rgc-dark,10),darken($rgc-dark,10),#F76B1C,#F76B1C,$rgc-primary,$rgc-primary); //1.chart, 2.last, 3.high-stroke, 4.height-fill, 5.low-stroke, 6.low-fill
+$rgc-sparkcolumn  :(darken($rgc-dark,10),darken($rgc-dark,10),$rgc-primary,#F76B1C); //1.chart, 2.last, 3.high, 4low
+$rgc-sparkwinloss :(darken($rgc-dark,10),#F76B1C); //1.chart, 2.below
+$rgc-code39       :#2C3E50;
+$rgc-code128      :#87B09C;
+
+
+// ICONS ////////////////////////////////////////
+$ico-left                 :url('/assets/plugins/realgrid/images/galaxy_blue/scroll-left.svg');
+$ico-right                :url('/assets/plugins/realgrid/images/galaxy_blue/scroll-right.svg');
+$ico-up                   :url('/assets/plugins/realgrid/images/galaxy_blue/scroll-up.svg');
+$ico-down                 :url('/assets/plugins/realgrid/images/galaxy_blue/scroll-down.svg');
+$ico-ascending            :url('/assets/plugins/realgrid/images/galaxy_blue/ascending.svg');
+$ico-descending           :url('/assets/plugins/realgrid/images/galaxy_blue/descending.svg');
+$ico-sortnone             :url('/assets/plugins/realgrid/images/galaxy_blue/sortnone.svg');
+$ico-filter               :url('/assets/plugins/realgrid/images/galaxy_blue/filter.svg');
+$ico-grouping-close       :url('/assets/plugins/realgrid/images/galaxy_blue/grouping-close.svg');
+$ico-grouping-no          :url('/assets/plugins/realgrid/images/galaxy_blue/grouping-no.svg');
+$ico-calendar             :url('/assets/plugins/realgrid/images/galaxy_blue/calendar.svg');
+$ico-calendar-up          :url('/assets/plugins/realgrid/images/galaxy_blue/calendar-up.svg');
+$ico-calendar-dn          :url('/assets/plugins/realgrid/images/galaxy_blue/calendar-dn.svg');
+$ico-dropdown             :url('/assets/plugins/realgrid/images/galaxy_blue/dropdown.svg');
+$ico-dropdown-up          :url('/assets/plugins/realgrid/images/galaxy_blue/dropdown-up.svg');
+$ico-dropdown-dn          :url('/assets/plugins/realgrid/images/galaxy_blue/dropdown-dn.svg');
+$ico-item-editing         :url('/assets/plugins/realgrid/images/galaxy_blue/item-editing.svg');
+$ico-item-inserting       :url('/assets/plugins/realgrid/images/galaxy_blue/item-inserting.svg');
+$ico-prev                 :url('/assets/plugins/realgrid/images/galaxy_blue/cal-prev.svg');
+$ico-prev-up              :url('/assets/plugins/realgrid/images/galaxy_blue/cal-prev-up.svg');
+$ico-prev-dn              :url('/assets/plugins/realgrid/images/galaxy_blue/cal-prev-dn.svg');
+$ico-next                 :url('/assets/plugins/realgrid/images/galaxy_blue/cal-next.svg');
+$ico-next-up              :url('/assets/plugins/realgrid/images/galaxy_blue/cal-next-up.svg');
+$ico-next-dn              :url('/assets/plugins/realgrid/images/galaxy_blue/cal-next-dn.svg');
+$ico-cal-up               :url('/assets/plugins/realgrid/images/galaxy_blue/cal-up.svg');
+$ico-cal-up-up            :url('/assets/plugins/realgrid/images/galaxy_blue/cal-up-up.svg');
+$ico-cal-up-dn            :url('/assets/plugins/realgrid/images/galaxy_blue/cal-up-dn.svg');
+$ico-cal-down             :url('/assets/plugins/realgrid/images/galaxy_blue/cal-down.svg');
+$ico-cal-down-up          :url('/assets/plugins/realgrid/images/galaxy_blue/cal-down-up.svg');
+$ico-cal-down-dn          :url('/assets/plugins/realgrid/images/galaxy_blue/cal-down-up.svg');
+$ico-row-created          :url('/assets/plugins/realgrid/images/galaxy_blue/row-created.svg');
+$ico-row-creat-and-deleted:url('/assets/plugins/realgrid/images/galaxy_blue/row-create-and-deleted.svg');
+$ico-row-deleted          :url('/assets/plugins/realgrid/images/galaxy_blue/row-deleted.svg');
+$ico-row-updated          :url('/assets/plugins/realgrid/images/galaxy_blue/row-upadted.svg');
+$ico-action               :url('/assets/plugins/realgrid/images/galaxy_blue/action.svg');
+$ico-action-up            :url('/assets/plugins/realgrid/images/galaxy_blue/action-up.svg');
+$ico-action-dn            :url('/assets/plugins/realgrid/images/galaxy_blue/action-dn.svg');
+$ico-popup                :url('/assets/plugins/realgrid/images/galaxy_blue/popup.svg');
+$ico-popup-up             :url('/assets/plugins/realgrid/images/galaxy_blue/popup-up.svg');
+$ico-popup-dn             :url('/assets/plugins/realgrid/images/galaxy_blue/popup-dn.svg');
+$ico-menu-expander        :url('/assets/plugins/realgrid/images/galaxy_blue/menu-expander.svg');
+$ico-menu-check           :url('/assets/plugins/realgrid/images/galaxy_blue/menu-check.svg');
+$ico-menu-radio           :url('/assets/plugins/realgrid/images/galaxy_blue/menu-radio.svg');
+$ico-expander-collapsed   :url('/assets/plugins/realgrid/images/galaxy_blue/expander-collapsed.svg');
+$ico-expander-expanded    :url('/assets/plugins/realgrid/images/galaxy_blue/expander-expanded.svg');
+$ico-loading-1            :url('/assets/plugins/realgrid/images/galaxy_blue/loading-1.svg');
+$ico-loading-2            :url('/assets/plugins/realgrid/images/galaxy_blue/loading-2.svg');
+$ico-loading-3            :url('/assets/plugins/realgrid/images/galaxy_blue/loading-3.svg');
+$ico-loading-4            :url('/assets/plugins/realgrid/images/galaxy_blue/loading-4.svg');
+$ico-loading-5            :url('/assets/plugins/realgrid/images/galaxy_blue/loading-5.svg');
+$ico-loading-6            :url('/assets/plugins/realgrid/images/galaxy_blue/loading-6.svg');
+$ico-loading-7            :url('/assets/plugins/realgrid/images/galaxy_blue/loading-7.svg');
+$ico-loading-8            :url('/assets/plugins/realgrid/images/galaxy_blue/loading-8.svg');
+$ico-tree-collapsed       :url('/assets/plugins/realgrid/images/galaxy_blue/tree-collapsed.svg');
+$ico-tree-expanded        :url('/assets/plugins/realgrid/images/galaxy_blue/tree-expanded.svg');
+$ico-collapsed            :url('/assets/plugins/realgrid/images/galaxy_blue/collapsed.svg');
+$ico-expanded             :url('/assets/plugins/realgrid/images/galaxy_blue/expanded.svg');
+$ico-swipe-to-right         :url('/assets/plugins/realgrid/images/swipe/swipe-to-right-black.svg');
+$ico-swipe-to-left          :url('/assets/plugins/realgrid/images/swipe/swipe-to-left-black.svg');
+$ico-swipe-to-right-outline :url('/assets/plugins/realgrid/images/swipe/swipe-to-right-outline.svg');
+$ico-swipe-to-left-outline  :url('/assets/plugins/realgrid/images/swipe/swipe-to-left-outline.svg');
+$ico-checkbox               :url('/assets/plugins/realgrid/images/light/checkbox.svg');
+$ico-checkbox-checked       :url('/assets/plugins/realgrid/images/light/checkbox-checked.svg');
+
+
+// ROOT ////////////////////////////////////////
+$rgc-grid-bg      :$rgc-white;
+$rgc-grid-border  :darken($rgc-dark,20);
+$rgc-grid-color   :darken($rgc-dark, 54);
+
+.rg-root{
+  font-family: 'Malgun Gothic', '맑은 고딕', AppleSDGothicNeo-Light,	sans-serif;
+  font-size: 12px;
+  color: $rgc-grid-color;
+  background: $rgc-grid-bg;
+  -webkit-appearance: none;
+  outline: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action:none;
+  -ms-touch-action:none;
+  &.rg-grid{
+    border: 1px solid $rgc-grid-border;
+  }
+  .rg-table, .rg-table tr, .rg-table td{
+    position: relative;
+    margin: 0 !important; /* 0과 다르면 자동 행 계산 시 틀어진다! content div 전에서 설정할 것!*/
+    padding: 0 !important; /* 0과 다르면 자동 행 계산 시 틀어진다! content div 전에서 설정할 것! */
+    border-spacing: 0 !important;
+    border-collapse: separate !important;
+    box-sizing:border-box !important;
+    line-height: 1.5em;
+  }
+  input::-ms-clear{
+    display: none;
+  }
+}
+
+.rg-empty-grid {
+  display: table;
+  padding: 10%;
+  background: $rgc-grid-bg;
+  color: $rgc-grid-color;
+  font-size: 32px;
+  text-align: center;
+  span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+// SCROLLBAR ////////////////////////////////////////
+
+$rgc-wheel-track-bg     :$rgc-light;
+$rgc-wheel-track-border :darken($rgc-light,15);
+$rgc-wheel-track-edge   :$rgc-light;
+
+$rgc-wheel-bg           :$rgc-white;
+$rgc-wheel-bg-up        :lighten($rgc-primary, 38);
+$rgc-wheel-border       :darken($rgc-light,15);
+$rgc-wheel-border-up    :lighten($rgc-primary, 30);
+
+$rgc-wheel-btn-bg       :lighten($rgc-secondary, 42);
+$rgc-wheel-btn-bg-up    :lighten($rgc-secondary, 38);
+$rgc-wheel-btn-border   :darken($rgc-light,15);
+$rgc-wheel-btn-border-up:lighten($rgc-primary, 30);
+
+.rg-scrolltrack{
+  background: $rgc-wheel-track-bg;
+  border: 1px solid $rgc-wheel-track-border;
+}
+
+.rg-scrolledge {
+  background: $rgc-wheel-track-edge;
+}
+
+.rg-hscrollbar{
+  .rg-scrollthumb{
+    box-sizing: border-box;
+    background: $rgc-wheel-bg;
+    border: 1px solid $rgc-wheel-border;
+    border-radius:0.5em;
+    touch-action: none;
+    -ms-touch-action: none;
+    &:hover{
+      background: $rgc-wheel-bg-up;
+      border: 1px solid $rgc-wheel-border-up;
+    }
+  }
+  .rg-scroll-left {
+    box-sizing: border-box;
+    background: $rgc-wheel-btn-bg $ico-left no-repeat 50% 50%;
+    border: 1px solid $rgc-wheel-btn-border;
+    &:hover{
+      background-color:$rgc-wheel-btn-bg-up;
+      border: 1px solid $rgc-wheel-btn-border-up;
+    }
+  }
+  .rg-scroll-right {
+    box-sizing: border-box;
+    background: $rgc-wheel-btn-bg $ico-right no-repeat 50% 50%;
+    border: 1px solid $rgc-wheel-btn-border;
+    &:hover{
+      background-color:$rgc-wheel-btn-bg-up;
+      border: 1px solid $rgc-wheel-btn-border-up;
+    }
+  }
+}
+
+
+.rg-vscrollbar{
+  .rg-scrollthumb {
+    box-sizing: border-box;
+    background: $rgc-wheel-bg;
+    border: 1px solid $rgc-wheel-border;
+    border-radius: 0.5em;
+    touch-action: none;
+    -ms-touch-action: none;
+    &:hover{
+      background: $rgc-wheel-bg-up;
+      border: 1px solid $rgc-wheel-border-up;
+    }
+  }
+  .rg-scroll-up {
+    box-sizing: border-box;
+    background: $rgc-wheel-btn-bg $ico-up no-repeat 50% 50%;
+    border: 1px solid $rgc-wheel-btn-border;
+    &:hover{
+      background-color:$rgc-wheel-btn-bg-up;
+      border: 1px solid $rgc-wheel-btn-border-up;
+    }
+  }
+  .rg-scroll-down {
+    box-sizing: border-box;
+    background: $rgc-wheel-btn-bg $ico-down no-repeat 50% 50%;
+    border: 1px solid $rgc-wheel-btn-border;
+    &:hover{
+      background-color:$rgc-wheel-btn-bg-up;
+      border: 1px solid $rgc-wheel-btn-border-up;
+    }
+  }
+}
+
+// HEADER ////////////////////////////////////////
+
+$rgc-header-bg      :($rgc-primary,darken($rgc-primary,2));
+$rgc-header-bg-up   :(lighten($rgc-primary,10),lighten($rgc-primary,12));
+$rgc-header-bg-dn   :(darken($rgc-primary,18), darken($rgc-primary,14));
+$rgc-header-border  :($rgc-dark, lighten($rgc-dark,5));
+$rgc-header-color   :$rgc-white;
+
+.rg-header {
+  text-align: center;
+  font-weight: bold;
+  color:$rgc-header-color;
+  background: nth($rgc-header-bg,2);
+  //@include linear-gradient(to bottom, nth($rgc-header-bg,1), nth($rgc-header-bg,2));
+  .rg-table{
+    tr{
+      td{
+        border-top:none;
+        border-right: 1px solid nth($rgc-header-border,2);
+        border-bottom: 1px solid nth($rgc-header-border,1);
+        border-left:none;
+        overflow: hidden;
+        &:hover{
+          background: nth($rgc-header-bg-up,1);
+          //@include linear-gradient(to top, nth($rgc-header-bg-up,1), nth($rgc-header-bg-up,2));
+        }
+      }
+    }
+  }
+
+}
+
+.rg-header-cell {
+  text-align: center;
+}
+
+.rg-header-focus {
+  background: nth($rgc-header-bg-dn,1);
+  //@include linear-gradient(to bottom, nth($rgc-header-bg-dn,1), nth($rgc-header-bg-dn,2));
+}
+
+.rg-header-sort-ascending {
+  background: $ico-ascending no-repeat center;
+  font-size: 8px;
+  vertical-align: middle;
+}
+
+.rg-header-sort-descending {
+  background: $ico-descending no-repeat center;
+  font-size: 8px;
+  vertical-align: middle;
+}
+
+.rg-header-sort-none {
+  background: $ico-sortnone no-repeat center;
+  vertical-align: middle;
+}
+
+.rg-header-filtering {
+  background: $ico-filter no-repeat center;
+  vertical-align: middle;
+}
+
+.rg-header-check {
+  margin: 2px !important;
+}
+
+// HEAD ////////////////////////////////////////
+
+$rgc-head-bg      :($rgc-primary,darken($rgc-primary,2));
+$rgc-head-border  :($rgc-dark, lighten($rgc-dark,5));
+$rgc-head-color   :$rgc-white;
+
+.rg-head {
+  text-align: center;
+  font-weight: bold;
+  background: nth($rgc-head-bg,2);
+  color:$rgc-head-color;
+  //@include linear-gradient(to bottom, nth($rgc-head-bg,1), nth($rgc-head-bg,2));
+  .rg-table{
+    tr{
+      td{
+        border-top:none;
+        border-right: 1px solid nth($rgc-header-border,2);
+        border-bottom: 1px solid nth($rgc-header-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+
+.rg-head-cell {
+  text-align: center;
+  font-weight: bold;
+}
+
+// SUMMARY ////////////////////////////////////////
+
+$rgc-header-sum-bg        :(lighten($rgc-secondary,50), lighten($rgc-secondary,48));
+$rgc-header-sum-border    :($rgc-dark, lighten($rgc-dark,5));
+$rgc-header-sum-color     :darken($rgc-secondary, 20);
+
+.rg-header-summary {
+  text-align: center;
+  color:$rgc-header-sum-color;
+  background: nth($rgc-header-sum-bg,2);
+  //@include linear-gradient(to bottom, nth($rgc-header-sum-bg,1), nth($rgc-header-sum-bg,2));
+  .rg-table{
+    tr{
+      td{
+        border-bottom:none;
+        border-right: 1px solid nth($rgc-header-sum-border,2);
+        border-bottom: 1px solid nth($rgc-header-sum-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+.rg-header-summary-cell {
+  text-align: right;
+}
+
+
+.rg-fixed-header-summary{
+  .rg-table {
+    tr {
+      &:first-child{
+        td{
+          font-size:0;
+        }
+      }
+      td {
+        background: nth($rgc-header-sum-bg,2);
+        //@include linear-gradient(to bottom, nth($rgc-header-sum-bg,1), nth($rgc-header-sum-bg,2));
+        border-top: none;
+        border-right: 1px solid nth($rgc-header-sum-border,2);
+        border-bottom: 1px solid nth($rgc-header-sum-border,1);
+        border-left: none;
+      }
+    }
+  }
+}
+
+.rg-sum {
+  text-align: center;
+  background: nth($rgc-header-sum-bg,2);
+  //@include linear-gradient(to bottom, nth($rgc-header-sum-bg,1), nth($rgc-header-sum-bg,2));
+  .rg-table{
+    tr{
+      td{
+        border-top: none;
+        border-right: 1px solid nth($rgc-header-sum-border,2);
+        border-bottom: 1px solid nth($rgc-header-sum-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+
+.rg-sum-cell {
+  text-align: center;
+}
+
+// FOOTER ////////////////////////////////////////
+
+$rgc-footer-bg          :(lighten($rgc-secondary,48), lighten($rgc-secondary,46));
+$rgc-footer-border      :(darken($rgc-dark,5), darken($rgc-dark,5));
+$rgc-footer-color       :darken($rgc-secondary, 20);
+
+$rgc-fixed-footer-bg    :(lighten($rgc-secondary,48), lighten($rgc-secondary,46));
+$rgc-fixed-footer-border:($rgc-dark, lighten($rgc-dark,5));
+$rgc-fixed-footer-color :darken($rgc-secondary, 20);
+
+
+.rg-footer {
+  color:$rgc-footer-color;
+  background: nth($rgc-footer-bg,2);
+  //@include linear-gradient(to bottom, nth($rgc-footer-bg,1), nth($rgc-footer-bg,2));
+  .rg-table{
+    tr{
+      td{
+        border-bottom:none;
+        border-right: 1px solid nth($rgc-footer-border,2);
+        border-top: 1px solid nth($rgc-footer-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+
+.rg-fixed-footer{
+  .rg-table{
+    tr{
+      &:first-child{
+        td{
+          border-top:none;
+        }
+      }
+      td{
+        background: nth($rgc-fixed-footer-bg,2);
+        //@include linear-gradient(to bottom, nth($rgc-fixed-footer-bg,1), nth($rgc-fixed-footer-bg,2));
+        border-bottom:none;
+        border-right: 1px solid nth($rgc-fixed-footer-border,2);
+        border-top: 1px solid nth($rgc-fixed-footer-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+
+.rg-footer-cell {
+  text-align: right;
+}
+
+.rg-foot {
+  text-align: center;
+  background: nth($rgc-footer-bg,2);
+  //@include linear-gradient(to bottom, nth($rgc-footer-bg,1), nth($rgc-footer-bg,2));
+  .rg-table{
+    tr{
+      td{
+        border-bottom: none;
+        border-right: 1px solid nth($rgc-footer-border,2);
+        border-top: 1px solid nth($rgc-footer-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+
+.rg-foot-cell {
+  text-align: center;
+}
+
+
+// BODY ////////////////////////////////////////
+
+$rgc-body-color       :darken($rgc-dark, 40);
+$rgc-body-bg          :lighten($rgc-light,20); //white
+$rgc-body-bg-up       :darken($rgc-light,10%);
+$rgc-body-bg-dn       :darken($rgc-light,15%);
+$rgc-body-border      :($rgc-dark, $rgc-dark);
+$rgc-body-bg-fixed    :lighten($rgc-secondary,20%);
+$rgc-row-alternate-bg :lighten($rgc-light,2);
+$rgc-row-bg           :darken($rgc-secondary,20); //white
+
+.rg-rowindicator {
+  text-align: center;
+  background: $rgc-secondary;
+  color:$rgc-white;
+  .rg-table{
+    tr{
+      td{
+        border-top:none;
+        border-right: 1px solid nth($rgc-body-border,2);
+        border-bottom: 1px solid nth($rgc-body-border,1);
+        border-left:none;
+        &:hover{
+          background: $rgc-primary;
+        }
+      }
+    }
+  }
+}
+
+.rg-rowindicator-cell {
+  text-align: center;
+}
+
+.rg-rowindicator-head {
+  font-weight: bold;
+  color: $rgc-white;
+}
+.rg-rowindicator-focus {
+  background-color: $rgc-primary;
+}
+
+.rg-rowindicator{
+  .rg-table{
+    tr{
+      td{
+        &.rg-rowindicator-editing {
+          background:$rgc-row-bg $ico-item-editing no-repeat center;
+          background-size:24px 24px !important;
+          vertical-align: middle;
+          &:hover{
+            background:$rgc-row-bg $ico-item-editing no-repeat center;
+            vertical-align: middle;
+          }
+        }
+        &.rg-rowindicator-inserting{
+          background:$rgc-row-bg $ico-item-inserting no-repeat center;
+          background-size:24px 24px !important;
+          vertical-align: middle;
+          &:hover{
+            background:$rgc-row-bg $ico-item-inserting no-repeat center;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.rg-statebar{
+  .rg-table{
+    tr{
+      td{
+        background:$rgc-grid-bg;
+        border-top:none;
+        border-right: 1px solid nth($rgc-body-border,1);
+        border-bottom: 1px solid nth($rgc-body-border,1);
+        border-left:none;
+        &.rg-statebar-created {
+          background:transparent $ico-row-created no-repeat center;
+          vertical-align: middle;
+        }
+        &.rg-statebar-create-and-deleted {
+          background: transparent $ico-row-creat-and-deleted no-repeat center;
+          vertical-align: middle;
+        }
+        &.rg-statebar-deleted {
+          background: transparent $ico-row-deleted no-repeat center;
+          vertical-align: middle;
+        }
+        &.rg-statebar-updated {
+          background: transparent $ico-row-updated no-repeat center;
+          vertical-align: middle;
+        }
+
+      }
+    }
+  }
+}
+
+.rg-statebar-cell {
+  text-align: center;
+}
+
+.rg-statebar-head {
+  font-weight: bold;
+}
+.rg-checkbar-head {
+  font-weight: bold;
+}
+
+.rg-checkbar{
+  .rg-table{
+    tr{
+      td{
+        background:$rgc-grid-bg;
+        border-top:none;
+        border-right: 1px solid nth($rgc-body-border,2);
+        border-bottom: 1px solid nth($rgc-body-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+
+.rg-checkbar-cell {
+  text-align: center;
+}
+
+.rg-body{
+  .rg-table{
+    tr{
+      td{
+        border-top:none;
+        //border-right: 1px solid nth($rgc-body-border,2);
+        border-bottom: 1px solid nth($rgc-body-border,1);
+        border-left:none;
+        height: 0px;
+        &:hover{
+          background: lighten($rgc-secondary,30);
+        }
+      }
+    }
+  }
+}
+
+.rg-fixed-body{
+  .rg-table{
+    tr{
+      td{
+        background: lighten($rgc-body-bg-up,10);
+        border-top:none;
+        //border-right: 1px solid nth($rgc-body-border,2);
+        border-bottom: 1px solid nth($rgc-body-border,1);
+        border-left:none;
+        height: 0px;
+      }
+    }
+  }
+}
+
+.alternate-row{
+  background: $rgc-row-alternate-bg;
+}
+
+.rg-data-row {
+  background: none;
+}
+
+.rg-body-cell {
+  text-align: center;
+}
+
+.rg-data-cell {
+  white-space: nowrap;
+  text-align: center;
+  a{
+    color:darken($rgc-dark, 50);
+  }
+}
+
+.rg-checkbox{
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  display:none !important;
+  &+label{
+    vertical-align: middle;
+    background:$ico-checkbox no-repeat center center;
+    height: 16px;
+    width: 16px;
+    display:inline-block !important;;
+    margin: 0;
+    padding: 0;
+  }
+  &:checked+label{
+    vertical-align: middle;
+    background:$ico-checkbox-checked no-repeat center center;
+    height: 16px;
+    width: 16px;
+    display:inline-block !important;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.rg-radio {
+  vertical-align: middle;
+  margin: 0;
+  margin-top: 0 !important;
+  padding: 0;
+}
+
+.rg-button-action {
+  background: $ico-action no-repeat center;
+  &:hover{
+    background: $ico-action-up no-repeat center;
+    &:active{
+      background: $ico-action-dn no-repeat center;
+    }
+  }
+}
+
+
+.rg-button-popup {
+  background: $ico-popup no-repeat center;
+  &:hover{
+    background: $ico-popup-up no-repeat center;
+    &:active{
+      background: $ico-popup-dn no-repeat center;
+    }
+  }
+}
+
+
+.rg-button-list {
+  background: $ico-dropdown no-repeat center left;
+  &:hover{
+    background: $ico-dropdown-up no-repeat center left;
+    &:active{
+      background: $ico-dropdown-dn no-repeat center left;
+    }
+  }
+}
+
+
+.rg-button-calendar {
+  background:$ico-calendar no-repeat center left;
+  &:hover{
+    background: $ico-calendar-up no-repeat center left;
+    &:active{
+      background: $ico-calendar-dn no-repeat center left;
+    }
+  }
+}
+
+
+.rg-fixed-body .rg-table .rg-fixed-row-bar td, .rg-body .rg-table .rg-fixed-row-bar td{
+  background: $rgc-body-bg-fixed;
+}
+
+.rg-fixed-row-bar-cell {
+  border-bottom: 1px solid nth($rgc-body-border,1);
+}
+
+.rg-fixed-column-bar {
+  background: $rgc-body-bg-fixed;
+  border-right: 1px solid nth($rgc-body-border,2);
+}
+
+.rg-right-column-bar {
+  background: white;
+  border-left: 1px solid nth($rgc-body-border,2);
+  border-right: 1px solid nth($rgc-body-border,2);
+}
+
+
+// GROUP ////////////////////////////////////////
+
+$rgc-group-head-bg        :($rgc-primary,darken($rgc-primary,2));
+$rgc-group-border         :($rgc-dark, lighten($rgc-dark,5));
+$rgc-group-foot-bg        :(lighten($rgc-secondary,48), lighten($rgc-secondary,46));
+$rgc-group-foot-cell      :lighten($rgc-secondary,48);
+
+.rg-rowgroup-head {
+  text-align: center;
+  font-weight: bold;
+  background: nth($rgc-group-head-bg,1);
+  //@include linear-gradient(to bottom, nth($rgc-group-head-bg,1), nth($rgc-group-head-bg,2));
+}
+
+.rg-rowgroup-head{
+  .rg-table{
+    tr{
+      td{
+        border-top:none;
+        border-right: 1px solid nth($rgc-group-border,2);
+        border-bottom: 1px solid nth($rgc-group-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+
+.rg-rowgroup-head-cell {
+  text-align: center;
+  font-weight: bold;
+}
+
+.rg-rowgroup-foot {
+  text-align: center;
+  background: nth($rgc-group-foot-bg,2);
+  //@include linear-gradient(to bottom, nth($rgc-group-foot-bg,1), nth($rgc-group-foot-bg,2));
+  .rg-table{
+    tr{
+      td{
+        border-bottom:none;
+        border-right: 1px solid nth($rgc-group-border,2);
+        border-top: 1px solid nth($rgc-group-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+
+.rg-rowgroup-foot-cell {
+  text-align: center;
+}
+
+.rg-rowgroup-bar-cell {
+  text-align: center;
+  vertical-align: top;
+  padding-top: 2px;
+}
+
+.rg-rowgroup-bar {
+  text-align: center;
+  font-weight: bold;
+  background: darken($rgc-grid-bg, 8);
+  .rg-table{
+    tr{
+      td{
+        border-top:none;
+        border-right: 1px solid nth($rgc-group-border,2);
+        border-bottom: 1px solid nth($rgc-group-border,1);
+        border-left:none;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+
+.rg-rowgroup-header {
+  background: darken($rgc-grid-bg, 8);
+  border-top:none;
+  border-right: 1px solid nth($rgc-group-border,2);
+  border-bottom: 1px solid nth($rgc-group-border,1);
+  border-left:none;
+}
+
+.rg-rowgroup-footer {
+  text-align: center;
+  .rg-table{
+    tr{
+      td{
+        border-bottom:none;
+        border-right: 1px solid nth($rgc-group-border,2);
+        border-top: 1px solid nth($rgc-group-border,1);
+        border-left:none;
+      }
+    }
+  }
+}
+
+
+.rg-rowgroup-footer-cell {
+  text-align: right;
+  /* rg-rowgroup-footer에 설정하면 안된다. footer에 해당하는 마지막 병합셀만 표시될 때 문제가 된다.*/
+  background:$rgc-group-foot-cell;
+}
+
+
+// PANEL ////////////////////////////////////////
+
+$rgc-panel-bg         :lighten($rgc-primary,55%);
+$rgc-panel-border     :$rgc-dark;
+$rgc-panel-msg-color  :darken($rgc-primary, 20);
+$rgc-panel-item-bg    :$rgc-primary;
+$rgc-panel-item-border:$rgc-white;
+
+.rg-group-panel {
+  box-sizing: border-box;
+  background: $rgc-panel-bg;
+  border-bottom: 1px solid $rgc-panel-border;
+  text-align: left;
+}
+
+.rg-group-panel-message {
+  display: block;
+  position: absolute;
+  font-size: 14px;
+  color: $rgc-panel-msg-color;
+  white-space: nowrap !important;
+}
+
+.rg-group-panel-item {
+  display: block;
+  border: 1px solid $rgc-panel-item-border;
+  background: $rgc-panel-item-bg;
+}
+
+.rg-group-panel-item-text {
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.rg-group-panel-item-close {
+  display: inline-block;
+  position: absolute;
+  background-image: $ico-grouping-close;
+  width: 16px;
+  height: 16px;
+}
+
+.rg-group-panel-cell-feedback {
+  opacity: 0.8;
+}
+
+.rg-group-panel-no-mark {
+  display: inline-block;
+  position: absolute;
+  background: $ico-grouping-no no-repeat center center;
+  margin-top:-1px;
+  width: 100%;
+  height: 100%;
+}
+
+// TREE ////////////////////////////////////////////////////
+
+$rg-tree-line     :$rgc-dark;
+$rg-focus         :darken($rgc-primary,20);
+$rg-focus-editing :$rgc-primary;
+
+.rg-tree-expanded {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: $ico-tree-expanded no-repeat center;
+  vertical-align: middle;
+}
+
+.rg-tree-collapsed {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: $ico-tree-collapsed no-repeat center;
+  vertical-align: middle;
+}
+
+.rg-tree-leaf {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.rg-tree-line {
+  display: inline-block;
+  background-color: $rg-tree-line;
+}
+
+.rg-tree-renderer {
+  padding-left: 0px !important;
+  text-align: left !important;
+}
+
+.rg-focus {
+  border: 2px solid rgba($rg-focus, 0.8);
+}
+
+.rg-focus-editing {
+  border: 2px solid $rg-focus-editing;
+}
+
+.rg-rowhover {
+  background: rgba(darken($rgc-light,10), 0.1) !important;
+}
+
+.rg-rowfocus {
+  background: rgba(darken($rgc-light,10), 0.1) !important;
+}
+
+.rg-rowblock {
+  background: rgba(darken($rgc-light,10), 0.1) !important;
+}
+
+._rg-col-resizer_ {
+  background: rgba($rgc-dark, 0.5);
+  border: none;
+}
+._rg-header-cell-feedback_ {
+  opacity: 0.8;
+  border: 1px solid darken($rgc-light,10);
+}
+
+._rg-header-cell-mover_ {
+  box-sizing: border-box;
+  border: 3px solid rgba($rgc-dark, 0.8);
+  background: none;
+}
+
+// SELECTION ////////////////////////////////////////
+
+$rgc-selection-cell    :$rgc-primary;
+$rgc-selection-bg      :$rgc-primary;
+$rgc-selection-border  :$rgc-primary;
+
+.rg-selection-cell {
+  background: $rgc-selection-cell !important;
+  color:inherit;
+}
+
+.rg-selection {
+  background: rgba($rgc-selection-bg, 0.2) !important;
+  border: 1px solid rgba($rgc-selection-border, 0.67);
+}
+
+// RENDERER ////////////////////////////////////////
+$rgc-render-bg            :(nth($rgc-bar,1),nth($rgc-bar,2));
+
+$rgc-render-btn-bg        :(darken($rgc-light,1),darken($rgc-light,10));
+$rgc-render-btn-bg-up     :(lighten($rgc-light,1), lighten($rgc-light,10));
+$rgc-render-btn-border    :darken($rgc-dark,15);
+$rgc-render-btn-border-up :darken($rgc-primary, 10);
+$rgc-render-btn-color     :darken($rgc-dark,40);
+
+.rg-renderer {
+  border: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px 4px;
+  text-overflow: ellipsis;
+}
+
+.rg-bar-renderer {
+  /*position: absolute; 설정하면 ie에서 안됨. */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+.rg-bar-renderer-bar {
+  background: nth($rgc-render-bg,2);
+  //@include linear-gradient(to left, nth($rgc-render-bg,1), nth($rgc-render-bg,2));
+}
+
+.rg-bar-renderer-bar-right {
+  background: nth($rgc-render-bg,2);
+  //@include linear-gradient(to right, nth($rgc-render-bg,1), nth($rgc-render-bg,2));
+}
+
+.rg-bar-renderer-bar-top {
+  background: nth($rgc-render-bg,2);
+  //@include linear-gradient(to top, nth($rgc-render-bg,1), nth($rgc-render-bg,2));
+}
+
+.rg-bar-renderer-bar-bottom {
+  background: nth($rgc-render-bg,2);
+  //@include linear-gradient(to bottom, nth($rgc-render-bg,1), nth($rgc-render-bg,2));
+}
+
+.rg-image-renderer {
+  text-overflow: ellipsis;
+}
+
+.rg-icon-renderer {
+  position: relative;
+}
+
+.rg-check-renderer {
+  position: relative;
+
+}
+
+.rg-button-renderer {
+  position: relative;
+}
+
+.rg-button-renderer-button {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+  /*cursor: pointer;*/
+  width: 80%;
+  color:$rgc-render-btn-color;
+  border:1px solid $rgc-render-btn-border;
+  border-radius: 3px;
+  background: nth($rgc-render-btn-bg, 2);
+  @include linear-gradient(to bottom, nth($rgc-render-btn-bg, 1), nth($rgc-render-btn-bg, 2));
+  &:hover{
+    color:$rgc-render-btn-border-up;
+    border:1px solid $rgc-render-btn-border-up;
+    background: nth($rgc-render-btn-bg-up, 2);
+    @include linear-gradient(to bottom, nth($rgc-render-btn-bg-up, 1), nth($rgc-render-btn-bg-up, 2));
+  }
+
+}
+
+.rg-link-renderer {
+  position: relative;
+  text-decoration: underline;
+}
+
+// SHAPE ////////////////////////////////////////
+$rgc-shape-fill            :$rgc-svg;
+$rgc-signalbar-fill        :nth($rgc-signalbar,2);
+$rgc-signalbar-active-fill :nth($rgc-signalbar,1);
+$rgc-sparkline-chart       :nth($rgc-sparkline,1);
+$rgc-sparkline-last        :nth($rgc-sparkline,2);
+$rgc-sparkline-high-stroke :nth($rgc-sparkline,3);
+$rgc-sparkline-high-fill   :nth($rgc-sparkline,4);
+$rgc-sparkline-low-stroke  :nth($rgc-sparkline,5);
+$rgc-sparkline-low-fill    :nth($rgc-sparkline,6);
+$rgc-sparkcolumn-chart     :nth($rgc-sparkcolumn,1);
+$rgc-sparkcolumn-last      :nth($rgc-sparkcolumn,2);
+$rgc-sparkcolumn-high      :nth($rgc-sparkcolumn,3);
+$rgc-sparkcolumn-low       :nth($rgc-sparkcolumn,4);
+$rgc-sparkwinloss-chart    :nth($rgc-sparkwinloss,1);
+$rgc-sparkwinloss-below    :nth($rgc-sparkwinloss,2);
+$rgc-bar-code39           :$rgc-code39;
+$rgc-bar-code128          :$rgc-code128;
+
+.rg-shape-renderer {
+  position: static;/*relative;*/
+}
+
+.rg-shape-renderer-shape {
+  fill: $rgc-shape-fill;
+}
+
+.rg-signalbar-renderer {
+  position: relative;
+  width: 100%;
+  height: 90%;
+}
+
+.rg-signalbar-renderer-bar {
+  fill: $rgc-signalbar-fill;
+}
+
+.rg-signalbar-renderer-inactive {
+  fill: $rgc-signalbar-active-fill;
+}
+
+.rg-sparkline-renderer {
+  position: relative;
+  width: 100%;
+  height: 90%;
+}
+
+.rg-sparkline-renderer-chart {
+  stroke: $rgc-sparkline-chart;
+}
+
+.rg-sparkline-renderer-last {
+  fill: $rgc-sparkline-last;
+}
+
+.rg-sparkline-renderer-high {
+  stroke: $rgc-sparkline-high-stroke;
+  fill: $rgc-sparkline-high-fill;
+}
+
+.rg-sparkline-renderer-low {
+  stroke: $rgc-sparkline-low-stroke;
+  fill: $rgc-sparkline-low-fill;
+}
+
+.rg-sparkcolumn-renderer {
+  position: relative;
+  width: 100%;
+  height: 90%;
+}
+
+.rg-sparkcolumn-renderer-chart {
+  fill: $rgc-sparkcolumn-chart;
+}
+
+.rg-sparkcolumn-renderer-last {
+  fill: $rgc-sparkcolumn-last;
+}
+
+.rg-sparkcolumn-renderer-high {
+  fill: $rgc-sparkcolumn-high;
+}
+
+.rg-sparkcolumn-renderer-low {
+  fill: $rgc-sparkcolumn-low;
+}
+
+.rg-sparkwinloss-renderer {
+  position: relative;
+  width: 100%;
+  height: 90%;
+}
+
+.rg-sparkwinloss-renderer-chart {
+  fill: $rgc-sparkwinloss-chart;
+}
+.rg-sparkwinloss-renderer-below {
+  fill: $rgc-sparkwinloss-below;
+}
+
+.rg-code39-renderer {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  left: 0px;
+  top: 5%;
+}
+
+.rg-code39-renderer-bar {
+  fill: $rgc-bar-code39;
+}
+
+.rg-code128-renderer {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  left: 0px;
+  top: 5%;
+}
+
+.rg-code128-renderer-bar {
+  fill: $rgc-bar-code128;
+}
+
+// POPUP ////////////////////////////////////
+
+$rgc-popup-bg                 :$rgc-white;
+$rgc-popup-border             :$rgc-dark;
+$rgc-popup-color              :darken($rgc-dark, 40);
+$rgc-popup-item-hover         :darken($rgc-light,15);
+$rgc-popup-item-disable       :darken($rgc-light,25);
+$rgc-popup-item-disable-hover :darken($rgc-light,25);
+$rgc-popup-separator          :$rgc-dark;
+$rgc-popup-group1             :darken($rgc-light,5);
+
+.rg-popup-menu {
+  background : $rgc-popup-bg;
+  border : 1px solid $rgc-popup-border;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.3);
+  font-style : normal;
+  font-variant : normal;
+  font-weight : normal;
+  font-size : 10pt;
+  padding : 4px;
+  margin : 0px;
+  color:$rgc-popup-color;
+}
+
+.rg-popup-item {
+  padding-top : 2px;
+  padding-bottom : 2px;
+  height:20px;
+  line-height: 20px;
+  cursor:pointer;
+}
+
+.rg-popup-item-disable{
+  color:$rgc-popup-item-disable;
+}
+
+.rg-popup-item:hover {
+  background-color :$rgc-popup-item-hover;
+}
+
+.rg-popup-item-disable:hover{
+  color:$rgc-popup-item-disable-hover;
+}
+.rg-popup-separator {
+  height : 10px;
+  border : 0px;
+  margin : 2px;
+  color : $rgc-popup-separator;
+}
+.rg-popup-separator-hr {
+  margin-top:10px;
+  display: block; height: 1px;
+  border: 0; border-top: 1px solid $rgc-popup-separator;
+  padding: 0;
+}
+
+.rg-popup-expander {
+  background-image:$ico-menu-expander no-repeat center center;
+
+}
+.rg-popup-check {
+  background-image:$ico-menu-expander no-repeat center center;
+}
+.rg-popup-check-checked {
+  background-image:$ico-menu-check no-repeat center center;
+}
+.rg-popup-radio-checked {
+  background-image:$ico-menu-radio no-repeat center center;
+}
+.rg-popup-group1 {
+  background : $rgc-popup-group1;
+}
+
+.rg-waiting {
+  display: inline-block;
+  text-align: center;
+  width:60px; height:60px;
+  background: $ico-loading-1 no-repeat center center;
+  background-size:contain;
+  &.type-1{
+    background-image:$ico-loading-1;
+  }
+  &.type-2{
+    background-image:$ico-loading-2;
+  }
+  &.type-3{
+    background-image:$ico-loading-3;
+  }
+  &.type-4{
+    background-image:$ico-loading-4;
+  }
+  &.type-5{
+    background-image:$ico-loading-5;
+  }
+  &.type-6{
+    background-image:$ico-loading-6;
+  }
+  &.type-7{
+    background-image:$ico-loading-7;
+  }
+  &.type-8{
+    background-image:$ico-loading-8;
+  }
+}
+
+/** filter */
+.rg-filter-selector {
+  color:$rgc-popup-color;
+  width: 150px;
+  min-height: 150px;
+  background: $rgc-popup-bg;
+  border: 1px solid $rgc-popup-border;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.3);
+}
+
+.rg-filter-header {
+  padding: 3px;
+}
+
+.rg-filter-searchbox {
+  padding: 3px;
+}
+
+.rg-filter-search-input {
+  box-sizing: border-box;
+  width: 100%;
+  height:24px;
+  line-height: 24px;
+  border:1px solid $rgc-popup-border;
+  background:$rgc-popup-bg;
+  color:$rgc-popup-color;
+}
+
+.rg-filter-select-all {
+  cursor: pointer;
+  font-size: 12px;
+  width: 100%;
+  overflow: auto;
+}
+
+.rg-filter-list-viewport {
+  height: 100px;
+  overflow: auto;
+  background:$rgc-light;
+  border-top: $rgc-popup-border solid 1px;
+  border-bottom: $rgc-popup-border solid 1px;
+
+  scrollbar-face-color: $rgc-dark;
+  scrollbar-shadow-color: darken($rgc-light, 5);
+  scrollbar-highlight-color: darken($rgc-light, 5);
+  scrollbar-3dlight-color: darken($rgc-light, 5);
+  scrollbar-darkshadow-color: darken($rgc-light, 5);
+  scrollbar-track-color: darken($rgc-light, 5);
+  scrollbar-arrow-color: darken($rgc-light, 5);
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height:10px;
+  }
+  &::-webkit-scrollbar-track,&::-webkit-scrollbar-track-piece {
+    -webkit-box-shadow: none;
+    background:darken($rgc-light, 5);
+    border-radius: 0;
+    padding:5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: none;
+    background:$rgc-dark;
+    border:1px solid darken($rgc-dark, 5);
+  }
+  &::-webkit-scrollbar-corner{
+    background:darken($rgc-light, 15);
+  }
+}
+
+.rg-filter-list {
+  padding: 3px;
+}
+
+.rg-filter-item {
+  cursor: pointer;
+  font-size: 12px;
+  overflow: hidden;
+  width: 100%;
+  &:hover{
+    background:darken($rgc-light,15);
+  }
+}
+
+.rg-filter-checkbox {
+  cursor: pointer;
+  display: inline;
+  margin: 6px;
+}
+
+// TOOLTIP ////////////////////////////////////////////
+
+$rgc-tooltip-bg     :$rgc-light;
+$rgc-tooltip-border :darken($rgc-dark,20);
+$rgc-tooltip-color  :darken($rgc-dark,40);
+
+.rg-tooltip {
+  background: rgba($rgc-tooltip-bg, 0.9);
+  color: $rgc-tooltip-color;
+  border: 1px solid $rgc-tooltip-border;
+  border-radius: 2px;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.3);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-size: 10pt;
+  visibility: hidden;
+  white-space: nowrap;
+  padding:3px 6px;
+}
+
+.rg-toast {
+  background: rgba($rgc-tooltip-bg, 0.9);
+  color: $rgc-tooltip-color;
+  border: 1px solid $rgc-tooltip-border;
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.3);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-size: 32px;
+  padding: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+// DROPDOWN //////////////////////////////
+
+$rgc-dd-color         :darken($rgc-dark,40);
+$rgc-dd-bg            :$rgc-white;
+$rgc-dd-bg-up         :darken($rgc-light,10);
+$rgc-dd-border        :darken($rgc-dark,20);
+$rgc-dd-select-bg     :$rgc-primary;
+$rgc-dd-select-color  :$rgc-white;
+
+.rg-dropdownlist {
+  color:$rgc-dd-color;
+  background:$rgc-dd-bg;
+  border: 1px solid $rgc-dd-border;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.3);
+  font-size: 10pt;
+  padding: 0px;
+  margin: 0px;
+}
+
+.rg-dropdown-select{
+  background:$rgc-dd-select-bg;
+  color:$rgc-dd-select-color;
+  margin:0px;
+}
+
+.rg-dropdown-item {
+  margin:0px;
+}
+
+.rg-dropdown-item:hover {
+  background:$rgc-dd-bg-up;
+}
+
+// CALENDAR ///////////////////////////////////////////////////
+
+$rgc-cal-color      :darken($rgc-dark,40);
+$rgc-cal-bg         :$rgc-white;
+$rgc-cal-border     :$rgc-dark;
+
+$rgc-cal-head-bg    :darken($rgc-light,5);
+$rgc-cal-body-bg    :$rgc-white;
+$rgc-cal-day-bg     :$rgc-light;
+$rgc-cal-today-bg   :$rgc-primary;
+$rgc-cal-sat-bg     :$rgc-blue;
+$rgc-cal-sun-bg     :$rgc-red;
+
+.rg-calendar {
+  font-size: 12px;
+  background:$rgc-cal-bg;
+  border:1px solid $rgc-cal-border;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.3);
+  .rg-cal-header{
+    height:24px;
+    background:$rgc-cal-head-bg !important;
+    .rg-cal-prev-month{
+      background-image:$ico-prev;
+      width:20px;
+      height:20px;
+      top:2px !important;
+      left:2px !important;
+      &:hover{
+        background-image:$ico-prev-up;
+      }
+      &:active{
+        background-image:$ico-prev-dn;
+      }
+    }
+    .rg-cal-next-month{
+      background-image:$ico-next;
+      width:20px;
+      height:20px;
+      top:2px !important;
+      right:2px !important;
+      &:hover{
+        background-image:$ico-next-up;
+      }
+      &:active{
+        background-image:$ico-next-dn;
+      }
+    }
+    .rg-cal-today-button{
+      padding: 0px 4px;
+      font-size: 12px;
+      border: 1px solid $rgc-cal-border;
+      color:$rgc-cal-border;
+      border-radius: 3px;
+      cursor:pointer;
+      box-sizing: border-box;
+      top:3px !important;
+      right:24px !important;
+      &:hover{
+        border: 1px solid $rgc-cal-today-bg;
+        background:$rgc-cal-today-bg;
+        color: $rgc-cal-body-bg;
+      }
+    }
+    .rg-cal-yearmonth{
+      .rg-cal-year{
+        cursor:default;
+        top:5px;
+      }
+      .rg-cal-month{
+        cursor:pointer;
+        top:5px;
+      }
+    }
+  }
+  .rg-cal-days-table{
+    background:$rgc-cal-body-bg;
+    .rg-cal-weeks{
+      color:black;
+      font-size:12px;
+      cursor:default;
+    }
+    .rg-cal-days{
+      font-size:12px;
+      text-align: center;
+      .rg-cal-day{
+        cursor:pointer;
+        //background: $rgc-cal-day-bg;
+        //border:1px solid darken($rgc-cal-day-bg, 20%);
+        width:24px;
+        height: 24px;
+        font-size:12px;
+        &:hover{
+          //background: darken($rgc-cal-day-bg,10%);
+          border:1px solid darken($rgc-cal-day-bg, 20%);
+          box-sizing: border-box;
+        }
+        &.rg-cal-week-sun{
+          color:$rgc-cal-sun-bg;
+        }
+        &.rg-cal-week-sat {
+          color:$rgc-cal-sat-bg;
+        }
+        &.rg-cal-prev-day {
+          color:lighten($rgc-cal-color, 35%);
+          background:$rgc-cal-bg;
+          border:none;
+        }
+        &.rg-cal-next-day {
+          color:lighten($rgc-cal-color, 35%);
+          background:$rgc-cal-bg;
+          border:none;
+        }
+        &.rg-cal-today {
+          background: lighten($rgc-spot,5);
+        }
+        &.rg-cal-focusday {
+          background:$rgc-cal-today-bg;
+          color: $rgc-cal-body-bg;
+        }
+      }
+    }
+  }
+}
+
+.rg-cal-next-year {
+  background-image:$ico-cal-up;
+  &:hover{
+    background-image:$ico-cal-up-up;
+  }
+  &:active{
+    background-image:$ico-cal-up-dn;
+  }
+}
+
+.rg-cal-prev-year {
+  background-image:$ico-cal-down;
+  &:hover{
+    background-image:$ico-cal-down-up;
+  }
+  &:active{
+    background-image:$ico-cal-down-dn;
+  }
+}
+
+.rg-cal-month-picker {
+  margin: 0;
+  cursor: pointer;
+  background: $rgc-cal-bg;
+  border: 1px solid $rgc-cal-border;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.3);
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+}
+.rg-cal-month-picker-item {
+  //padding: 1px 4px 1px 4px;
+  padding:3px 6px;
+  width:20px;
+  height:20px;
+  line-height: 20px;
+  text-align: center;
+  &:hover{
+    background: darken($rgc-cal-day-bg,10%);
+  }
+}
+.rg-cal-disable-day {
+  background:darken($rgc-cal-bg,10%) !important;
+  color:lighten($rgc-cal-color, 35%);
+  border:none !important;
+}
+.rg-cal-year-weeks {
+  font-size:10px;
+}
+
+// MULTICHECK ////////////////////////////////////////////
+
+$rgc-mc-bg          :$rgc-white;
+$rgc-mc-border      :darken($rgc-dark,20);
+$rgc-mc-color       :darken($rgc-dark,40);
+$rgc-mc-btn         :(darken($rgc-light,5),darken($rgc-light,15));
+$rgc-mc-btn-border  :darken($rgc-dark,15);
+$rgc-mc-btn-color   :darken($rgc-dark,30);
+$rgc-mc-select-bg   :$rgc-primary;
+
+.rg-multicheck {
+  background: $rgc-mc-bg;
+  border: 1px solid $rgc-mc-border;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.3);
+  padding: 0px;
+  margin: 0px;
+}
+.rg-multicheck-button {
+  text-align: center;
+}
+.rg-multicheck-accept {
+  display: inline-block;
+  border: 1px solid $rgc-mc-border;
+  border-radius: 2px;
+  padding:2px 4px !important;
+  color: $rgc-mc-color;
+  background-color:nth($rgc-mc-btn,1);
+  &:hover{
+    background-color:nth($rgc-mc-btn,2);
+  }
+}
+.rg-multicheck-cancel {
+  display: inline-block;
+  border: 1px solid $rgc-mc-border;
+  border-radius: 2px;
+  padding:2px 4px !important;
+  color: $rgc-mc-color;
+  background-color:nth($rgc-mc-btn,1);
+  &:hover{
+    background-color:nth($rgc-mc-btn,2);
+  }
+}
+.rg-multicheck-select {
+  background:$rgc-mc-select-bg !important;
+  color:$rgc-white;
+}
+.rg-multicheck-list {
+}
+.rg-multicheck-item {
+  background:none;
+  color:none;
+  &:hover{
+    background:rgba($rgc-mc-select-bg, 0.3) !important;
+    color:none;
+  }
+}
+.rg-multicheck-selectitem{
+  background:rgba($rgc-mc-select-bg, 0.6);
+  color:$rgc-mc-btn-color;
+}
+
+.rg-changed-marker {
+  width: 0px;
+  height: 0px;
+  border-left: 3px solid $rgc-red;
+  border-top: 3px solid $rgc-red;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.rg-expander-expanded {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: $ico-expander-expanded no-repeat center;
+  vertical-align: middle;
+}
+
+.rg-expander-collapsed {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: $ico-expander-collapsed no-repeat center;
+  vertical-align: middle;
+}
+
+.rg-editor-container {
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: $rgc-white;
+  resize: none;
+  border: 2px solid $rgc-primary;
+  box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 5px;
+}
+
+.rg-editor-container > input,  .rg-editor-container > textarea {
+  background-color: $rgc-white;
+  font-family: 'Malgun Gothic', '맑은 고딕', AppleSDGothicNeo-Light,  sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: normal;
+  text-align: left;
+  color : $rgc-black; //rgb(68, 84, 106);
+  ime-mode: auto;
+  cursor: text;
+  z-index: 2000;
+}
+
+.rg-editor-container .rg-number-editor {
+  text-align: right;
+}
+
+//// Editor ///////////
+//.rg-editor-container{
+//  .rg-editor{
+//    background:$rgc-white;
+//    color:$rgc-black;
+//    &.rg-btdate-editor{
+//
+//    }
+//  }
+//}
+
+// EXPANDER //////////
+.rg-rowgroup-expander{
+  width:13px; height:13px;
+  background:$ico-expanded no-repeat center;
+  &.rg-rowgroup-expander-collapsed{
+    background:$ico-collapsed no-repeat center !important;
+  }
+}
+
+// Swipe ///////////////////////////
+.rg-swipe{
+  display: inline-block;
+  width:54px; //default 36px
+  height:54px; //default 36px
+  &.toright{
+    background:$ico-swipe-to-right no-repeat center center;
+    &.outline{
+      background:$ico-swipe-to-right-outline no-repeat center center;
+    }
+  }
+  &.toleft{
+    background:$ico-swipe-to-left no-repeat center center;
+    &.outline{
+      background:$ico-swipe-to-left-outline no-repeat center center;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+---
+layout: default
+title : 'RealGrid2:Overview'
+---
+
+<script type="text/javascript" src="/assets/plugins/realgrid/overview.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        createGrid("realgrid");
+        // setActions && setActions("actions");
+    });
+</script>
+
+<div class="grid-container">
+    <div class="layer-1">
+        <div class="cell">
+            <div id="actions">
+                리얼그리드2.0 테스트를 위한 화면 입니다.</br>
+                1. 컬럼  "textAlignment" > style 로 지정, 2. dynamicStyle > callBack 사용, 3. 아이콘 링크, 4. html renderer
+            </div>
+        </div>
+    </div>
+    <div class="layer-2">
+        <div class="cell">
+            <div id="realgrid"></div>
+        </div>
+    </div>
+</div>

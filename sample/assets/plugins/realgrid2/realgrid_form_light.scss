@@ -1,0 +1,272 @@
+---
+THEME : Realgrid Form light(Default)
+---
+
+@charset "UTF-8";
+
+// PRESET ////////////////////////////////////////
+$font     : 'Malgun Gothic', '맑은 고딕', AppleSDGothicNeo-Light,	sans-serif;
+
+// ICONS /////////////////////////////////////////
+$ico-form-menu        : url("/assets/plugins/realgrid/images/light/form-menu.svg");
+$ico-form-check       : url("/assets/plugins/realgrid/images/light/form-check.svg");
+$ico-form-close       : url(images/form/form-close.png);
+$ico-form-cancel      : url(images/form/form-cancel2.png);
+$ico-form-ok          : url(images/form/form-ok.png);
+$ico-form-commit      : url("/assets/plugins/realgrid/images/light/form-commit.svg");
+$ico-form-delete      : url("/assets/plugins/realgrid/images/light/form-delete.svg");
+$ico-form-edit        : url("/assets/plugins/realgrid/images/light/form-edit.svg");
+$ico-form-add         : url("/assets/plugins/realgrid/images/light/form-add.svg");
+$ico-form-first       : url("/assets/plugins/realgrid/images/light/form-first.svg");
+$ico-form-last        : url("/assets/plugins/realgrid/images/light/form-last.svg");
+$ico-form-prev        : url("/assets/plugins/realgrid/images/light/form-prev.svg");
+$ico-form-next        : url("/assets/plugins/realgrid/images/light/form-next.svg");
+$ico-form-swipe-left  : url("/assets/plugins/realgrid/images/swipe/swipe-to-left-black.svg");
+$ico-form-swipe-right : url("/assets/plugins/realgrid/images/swipe/swipe-to-right-black.svg");
+$ico-form-end-left    : url("images/form/form-end-left.png");
+$ico-form-end-right   : url("images/form/form-end-right.png");
+
+.rg-form-root {
+  font-family: $font;
+  font-size: 16px;
+  color: black;
+  background: #ffffff;
+  -webkit-appearance: none;
+  outline: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.rg-form-marquee {
+  background: rgba(0, 0, 0, 0.01);
+}
+.rg-form {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.rg-form-root .rg-form-table, .rg-form-table tr {
+  position: relative;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-spacing: 0 !important;
+  border-collapse: separate !important;
+}
+
+.rg-form-table td {
+  position: relative;
+  margin: 0 !important;
+  padding: 6px 2px;
+  border-spacing: 0 !important;
+  border-collapse: separate !important;
+  box-sizing: border-box !important;
+  line-height: 1.5em;
+}
+
+.rg-form-modal {
+  border: 1px solid gray;
+  box-shadow: 4px 7px 7px darkgray;
+}
+
+.rg-form-cell {
+  overflow: hidden;
+  border-top: none;
+  border-right: 1px solid #adadad;
+  border-bottom: 1px solid #adadad;
+  border-left: none;
+}
+.rg-form-cell-right {
+  border-right: none;
+}
+
+.rg-form-scrollbar {
+  opacity: 0.3;
+  background: #004;
+  border-radius: 5px;
+}
+
+.rg-form-header {
+  background: #d0d0d0;
+}
+
+.rg-form-header-cell {
+  height: 50%;
+  transform: translate(0px, 50%);
+  text-align: center;
+}
+
+.rg-form-footer {
+  border-top: 1px solid #adadad;
+  background: #d0d0d0;
+}
+.rg-form-body {
+  background-color: white;
+}
+
+.rg-form-body .rg-form-table td {
+  font-size: 14px;
+  text-align: center;
+}
+
+.rg-form-label-cell {
+  border-top: none;
+  border-right: 1px solid #DCDCDC;
+  border-bottom: 1px solid #BDBDBD;
+  border-left: none;
+  word-wrap: break-word;
+  font-weight: bold;
+  background: #F3F3F3;
+  text-align: center;}
+
+.rg-form-label-focused {
+  background-color: #fff8dc;
+}
+
+.rg-form-value-cell {
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #bdbdbd;
+  border-left: none;
+  height: 0px;
+}
+
+.rg-form-position {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #242424;
+}
+
+.rg-form-position-slash {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.rg-footer-form-head {
+  margin-left: 6px;
+}
+
+.rg-form-menu {
+  width: 14px;
+  height: 14px;
+  background: $ico-form-menu no-repeat center;
+  background-size: contain;
+}
+
+.rg-footer-form-foot {
+  margin-right: 6px;
+}
+
+.rg-form-check {
+  width: 14px;
+  height: 14px;
+  background: $ico-form-check no-repeat center;
+  background-size: contain;
+}
+.rg-form-close {
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background: $ico-form-close no-repeat center;
+  background-size: contain;
+}
+.rg-form-cancel {
+  width: 20px;
+  height: 20px;
+  background: $ico-form-cancel no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-commit {
+  width: 20px;
+  height: 20px;
+  background: $ico-form-ok no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-delete {
+  width: 14px;
+  height: 14px;
+  background: $ico-form-delete no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-edit {
+  width: 14px;
+  height: 14px;
+  background: $ico-form-edit no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-add {
+  width: 14px;
+  height: 14px;
+  background: $ico-form-add no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-first {
+  width: 14px;
+  height: 14px;
+  background: $ico-form-first no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-last {
+  width: 14px;
+  height: 14px;
+  background: $ico-form-last no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-prev {
+  width: 14px;
+  height: 14px;
+  background: $ico-form-prev no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-next {
+  width: 14px;
+  height: 14px;
+  background: $ico-form-next no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-label {
+  white-space: nowrap;
+  word-wrap: none;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #ff2500;
+}
+
+.rg-form-swipe-left {
+  opacity: 0.3;
+  background: $ico-form-swipe-left no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-swipe-right {
+  opacity: 0.3;
+  background: $ico-form-swipe-right no-repeat center;
+  background-size: contain;
+}
+
+.rg-form-end-left {
+  opacity: 0.2;
+  background: $ico-form-end-left no-repeat center;
+  background-size: cover;
+}
+
+.rg-form-end-right {
+  opacity: 0.2;
+  background: $ico-form-end-right no-repeat center;
+  background-size: cover;
+}

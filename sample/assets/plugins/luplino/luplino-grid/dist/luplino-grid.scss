@@ -1,0 +1,777 @@
+---
+---
+
+@import "luplino";
+@import "luplino-mixin";
+@import "luplino-utils";
+
+//==
+$logrid-border: 1px solid #ccc !default;
+$logrid-bg: #fff !default;
+$logrid-font-size: 12px !default;
+$logrid-column-border: 1px solid #ccc !default;
+
+//== header
+$logrid-header-column-color: #222 !default;
+$logrid-header-column-border: 1px solid #ccc !default;
+$logrid-header-column-box-shadow: inset 1px 1px 0px 0px #fff !default;
+$logrid-header-column-bg-colors: (#FFFFFF, #F0F0F0) !default;
+$logrid-header-column-hover-bg-colors: (#eee, #eee) !default;
+$logrid-header-column-resizer-color: #ff3300 !default;
+$logrid-header-column-resizer-size: 4px !default;
+$logrid-header-sorter-size: 9px !default;
+$logrid-header-sorter-color: #000 !default;
+
+//== aside
+$logrid-aside-border: 1px solid darken(#ccc, 0%) !default;
+$logrid-aside-bg: #f2f2f2 !default;
+$logrid-aside-column-shadow: inset 1px 1px 0px 0px #fff !default;
+
+$logrid-frozen-line-border: 1px solid darken(#ccc, 10%) !default;
+
+//== footsum
+$logrid-footsum-bg: #ffe7e2 !default;
+$logrid-footsum-line-border: 1px solid darken(#ccc, 10%) !default;
+
+//== page
+$logrid-page-border: 1px solid #ccc !default;
+$logrid-page-bg-colors: (#FFFFFF, #F0F0F0) !default;
+$logrid-page-navigation-padding: 5px !default;
+$logrid-page-navigation-font-size: 12px !default;
+$logrid-page-navigation-btn-min-width: 20px !default;
+$logrid-page-navigation-btn-border: 0px none !default;
+$logrid-page-navigation-btn-border-radius: 5px !default;
+$logrid-page-navigation-btn-bg: transparent !default;
+$logrid-page-navigation-btn-font-size: 11px !default;
+$logrid-page-navigation-btn-color: #222 !default;
+$logrid-page-navigation-btn-hover-bg: #888 !default;
+$logrid-page-navigation-btn-hover-color: #fff !default;
+
+$logrid-page-status-font-size: 12px !default;
+$logrid-page-status-padding: 10px !default;
+$logrid-page-status-color: #222 !default;
+
+//== scroll
+$logrid-scroll-track-border: 1px solid #ccc !default;
+$logrid-scroll-track-bg: #f3f3f3 !default;
+$logrid-scroll-corner-bg: #EAEDEF !default;
+
+$logrid-scroll-bar-border-radius: 10px !default;
+$logrid-scroll-bar-border: 0px solid #fff !default;
+$logrid-scroll-bar-bg: #ccc !default;
+$logrid-scroll-bar-hover-border: 0px solid #ccc !default;
+$logrid-scroll-bar-hover-bg: #bababa !default;
+
+//== body.row
+$logrid-row-bg-0: #f3f3f3 !default;
+$logrid-row-bg-1: #fff !default;
+$logrid-row-bg-2: #f3f3f3 !default;
+$logrid-row-bg-3: #fff !default;
+$logrid-row-hover-bg: lighten(#cce2f3, 5%) !default;
+$logrid-row-grouping-bg: #ffffe7 !default;
+$logrid-row-selected: lighten(#b1d7fe, 10%) !default;
+
+//== body.cell
+$logrid-cell-padding-row-selector: 5px !default;
+$logrid-cell-padding: 3px 5px !default;
+
+$logrid-cell-checkbox-border: 1px solid #ccc !default;
+$logrid-cell-checkbox-border-radius: 3px !default;
+$logrid-cell-checkbox-bg-colors: (#FFFFFF, #F0F0F0) !default;
+$logrid-cell-disable-checkbox-bg-colors: (darken(nth($logrid-cell-checkbox-bg-colors, 2), 10%), darken(nth($logrid-cell-checkbox-bg-colors, 1), 10%)) !default;
+$logrid-cell-checkbox-arrow-color: #3372ff !default;
+
+$logrid-cell-focused-box-shadow: inset 0px 0px 1px 1px #0581f2 !default;
+$logrid-cell-focused-bg: lighten(#b1d7fe, 10%) !default;
+$logrid-cell-focused-color: #000 !default;
+
+$logrid-cell-selected-border-color: #ccc !default;
+$logrid-cell-selected-bg: #b1d7fe !default;
+$logrid-cell-selected-color: #000 !default;
+
+//== resizer
+$logrid-resizer-color: #ff3300 !default;
+$logrid-resizer-size: 2px !default;
+
+
+// mixins
+@mixin gridBoxModal() {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin gridColumn($container) {
+
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  font-size: $logrid-font-size;
+  border: 0 none;
+
+  &.hasBorder {
+    border-right: $logrid-column-border;
+    border-bottom: $logrid-column-border;
+  }
+  &.isLastColumn {
+
+  }
+  &.lineNumberColumn {
+
+  }
+  &.focused {
+    box-shadow: $logrid-cell-focused-box-shadow;
+  }
+
+  @if ($container == "header") {
+    cursor: pointer;
+    box-shadow: $logrid-header-column-box-shadow;
+    &:hover {
+      @include lo-background(top, $logrid-header-column-hover-bg-colors);
+    }
+    &[data-logrid-column-row="null"] {
+      box-shadow: none;
+    }
+  }
+
+  &[data-logrid-column-row="null"] {
+    border-right: 0 none;
+  }
+
+  &[data-logrid-column-selected] {
+    background: $logrid-cell-selected-bg;
+    border-color: $logrid-cell-selected-border-color;
+    color: $logrid-cell-selected-color;
+  }
+
+  &[data-logrid-column-focused] {
+    box-shadow: $logrid-cell-focused-box-shadow;
+    background: $logrid-cell-focused-bg;
+    color: $logrid-cell-focused-color;
+  }
+
+  &[data-logrid-column-attr="rowSelector"] {
+    cursor: pointer;
+    [data-logrid-cellHolder] {
+      //padding: $logrid-cell-padding-row-selector;
+    }
+
+    .checkBox {
+      display: inline-block;
+      position: relative;
+      border: $logrid-cell-checkbox-border;
+      border-radius: $logrid-cell-checkbox-border-radius;
+      @include lo-background(top, $logrid-cell-checkbox-bg-colors);
+      height: 16px;
+      width: 16px;
+      &:after {
+        content: '';
+        width: 60%;
+        height: 40%;
+        position: absolute;
+        top: 20%;
+        right: 20%;
+        border: 0.2em solid $logrid-cell-checkbox-arrow-color;
+        border-top: none;
+        border-right: none;
+        background: transparent;
+        opacity: 0.0;
+        @include transform(rotate(-50deg));
+      }
+    }
+    &[data-logrid-selected="true"] {
+      .checkBox {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &[data-logrid-column-attr="lineNumber"] {
+  }
+
+  [data-logrid-cellHolder] {
+    // 그리드 셀표현 : 그리드의 컬럼텍스트가 여기에 출력됨
+    display: block;
+    box-sizing: border-box;
+    padding: $logrid-cell-padding;
+    font-size: $logrid-font-size;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @if ($container == "header") {
+      //text-align: center;
+    }
+
+    &[data-logrid-text-align="left"] {
+      text-align: left;
+    }
+    &[data-logrid-text-align="center"] {
+      text-align: center;
+    }
+    &[data-logrid-text-align="right"] {
+      text-align: right;
+    }
+    &[data-logrid-cellHolder="multiLine"] {
+      white-space: normal;
+    }
+
+    [data-logrid-editor] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: 0 none;
+      background: $logrid-bg;
+      &::-ms-clear {
+        display: none;
+      }
+    }
+
+    [data-loselect] {
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: 0px none;
+      background: $logrid-bg;
+      .loselect-display {
+        height: 100%;
+        border-radius: 0;
+      }
+    }
+
+    [data-logrid-editor="checkbox"] {
+      display: inline-block;
+      position: relative;
+      border: $logrid-cell-checkbox-border;
+      border-radius: $logrid-cell-checkbox-border-radius;
+      @include lo-background(top, $logrid-cell-checkbox-bg-colors);
+      width:16px;
+      height:16px;
+      &:after {
+        content: '';
+        width: 60%;
+        height: 40%;
+        position: absolute;
+        top: 20%;
+        right: 20%;
+        border: 0.2em solid $logrid-cell-checkbox-arrow-color;
+        border-top: none;
+        border-right: none;
+        background: transparent;
+        opacity: 0.0;
+        @include transform(rotate(-50deg));
+      }
+      &[data-logrid-checked="true"] {
+        &:after {
+          opacity: 1.0;
+        }
+      }
+    }
+
+    [data-logrid-tnode-arrow] {
+      display: inline-block;
+      box-sizing: content-box;
+      text-align: right;
+      text-shadow: 0 -1px #fff;
+      padding: 0 5px 0 0;
+    }
+    a[data-logrid-tnode-arrow] {
+      cursor: pointer;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    [data-logrid-tnode-item="group"] {
+      display: inline-block;
+    }
+    [data-logrid-tnode-item="item"] {
+      display: inline-block;
+    }
+  }
+}
+
+@mixin gridRowBackground() {
+  &.tr-0 {
+    background: $logrid-row-bg-0;
+  }
+  &.tr-1 {
+    background: $logrid-row-bg-1;
+  }
+  &.tr-2 {
+    background: $logrid-row-bg-2;
+  }
+  &.tr-3 {
+    background: $logrid-row-bg-3;
+  }
+  &.hover {
+    background: $logrid-row-hover-bg;
+  }
+  &[data-logrid-grouping-tr="true"] {
+    background: $logrid-row-grouping-bg;
+  }
+  &[data-logrid-selected="true"] {
+    background: $logrid-row-selected;
+    td {
+      //color: #fff;
+      //box-shadow: inset 1px 1px 0px 0px #fff;
+      &[data-logrid-column-attr="rowSelector"],
+      &[data-logrid-column-attr="lineNumber"] {
+        box-shadow: none;
+      }
+      &[data-logrid-column-attr="rowSelector"] {
+        .checkBox {
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  &[data-logrid-disable-selection="true"] {
+    // background: $logrid-row-selected;
+    td {
+      &[data-logrid-column-attr="rowSelector"] {
+        .checkBox {
+          cursor: not-allowed;
+          @include lo-background(top, $logrid-cell-disable-checkbox-bg-colors);
+          &:after {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // mergeCells 대상 컬럼 배경생 통일.
+  td.merged {
+    background: $logrid-row-bg-1;
+  }
+}
+
+@mixin gridPanel($container) {
+  [data-logrid-panel] {
+    @include gridBoxModal();
+    position: absolute;
+    overflow: hidden;
+    /*
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    transform: translate3d(0, 0, 0);
+    */
+
+    table {
+      table-layout: fixed;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 0 none;
+      width: 100%;
+      @if ($container == "header") {
+        height: 100%;
+      }
+      tr {
+        border-bottom: 0 none;
+        @include gridRowBackground();
+        td {
+          @include gridColumn($container);
+
+        }
+      }
+    }
+
+    &[data-logrid-panel="aside-header"] {
+      border-right: $logrid-aside-border;
+      table {
+        tr {
+          td {
+            text-align: center;
+          }
+        }
+      }
+    }
+    &[data-logrid-panel="top-aside-body"],
+    &[data-logrid-panel="aside-body"],
+    &[data-logrid-panel="bottom-aside-body"] {
+      border-right: $logrid-aside-border;
+      background: $logrid-aside-bg;
+      table {
+        tr {
+          background: $logrid-aside-bg;
+          td {
+            text-align: center;
+            box-shadow: $logrid-aside-column-shadow;
+          }
+        }
+      }
+    }
+
+    &[data-logrid-panel="left-header"],
+    &[data-logrid-panel="top-left-body"],
+    &[data-logrid-panel="left-body"],
+    &[data-logrid-panel="bottom-left-body"] {
+      border-right: $logrid-frozen-line-border; /// frozen Line color
+    }
+
+    &[data-logrid-panel="top-aside-body"],
+    &[data-logrid-panel="top-left-body"],
+    &[data-logrid-panel="top-body"],
+    &[data-logrid-panel="top-right-body"] {
+      border-bottom: $logrid-frozen-line-border; /// frozen Line color
+    }
+
+    &[data-logrid-panel="bottom-aside-body"],
+    &[data-logrid-panel="bottom-left-body"],
+    &[data-logrid-panel="bottom-body"],
+    &[data-logrid-panel="bottom-right-body"] {
+      border-top: $logrid-footsum-line-border; /// footSum Line color
+    }
+
+    &[data-logrid-panel="bottom-aside-body"],
+    &[data-logrid-panel="bottom-left-body"],
+    &[data-logrid-panel="bottom-body"],
+    &[data-logrid-panel="bottom-right-body"] {
+      background: $logrid-footsum-bg;
+    }
+
+    [data-logrid-panel-scroll] {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+@mixin scrollBar($type) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include border-top-radius($logrid-scroll-bar-border-radius);
+  @include border-bottom-radius($logrid-scroll-bar-border-radius);
+  box-sizing: border-box;
+  border: $logrid-scroll-bar-border;
+  background: $logrid-scroll-bar-bg;
+
+  @if ($type == "vertical-bar") {
+    cursor: ns-resize;
+  } @else {
+    cursor: ew-resize;
+  }
+
+  &:hover {
+    border: $logrid-scroll-bar-hover-border;
+    background: $logrid-scroll-bar-hover-bg;
+  }
+}
+
+@mixin resizer($type: "horizontal") {
+  display: none;
+  &.live {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $logrid-resizer-color;
+    opacity: 0.5;
+
+    @if ($type == "vertical") {
+      height: $logrid-resizer-size;
+      width: 100%;
+      cursor: row-resize;
+    } @else {
+      height: 100%;
+      width: $logrid-resizer-size;
+      cursor: col-resize;
+    }
+
+  }
+}
+
+// body
+[data-logrid] {
+  box-sizing: border-box;
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  [data-logrid-container="root"] {
+    @include gridBoxModal();
+    position: relative;
+    background: $logrid-bg;
+    border: $logrid-border;
+    overflow: hidden;
+
+    [data-logrid-container="hidden"] {
+      @include gridBoxModal();
+      position: absolute;
+      //z-index: 100;
+      left: -100%;
+      top: -100%;
+      height: 100%;
+      width: 100%;
+    }
+
+    [data-logrid-container="header"] {
+      user-select: none;
+      @include gridBoxModal();
+      position: relative;
+      overflow: hidden;
+      @include lo-background(top, $logrid-header-column-bg-colors);
+      border: 0px none;
+      border-bottom: $logrid-header-column-border;
+      @include gridPanel("header");
+      color: $logrid-header-column-color;
+      [data-logrid-column-resizer] {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: $logrid-header-column-resizer-size;
+        height: 100%;
+        cursor: col-resize;
+        &:hover {
+          background: $logrid-header-column-resizer-color;
+          opacity: 0.5;
+        }
+      }
+      [data-logrid-column-sort] {
+        position: relative;
+        //right: 0;
+        //top: 2px;
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+
+        @mixin sort-arrow($arrow-size, $ratio-0, $ratio-1, $arrow-color, $opacity, $direction) {
+          position: absolute;
+          content: ' ';
+          width: 0;
+          height: 0;
+          display: inline-block;
+          border-left: $arrow-size/$ratio-0 solid transparent;
+          border-right: $arrow-size/$ratio-0 solid transparent;
+          @if ($direction == "up") {
+            border-bottom: ($arrow-size)/$ratio-1 solid $arrow-color;
+          } @else {
+            border-top: ($arrow-size)/$ratio-1 solid $arrow-color;
+          }
+          background: transparent;
+          opacity: $opacity;
+        }
+
+        &:before {
+          top: 0;
+          left: 0;
+          @include sort-arrow($logrid-header-sorter-size, 2.5, 2.2, $logrid-header-sorter-color, 0.3, "up");
+        }
+        &:after {
+          bottom: 0;
+          left: 0;
+          @include sort-arrow($logrid-header-sorter-size, 2.5, 2.2, $logrid-header-sorter-color, 0.3, "down");
+        }
+
+        &[data-logrid-column-sort-order="asc"] {
+          &:before {
+            top: 2px;
+            left: 0;
+            @include sort-arrow($logrid-header-sorter-size + 1, 2.5, 2.0, $logrid-header-sorter-color, 0.8, "up");
+          }
+          &:after {
+            display: none;
+          }
+        }
+        &[data-logrid-column-sort-order="desc"] {
+          &:before {
+            display: none;
+          }
+          &:after {
+            bottom: 2px;
+            left: 0;
+            @include sort-arrow($logrid-header-sorter-size + 1, 2.5, 2.0, $logrid-header-sorter-color, 0.8, "down");
+          }
+        }
+
+      }
+      [data-logrid-column-filter] {
+        // 개발중..
+        $filter-size: 10px;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+
+        &:before {
+          content: ' ';
+          width: 0;
+          height: 0;
+          display: inline-block;
+          border-left: $filter-size/2 solid transparent;
+          border-right: $filter-size/2 solid transparent;
+          border-top: ($filter-size) solid #000;
+          background: transparent;
+          opacity: 1;
+        }
+
+      }
+    }
+
+    [data-logrid-container="body"] {
+      @include gridBoxModal();
+      position: relative;
+      overflow: hidden;
+      @include gridPanel("body");
+
+      /*
+      @keyframes fadein {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+      }
+
+      [data-logrid-panel-scroll="body"]{
+          table {
+              @include animation(fadein 0.3s);
+          }
+      }
+      */
+
+    }
+
+    [data-logrid-container="page"] {
+      @include gridBoxModal();
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      @include lo-background(top, $logrid-page-bg-colors);
+      border: 0px none;
+      border-top: $logrid-page-border;
+
+      [data-logrid-page="holder"] {
+        @include gridBoxModal();
+        display: table;
+        //table-layout: fixed;
+        width: 100%;
+        height: 100%;
+        [data-logrid-page="navigation"] {
+          @include gridBoxModal();
+          display: table-cell;
+          vertical-align: middle;
+          text-align: left;
+          padding-left: $logrid-page-navigation-padding;
+          font-size: $logrid-page-navigation-font-size;
+
+          [data-logrid-page-navigation="holder"] {
+            display: table;
+            [data-logrid-page-navigation="cell"], [data-logrid-page-navigation="cell-paging"] {
+              display: table-cell;
+              vertical-align: middle;
+            }
+            [data-logrid-page-navigation="cell-paging"] {
+              padding: 0 $logrid-page-navigation-padding;
+            }
+
+            [data-logrid-page-move] {
+              box-sizing: border-box;
+              min-width: $logrid-page-navigation-btn-min-width;
+              border-radius: $logrid-page-navigation-btn-border-radius;
+              padding: 1px;
+              border: $logrid-page-navigation-btn-border;
+              background: $logrid-page-navigation-btn-bg;
+              font-size: $logrid-page-navigation-btn-font-size;
+              color: $logrid-page-navigation-btn-color;
+              outline: 0;
+
+              &[data-logrid-page-selected="true"], &:active {
+                background-color: $logrid-page-navigation-btn-hover-bg;
+                color: $logrid-page-navigation-btn-hover-color;
+              }
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+
+        }
+        [data-logrid-page="status"] {
+          @include gridBoxModal();
+          display: table-cell;
+          text-align: right;
+          vertical-align: middle;
+          padding-right: $logrid-page-status-padding;
+          font-size: $logrid-page-status-font-size;
+          color: $logrid-page-status-color;
+        }
+      }
+    }
+
+    [data-logrid-container="scroller"] {
+      @include gridBoxModal();
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+
+      $scroller-size: 15px;
+      [data-logrid-scroller="vertical"] {
+        box-sizing: border-box;
+        position: absolute;
+        display: none;
+        right: 0;
+        bottom: 0;
+        width: $scroller-size;
+        height: 100%;
+        background: $logrid-scroll-track-bg;
+        border-left: $logrid-scroll-track-border;
+
+        [data-logrid-scroller="vertical-bar"] {
+          @include scrollBar("vertical-bar");
+        }
+      }
+      [data-logrid-scroller="horizontal"] {
+        box-sizing: border-box;
+        position: absolute;
+        display: none;
+        right: 0;
+        bottom: 0;
+        height: $scroller-size;
+        width: 100%;
+        background: $logrid-scroll-track-bg;
+        border-top: $logrid-scroll-track-border;
+
+        [data-logrid-scroller="horizontal-bar"] {
+          @include scrollBar("horizontal-bar");
+        }
+      }
+      [data-logrid-scroller="corner"] {
+        position: absolute;
+        display: none;
+        right: 0px;
+        bottom: 0px;
+        width: $scroller-size;
+        height: $scroller-size;
+
+        background: $logrid-scroll-corner-bg;
+        border-top: $logrid-scroll-track-border;
+        border-left: $logrid-scroll-track-border;
+      }
+    }
+
+    [data-logrid-resizer="horizontal"] {
+      @include resizer("horizontal");
+    }
+    [data-logrid-resizer="vertical"] {
+      @include resizer("vertical");
+    }
+  }
+}

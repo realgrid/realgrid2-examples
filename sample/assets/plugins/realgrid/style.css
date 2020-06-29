@@ -1,0 +1,25 @@
+a {
+    color:#4374D9;
+    text-decoration: none;
+}
+
+a:hover{
+	color:#FF0000;
+}
+
+.alternate-row {
+	background: #f8f8f8;
+}
+
+.blue-column {
+    color: blue;
+}
+
+.bold-cell {
+    font-weight: bold;
+    background-color: greenyellow;
+}
+
+.multi-line {
+    white-space: normal;
+}

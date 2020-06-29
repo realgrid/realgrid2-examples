@@ -1,0 +1,81 @@
+---
+---
+
+html {
+  height: 100%;
+  //margin: 5px 5px 0px 5px;
+  overflow: hidden;
+}
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+#actions {
+  height: 50px;
+}
+#realgrid {
+  width: 100%;
+  height:100%;
+  //height: calc(100% - 50px - 10px); /* 10px는 margin */
+  //height: -moz-calc(100% - 50px - 10px); /* for Firefox */
+  //height: -webkit-calc(100% - 50px - 10px); /* for WebKit */
+  //height: -o-calc(100% - 50px - 10px); /* for Opera */
+  //height: expression(100% - 50px - 10px); /* IE Old */
+}
+
+.grid-container{
+  display: table;
+  width:100%;
+  height:100%;
+
+  .layer-1{
+    display: table-row;
+    .cell{
+      font-size:13px;
+      padding:40px 10px;
+      display: table-cell;
+      height:30px;
+    }
+  }
+  .layer-2{
+    display: table-row;
+    .cell{
+      display: table-cell;
+      height:100%;
+      padding:10px;
+    }
+  }
+}
+
+.button-bar{
+  position: fixed;
+  font-size:12px;
+  width:100%;
+  background:#eaeaea;
+  height:30px;
+  vertical-align: middle;
+  line-height: 30px;
+  padding:0 10px;
+  color:#666;
+  .label{
+    font-size:11px;
+  }
+  .button{
+    height:24px;
+    vertical-align: middle;
+    background:#eaeaea;
+    border:1px solid #666;
+    color:#666;
+    outline: none;
+    &:hover{
+      background:darken(#eaeaea, 10%);
+      cursor:pointer;
+    }
+    &.active{
+      color:#eaeaea;
+      background:#E56615;
+      border:1px solid darken(#E56615, 10%);
+    }
+  }
+}

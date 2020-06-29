@@ -1,0 +1,25 @@
+{
+	"name": "ax5ui-toast",
+	"version": "1.4.131",
+	"authors": [
+		"ThomasJ <tom@axisj.com>"
+	],
+	"description": "",
+	"main": "dist/ax5toast.js",
+	"keywords": [
+		"bootstrap",
+		"jquery",
+		"ax5ui",
+		"plugin",
+		"bootstrap jQuery plugins",
+		"toast",
+		"ax5ui-toast",
+		"javascript ui"
+	],
+	"dependencies": {
+		"jquery": "",
+		"ax5core": ">=1.4.115"
+	},
+	"license": "MIT",
+	"homepage": "ax5.io"
+}

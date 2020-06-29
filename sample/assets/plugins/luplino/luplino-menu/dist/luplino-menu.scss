@@ -1,0 +1,537 @@
+---
+---
+
+@import "luplino";
+@import "luplino-mixin";
+@import "luplino-utils";
+
+
+//============== lomenu
+$lomenu-z-index: 2000 !default;
+$lomenu-bg: #eee !default;
+$lomenu-inner-border: 1px solid !default;
+$lomenu-inner-border-color: #aaa !default;
+
+$lomenu-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2) !default;
+$lomenu-border-radius: 5px !default;
+
+$lomenu-body-padding: 5px 0px !default;
+$lomenu-heading-padding: 10px 15px !default;
+$lomenu-buttons-padding: 10px 0px 5px 0px !default;
+
+$lomenu-content-border: 0px solid !default;
+$lomenu-content-border-color: none !default;
+$lomenu-content-border-radius: 0px !default;
+$lomenu-content-padding: 0px !default;
+
+$lomenu-easing-time-open: 0.3s !default;
+$lomenu-easing-time-close: 0.2s !default;
+$lomenu-arrow-size: 10px !default;
+$lomenu-arrow-border-width: 1px !default;
+
+$lomenu-item-padding: 4px 0px !default;
+$lomenu-item-html-padding: 0px 5px !default;
+$lomenu-item-font-size: 13px !default;
+$lomenu-item-sub-font-size: 12px !default;
+$lomenu-item-checkbox-width: 18px !default;
+$lomenu-item-handle-width: 14px !default;
+
+$lomenubar-item-padding: 0px 10px !default;
+
+//** Border color for elements within dialog
+$lomenu-default-text: $panel-default-text !default;
+$lomenu-default-border-color: $lomenu-inner-border-color !default;
+$lomenu-default-heading-bg: $panel-default-heading-bg !default;
+$lomenu-default-item-bg: #eee !default;
+$lomenu-default-item-text: #444 !default;
+$lomenu-default-item-hover-bg: #999 !default;
+$lomenu-default-item-hover-text: #fff !default;
+
+
+$lomenu-primary-text: $panel-primary-text !default;
+$lomenu-primary-border-color: $brand-primary !default;
+$lomenu-primary-heading-bg: $panel-primary-heading-bg !default;
+$lomenu-primary-item-bg: #eee !default;
+$lomenu-primary-item-text: $brand-primary !default;
+$lomenu-primary-item-hover-bg: $brand-primary !default;
+$lomenu-primary-item-hover-text: #fff !default;
+
+$lomenu-success-text: $panel-success-text !default;
+$lomenu-success-border-color: $brand-success !default;
+$lomenu-success-heading-bg: $panel-success-heading-bg !default;
+$lomenu-success-item-bg: #eee !default;
+$lomenu-success-item-text: $brand-success !default;
+$lomenu-success-item-hover-bg: $brand-success !default;
+$lomenu-success-item-hover-text: #fff !default;
+
+$lomenu-info-text: $panel-info-text !default;
+$lomenu-info-border-color: $brand-info !default;
+$lomenu-info-heading-bg: $panel-info-heading-bg !default;
+$lomenu-info-item-bg: #eee !default;
+$lomenu-info-item-text: darken($brand-info, 10%) !default;
+$lomenu-info-item-hover-bg: $brand-info !default;
+$lomenu-info-item-hover-text: #fff !default;
+
+$lomenu-warning-text: $panel-warning-text !default;
+$lomenu-warning-border-color: $brand-warning !default;
+$lomenu-warning-heading-bg: $panel-warning-heading-bg !default;
+$lomenu-warning-item-bg: #eee !default;
+$lomenu-warning-item-text: darken($brand-warning, 20%) !default;
+$lomenu-warning-item-hover-bg: darken($brand-warning, 0%) !default;
+$lomenu-warning-item-hover-text: #fff !default;
+
+$lomenu-danger-text: $panel-danger-text !default;
+$lomenu-danger-border-color: $brand-danger !default;
+$lomenu-danger-heading-bg: $panel-danger-heading-bg !default;
+$lomenu-danger-item-bg: #eee !default;
+$lomenu-danger-item-text: darken($brand-danger, 20%) !default;
+$lomenu-danger-item-hover-bg: darken($brand-danger, 0%) !default;
+$lomenu-danger-item-hover-text: #fff !default;
+
+@mixin lo-menu() {
+  box-sizing: border-box;
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  z-index: $lomenu-z-index;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  #{$hack_ie67}width: 100px;
+  //overflow: hidden;
+  opacity: 0.95;
+}
+
+@mixin menu-variant($text-color, $border-color, $heading-bg-color, $item-bg, $item-color, $item-hover-bg, $item-hover-color) {
+  @include lo-background($item-bg);
+  border: $lomenu-inner-border;
+  border-color: $border-color;
+  border-radius: $lomenu-border-radius;
+  box-shadow: $lomenu-box-shadow;
+  color: $text-color;
+
+  .lo-menu-heading {
+    font-weight: 600;
+    padding: $lomenu-heading-padding;
+    border-bottom: 1px solid transparent;
+    @include border-top-radius($lomenu-border-radius - 1);
+
+    color: $text-color;
+    @include lo-background($heading-bg-color);
+    .badge {
+      font-size: 0.8em;
+      color: $heading-bg-color;
+      @include lo-background($text-color);
+    }
+  }
+  .lo-menu-body {
+    padding: $lomenu-body-padding;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    $lo-menu-item-height: $lomenu-item-font-size + 5;
+    .lo-menu-item {
+      padding: $lomenu-item-padding;
+      text-align: left;
+      background: $item-bg;
+      color: $item-color;
+      cursor: pointer;
+      font-size: $lomenu-item-font-size;
+      display: table;
+      position: relative;
+      border-collapse: separate;
+      box-sizing: border-box;
+      overflow: hidden;
+      //table-layout: fixed;
+      width: 100%;
+      height: $lo-menu-item-height;
+
+      .lo-menu-item-cell {
+        box-sizing: border-box;
+        display: table-cell;
+        vertical-align: middle;
+        white-space: nowrap;
+        font-size: $lomenu-item-sub-font-size;
+        line-height: $lo-menu-item-height;
+        padding: 0px 0px 0px 0px;
+
+        user-select: none;
+
+        &.lo-menu-item-checkbox {
+          overflow: hidden;
+          width: $lomenu-item-checkbox-width;
+          text-align: center;
+          .item-checkbox-wrap {
+            position: relative;
+            display: block;
+            width: $lomenu-item-checkbox-width;
+            height: $lo-menu-item-height;
+
+            &.useCheckBox {
+              &:after {
+                content: '';
+                width: 10px;
+                height: 5px;
+                position: absolute;
+                top: ($lo-menu-item-height - 10) / 2;
+                left: ($lo-menu-item-height - 10) / 2;
+                border: 2px solid $item-color;
+                border-top: none;
+                border-right: none;
+                background: transparent;
+                opacity: 0.1;
+                @include transform(rotate(-50deg));
+              }
+              &[data-item-checked="true"] {
+                &:after {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+        &.lo-menu-item-icon {
+          text-align: left;
+        }
+        &.lo-menu-item-label {
+          padding-right: 10px;
+        }
+        &.lo-menu-item-accelerator {
+          text-align: right;
+          padding: 0px 7px 0px 0px;
+          .item-wrap {
+            width: 100%;
+            vertical-align: middle;
+            @include ellipsis();
+            display: block;
+          }
+        }
+        &.lo-menu-item-handle {
+          overflow: hidden;
+          width: $lomenu-item-handle-width;
+          text-align: center;
+        }
+      }
+
+      &:hover, &.hover {
+        //background: $item-hover-bg;
+        color: $item-hover-color;
+        .lo-menu-item-cell {
+          &.lo-menu-item-checkbox {
+            .item-checkbox-wrap {
+              &:after {
+                border-color: $item-hover-color;
+              }
+            }
+          }
+        }
+      }
+    }
+    .lo-menu-item-divide {
+      border-top: $lomenu-inner-border;
+      border-color: lighten($border-color, 0%);
+      margin: $lomenu-body-padding;
+    }
+    .lo-menu-item-html {
+      padding: $lomenu-item-html-padding;
+      text-align: left;
+    }
+    .lo-menu-buttons {
+      button {
+        &:not(:last-child) {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+
+  &.direction-top {
+    @include lo-border-radius(0, "top");
+    @include lo-border-radius($lomenu-border-radius, "bottom");
+
+    &.with-arrow {
+      .lo-menu-arrow {
+        @include menu-arrow($lomenu-arrow-size, $lomenu-arrow-border-width, $border-color, top);
+      }
+    }
+  }
+  &.direction-right {
+    @include lo-border-radius(0, "right");
+    @include lo-border-radius($lomenu-border-radius, "left");
+
+    &.with-arrow {
+      .lo-menu-arrow {
+        @include menu-arrow($lomenu-arrow-size, $lomenu-arrow-border-width, $border-color, right);
+      }
+    }
+  }
+  &.direction-bottom {
+    @include lo-border-radius(0, "bottom");
+    @include lo-border-radius($lomenu-border-radius, "top");
+
+    &.with-arrow {
+      .lo-menu-arrow {
+        @include menu-arrow($lomenu-arrow-size, $lomenu-arrow-border-width, $border-color, bottom);
+      }
+    }
+  }
+  &.direction-left {
+    @include lo-border-radius(0, "right");
+    @include lo-border-radius($lomenu-border-radius, "right");
+
+    &.with-arrow {
+      .lo-menu-arrow {
+        @include menu-arrow($lomenu-arrow-size, $lomenu-arrow-border-width, $border-color, left);
+      }
+    }
+  }
+}
+
+@mixin menu-arrow($arrow-size, $arrow-border-width, $border-color, $arrow-direction) {
+
+  //@debug( nth($lomenu-inner-border, 3) );
+  $arrow-bg: nth($lomenu-bg, 1);
+  $arrow-border-color: $border-color;
+
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  @if ($arrow-direction == top) {
+    left: 50%;
+    top: 0px;
+  } @else if ($arrow-direction == right) {
+    right: 0px;
+    top: 50%;
+  } @else if ($arrow-direction == bottom) {
+    left: 50%;
+    bottom: 0px;
+  } @else if ($arrow-direction == left) {
+    left: 0px;
+    top: 50%;
+  }
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    @if ($arrow-direction == top) {
+      left: - ($arrow-size);
+      top: - ($arrow-size * 2);
+      border-left: $arrow-size solid transparent;
+      border-right: $arrow-size solid transparent;
+      border-bottom: ($arrow-size * 2) solid $arrow-border-color;
+    } @else if ($arrow-direction == right) {
+      right: - ($arrow-size * 2);
+      top: - ($arrow-size);
+      border-top: $arrow-size solid transparent;
+      border-bottom: $arrow-size solid transparent;
+      border-left: ($arrow-size * 2) solid $arrow-border-color;
+    } @else if ($arrow-direction == bottom) {
+      left: - ($arrow-size);
+      bottom: - ($arrow-size * 2);
+      border-left: $arrow-size solid transparent;
+      border-right: $arrow-size solid transparent;
+      border-top: ($arrow-size * 2) solid $arrow-border-color;
+    } @else if ($arrow-direction == left) {
+      left: - ($arrow-size * 2);
+      top: - ($arrow-size);
+      border-top: $arrow-size solid transparent;
+      border-bottom: $arrow-size solid transparent;
+      border-right: ($arrow-size * 2) solid $arrow-border-color;
+    }
+  }
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    @if ($arrow-direction == top) {
+      left: - ($arrow-size);
+      top: - ($arrow-size * 2) + ($arrow-border-width * 2);
+      border-left: ($arrow-size) solid transparent;
+      border-right: ($arrow-size) solid transparent;
+      border-bottom: ($arrow-size * 2) solid $arrow-bg;
+    } @else if ($arrow-direction == right) {
+      right: - ($arrow-size * 2) + ($arrow-border-width * 2);
+      top: - ($arrow-size);
+      border-top: ($arrow-size) solid transparent;
+      border-bottom: ($arrow-size) solid transparent;
+      border-left: ($arrow-size * 2) solid $arrow-bg;
+    } @else if ($arrow-direction == bottom) {
+      left: - ($arrow-size);
+      bottom: - ($arrow-size * 2) + ($arrow-border-width * 2);
+      border-left: ($arrow-size) solid transparent;
+      border-right: ($arrow-size) solid transparent;
+      border-top: ($arrow-size * 2) solid $arrow-bg;
+    } @else if ($arrow-direction == left) {
+      left: - ($arrow-size * 2) + ($arrow-border-width * 2);
+      top: - ($arrow-size);
+      border-top: ($arrow-size) solid transparent;
+      border-bottom: ($arrow-size) solid transparent;
+      border-right: ($arrow-size * 2) solid $arrow-bg;
+    }
+  }
+}
+
+@mixin lo-menubar() {
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  .lo-menu-body {
+    display: table;
+    height: 100%;
+    border-collapse: separate;
+    box-sizing: border-box;
+
+    .lo-menu-item {
+      display: table-cell;
+      height: 100%;
+      vertical-align: middle;
+      white-space: nowrap;
+      box-sizing: border-box;
+      padding: $lomenubar-item-padding;
+      cursor: pointer;
+      font-size: $lomenu-item-font-size;
+
+      .lo-menu-item-cell {
+        white-space: nowrap;
+        user-select: none;
+      }
+    }
+  }
+}
+
+@mixin menubar-variant($text-color, $border-color, $heading-bg-color, $item-bg, $item-color, $item-hover-bg, $item-hover-color) {
+  .lo-menu-body {
+    .lo-menu-item {
+      color: $item-color;
+      .lo-menu-item-cell {
+
+      }
+      &:hover, &.hover {
+        background: $item-hover-bg;
+        color: $item-hover-color;
+      }
+    }
+  }
+}
+
+@include keyframes(lo-menu) {
+  0% {
+    opacity: 0.0;
+    //@include transform(scale(1));
+  }
+  1% {
+    opacity: 0.0;
+    //@include transform(scale(0.3));
+  }
+  100% {
+    opacity: 0.95;
+    //@include transform(scale(1));
+  }
+}
+
+@include keyframes(lo-menu-destroy) {
+  from {
+    @include transform(scale(1));
+    opacity: 1.0;
+  }
+  to {
+    @include transform(scale(0.5));
+    opacity: 0.0;
+  }
+}
+
+// mixins --------------------------------------------- end
+
+.lo-ui-menu {
+  @include lo-menu();
+
+  @include perspective(1000px);
+  @include transform-style(preserve-3d);
+
+  @include animation(lo-menu $lomenu-easing-time-open $ease-out-back);
+  @include transform(translateZ(0));
+  @include transform-origin(center top);
+  /* flip type
+  @include backface-visibility(visible);
+  @include transform(translateY(0%) rotateX(0deg));
+  */
+
+  @include menu-variant($lomenu-default-text, $lomenu-default-border-color, $lomenu-default-heading-bg,
+          $lomenu-default-item-bg, $lomenu-default-item-text, $lomenu-default-item-hover-bg, $lomenu-default-item-hover-text);
+
+  &.primary {
+    @include menu-variant($lomenu-primary-text, $lomenu-primary-border-color, $lomenu-primary-heading-bg,
+            $lomenu-primary-item-bg, $lomenu-primary-item-text, $lomenu-primary-item-hover-bg, $lomenu-primary-item-hover-text);
+  }
+  &.success {
+    @include menu-variant($lomenu-success-text, $lomenu-success-border-color, $lomenu-success-heading-bg,
+            $lomenu-success-item-bg, $lomenu-success-item-text, $lomenu-success-item-hover-bg, $lomenu-success-item-hover-text);
+  }
+  &.info {
+    @include menu-variant($lomenu-info-text, $lomenu-info-border-color, $lomenu-info-heading-bg,
+            $lomenu-info-item-bg, $lomenu-info-item-text, $lomenu-info-item-hover-bg, $lomenu-info-item-hover-text);
+  }
+  &.warning {
+    @include menu-variant($lomenu-warning-text, $lomenu-warning-border-color, $lomenu-warning-heading-bg,
+            $lomenu-warning-item-bg, $lomenu-warning-item-text, $lomenu-warning-item-hover-bg, $lomenu-warning-item-hover-text);
+  }
+  &.danger {
+    @include menu-variant($lomenu-danger-text, $lomenu-danger-border-color, $lomenu-danger-heading-bg,
+            $lomenu-danger-item-bg, $lomenu-danger-item-text, $lomenu-danger-item-hover-bg, $lomenu-danger-item-hover-text);
+  }
+  &.destroy {
+    @include animation(lo-menu-destroy $lomenu-easing-time-close $ease-in-back forwards);
+  }
+  &.direction-top {
+    @include transform-origin(center top);
+  }
+  &.direction-right {
+    @include transform-origin(right center);
+  }
+  &.direction-bottom {
+    @include transform-origin(center bottom);
+
+  }
+  &.direction-left {
+    @include transform-origin(left center);
+  }
+}
+
+.lo-ui-menubar {
+  @include lo-menubar();
+  @include menubar-variant($lomenu-default-text, $lomenu-default-border-color, $lomenu-default-heading-bg,
+          $lomenu-default-item-bg, $lomenu-default-item-text, $lomenu-default-item-hover-bg, $lomenu-default-item-hover-text);
+
+  &.primary {
+    @include menubar-variant($lomenu-primary-text, $lomenu-primary-border-color, $lomenu-primary-heading-bg,
+            $lomenu-primary-item-bg, $lomenu-primary-item-text, $lomenu-primary-item-hover-bg, $lomenu-primary-item-hover-text);
+  }
+  &.success {
+    @include menubar-variant($lomenu-success-text, $lomenu-success-border-color, $lomenu-success-heading-bg,
+            $lomenu-success-item-bg, $lomenu-success-item-text, $lomenu-success-item-hover-bg, $lomenu-success-item-hover-text);
+  }
+  &.info {
+    @include menubar-variant($lomenu-info-text, $lomenu-info-border-color, $lomenu-info-heading-bg,
+            $lomenu-info-item-bg, $lomenu-info-item-text, $lomenu-info-item-hover-bg, $lomenu-info-item-hover-text);
+  }
+  &.warning {
+    @include menubar-variant($lomenu-warning-text, $lomenu-warning-border-color, $lomenu-warning-heading-bg,
+            $lomenu-warning-item-bg, $lomenu-warning-item-text, $lomenu-warning-item-hover-bg, $lomenu-warning-item-hover-text);
+  }
+  &.danger {
+    @include menubar-variant($lomenu-danger-text, $lomenu-danger-border-color, $lomenu-danger-heading-bg,
+            $lomenu-danger-item-bg, $lomenu-danger-item-text, $lomenu-danger-item-hover-bg, $lomenu-danger-item-hover-text);
+  }
+}
+

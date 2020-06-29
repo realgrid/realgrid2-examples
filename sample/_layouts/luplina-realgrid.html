@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    {% include luplina-head.html %}
+    <title>Hello Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+<!--    <link type="text/css" rel="stylesheet" href="/assets/fonts/NotoSansKR/NotoSansKR.css" onload="this.media = 'all';" />-->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-toast/dist/luplino-toast.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-menu/dist/luplino-menu.css"/>
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/luplina.js"></script>
+    <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
+    <script src="/assets/plugins/luplino/luplino-toast/dist/luplino-toast.js"></script>
+    <script src="/assets/plugins/luplino/luplino-menu/dist/luplino-menu.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+</head>
+<body onselectstart="return false;">
+<div class="la-root" name="#top">
+
+    <div class="la-header">
+        <div class="la-header-cont">
+            <div class="notification-bar">
+                <div class="notification-bar-cont">
+                    <div class="left">
+                        <div class="notification-box">
+                            <span class="msg"><i class="icon icon-bell"></i> &lt; 리얼그리드 2 &gt;가 정식 배포 되었습니다. 현재버전 v1.2.2 / 최신버전 v1.2.6</span>
+                            <a href="#" class="link">업데이트 실행</a>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <a href="#" class="noti-button user"><i class="icon icon-user"></i> 나선길</a><!--
+                        --><a href="#" class="noti-button time"><i class="icon icon-hour-glass"></i> 잔여시간 : 9분 3초</a><!--
+                        --><a href="#" class="noti-button setting"><i class="icon icon-cog"></i></a><!--
+                        --><a href="#" class="noti-button fullscreen"><i class="icon icon-resize-full-screen"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-bar-cont">
+                    <div class="left">
+                        <a href="#" class="logo"><img src="/assets/img/realgrid-logo.png" style="width:150px; height:50px" /></a>
+                        <nav>
+                            <div id="GNB-BAR"></div>
+                        </nav>
+                    </div>
+                    <div class="right">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="la-container">
+
+        <div class="la-aside-dock">
+            <div class="la-aside-dock-cont">
+                <div class="dock-box">
+                    <div id="ASIDE-TABS">
+<!--                <a href="#" class="dock-button aside project"><i class="icon icon-archive"></i> <span>프로젝트</span></a>&lt;!&ndash;-->
+<!--                &ndash;&gt;<a href="#" class="dock-button aside favorite"><i class="icon icon-star"></i> <span>즐겨찾기</span></a>&lt;!&ndash;-->
+<!--                &ndash;&gt;<a href="#" class="dock-button aside quickmenu"><i class="icon icon-list"></i> <span>퀵메뉴</span></a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="la-aside">
+            <div class="la-aside-cont">
+                <div id="ASIDE-VIEW">&nbsp;</div>
+            </div>
+        </div>
+
+        <div class="la-contents">
+            <div class="la-pages">
+                <div class="la-page-dock">
+                    <div class="la-page-dock-cont">
+                        <div id="VIEW-TABS"></div>
+                    </div>
+                </div>
+                <div class="la-page-content">
+                    <div class="la-page-content-cont">
+                        <div id="VIEW-PAGE"></div>
+                    </div>
+                </div>
+                <div class="la-page-tool" id="PAGE-TOOL">
+                    <div class="la-page-tool-cont">
+                        <div class="left">
+                            <a href="#" class="bar-button" id="BTN-RELOAD"><i class="icon icon-ccw"></i> <span>새로고침</span></a><!--
+                            --><a href="#" class="bar-button" id="BTN-REMOVE-CACHE"><i class="icon icon-time-slot"></i> <span>캐시차단 OFF</span></a><!--
+                            --><a href="#" class="bar-button" id="BTN-CLEAR-SESSION"><i class="icon icon-trash"></i> <span>세션정보 제거</span></a><!--
+                            --><a href="#" class="bar-button" id="BTN-COPY-URL"><i class="icon icon-clipboard"></i> <span>현재 URL 복사 (<span class="url">/jsp/main.jsp</span>)</span></a><!--
+                            --><span class="bar-button location">
+                                    <i class="icon icon-flower"></i> 테마 선택
+                                    <span>
+                                        <select>
+                                            <option selected value="realgrid_light">RG 라이트(기본)</option>
+                                            <option value="realgrid_dark">RG 다크</option>
+                                            <option value="realgrid_white">RG 화이트</option>
+                                            <option value="realgrid_sky_blue">RG 스카이블루</option>
+                                            <option value="realgrid_light">RG 레드와인</option>
+                                            <option value="realgrid_high_contrast">RG 고대비</option>
+                                        </select>
+                                    </span>
+                                </span>
+                        </div>
+                        <div class="right">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="la-bside">
+            <div class="la-bside-cont">
+                <div id="BSIDE-VIEW">&nbsp;</div>
+            </div>
+        </div>
+        <div class="la-bside-dock">
+            <div class="la-bside-dock-cont">
+                <div class="dock-box">
+                    <div id="BSIDE-TABS"></div>
+<!--                    <a href="#" class="dock-button bside realgrid"><i class="svg icon-rg"></i> <span>리얼그리드</span></a>&lt;!&ndash;-->
+<!--                    &ndash;&gt;<a href="#" class="dock-button bside todolist"><i class="icon icon-check"></i> <span>오늘 할 일</span></a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="la-footer">
+        <div class="la-footer-cont">
+            <div class="left">
+                <span class="bar-span copyright">Luplina - Web Application Framework © 2020</span>
+            </div>
+            <div class="right">
+                <span class="bar-span location"><i class="icon icon-direction"></i> <span>현재 페이지 위치 : / 대시보드</span></span><!--
+            --><a href="#" class="bar-button"><i class="icon icon-clock"></i> <span>Last account activity 23:38 ago.</span></a><!--
+            --><a href="#" class="bar-button" id="BTN-PAGE-TOOL"><i class="icon icon-tools"></i> <span>개발자도구</span></a><!--
+            --><a href="#" class="bar-button"><i class="icon icon-hand"></i> <span>Bug Report</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+let menu, toast, aside, bside, dashboard;
+let viewObj = {};
+let menuStorage = [];
+let viewTabsID = "#VIEW-TABS";
+let viewPageID = "#VIEW-PAGE";
+let btnID = "BTN-PAGE-TOOL";
+let pageToolID = "PAGE-TOOL";
+let btnReloadID = "BTN-RELOAD";
+let btnRemoveCacheID = "BTN-REMOVE-CACHE";
+let btnClearSessionID = "BTN-CLEAR-SESSION";
+let btnCopyUrlID = "BTN-COPY-URL";
+let asideTabsID = "#ASIDE-TABS";
+let asideViewID = "#ASIDE-VIEW";
+let bsideTabsID = "#BSIDE-TABS";
+let bsideViewID = "#BSIDE-VIEW";
+
+$(document.body).ready(function(){
+
+    toast = new luplino.ui.toast({
+        containerPosition:"top-right"
+    });
+
+    aside = [
+        {
+            name:'프로젝트',
+            icon:'<i class="icon icon-archive"></i>',
+            data:{href:'/panel_project', id:'A001'}
+        },
+        {
+            name:'즐겨찾기',
+            icon:'<i class="icon icon-star"></i>',
+            data:{href:'/panel_favorite', id:'A002'}
+        },{
+            name:'퀵메뉴',
+            icon:'<i class="icon icon-list"></i>',
+            data:{href:'/panel_quick', id:'A003'}
+        }
+    ];
+
+    bside = [
+        {
+            name:'리얼그리드',
+            icon:'<i class="svg icon-rg"></i>',
+            data:{href:'/panel_realgrid', id:'B001'}
+        },
+        {
+            name:'TO DO LIST',
+            icon:'<i class="icon icon-check"></i>',
+            data:{href:'/panel_todolist', id:'B002'}
+        }
+    ];
+    dashboard = {
+        name: '대시보드',
+        icon:'<i class=\"icon icon-check\"></i>',
+        data: {href:'/dashboard', id:'M000'},
+    };
+    menu = new luplino.ui.menu({
+        iconWidth:16,
+        direction:'top',
+        offset: {left: 0, top: -1},
+        acceleratorWidth:100,
+        itemClickAndClose: false,
+        icons: {
+            'arrow': '<i class=\"icon-arrow-right\"></i>'
+        },
+        columnKeys: {
+            label: 'name',
+            items: 'children'
+        },
+        items: [
+            {
+                name: '시스템',
+                //icon:'<i class="icon icon-check"></i>',
+                data: {id:'M001'},
+                children: [
+                    {
+                        name: '공통코드 관리',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/system_code', id:'M001001'},
+                        role: ''
+                    },
+                    {
+                        name: '프로그램 관리',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/system_app', id:'M001002'},
+                        role: ''
+                    },
+                    {
+                        name: '메뉴 관리',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/system_menu', id:'M001003'},
+                        role: ''
+                    },
+                    {
+                        name: '사용자 관리',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/system_user', id:'M001004'},
+                        role: ''
+                    },
+                    {
+                        name: '루플린',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/system_luplin', id:'M001005'},
+                        role: ''
+                    }
+                ]
+            },
+            {
+                name: '리얼그리드',
+                //icon:'<i class="icon icon-check"></i>',
+                data: {id:'M002'},
+                children: [
+                    {
+                        name: '소개',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/about', id:'M002001'},
+                        role: ''
+                        //accelerator: "CmdOrCtrl+Z"
+                    },
+                    {
+                        name: '샘플-기본',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/sample_basic', id:'M002002'},
+                        role: ''
+                        //accelerator: "CmdOrCtrl+A"
+                    },
+                    {
+                        name: '샘플-바코드',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/sample_barcode', id:'M002003'},
+                        role: ''
+                        //accelerator: "CmdOrCtrl+A"
+                    },
+                    {
+                        name: '샘플-필터',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/sample_filter', id:'M002004'},
+                        role: ''
+                        //accelerator: "CmdOrCtrl+A"
+                    },
+                    {
+                        name: '샘플-그룹핑',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/sample_grouping', id:'M002005'},
+                        role: ''
+                        //accelerator: "CmdOrCtrl+A"
+                    },
+                    {
+                        name: '샘플-트리뷰',
+                        //icon:'<i class="icon icon-check"></i>',
+                        data: {href:'/sample_treeview', id:'M002006'},
+                        role: ''
+                        //accelerator: "CmdOrCtrl+A"
+                    },
+                    {
+                        name: '더보기',
+                        icon:'<i class="icon icon-dots-three-horizontal"></i>&nbsp;',
+                        data: {href:'http://realgrid.com', target:'_blank', id:'M002007'},
+                        role: ''
+                        //accelerator: "CmdOrCtrl+A"
+                    }
+                ]
+            },
+            {
+                name: '거래처',
+                //icon:'<i class="icon icon-check"></i>',
+                data: {href:'/client_list', id:'M003'},
+                children: []
+            },
+            {
+                name: '견적서',
+                //icon:'<i class="icon icon-check"></i>',
+                data: {href: '/estimate', id:'M004'},
+                children: []
+            },
+            {
+                name: '세금계산서',
+                //icon:'<i class="icon icon-check"></i>',
+                data: {href: '/invoice', id:'M005'},
+                children: []
+            },
+        ]
+    });
+    menu.onStateChanged = function(){
+        //console.log(this);
+    };
+    menu.onClick = function(){
+        //toast.confirm(JSON.stringify(this.data.href));
+        if(this.data.target == "_blank"){
+            window.open(this.data.href, this.data.target);
+        }else{
+            viewObj.openView(this);
+        }
+    };
+    menu.onLoad = function(){
+        if (!this.element) return this;
+        $(this.element).find('[data-menu-btn]').click(function () {
+            var act = this.getAttribute("data-menu-btn");
+            if (act == 'OK') {
+                console.log(menu.getCheckValue());
+            }
+            menu.close();
+        });
+    };
+    menu.attach($("#GNB-BAR"));
+
+
+    viewObj.initView = function(){
+        let ms = $.parseJSON(sessionStorage.getItem("menu-storage"));
+        let ma = $.parseJSON(sessionStorage.getItem("menu-active"));
+        //console.log(ma.data.id);
+        if(ms){
+            $.each(ms, function(index, item){
+                viewObj.openView(item);
+            });
+            if(ma) viewObj.openView(ma);
+        }else{
+            viewObj.firstView();
+        }
+        viewObj.asideView();
+        viewObj.bsideView();
+    };
+    viewObj.asideView = function(){
+        $.each(aside, function(index, item){
+            let tabID = "T"+item.data.id;
+            let viewID = "V"+item.data.id;
+            $(asideTabsID).append("<a href='#' class='dock-button aside' id='"+tabID+"'>"+item.icon+"&nbsp;<span>"+item.name+"</span></a>");
+            $(asideViewID).append("<iframe src='"+ item.data.href +"' width='100%' height='100%' id='"+ viewID +"'></iframe>");
+
+            //let adocks = $(".dock-button.aside");
+            $(asideTabsID+" #"+tabID).click(function() {
+                if($(this).hasClass("active")){
+                    viewObj.closeAside(item);
+                }else {
+                    viewObj.openAside(item);
+                }
+            });
+        });
+        // get aside storage...
+        let as = $.parseJSON(sessionStorage.getItem("aside-storage"));
+        if(as){
+            viewObj.openAside(as);
+        }
+    };
+    viewObj.openAside = function(item){
+        let tabID = "T"+item.data.id;
+        let viewID = "V"+item.data.id;
+        $(asideTabsID).find('.dock-button.aside').removeClass('active');
+        $(asideViewID).find('iframe').removeClass('active');
+        $(asideTabsID+" #"+tabID).addClass("active");
+        $(asideViewID+" #"+viewID).addClass("active");
+        sessionStorage.setItem("aside-storage", JSON.stringify(item));
+        if ($(".la-aside").is(":hidden")) $(".la-aside").css("display", "table-cell");
+    };
+    viewObj.closeAside = function(item){
+        let tabID = "T"+item.data.id;
+        let viewID = "V"+item.data.id;
+        $(".la-aside").css("display","none");
+        $(asideTabsID+" #"+tabID).removeClass("active");
+        $(asideViewID+" #"+viewID).removeClass("active");
+        sessionStorage.removeItem("aside-storage");
+    };
+
+    viewObj.bsideView = function(){
+        $.each(bside, function(index, item){
+            let tabID = "T"+item.data.id;
+            let viewID = "V"+item.data.id;
+            $(bsideTabsID).append("<a href='#' class='dock-button bside' id='"+tabID+"'>"+item.icon+"&nbsp;<span>"+item.name+"</span></a>");
+            $(bsideViewID).append("<iframe src='"+ item.data.href +"' width='100%' height='100%' id='"+ viewID +"'></iframe>");
+
+            $(bsideTabsID+" #"+tabID).click(function() {
+                if($(this).hasClass("active")){
+                    viewObj.closeBside(item);
+                }else {
+                    viewObj.openBside(item);
+                }
+            });
+        });
+        // get aside storage...
+        let bs = $.parseJSON(sessionStorage.getItem("bside-storage"));
+        if(bs){
+            viewObj.openBside(bs);
+        }
+    };
+    viewObj.openBside = function(item){
+        let tabID = "T"+item.data.id;
+        let viewID = "V"+item.data.id;
+        $(bsideTabsID).find('.dock-button.bside').removeClass('active');
+        $(bsideViewID).find('iframe').removeClass('active');
+        $(bsideTabsID+" #"+tabID).addClass("active");
+        $(bsideViewID+" #"+viewID).addClass("active");
+        sessionStorage.setItem("bside-storage", JSON.stringify(item));
+        if ($(".la-bside").is(":hidden")) $(".la-bside").css("display", "table-cell");
+    };
+    viewObj.closeBside = function(item){
+        let tabID = "T"+item.data.id;
+        let viewID = "V"+item.data.id;
+        $(".la-bside").css("display","none");
+        $(bsideTabsID+" #"+tabID).removeClass("active");
+        $(bsideViewID+" #"+viewID).removeClass("active");
+        sessionStorage.removeItem("bside-storage");
+    };
+
+    viewObj.firstView = function(){
+        let firstID = dashboard.data.id;
+        let firstHref = dashboard.data.href;
+        let tabID   = "T"+firstID;
+        let viewID  = "V"+ firstID;
+        //toast.confirm(JSON.stringify(this.data.href));
+        $(viewTabsID).append("<a href='#' class='tab-item active' data-href=\'"+ firstHref +"\' id=\'"+ tabID +"\'><span>대시보드</span> <span class='tab-close'><i class='icon icon-circle-with-cross'></i></span></a>");
+        $("#"+tabID).click(function(){
+            $(viewTabsID).find('.tab-item').removeClass('active');
+            $(viewPageID).find('iframe').removeClass('active');
+            $("#"+tabID).addClass('active');
+            $("#"+viewID).addClass('active');
+        });
+        $("#"+tabID+" .tab-close").click(function(){
+            toast.push("대시보드는 닫을 수 없습니다.");
+        });
+        $(viewPageID).append("<iframe src='"+ firstHref +"' width='100%' height='100%' id='"+ viewID +"' class='active'></iframe>");
+        viewObj.updateCopyUrl(firstHref);
+
+        viewObj.updateMenuStorage(dashboard);
+    };
+    viewObj.updateMenuStorage = function(item){
+        //Menu Storage...
+        menuStorage.push(item);
+        //console.log("UPDATE------------------");
+        // $.each(menuStorage, function(index, item){
+        //     console.log(index+" : "+item.name);
+        // });
+        sessionStorage.setItem("menu-storage", JSON.stringify(menuStorage));
+    };
+    viewObj.removeMenuStorage = function(item){
+        menuStorage = $.grep(menuStorage, function(e){
+            return e.data.id != item.data.id;
+        });
+        //console.log("REMOVE------------------");
+        // $.each(menuStorage, function(index, item){
+        //     console.log(index+" : "+item.name);
+        // });
+        sessionStorage.setItem("menu-storage", JSON.stringify(menuStorage));
+
+    };
+    viewObj.openView = function(param){
+        //toast.confirm(JSON.stringify(param));
+        let tabID   = "T"+ param.data.id;
+        let viewID  = "V"+ param.data.id;
+
+        if($("#"+tabID).length){
+            //이미 존재한다면...
+            $(viewTabsID).find('.tab-item').removeClass('active');
+            $(viewPageID).find('iframe').removeClass('active');
+            $("#"+tabID).addClass('active');
+            $("#"+viewID).addClass('active');
+            viewObj.updateCopyUrl($("#"+tabID).attr('data-href'));
+            sessionStorage.setItem("menu-active", JSON.stringify(param));
+        }else{
+            $(viewTabsID).find('.tab-item').removeClass('active');
+            $(viewTabsID).append("<a href='#' class='tab-item active' data-href='"+ param.data.href +"' id='"+ tabID +"'><span>"+param.name+"</span> <span class='tab-close'><i class='icon icon-circle-with-cross'></i></span></a>");
+
+            $(viewPageID).find('iframe').removeClass('active');
+            $(viewPageID).append("<iframe src='"+ param.data.href +"' width='100%' height='100%' id='"+ viewID +"' class='active'></iframe>");
+
+            // let iframe = $(viewPageID+" iframe");
+            // iframe.on('load',function(){
+            //     $(this).contents().find("body").on('click', function(event) {
+            //         menu.close();
+            //     });
+            // });
+
+            viewObj.updateMenuStorage(param);
+
+            $("#"+tabID).click(function(){
+                $(viewTabsID).find('.tab-item').removeClass('active');
+                $(viewPageID).find('iframe').removeClass('active');
+                $("#"+tabID).addClass('active');
+                $("#"+viewID).addClass('active');
+                sessionStorage.setItem("menu-active", JSON.stringify(param));
+            });
+            $("#"+tabID+" .tab-close").click(function(){
+                if(param.data.id == "M000"){
+                    toast.push("대시보드는 닫을 수 없습니다.");
+                }else{
+                    viewObj.closeView(param.data.id);
+                    viewObj.removeMenuStorage(param);
+                }
+            });
+            viewObj.updateCopyUrl($("#"+tabID).attr('data-href'));
+            sessionStorage.setItem("menu-active", JSON.stringify(param));
+        }
+        menu.close();
+    };
+    viewObj.closeView = function(id){
+
+        let tabID   = "T"+ id;
+        let viewID  = "V"+ id;
+
+        let t_idx = $(viewTabsID).find('.tab-item').length -1;
+        let i_idx = $("#"+tabID).index();
+        //console.log(t_idx+" / "+i_idx);
+
+        if( i_idx === t_idx　){
+            //마지막 탭을 닫을 경우 다음 마지막 탭을 활성화 해주어야 한다.
+            $("#"+tabID).remove();
+            $("#"+viewID).remove();
+            $(viewTabsID).find('.tab-item').last().addClass('active');
+            $(viewPageID).find('iframe').last().addClass('active');
+        }else{
+            $("#"+tabID).remove();
+            $("#"+viewID).remove();
+        }
+    };
+
+    viewObj.initPageTool = function(){
+
+        let pt = parseInt(sessionStorage.getItem("page-tool"));
+        if(pt) viewObj.openPageTool();
+
+        $("#"+btnID).click(function(){
+
+            if($("#"+pageToolID).css('display') === 'none'){
+                viewObj.openPageTool();
+            }else{
+                viewObj.closePageTool();
+            }
+            console.log(sessionStorage.getItem("page-tool"));
+        });
+        $("#"+btnReloadID).click(function(){
+            let dv = viewObj.detectView();
+            //console.log(dv);
+            $(dv).attr('src', $(dv).attr('src'));
+            toast.push("페이지 새로고침");
+
+        });
+
+        //no cache
+        let nc = parseInt(sessionStorage.getItem("no-cache"));
+        if(nc) viewObj.noCacheOn();
+
+        $("#"+btnRemoveCacheID).click(function(){
+            if($(this).hasClass('active')){
+                viewObj.noCacheOff();
+                toast.push("캐시차단 OFF");
+            }else{
+                viewObj.noCacheOn();
+                toast.push("캐시차단 ON");
+            }
+        });
+
+        //Copy URL...
+        $("#"+btnCopyUrlID).click(function(){
+            //console.log($("#"+targetID+" .url").text());
+            let base_url = window.location.origin;
+            let page_url = $("#"+btnCopyUrlID+" .url").text();
+            let copy_url = base_url + page_url;
+            viewObj.copyUrl(copy_url);
+        });
+
+        //Clear Session...
+        $("#"+btnClearSessionID).click(function(){
+            viewObj.clearSession();
+        });
+
+    };
+    viewObj.clearSession = function(){
+        sessionStorage.clear();
+        toast.push("세션정보 모두 삭제하였습니다.");
+    };
+    viewObj.noCacheOn = function() {
+        $("#"+btnRemoveCacheID).addClass('active');
+        $("#"+btnRemoveCacheID+" span").text("캐시차단 ON");
+        viewObj.noCache(true);
+        sessionStorage.setItem("no-cache", "1");
+    };
+    viewObj.noCacheOff = function(){
+        $("#"+btnRemoveCacheID).removeClass('active');
+        $("#"+btnRemoveCacheID+" span").text("캐시차단 OFF");
+        viewObj.noCache(false);
+        sessionStorage.setItem("no-cache", "0");
+    };
+    viewObj.openPageTool = function(){
+        $("#"+pageToolID).css('display','table-row');
+        $("#"+btnID).addClass('active');
+        sessionStorage.setItem("page-tool", "1");
+    };
+    viewObj.closePageTool = function(){
+        $("#"+pageToolID).css('display','none');
+        $("#"+btnID).removeClass('active');
+        sessionStorage.setItem("page-tool", "0");
+    };
+    viewObj.noCache = function(bool){
+        let po = [];
+        po.push("<meta http-equiv='Expires' content='Mon, 06 Jan 1990 00:00:01 GMT' class='meta-no-cache'>");
+        po.push("<meta http-equiv='Expires' content='-1' class='meta-no-cache'>");
+        po.push("<meta http-equiv='Pragma' content='no-cache' class='meta-no-cache'>");
+        po.push("<meta http-equiv='Cache-Control' content='no-cache' class='meta-no-cache'>");
+        let no_cache_meta = po.join('');
+        if(bool){
+            $('head').prepend(no_cache_meta);
+        }else{
+            $('head .meta-no-cache').remove();
+        }
+    };
+    viewObj.detectView = function(){ //jObj
+        let result = {};
+        $(viewPageID+' iframe').each(function(index, item){
+            if($(item).hasClass('active')){
+                result = item;
+            }
+        });
+        console.log(result);
+        return result;
+    };
+    viewObj.copyUrl = function(url){
+        let temp = document.createElement("textarea");
+        document.body.appendChild(temp);
+        temp.value = url;
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        toast.push("URL이 복사되었습니다.\n"+url);
+    };
+
+    viewObj.updateCopyUrl = function(url){
+        let btnCopyUrlID = "BTN-COPY-URL";
+        $("#"+btnCopyUrlID+" .url").text(url);
+    };
+
+    viewObj.initView();
+    viewObj.initPageTool();
+
+});
+</script>
+</body>
+
+</html>
+

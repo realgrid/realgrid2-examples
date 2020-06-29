@@ -1,0 +1,695 @@
+---
+---
+
+@import "luplino-light";
+@import "luplino-utils";
+@import "luplino-mixin";
+
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:         #616161 !default; // #337ab7
+$brand-success:         #00C6AE !default;
+$brand-info:            #44ADF9 !default;
+$brand-fn1:            #6977CF !default;
+$brand-fn2:            #485398 !default;
+$brand-warning:         #FFB802 !default;
+$brand-danger:          #E97426 !default;
+
+$border-radius-base:        3px !default;
+$border-radius-large:       5px !default;
+$border-radius-small:       2px !default;
+
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:             #3c763d !default;
+$state-success-bg:               #dff0d8 !default;
+$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
+
+$state-info-text:                #31708f !default;
+$state-info-bg:                  #d9edf7 !default;
+$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+$state-warning-text:             #8a6d3b !default;
+$state-warning-bg:               #fcf8e3 !default;
+$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+
+$state-danger-text:              #a94442 !default;
+$state-danger-bg:                #f2dede !default;
+$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
+
+//== Panels
+//
+//##
+
+$panel-bg:                    #fff !default;
+$panel-body-padding:          15px !default;
+$panel-heading-padding:       10px 15px !default;
+$panel-footer-padding:        $panel-heading-padding !default;
+$panel-border-radius:         $border-radius-base !default;
+
+//** Border color for elements within panels
+$panel-inner-border:          #ddd !default;
+$panel-footer-bg:             #f5f5f5 !default;
+
+$panel-default-text:          $gray-dark !default;
+$panel-default-border:        #ddd !default;
+$panel-default-heading-bg:    #f5f5f5 !default;
+
+$panel-primary-text:          #fff !default;
+$panel-primary-border:        $brand-primary !default;
+$panel-primary-heading-bg:    $brand-primary !default;
+
+$panel-success-text:          $state-success-text !default;
+$panel-success-border:        $state-success-border !default;
+$panel-success-heading-bg:    $state-success-bg !default;
+
+$panel-info-text:             $state-info-text !default;
+$panel-info-border:           $state-info-border !default;
+$panel-info-heading-bg:       $state-info-bg !default;
+
+$panel-warning-text:          $state-warning-text !default;
+$panel-warning-border:        $state-warning-border !default;
+$panel-warning-heading-bg:    $state-warning-bg !default;
+
+$panel-danger-text:           $state-danger-text !default;
+$panel-danger-border:         $state-danger-border !default;
+$panel-danger-heading-bg:     $state-danger-bg !default;
+
+
+//============== ax5select
+$loselect-label-padding: 0px 7px !default;
+
+$loselect-label-bg-colors: (#fff, #eee) !default;
+$loselect-label-border: 1px solid #ccc !default;
+$loselect-label-color: #444 !default;
+
+$loselect-addon-icon-height: 4.5px !default;
+$loselect-addon-icon-color: #444 !default;
+$loselect-addon-icon-padding-right: 7px !default;
+
+///== option group
+$loselect-option-group-z-index: 2000 !default;
+$loselect-option-group-box-model: border-box !default;
+$loselect-option-group-bg: lighten(#eee, 5%) !default;
+$loselect-option-group-inner-border: 1px solid !default;
+$loselect-option-group-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.175) !default;
+$loselect-option-group-border-radius: 5px !default;
+$loselect-option-group-body-padding: 0px !default;
+
+$loselect-option-group-easing-time-open: 0.1s !default;
+$loselect-option-group-easing-time-close: 0.1s !default;
+$loselect-option-group-arrow-size: 10px !default;
+$loselect-option-group-arrow-border-width: 1px !default;
+
+$loselect-option-item-padding: 3px 0px !default;
+$loselect-option-item-font-size: 12px !default;
+
+$loselect-option-item-padding-lg: 5px 0px !default;
+$loselect-option-item-font-size-lg: $loselect-option-item-font-size * 1.3 !default;
+
+$loselect-option-item-padding-sm: 2px 0px !default;
+$loselect-option-item-font-size-sm: $loselect-option-item-font-size * 0.9 !default;
+
+$loselect-option-item-padding-xs: 1px 0px !default;
+$loselect-option-item-font-size-xs: $loselect-option-item-font-size * 0.8 !default;
+
+///~~ theme
+$loselect-default-base-color: $gray !default;
+$loselect-default-theme-color: #ccc !default;
+$loselect-default-hover-type: darken, 20% !default;
+
+$loselect-primary-base-color: $gray !default;
+$loselect-primary-theme-color: $brand-primary !default;
+$loselect-primary-hover-type: lighten, 100% !default;
+
+$loselect-success-base-color: $gray !default;
+$loselect-success-theme-color: $brand-success !default;
+$loselect-success-hover-type: darken, 20% !default;
+
+$loselect-info-base-color: $gray !default;
+$loselect-info-theme-color: $brand-info !default;
+$loselect-info-hover-type: lighten, 100% !default;
+
+$loselect-warning-base-color: $gray !default;
+$loselect-warning-theme-color: $brand-warning !default;
+$loselect-warning-hover-type: lighten, 100% !default;
+
+$loselect-danger-base-color: $gray !default;
+$loselect-danger-theme-color: $brand-danger !default;
+$loselect-danger-hover-type: lighten, 100% !default;
+
+/// override bootstrap.form-control
+@mixin input-size($parent, $input-height) {
+  [data-lo-select] {
+    .lo-select-display#{$parent} {
+      height: $input-height;
+    }
+    select[multiple]#{$parent} {
+      height: $input-height;
+    }
+  }
+}
+
+[data-lo-select] select[multiple].form-control {
+  height: $input-height-base;
+}
+
+@include input-size('.input-sm', $input-height-small);
+@include input-size('.input-lg', $input-height-large);
+
+.form-group-sm {
+  [data-lo-select] {
+    select[multiple].form-control {
+      height: $input-height-small;
+    }
+  }
+
+}
+
+.form-group-lg {
+  [data-lo-select] {
+    select[multiple].form-control {
+      height: $input-height-large;
+    }
+  }
+}
+
+.form-inline {
+  @media (min-width: $screen-sm-min) {
+    // Inline-block alo the things for "inline"
+    [data-lo-select] {
+      display: inline-block;
+    }
+  }
+}
+
+// select group
+[data-lo-select] {
+  position: relative;
+  overflow: visible;
+  display: block;
+  box-sizing: border-box;
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+  margin: 0;
+
+  select {
+    z-index: 1;
+    position: absolute;
+    opacity: 0;
+    user-select: none;
+  }
+}
+
+@include keyframes(loselect-option-group) {
+  from {
+    @include transform(translateY(-10%));
+    opacity: 0;
+  }
+  to {
+    @include transform(translateY(0%));
+    opacity: 1;
+  }
+}
+
+@include keyframes(loselect-option-group-destroy) {
+  from {
+    @include transform(translateY(0%) scaleY(1.0));
+    opacity: 1;
+  }
+  to {
+    @include transform(translateY(0%) scaleY(0.0));
+    opacity: 0;
+  }
+}
+
+@mixin ax5select-display-theme($base-color, $back-color, $theme-color) {
+  &:hover, &:active, &:focus, &[data-select-option-group-opened] {
+    &:not([disabled]) {
+      border-color: $theme-color;
+      color: $base-color;
+      //background-color: transparent;
+      text-decoration: none;
+
+      .lo-select-display-table {
+        [data-lo-select-display="label"] {
+
+        }
+        [data-lo-select-display="addon"] {
+          .addon-icon-closed {
+            .addon-icon-arrow {
+              border-top-color: $base-color;
+            }
+          }
+          .addon-icon-opened {
+            .addon-icon-arrow {
+              border-bottom-color: $base-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  [disabled] {
+    user-select: none;
+  }
+}
+
+@mixin ax5select-option-group-theme($base-color, $back-color, $theme-color, $hover-type) {
+  border-color: $theme-color;
+  color: $base-color;
+
+  .lo-select-body {
+
+    .lo-select-option-group-content {
+      .lo-select-option-item {
+        &:hover, &.hover {
+          @if nth($hover-type, 1) == "lighten" {
+            background: lighten($theme-color, 15%) !important;
+            color: lighten($base-color, nth($hover-type, 2));
+          } @else if nth($hover-type, 1) == "darken" {
+            background: darken($theme-color, 15%) !important;
+            color: darken($base-color, nth($hover-type, 2));
+          }
+
+          .lo-select-option-item-holder {
+            .lo-select-option-item-cell {
+              &.lo-select-option-item-checkbox {
+                .item-checkbox-wrap {
+                  &.useCheckBox {
+                    &:after {
+                      @if nth($hover-type, 1) == "lighten" {
+                        border-color: lighten($base-color, nth($hover-type, 2)) !important;
+                      } @else if nth($hover-type, 1) == "darken" {
+                        border-color: darken($base-color, nth($hover-type, 2)) !important;
+                      }
+                    }
+                  }
+                }
+              }
+              &.lo-select-option-item-label {
+              }
+            }
+          }
+        }
+        &[data-option-selected="true"] {
+          @if nth($hover-type, 1) == "lighten" {
+            background: $theme-color;
+            color: lighten($base-color, nth($hover-type, 2));
+          } @else if nth($hover-type, 1) == "darken" {
+            background: $theme-color;
+            color: darken($base-color, nth($hover-type, 2));
+          }
+
+          .lo-select-option-item-holder {
+            .lo-select-option-item-cell {
+              &.lo-select-option-item-checkbox {
+                .item-checkbox-wrap {
+                  &.useCheckBox {
+                    &:after {
+                      @if nth($hover-type, 1) == "lighten" {
+                        border-color: lighten($base-color, nth($hover-type, 2)) !important;
+                      } @else if nth($hover-type, 1) == "darken" {
+                        border-color: darken($base-color, nth($hover-type, 2)) !important;
+                      }
+                    }
+                  }
+                }
+              }
+              &.lo-select-option-item-label {
+              }
+            }
+          }
+        }
+      }
+      .lo-select-option-group {
+
+        .lo-select-option-item-holder {
+
+          .lo-select-option-group-label {
+            background: #eee;
+          }
+        }
+      }
+    }
+
+    .lo-select-option-group-buttons {
+      border-top: 1px solid;
+      border-color: $theme-color;
+    }
+  }
+
+  &:hover {
+
+  }
+}
+
+@mixin ax5select-option-group-size($padding, $font-size) {
+  .lo-select-body {
+    padding: $loselect-option-group-body-padding;
+    $loselect-option-item-height: $font-size + 5;
+    $loselect-option-item-checkbox-size: $font-size - 4;
+    .lo-select-option-group-content {
+      mlo-height: $loselect-option-item-height * 10;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+      .lo-select-option-item {
+        padding: $padding;
+        text-align: left;
+        cursor: pointer;
+        font-size: $font-size;
+        position: relative;
+        box-sizing: border-box;
+        overflow: hidden;
+        //table-layout: fixed;
+
+        .lo-select-option-item-holder {
+          display: table;
+          position: relative;
+          border-collapse: separate;
+          overflow: hidden;
+          //table-layout: fixed;
+          width: 100%;
+          height: $loselect-option-item-height;
+
+          .lo-select-option-item-cell {
+            box-sizing: border-box;
+            display: table-cell;
+            vertical-align: middle;
+            white-space: nowrap;
+            font-size: $font-size;
+            line-height: $loselect-option-item-height;
+            padding: 0px 0px 0px 0px;
+            user-select: none;
+
+            &.lo-select-option-item-checkbox {
+              overflow: hidden;
+              width: $font-size;
+              text-align: center;
+              .item-checkbox-wrap {
+                position: relative;
+                display: block;
+                width: $font-size;
+                height: $loselect-option-item-height;
+
+                &.useCheckBox {
+                  &:after {
+                    content: '';
+                    width: $loselect-option-item-checkbox-size;
+                    height: $loselect-option-item-checkbox-size / 2;
+                    position: absolute;
+                    top: ($loselect-option-item-height) / 4;
+                    right: 0px;
+                    border: 2px solid #000;
+                    border-top: none;
+                    border-right: none;
+                    background: transparent;
+                    opacity: 0.1;
+                    @include transform(rotate(-50deg));
+                  }
+                }
+              }
+            }
+            &.lo-select-option-item-label {
+              padding: $loselect-label-padding;
+              padding-right: $loselect-option-item-checkbox-size;
+            }
+          }
+        }
+
+        &[data-option-selected="true"] {
+          .lo-select-option-item-holder .lo-select-option-item-cell.lo-select-option-item-checkbox .item-checkbox-wrap.useCheckBox {
+            &:after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .lo-select-option-group {
+
+        .lo-select-option-item-holder {
+          display: table;
+          position: relative;
+          border-collapse: separate;
+          overflow: hidden;
+          //table-layout: fixed;
+          width: 100%;
+          height: $loselect-option-item-height;
+
+          .lo-select-option-group-label {
+            box-sizing: border-box;
+            display: table-cell;
+            vertical-align: middle;
+            white-space: nowrap;
+            font-size: $font-size;
+            line-height: $loselect-option-item-height;
+
+            padding: 5px 10px; // todo : theme 정리 나중에
+            user-select: none;
+          }
+        }
+      }
+    }
+    .lo-select-option-group-buttons {
+      text-align: center;
+      padding: $padding;
+    }
+  }
+}
+
+// themes
+$base-colors: (
+        default: $loselect-default-base-color,
+        primary: $loselect-primary-base-color,
+        success: $loselect-success-base-color,
+        info: $loselect-info-base-color,
+        warning: $loselect-warning-base-color,
+        danger: $loselect-danger-base-color
+);
+$theme-colors: (
+        default: $loselect-default-theme-color,
+        primary: $loselect-primary-theme-color,
+        success: $loselect-success-theme-color,
+        info: $loselect-info-theme-color,
+        warning: $loselect-warning-theme-color,
+        danger: $loselect-danger-theme-color
+);
+$hover-types: (
+        default: $loselect-default-hover-type,
+        primary: $loselect-primary-hover-type,
+        success: $loselect-success-hover-type,
+        info: $loselect-info-hover-type,
+        warning: $loselect-warning-hover-type,
+        danger: $loselect-danger-hover-type
+);
+
+/// select-display
+.lo-select-display {
+  position: relative;
+  z-index: 2;
+  padding: 0px;
+
+  display: block;
+  height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  font-size: $font-size-base;
+  border-radius: $input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+
+  @include lo-background(top, $loselect-label-bg-colors);
+  border: $loselect-label-border;
+  color: $loselect-label-color;
+
+  text-decoration: none;
+  @include box-shadow(none);
+  // @include box-shadow(inset 0px -2px 5px rgba(0,0,0,.075));
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+
+  .lo-select-display-table {
+    width: 100%;
+    height: 100%;
+    display: table;
+    //table-layout: fixed;
+    border-collapse: collapse;
+    user-select: none;
+
+    [data-lo-select-display="label"] {
+      display: table-cell;
+      vertical-align: middle;
+      padding: $loselect-label-padding;
+      color: $loselect-label-color;
+      white-space: nowrap;
+    }
+    [data-lo-select-display="addon"] {
+      display: table-cell;
+      vertical-align: middle;
+      width: $loselect-addon-icon-height * 2 + $loselect-addon-icon-padding-right;
+      text-align: center;
+
+      .addon-icon-reset {
+        display: none;
+      }
+      .addon-icon-closed {
+        display: block;
+      }
+      .addon-icon-opened {
+        display: none;
+      }
+      .addon-icon-closed {
+        width: $loselect-addon-icon-height * 2 + $loselect-addon-icon-padding-right;
+        text-align: left;
+        line-height: ($loselect-addon-icon-height * 1.414);
+        .addon-icon-arrow {
+          content: '';
+          width: 9px;
+          height: 5px;
+          display: inline-block;
+          //border-left: $loselect-addon-icon-height solid transparent;
+          //border-right: $loselect-addon-icon-height solid transparent;
+          //border-top: ($loselect-addon-icon-height * 1.414) solid $loselect-addon-icon-color;
+          background: transparent url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iOXB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDkgNSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNjMuMSAoOTI0NTIpIC0gaHR0cHM6Ly9za2V0Y2guY29tIC0tPgogICAgPHRpdGxlPmFkZG9uLWljb24tYXJyb3ctMTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJhZGRvbi1pY29uLWFycm93LTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwYXRoIGQ9Ik00LjAzNjQ4MDY5LDQuNzkxNjY2NjcgQzQuMzcxMjQ0NjQsNS4wNjk0NDQ0NCA0LjY4MDI1NzUxLDUuMDY5NDQ0NDQgNC45NjM1MTkzMSw0Ljc5MTY2NjY3IEw0Ljk2MzUxOTMxLDQuNzkxNjY2NjcgTDguNzQ4OTI3MDQsMS4xNTUzMDMwMyBDOS4wODM2OTA5OSwwLjgyNzAyMDIwMiA5LjA4MzY5MDk5LDAuNTIzOTg5ODk5IDguNzQ4OTI3MDQsMC4yNDYyMTIxMjEgQzguNDE0MTYzMDksLTAuMDgyMDcwNzA3MSA4LjEwNTE1MDIxLC0wLjA4MjA3MDcwNzEgNy44MjE4ODg0MSwwLjI0NjIxMjEyMSBMNy44MjE4ODg0MSwwLjI0NjIxMjEyMSBMNC41LDMuMjAwNzU3NTggTDEuMjE2NzM4MiwwLjI0NjIxMjEyMSBDMC44ODE5NzQyNDksLTAuMDU2ODE4MTgxOCAwLjU2MDA4NTgzNywtMC4wNTY4MTgxODE4IDAuMjUxMDcyOTYxLDAuMjQ2MjEyMTIxIEMtMC4wODM2OTA5ODcxLDAuNTIzOTg5ODk5IC0wLjA4MzY5MDk4NzEsMC44MjcwMjAyMDIgMC4yNTEwNzI5NjEsMS4xNTUzMDMwMyBMMC4yNTEwNzI5NjEsMS4xNTUzMDMwMyBMNC4wMzY0ODA2OSw0Ljc5MTY2NjY3IFoiIGlkPSLunaAiIGZpbGw9IiM2RTZFNkUiIGZpbGwtcnVsZT0ibm9uemVybyI+PC9wYXRoPgogICAgPC9nPgo8L3N2Zz4=') no-repeat center center;
+          opacity: 1;
+        }
+      }
+      .addon-icon-opened {
+        width: $loselect-addon-icon-height * 2 + $loselect-addon-icon-padding-right;
+        text-align: left;
+        line-height: ($loselect-addon-icon-height * 1.414);
+        .addon-icon-arrow {
+          content: '';
+          width: 9px;
+          height: 5px;
+          display: inline-block;
+          //border-left: $loselect-addon-icon-height solid transparent;
+          //border-right: $loselect-addon-icon-height solid transparent;
+          //border-bottom: ($loselect-addon-icon-height * 1.414) solid $loselect-addon-icon-color;
+          background: transparent url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iOXB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDkgNSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNjMuMSAoOTI0NTIpIC0gaHR0cHM6Ly9za2V0Y2guY29tIC0tPgogICAgPHRpdGxlPmFkZG9uLWljb24tYXJyb3ctMjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJhZGRvbi1pY29uLWFycm93LTIiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwYXRoIGQ9Ik00LjAzNjQ4MDY5LDQuNzkxNjY2NjcgQzQuMzcxMjQ0NjQsNS4wNjk0NDQ0NCA0LjY4MDI1NzUxLDUuMDY5NDQ0NDQgNC45NjM1MTkzMSw0Ljc5MTY2NjY3IEw0Ljk2MzUxOTMxLDQuNzkxNjY2NjcgTDguNzQ4OTI3MDQsMS4xNTUzMDMwMyBDOS4wODM2OTA5OSwwLjgyNzAyMDIwMiA5LjA4MzY5MDk5LDAuNTIzOTg5ODk5IDguNzQ4OTI3MDQsMC4yNDYyMTIxMjEgQzguNDE0MTYzMDksLTAuMDgyMDcwNzA3MSA4LjEwNTE1MDIxLC0wLjA4MjA3MDcwNzEgNy44MjE4ODg0MSwwLjI0NjIxMjEyMSBMNy44MjE4ODg0MSwwLjI0NjIxMjEyMSBMNC41LDMuMjAwNzU3NTggTDEuMjE2NzM4MiwwLjI0NjIxMjEyMSBDMC44ODE5NzQyNDksLTAuMDU2ODE4MTgxOCAwLjU2MDA4NTgzNywtMC4wNTY4MTgxODE4IDAuMjUxMDcyOTYxLDAuMjQ2MjEyMTIxIEMtMC4wODM2OTA5ODcxLDAuNTIzOTg5ODk5IC0wLjA4MzY5MDk4NzEsMC44MjcwMjAyMDIgMC4yNTEwNzI5NjEsMS4xNTUzMDMwMyBMMC4yNTEwNzI5NjEsMS4xNTUzMDMwMyBMNC4wMzY0ODA2OSw0Ljc5MTY2NjY3IFoiIGlkPSLunaAiIGZpbGw9IiM2RTZFNkUiIGZpbGwtcnVsZT0ibm9uemVybyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNC41MDAwMDAsIDIuNTAwMDAwKSByb3RhdGUoLTE4MC4wMDAwMDApIHRyYW5zbGF0ZSgtNC41MDAwMDAsIC0yLjUwMDAwMCkgIj48L3BhdGg+CiAgICA8L2c+Cjwvc3ZnPg==') no-repeat center center;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &[data-select-option-group-opened] {
+    @include box-shadow(inset 1px 1px 3px rgba(0, 0, 0, 0.2));
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    .lo-select-display-table [data-lo-select-display="addon"] {
+      .addon-icon-reset {
+        display: block;
+        position: absolute;
+        right: $loselect-addon-icon-height * 2 + $loselect-addon-icon-padding-right * 2;
+        top: 0px;
+        height: 100%;
+      }
+      .addon-icon-closed {
+        display: none;
+      }
+      .addon-icon-opened {
+        display: block;
+      }
+    }
+  }
+
+  @each $theme in $base-colors {
+    &.#{nth($theme, 1)} {
+      @include ax5select-display-theme(map_get($base-colors, nth($theme, 1)), $loselect-option-group-bg, map_get($theme-colors, nth($theme, 1)));
+    }
+  }
+
+  &.input-xs {
+
+  }
+  &.input-sm {
+
+  }
+  &.input-lg {
+
+  }
+}
+
+/// select-option-group
+.lo-select-option-group {
+  box-sizing: border-box;
+  z-index: $loselect-option-group-z-index;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: $loselect-option-group-border-radius;
+  box-shadow: $loselect-option-group-box-shadow;
+  border: $loselect-option-group-inner-border;
+  overflow: hidden;
+  @include lo-background($loselect-option-group-bg);
+  @include animation(loselect-option-group $loselect-option-group-easing-time-open ease-out);
+  @include transform(translateZ(0));
+  @include transform-origin(center top);
+
+  &.destroy {
+    @include animation(loselect-option-group-destroy $loselect-option-group-easing-time-close $ease-in-back forwards);
+  }
+  &.direction-top {
+    @include transform-origin(center top);
+  }
+  &.direction-bottom {
+    @include transform-origin(center bottom);
+  }
+
+  @each $theme in $base-colors {
+    &.#{nth($theme, 1)} {
+      @include ax5select-option-group-theme(map_get($base-colors, nth($theme, 1)), $loselect-option-group-bg, map_get($theme-colors, nth($theme, 1)), map_get($hover-types, nth($theme, 1)));
+    }
+  }
+
+  @include ax5select-option-group-size($loselect-option-item-padding, $loselect-option-item-font-size);
+  &.lo-select-option-group-lg {
+    @include ax5select-option-group-size($loselect-option-item-padding-lg, $loselect-option-item-font-size-lg);
+  }
+  &.lo-select-option-group-sm {
+    @include ax5select-option-group-size($loselect-option-item-padding-sm, $loselect-option-item-font-size-sm);
+  }
+  &.lo-select-option-group-xs {
+    @include ax5select-option-group-size($loselect-option-item-padding-xs, $loselect-option-item-font-size-xs);
+  }
+}
+
+
+/// suport input-group
+.input-group {
+  [data-lo-select] {
+    display: table-cell;
+
+    select {
+      z-index: 1;
+      position: absolute;
+      opacity: 0;
+      user-select: none;
+    }
+    .lo-select-display {
+      @extend .lo-select-display;
+    }
+    &:first-child{
+      .lo-select-display {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    &:last-child{
+      .lo-select-display {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <!--link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap/css/bootstrap.min.css"/-->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.css"/>
+
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
+    <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
+    <style>
+        html, body {
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div data-lolayout="lo1" data-config='{layout:"dock-panel"}' style="height: 100%;border:1px solid #ccc;">
+    <div data-dock-panel='{dock:"top", split:true, height: 200, maxHeight: 300}'>
+        <div style="height:100%;"></div>
+    </div>
+    <div data-dock-panel='{dock:"bottom", split:"true", height: 200, minHeight: 50, maxHeight: 300}'></div>
+    <div data-dock-panel='{dock:"left", split:true, width: 200, minWidth: 50}'></div>
+    <div data-dock-panel='{dock:"right", split:true, width: "10%", minWidth: 50, maxWidth: 300}'>
+        <!--
+                <div data-lolayout="lo3" data-config='{layout:"dock-panel"}' style="height: 100%;border:1px solid #ccc;">
+                    <div data-dock-panel='{dock:"top", split:"true", height: 200}'>
+                        <div style="height:100%;border:1px solid #000;"></div>
+                    </div>
+                    <div data-dock-panel='{dock:"center"}'></div>
+                </div>
+        -->
+    </div>
+    <div data-dock-panel='{dock:"center"}' style="padding: 5px;">
+
+        <button class="btn btn-default" data-btn="resize">크기변경</button>
+        <button class="btn btn-default" data-btn="reset">Reset</button>
+        <button class="btn btn-default" data-btn="left-hide">Toggle left</button>
+
+        <!--
+                <div data-lolayout="lo2" data-config='{layout:"dock-panel"}' style="height: 100%;border:1px solid #ccc;">
+                    <div data-dock-panel='{dock:"top", split:false, height: 100}'>
+                        <div style="height:100%;border-bottom:1px solid #ccc;"></div>
+                    </div>
+                    <div data-dock-panel='{dock:"left", split:"true", width: 100}'></div>
+                    <div data-dock-panel='{dock:"center"}' style="padding: 5px;">
+
+                    </div>
+                </div>
+        -->
+    </div>
+</div>
+
+<script>
+    jQuery(document.body).ready(function () {
+        jQuery('[data-lolayout="lo1"]').lolayout({
+            onResize: function () {
+                //console.log(this.$target);
+                //console.log(this);
+            }
+        });
+
+        $('[data-btn="resize"]').click(function () {
+            jQuery('[data-lolayout="lo1"]').lolayout("resize",
+                {
+                    top: {height: 100},
+                    bottom: 100,
+                    left: 100,
+                    right: 100
+                }
+            );
+        });
+        $('[data-btn="reset"]').click(function () {
+            jQuery('[data-lolayout="lo1"]').lolayout("reset");
+        });
+        $('[data-btn="left-hide"]').click(function () {
+            jQuery('[data-lolayout="lo1"]').lolayout("hide", "left");
+        });
+
+
+        return;
+        jQuery('[data-lolayout="lo2"]').lolayout({
+            onResize: function () {
+                //console.log(this.$target);
+                //console.log(this);
+            }
+        });
+
+        jQuery('[data-lolayout="lo3"]').lolayout();
+        jQuery('[data-lolayout="lo3"]').lolayout("onResize", function () {
+            // console.log(this.$target);
+        });
+
+        // 특정 레이아웃 리사이즈 이벤트 호출 : jQuery('[data-lolayout="lo1"]').lolayout("align");
+    });
+</script>
+
+</body>
+</html>

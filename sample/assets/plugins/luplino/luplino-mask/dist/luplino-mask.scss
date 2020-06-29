@@ -1,0 +1,104 @@
+---
+---
+
+@import "luplino-utils";
+@import "luplino-mixin";
+
+
+$lomask-z-index: 1000 !default;
+$lomask-bg-opacity: 0.6 !default;
+
+$lomask-bg: #000 !default;
+$lomask-text-color: #fff !default;
+$lomask-text-shadow:0px 1px 0px #000 !default;
+
+$lomask-easing-time-open: 0.25s !default;
+$lomask-easing-time-close: 0.25s !default;
+
+
+@mixin lo-mask() {
+  position: absolute;
+}
+
+@mixin lo-panel-mask() {
+  position: absolute;
+}
+
+// mixins --------------------------------------------- end
+
+@include keyframes(lo-mask) {
+  from {
+    opacity: 0.0;
+  }
+  to {
+    opacity: $lomask-bg-opacity;
+  }
+}
+
+@include keyframes(lo-mask-fade-out) {
+  from {
+    opacity: $lomask-bg-opacity;
+  }
+  to {
+    opacity: 0.0;
+  }
+}
+
+.lo-masking {
+  -webkit-filter: blur(3px);
+  //position: fixed;
+  @include transform(scale(0.96));
+  @include transform(translateZ(0));
+}
+
+.lo-mask {
+  box-sizing: border-box;
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  z-index: $lomask-z-index;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  .lo-mask-bg {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $lomask-bg;
+    opacity: $lomask-bg-opacity;
+  }
+  .lo-mask-content {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: table;
+    vertical-align: middle;
+    text-align: center;
+    color: $lomask-text-color;
+    text-shadow: $lomask-text-shadow;
+    * {
+      color: inherit;
+    }
+    > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+
+  &.fade-out {
+    @include animation(lo-mask-fade-out $lomask-easing-time-close);
+    opacity: 0.0;
+  }
+}

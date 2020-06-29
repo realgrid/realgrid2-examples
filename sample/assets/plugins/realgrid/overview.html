@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<title>RealGrid2.0 Overview</title>
+<script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="scripts/domutils.js"></script>
+<script type="text/javascript" src="lib/realgridjs-lic.js"></script>
+<script type="text/javascript" src="lib/realgrid2.js"></script>
+<script type="text/javascript" src="./overview.js"></script>
+<link href="realgrid_style_bk.css" rel="stylesheet">
+<!--<link href="./style.css" rel="stylesheet">-->
+<script>
+
+	window.addEventListener('DOMContentLoaded', function () {
+		createGrid("realgrid");
+		// setActions && setActions("actions");
+	});
+	
+</script>
+	
+<style>
+	html {
+		height: 100%;
+		margin: 0px;
+		overflow: hidden;
+	}
+	body {
+		height: 100%;
+		margin: 0px 0px 0px 0px;
+		overflow: hidden;
+	}
+	#actions {
+		height: 50px;
+	}
+	#realgrid {
+		width: 100%;
+		height: calc(100% - 50px - 10px); /* 10px는 margin */
+		height: -moz-calc(100% - 50px - 10px); /* for Firefox */
+		height: -webkit-calc(100% - 50px - 10px); /* for WebKit */
+		height: -o-calc(100% - 50px - 10px); /* for Opera */
+		height: expression(100% - 50px - 10px); /* IE Old */
+	}	
+	.left-column{
+		text-align: left;
+	}
+	.left-column > div{
+		padding-left: 10px;		
+	}
+	.right-column{
+		text-align: right;
+	}
+	.bold-column{
+		font-weight: bold;
+	}
+	.red-column{
+		color: red;
+	}
+	.right-column > div{
+		padding-right: 10px;		
+	}	
+	.test-style {
+		background: linear-gradient(to right, #96f58F,red);
+	}
+
+	.rg-bar-renderer > span{
+		transform: translate(0, -50%) !important;
+		right : unset !important;
+		left : 15px !important;
+		font-size: 11px;
+		font-weight: bold;
+		color: white;
+	}
+	
+	.proficiency-loss > .rg-bar-renderer > .rg-bar-renderer-bar {
+		background: #df2222;
+	}
+
+	.rg-icon-renderer > img{
+		cursor: pointer;
+	}
+
+	</style>
+	
+</head>
+
+<body>
+		<div>리얼그리드2.0 테스트를 위한 화면 입니다.</br>
+		1. 컬럼  "textAlignment" > style 로 지정, 2. dynamicStyle > callBack 사용, 3. 아이콘 링크, 4. html renderer
+		</div>
+		<div id="realgrid"></div>
+</body>
+</html>

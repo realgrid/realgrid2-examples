@@ -1,0 +1,326 @@
+---
+---
+
+@import "luplino";
+@import "luplino-mixin";
+@import "luplino-utils";
+
+$lolayout-splitter-background: #ccc !default;
+$lolayout-resizer-background: #ffbfc5 !default;
+
+$lolayout-tab-panel-label-border-top: 1px solid #D4D4D4 !default;
+$lolayout-tab-panel-label-border-bottom: 1px solid #D4D4D4 !default;
+$lolayout-tab-panel-label-padding-top: 0px !default;
+$lolayout-tab-panel-label-height: 35px !default;
+$lolayout-tab-panel-label-item-height: 30px !default;
+$lolayout-tab-panel-label-bg-colors: (#E3E3E3, #E3E3E3) !default;
+$lolayout-tab-panel-label-border-bg: #fff !default;
+$lolayout-tab-panel-label-item-color: $text-color !default;
+
+$lolayout-tab-panel-label-item-border-top: 0 none !default;
+$lolayout-tab-panel-label-item-border-right: 1px solid #D4D4D4 !default;
+$lolayout-tab-panel-label-item-border-bottom: 1px solid #D4D4D4 !default;
+$lolayout-tab-panel-label-item-bg-colors: (#D6D6D6, #D6D6D6) !default;
+$lolayout-tab-panel-label-item-hover-bg-colors: (#e3e3e3, #e3e3e3) !default;
+$lolayout-tab-panel-label-item-hover-color: $text-color !default;
+$lolayout-tab-panel-label-item-active-bg-colors: (#fff, #fff) !default;
+$lolayout-tab-panel-label-item-active-color: $text-color !default;
+
+@include keyframes(lo-layout) {
+  from {
+    @include transform(translateY(-10%) scaleY(0.0));
+    opacity: 0;
+  }
+  to {
+    @include transform(translateY(0%) scaleY(1.0));
+    opacity: 1;
+  }
+}
+
+@include keyframes(lo-layout-option-destroy) {
+  from {
+    @include transform(translateY(0%) scaleY(1.0));
+    opacity: 1;
+  }
+  to {
+    @include transform(translateY(-10%) scaleY(0.0));
+    opacity: 0;
+  }
+}
+
+@mixin lo-ui-layout-theme($border-color, $font-color) {
+
+}
+
+/// layout-display
+[data-lolayout] {
+  position: relative;
+  border: 0px none;
+  > [data-dock-panel] {
+    position: absolute;
+    border: 0px none;
+    z-index: 2;
+    overflow: hidden;
+
+    &.dock-panel-top {
+      left: 0px;
+      top: 0px;
+      width: 100%;
+    }
+    &.dock-panel-bottom {
+      left: 0px;
+      bottom: 0px;
+      width: 100%;
+    }
+    &.dock-panel-left {
+      left: 0px;
+      top: 0px;
+      height: 100%;
+    }
+    &.dock-panel-right {
+      right: 0px;
+      top: 0px;
+      height: 100%;
+    }
+    &.dock-panel-center {
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+  > [data-split-panel] {
+    //display: none;
+
+    border: 0px none;
+    z-index: 2;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    &.split-panel-vertical {
+      position: absolute;
+      height: 100%;
+      //display: block;
+    }
+    &.split-panel-horizontal {
+      position: absolute;
+      width: 100%;
+      //display: block;
+    }
+  }
+  > [data-splitter] {
+    // @include transition(all 0.3s, $ease-in-out-cubic);
+    position: absolute;
+    background: $lolayout-splitter-background;
+    //z-index: 3;
+
+    &.dock-panel-top {
+      top: 0;
+      width: 100%;
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        height: 8px;
+        top: -4px;
+        left: 0;
+        right: 0;
+        cursor: row-resize;
+      }
+    }
+    &.dock-panel-bottom {
+      bottom: 0;
+      width: 100%;
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        height: 8px;
+        top: -4px;
+        left: 0;
+        right: 0;
+        cursor: row-resize;
+      }
+    }
+    &.dock-panel-left {
+      left: 0;
+      height: 100%;
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        width: 8px;
+        left: -4px;
+        top: 0;
+        bottom: 0;
+        cursor: col-resize;
+      }
+    }
+    &.dock-panel-right {
+      right: 0;
+      height: 100%;
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        width: 8px;
+        left: -4px;
+        top: 0;
+        bottom: 0;
+        cursor: col-resize;
+      }
+    }
+    &.split-panel-vertical {
+      height: 100%;
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        width: 8px;
+        left: -4px;
+        top: 0;
+        bottom: 0;
+        cursor: col-resize;
+      }
+    }
+    &.split-panel-horizontal {
+      width: 100%;
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        height: 8px;
+        top: -4px;
+        left: 0;
+        right: 0;
+        cursor: row-resize;
+      }
+    }
+  }
+  > [data-tab-panel-label-holder] {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    border-top: $lolayout-tab-panel-label-border-top;
+    border-bottom: $lolayout-tab-panel-label-border-bottom;
+    width: 100%;
+    padding-top: $lolayout-tab-panel-label-padding-top;
+    height: $lolayout-tab-panel-label-height;
+    @include lo-background(top, $lolayout-tab-panel-label-bg-colors);
+
+    [data-tab-panel-label-border] {
+      box-sizing: border-box;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: $lolayout-tab-panel-label-height - $lolayout-tab-panel-label-item-height - $lolayout-tab-panel-label-padding-top - 1;
+      background: $lolayout-tab-panel-label-border-bg;
+      border-top: $lolayout-tab-panel-label-border-bottom;
+      z-index: 1;
+    }
+    [data-tab-panel-label-table] {
+      z-index: 2;
+      position: relative;
+      display: table;
+      //height: $lolayout-tab-panel-label-height;
+
+      [data-tab-panel-label] {
+        display: table-cell;
+        cursor: pointer;
+        vertical-align: middle;
+
+        [data-tab-label] {
+          box-sizing: border-box;
+          //height: 100%;
+          padding: 0px 15px;
+          height: $lolayout-tab-panel-label-item-height;
+          line-height: $lolayout-tab-panel-label-item-height;
+          border-top: $lolayout-tab-panel-label-item-border-top;
+          border-right: $lolayout-tab-panel-label-item-border-right;
+          border-bottom: $lolayout-tab-panel-label-item-border-bottom;
+          @include lo-background(top, $lolayout-tab-panel-label-item-bg-colors);
+          color: $lolayout-tab-panel-label-item-color;
+          &:hover {
+            @include lo-background(top, $lolayout-tab-panel-label-item-hover-bg-colors);
+            color: $lolayout-tab-panel-label-item-hover-color;
+          }
+        }
+
+        &[data-tab-active="true"] {
+          [data-tab-label] {
+            @include lo-background(top, $lolayout-tab-panel-label-item-active-bg-colors);
+            border-bottom: 1px solid $lolayout-tab-panel-label-border-bg;
+            color: $lolayout-tab-panel-label-item-active-color;
+          }
+        }
+      }
+      [data-tab-panel-aside="left"] {
+        display: table-cell;
+        width: 5px;
+        border-right: $lolayout-tab-panel-label-item-border-right;
+      }
+      [data-tab-panel-aside="right"] {
+        display: table-cell;
+        //width: 5px;
+        //border-right: 1px solid #D4D4D4;
+      }
+    }
+  }
+  > [data-tab-panel] {
+    position: absolute;
+    border: 0px none;
+    z-index: 2;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: none;
+    padding-top: $lolayout-tab-panel-label-height;
+    &[data-tab-active="true"] {
+      display: block;
+    }
+  }
+
+  [data-split-panel-wrap] {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &[data-split-panel-wrap="scroll"] {
+      overflow: auto;
+    }
+    &[data-split-panel-wrap="scroll-x"] {
+      overflow-x: auto;
+    }
+    &[data-split-panel-wrap="scroll-y"] {
+      overflow-y: auto;
+    }
+  }
+}
+
+.lolayout-resizer {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: $lolayout-resizer-background;
+  z-index: 10;
+  overflow: hidden;
+  padding: 0;
+  marign: 0;
+
+  &.panel-top {
+    cursor: ns-resize;
+  }
+  &.panel-bottom {
+    cursor: ns-resize;
+  }
+  &.panel-left {
+    cursor: ew-resize;
+  }
+  &.panel-right {
+    cursor: ew-resize;
+  }
+}

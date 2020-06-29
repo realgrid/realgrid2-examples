@@ -1,0 +1,135 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    {% include luplina-head.html %}
+    <title>Hola Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/ztree/css/entypoplus/entypoplus.css" />
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/plugins/ztree/js/jquery.ztree.core.js"></script>
+    <script src="/assets/js/luplina.js"></script>
+</head>
+
+<body>
+<div class="la-panel">
+    <div class="la-panel-box">
+        <div class="la-panel-head"><i class="icon icon-list"></i> <span>퀵메뉴</span></div>
+        <div class="la-panel-body">
+            <div id="ztree" class="ztree"></div>
+<!--            <div data-logrid="first-grid" data-logrid-config="{}" class="la-panel-grid onlytree"></div>-->
+        </div>
+    </div>
+</div>
+
+<script>
+    // var firstGrid = new luplino.ui.grid();
+
+    var zsetting = {};
+    var znodes =[
+        { name:"리얼그리드", open:true,
+            children: [
+                { name:"소개", isParent:true},
+                { name:"샘플",
+                    children: [
+                        { name:"기본설정"},
+                        { name:"주요기능"},
+                        { name:"부가기능"},
+                        { name:"특화기능"}
+                    ]}
+            ]},
+        { name:"거래처",
+            children: [
+                { name:"거래처 목록", open:true,
+                    children: [
+                        { name:"공공기업"},
+                        { name:"대기업"},
+                        { name:"중소기업"},
+                        { name:"개인/기타"}
+                    ]},
+                { name:"거래처 영업",
+                    children: [
+                        { name:"2020년 상반기"},
+                        { name:"2019년 하반기"},
+                        { name:"2019년 상반기"},
+                        { name:"종합리포트"}
+                    ]},
+                { name:"거래처 전략",
+                    children: [
+                        { name:"전략"},
+                        { name:"유사사례"},
+                        { name:"신규사례"},
+                        { name:"실패사례"}
+                    ]}
+            ]},
+        { name:"세금계산서", isParent:true}
+
+    ];
+
+    var ztree = {
+        initView:function(){
+            $.fn.zTree.init($("#ztree"), zsetting, znodes);
+        }
+    };
+
+    // var gridView = {
+    //     initView: function () {
+    //         firstGrid.setConfig({
+    //             target: $('[data-logrid="first-grid"]'),
+    //             columns: [
+    //                 {key: "name", label: "필드B", align: "left", width: '100%', treeControl: true, editor: {type: "text"}}
+    //             ],
+    //             header:{
+    //                 columnHeight:0,
+    //                 columnBorderWidth:0
+    //             },
+    //             page:{
+    //                 height:0
+    //             },
+    //             body:{
+    //                 columnHeight:20,
+    //                 columnBorderWidth:0
+    //             },
+    //             tree: {
+    //                 use: true,
+    //                 indentWidth: 10,
+    //                 arrowWidth: 15,
+    //                 iconWidth: 18,
+    //                 icons: {
+    //                     openedArrow: '<i class="icon-triangle-down" aria-hidden="true"></i>',
+    //                     collapsedArrow: '<i class="icon-triangle-right" aria-hidden="true"></i>',
+    //                     groupIcon: '<i class="icon-folder" aria-hidden="true"></i>',
+    //                     collapsedGroupIcon: '<i class="icon-archive" aria-hidden="true"></i>',
+    //                     itemIcon: '<i class="icon-dot-single" aria-hidden="true"></i>'
+    //                 },
+    //                 columnKeys: {
+    //                     parentKey: "pid",
+    //                     selfKey: "id"
+    //                 }
+    //             },
+    //         });
+    //
+    //
+    //         return this;
+    //     },
+    //     setData: function (_pageNo) {
+    //         firstGrid.setData(sampleData);
+    //         return this;
+    //     }
+    // };
+
+    $(document.body).ready(function () {
+        ztree.initView();
+        // gridView.setData();
+    });
+</script>
+
+</body>
+</html>

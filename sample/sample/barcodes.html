@@ -1,0 +1,46 @@
+---
+layout: default
+title : 'RealGrid2:Barcodes'
+---
+
+<script type="text/javascript" src="/assets/plugins/realgrid/tests/samples-barcodes.js"></script>
+<script type="text/javascript" src="/assets/plugins/realgrid/data/json-array.js"></script>
+<script type="text/javascript" src="/assets/plugins/realgrid/data/areatree_json.js"></script>
+<script type="text/javascript" src="/assets/plugins/realgrid/barcodes.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        createGrid("realgrid");
+        setActions && setActions("actions");
+    });
+
+    function loadData(filename) {
+        var reqUrl = "/assets/plugins/realgrid/data/" + filename; // for S3
+        // let reqUrl = "/getData/fileName=" + fileName; // for node
+        $.ajax({
+            type: "GET",
+            url: reqUrl,
+            success: function(response)
+            {
+                dataProvider.setRows(response);
+                grid.refreshView();
+            }
+        });
+    }
+</script>
+
+<div class="grid-container">
+    <div class="layer-1">
+        <div class="cell">
+            <div id="actions">
+                <span id="ellapseTime" style="font-size:9px"></span>
+                <input id="txtMain" type="text" style="width:100px;display:none"></input>
+                <input id="txtSub" type="text" style="width:80px;display:none"></input>
+            </div>
+        </div>
+    </div>
+    <div class="layer-2">
+        <div class="cell">
+            <div id="realgrid"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <title>Hola Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-select/dist/luplino-select.css"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
+    <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
+    <script src="/assets/plugins/luplino/luplino-mask/dist/luplino-mask.js"></script>
+    <script src="/assets/plugins/luplino/luplino-modal/dist/luplino-modal.js"></script>
+    <script src="/assets/plugins/luplino/luplino-select/dist/luplino-select.js"></script>
+
+    <script type="text/javascript">
+        $(document.body).ready(function() {
+
+            $('[data-lo-select]').loselect();
+
+            var param = luplino.util.param(luplino.info.urlUtil().param);
+            $(".modal-close").click(function () {
+                parent[param.callback]();
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="modal-root">
+    <div class="modal-body with-foot">
+
+        <div class="pad-cont">
+            <div class="pad">
+                <div class="pad-head">
+                    <div class="left"><span class="title">거래처 내용입력</span></div>
+                    <div class="right"></div>
+                </div>
+                <div class="pad-body">
+                    <table class="pad-table">
+                        <colgroup>
+                            <col width="110px" />
+                            <col />
+                            <col width="120px" />
+                            <col />
+                            <col width="120px" />
+                            <col />
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <td class="label">고객/회사명&nbsp;<i class="svg icon-wildcard"></i></td>
+                            <td><input type="text" class="la-input" style="width:130px;" /></td>
+                            <td class="label">대표자&nbsp;<i class="svg icon-wildcard"></i></td>
+                            <td><input type="text" class="la-input" style="width:170px;" /></td>
+                            <td class="label">사업자번호</td>
+                            <td><input type="text" class="la-input" style="width:230px;" /></td>
+                        </tr>
+                        <tr>
+                            <td class="label">전화번호</td>
+                            <td>
+                                <input type="text" class="la-input" maxlength="3" style="width:30px;" /> -
+                                <input type="text" class="la-input" maxlength="4" style="width:40px;" /> -
+                                <input type="text" class="la-input" maxlength="4" style="width:40px;" />
+                            </td>
+                            <td class="label">팩스</td>
+                            <td>
+                                <input type="text" class="la-input" maxlength="3" style="width:30px;" /> -
+                                <input type="text" class="la-input" maxlength="4" style="width:40px;" /> -
+                                <input type="text" class="la-input" maxlength="4" style="width:40px;" />
+                            </td>
+                            <td class="label">주소</td>
+                            <td>
+                                <input type="text" class="la-input" style="width:150px;" />
+                                <input type="text" class="la-input" style="width:100px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">허가사항</td>
+                            <td><input type="text" class="la-input" style="width:70px;" /></td>
+                            <td class="label">법인등록번호</td>
+                            <td><input type="text" class="la-input" style="width:130px;" /></td>
+                            <td class="label">업체코드</td>
+                            <td><input type="text" class="la-input" style="width:130px;" /></td>
+                        </tr>
+                        <tr>
+                            <td class="label">담당자</td>
+                            <td>
+                                <div data-lo-select="select1" data-lo-select-config="{
+                                        name: 'select1',
+                                        minWidth: 100,
+                                        options:[
+                                            {value:'0', text:'담당자 선택'},
+                                            {value:'1', text:'홍길동'},
+                                            {value:'2', text:'김수환'},
+                                            {value:'3', text:'이두희'},
+                                            {value:'4', text:'송보연'},
+                                            {value:'5', text:'장서운'}
+                                            ]
+                                        }"></div>
+                            </td>
+                            <td class="label">은행/계좌/예금주</td>
+                            <td colspan="3"><input type="text" class="la-input" style="width:200px;" /></td>
+                        </tr>
+                        <tr>
+                            <td class="label">참고</td>
+                            <td colspan="5"><textarea rows="5" class="la-textarea" style="width:100%;"></textarea></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="pad-cont">
+            <div class="pad">
+                <div class="pad-head">
+                    <div class="left"><span class="title">담당자 목록</span></div>
+                    <div class="right">
+                        <a href="#"><i class="icon icon-circle-with-plus"></i>&nbsp;<span class="text">추가</span></a>&nbsp;&nbsp;
+                        <a href="#"><i class="icon icon-circle-with-minus"></i>&nbsp;<span class="text">삭제</span></a>
+                    </div>
+                </div>
+                <div class="pad-body">
+                    <table class="pad-table">
+                        <colgroup>
+                            <col width="50px" />
+                            <col width="120px" />
+                            <col width="150px" />
+                            <col width="200px" />
+                            <col width="200px" />
+                            <col />
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <td class="label center">선택</td>
+                            <td class="label left">담당자명</td>
+                            <td class="label left">부서</td>
+                            <td class="label left">이메일</td>
+                            <td class="label left">휴대전화</td>
+                            <td class="label left">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="center">
+                                <input type="checkbox" class="lo-checkbox primary" id="lcb1" checked="checked">
+                                <label for="lcb1"></label>
+                            </td>
+                            <td>
+                                <div data-lo-select="select1" data-lo-select-config="{
+                                        name: 'select1',
+                                        minWidth: 100,
+                                        options:[
+                                            {value:'0', text:'담당자 선택'},
+                                            {value:'1', text:'홍길동'},
+                                            {value:'2', text:'김수환'},
+                                            {value:'3', text:'이두희'},
+                                            {value:'4', text:'송보연'},
+                                            {value:'5', text:'장서운'}
+                                            ]
+                                        }"></div>
+                            </td>
+                            <td><input type="text" class="la-input" style="width:130px;" /></td>
+                            <td><input type="text" class="la-input" style="width:180px;" /></td>
+                            <td>
+                                <input type="text" class="la-input" maxlength="3" style="width:30px;" /> -
+                                <input type="text" class="la-input" maxlength="4" style="width:40px;" /> -
+                                <input type="text" class="la-input" maxlength="4" style="width:40px;" />
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-foot">
+        <div class="la-button-group">
+            <a href="#" class="la-button large primary modal-close"><i class="icon icon-install"></i>&nbsp;<span class="text">저장</span></a>
+            <a href="#" class="la-button large modal-close"><i class="icon icon-block"></i>&nbsp;<span class="text">취소</span></a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

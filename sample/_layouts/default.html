@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{%if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+        <script type="text/javascript" src="/assets/js/jquery-3.4.1.min.js"></script>
+<!--    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/jquery-1.11.3.min.js"></script>-->
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/domutils.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgridjs-lic.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid2.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/assets/js/luplin.js"></script>
+    <link href="/assets/css/luplin.css" rel="stylesheet">
+    <link id="theme" href="/assets/plugins/realgrid/realgrid.css" rel="stylesheet">
+    <link href="/assets/plugins/entypo/entypo.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="button-bar">
+    <button class="button " onclick="location.href='/'"><i class="icon-list"></i></button>
+     | <span class="label">Basic : </span>
+    <button class="button light" onclick="pageObj.changeTheme('light');">Light</button>
+    <button class="button dark" onclick="pageObj.changeTheme('dark');">Dark</button>
+     | <span class="label">Advanced : </span>
+    <button class="button white" onclick="pageObj.changeTheme('white');">White</button>
+    <button class="button sky_blue" onclick="pageObj.changeTheme('sky_blue');">Sky Blue</button>
+    <button class="button galaxy_blue" onclick="pageObj.changeTheme('galaxy_blue');">Galaxy Blue</button>
+    <button class="button red_wine" onclick="pageObj.changeTheme('red_wine');">Red Wine</button>
+    <button class="button high_contrast" onclick="pageObj.changeTheme('high_contrast');">High Contrast</button>
+</div>
+
+{{ content }}
+
+</body>
+</html>

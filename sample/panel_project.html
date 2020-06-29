@@ -1,0 +1,83 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    {% include luplina-head.html %}
+    <title>Hola Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/ztree/css/entypoplus/entypoplus.css" />
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/plugins/ztree/js/jquery.ztree.core.js"></script>
+    <script src="/assets/js/luplina.js"></script>
+</head>
+
+<body>
+<div class="la-panel">
+    <div class="la-panel-box">
+        <div class="la-panel-head"><i class="icon icon-list"></i> <span>퀵메뉴</span></div>
+        <div class="la-panel-body">
+            <div id="ztree" class="ztree"></div>
+            <!--            <div data-logrid="first-grid" data-logrid-config="{}" class="la-panel-grid onlytree"></div>-->
+        </div>
+    </div>
+</div>
+
+<script>
+    var setting = {};
+    var znodes =[
+        { name:"프로젝트", open:true,
+            children: [
+                { name:"공공기관/공기업",
+                    children: [
+                        { name:"경북도청 기획예산부"},
+                        { name:"부산 연산구청"},
+                        { name:"부가기능"},
+                        { name:"한국농촌진흥청"}
+                    ]},
+                { name:"대기업",
+                    children: [
+                        { name:"삼성SDS 미래기획부"},
+                        { name:"한화증권"},
+                        { name:"메리츠증권보험사"},
+                        { name:"마이크로소프트 코리아"}
+                    ]},
+                { name:"중소기업",
+                    children: [
+                        { name:"한진정밀공업"},
+                        { name:"대신기업"}
+                    ]},
+                { name:"대학교/교육기관",
+                    children: [
+                        { name:"아신대학교"},
+                        { name:"예천군 호분초등학교"}
+                    ]},
+                { name:"개인/기타",
+                    children: [
+                        { name:"정종구 씨"},
+                        { name:"마이어시스템"},
+                        { name:"떡방앗간"}
+                    ]}
+            ]}
+    ];
+
+    var ztree = {
+        initView:function(){
+            $.fn.zTree.init($("#ztree"), setting, znodes);
+        }
+    };
+
+    $(document.body).ready(function () {
+        ztree.initView();
+        // gridView.setData();
+    });
+</script>
+
+</body>
+</html>

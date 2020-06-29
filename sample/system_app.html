@@ -1,0 +1,144 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    {% include luplina-head.html %}
+    <title>Hola Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.css"/>
+
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
+    <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
+    <script src="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+    <script type="text/javascript">
+
+        var appGrid = new luplino.ui.grid();
+        var gridList = [
+            {pn: "API", path: "/api/", permit:"N", search:"Y", save:"Y", excel:"Y", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""},
+            {pn: "공통코드 관리", path: "/jsp/system/system-config-common-code.jsp", permit:"Y", search:"Y", save:"Y", excel:"Y", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""},
+            {pn: "기본 템플릿", path: "/jsp/sample/basic.jsp", permit:"Y", search:"Y", save:"Y", excel:"N", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""},
+            {pn: "에러로그 관리", path: "/jsp/system/system-log.jsp", permit:"Y", search:"Y", save:"N", excel:"N", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""},
+            {pn: "프로그램 관리", path: "/jsp/system/system-config-app.jsp", permit:"Y", search:"Y", save:"N", excel:"N", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""},
+            {pn: "메뉴 관리", path: "/jsp/system/system-config-menu.jsp", permit:"Y", search:"Y", save:"Y", excel:"N", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""},
+            {pn: "메인", path: "/jsp/main.jsp", permit:"Y", search:"N", save:"N", excel:"N", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""},
+            {pn: "사용자 관리", path: "/jsp/system-auth-user.jsp", permit:"Y", search:"Y", save:"Y", excel:"N", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""},
+            {pn: "루플리노 샘플", path: "/jsp/sample/luplino.jsp", permit:"N", search:"N", save:"N", excel:"N", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""},
+            {pn: "루플리나 샘플", path: "/jsp/sample/luplina.jsp", permit:"N", search:"N", save:"N", excel:"N", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N", etc:""}
+        ];
+
+
+        $(document.body).ready(function() {
+            $('[data-lolayout]').lolayout();
+
+            appGrid.setConfig({
+                target: $('[data-logrid="app-grid"]'),
+                showLineNumber: true,
+                showRowSelector: true,
+                multipleSelect: true,
+                lineNumberColumnWidth:50,
+                rowSelectorColumnWidth:29,
+                sortable: false,
+                header: {align: 'center'},
+                body: {
+                    onClick: function () {
+                        this.self.select(this.dindex, {selectedClear: true});
+                    }
+                },
+                columns: [
+                    {key: "pn", label: "프로그램명", width:150},
+                    {key: "path", label: "경로", width:360},
+                    {key: "permit", label: "권한체크여부", width:100, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "search", label: "조회", width:60, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "save", label: "저장", width:60, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "excel", label: "엑셀", width:60, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "del", label: "삭제", width:60, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "fn1", label: "FN1", width:60, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "fn2", label: "FN2", width:60, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "fn3", label: "FN3", width:60, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "fn4", label: "FN4", width:60, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
+                    {key: "etc", label: "비고", width:300 }
+                ]
+            });
+            appGrid.setData(gridList);
+
+        });
+    </script>
+</head>
+<body>
+
+<div class="page-root">
+    <div class="page-title">
+        <div class="left"><i class="icon icon-browser"></i>&nbsp;<h1>프로그램 관리</h1></div>
+        <div class="right">
+            <div class="la-button-group">
+                <a href="#" class="la-button large disabled"><i class="icon icon-install"></i>&nbsp;<span class="text">저장</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-fixed with-title">
+
+        <div data-lolayout="row-1" data-config="{layout:'split-panel', orientation: 'horizontal'}">
+            <div data-split-panel="{height: '85', minHeight:50}">
+
+                <div class="pad-cont full-height">
+                    <div class="pad">
+                        <div class="pad-head">
+                            <div class="left"><span class="title">조회</span></div>
+                            <div class="right">
+                                <div class="la-button-group">
+                                    <a href="#" class="la-button primary"><i class="icon icon-magnifying-glass"></i>&nbsp;<span class="text">조회</span></a>
+                                    <a href="#" class="la-button"><i class="icon icon-cross"></i>&nbsp;<span class="text">취소</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pad-body with-head">
+                            <div class="pad-row">
+                                <div class="la-input-group">
+                                    <label for="input-1-1">검색어</label>
+                                    <input type="text" id="input-1-1" class="la-input" style="width:130px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div data-splitter="{}"></div>
+            <div data-split-panel="{height: '*'}">
+
+                <div class="pad-cont full-height">
+                    <div class="pad" style="overflow: hidden;">
+                        <div class="pad-head">
+                            <div class="left"><span class="title">프로그램 목록</span></div>
+                            <div class="right">
+                                <a href="#"><i class="icon icon-circle-with-plus"></i>&nbsp;<span class="text">추가</span></a>&nbsp;&nbsp;
+                                <a href="#"><i class="icon icon-circle-with-minus"></i>&nbsp;<span class="text">삭제</span></a>
+                            </div>
+                        </div>
+                        <div class="pad-body with-head">
+                            <style>
+                                [data-logrid-container="root"] {border:none !important; }
+                            </style>
+                            <div data-logrid="app-grid" data-fit-height-content="app-grid" style="height:100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

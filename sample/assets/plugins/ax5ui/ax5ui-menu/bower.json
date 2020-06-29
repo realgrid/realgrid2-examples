@@ -1,0 +1,25 @@
+{
+	"name": "ax5ui-menu",
+	"version": "1.4.131",
+	"description": "A menu plugin that works with Bootstrap & jQuery",
+	"authors": [
+		"ThomasJ <tom@axisj.com>"
+	],
+	"main": "dist/ax5menu.js",
+	"keywords": [
+		"bootstrap",
+		"jquery",
+		"ax5ui",
+		"plugin",
+		"bootstrap jQuery plugins",
+		"formatter",
+		"ax5ui-menu",
+		"javascript ui"
+	],
+	"dependencies": {
+		"jquery": "",
+		"ax5core": ">=1.4.115"
+	},
+	"license": "MIT",
+	"homepage": "ax5.io"
+}

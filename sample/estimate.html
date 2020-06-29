@@ -1,0 +1,232 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    {% include luplina-head.html %}
+    <title>Hola Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-calendar/dist/luplino-calendar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-picker/dist/luplino-picker.css"/>
+
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
+    <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
+    <script src="/assets/plugins/luplino/luplino-calendar/dist/luplino-calendar.js"></script>
+    <script src="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.js"></script>
+    <script src="/assets/plugins/luplino/luplino-picker/dist/luplino-picker.js"></script>
+
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/domutils.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgridjs-lic.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid2.js"></script>
+    <link id="theme" href="/assets/plugins/realgrid/realgrid_light.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+
+    <script type="text/javascript" src="/assets/plugins/realgrid/tests/samples-editor.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/data/json-array.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/data/areatree_json.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/bootstrap-datepicker.ko.min.js"></script>
+    <link href="/assets/plugins/realgrid/scripts/bootstrap-datepicker3.css" rel="stylesheet">
+    <script type="text/javascript" src="/assets/plugins/realgrid/editor.js"></script>
+    <script type="text/javascript">
+
+        var picker = new luplino.ui.picker();
+
+        $(document.body).ready(function() {
+            $('[data-lolayout]').lolayout();
+
+            picker.bind({
+                target: $('[data-lopicker="basic"]'),
+                direction: "top",
+                content: {
+                    width: 200,
+                    margin: 10,
+                    type: 'date',
+                    config: {
+                        control: {
+                            left: '<i class="icon icon-chevron-left"></i>',
+                            yearTmpl: '%s년',
+                            monthTmpl: '%s',
+                            right: '<i class="icon icon-chevron-right"></i>'
+                        },
+                        lang: {
+                            yearTmpl: "%s년",
+                            months: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+                            dayTmpl: "%s"
+                        }
+                    }
+                },
+                onStateChanged: function () {
+
+                },
+                btns: {
+                    today: {
+                        label: "Today", onClick: function () {
+                            var today = new Date();
+                            this.self
+                                .setContentValue(this.item.id, 0, luplino.util.date(today, {"return": "yyyy-mm-dd"}))
+                                .setContentValue(this.item.id, 1, luplino.util.date(today, {"return": "yyyy-mm-dd"}))
+                                .close()
+                            ;
+                        }
+                    },
+                    thisMonth: {
+                        label: "This Month", onClick: function () {
+                            var today = new Date();
+                            this.self
+                                .setContentValue(this.item.id, 0, luplino.util.date(today, {"return": "yyyy-mm-01"}))
+                                .setContentValue(this.item.id, 1, luplino.util.date(today, {"return": "yyyy-mm"})
+                                    + '-'
+                                    + luplino.util.daysOfMonth(today.getFullYear(), today.getMonth()))
+                                .close();
+                        }
+                    },
+                    ok: {label: "Close", theme: "default"}
+                }
+            });
+        });
+
+        //realgrid...
+        window.addEventListener('DOMContentLoaded', function () {
+            createGrid("realgrid-1");
+            createGrid("realgrid-2");
+            setActions && setActions("actions");
+        });
+
+        function loadData(filename) {
+            var reqUrl = "/assets/plugins/realgrid/data/" + filename; // for S3
+            // let reqUrl = "/getData/fileName=" + fileName; // for node
+            $.ajax({
+                type: "GET",
+                url: reqUrl,
+                success: function(response)
+                {
+                    dataProvider.setRows(response);
+                    grid.refreshView();
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+<div class="page-root">
+    <div class="page-title">
+        <div class="left"><i class="icon icon-clipboard"></i>&nbsp;<h1>견적서</h1></div>
+        <div class="right">
+            <div class="la-button-group">
+                <a href="#" class="la-button large"><i class="icon icon-plus"></i>&nbsp;<span class="text">추가</span></a>
+                <a href="#" class="la-button large"><i class="icon icon-pencil"></i>&nbsp;<span class="text">수정</span></a>
+                <a href="#" class="la-button large"><i class="icon icon-clipboard"></i>&nbsp;<span class="text">복사</span></a>
+                <a href="#" class="la-button large"><i class="icon icon-print"></i>&nbsp;<span class="text">견적서 출력</span></a><!--
+                --><span class="group-hr"></span><!--
+                --><a href="#" class="la-button large danger"><i class="icon icon-trash"></i>&nbsp;<span class="text">삭제</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-fixed with-title">
+
+        <div data-lolayout="row-1" data-config="{layout:'split-panel', orientation: 'horizontal'}">
+            <div data-split-panel="{height: '120', minHeight:50}">
+
+                <div class="pad-cont full-height">
+                    <div class="pad">
+                        <div class="pad-head">
+                            <div class="left"><span class="title">조회</span></div>
+                            <div class="right">
+                                <div class="la-button-group">
+                                    <a href="#" class="la-button primary"><i class="icon icon-magnifying-glass"></i>&nbsp;<span class="text">조회</span></a>
+                                    <a href="#" class="la-button"><i class="icon icon-cross"></i>&nbsp;<span class="text">취소</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pad-body with-head">
+                            <div class="pad-row">
+                                <div class="la-input-group">
+                                    <label for="input-1-1">업체명</label>
+                                    <input type="text" id="input-1-1" class="la-input" style="width:130px;" />
+                                </div>
+                                <div class="la-input-group">
+                                    <label for="input-1-2">견적번호</label>
+                                    <input type="text" id="input-1-2" class="la-input" style="width:130px;" />
+                                </div>
+                                <div class="la-input-group">
+                                    <label for="input-1-3">작성자</label>
+                                    <input type="text" id="input-1-3" class="la-input" style="width:130px;" />
+                                </div>
+                            </div>
+                            <div class="pad-row">
+                                <div class="la-input-group">
+                                    <label for="input-2-1">견적일</label>
+                                    <div class="la-picker-group" data-lopicker="basic" id="input-2-1">
+                                        <input type="text" class="form-control bor" placeholder="yyyy/mm/dd"><!--
+                                        --><span class="input-group-addon">~</span><!--
+                                        --><input type="text" class="form-control bol bor" placeholder="yyyy/mm/dd"><!--
+                                        --><span class="input-group-addon"><i class="svg icon-cal"></i></span>
+                                    </div>
+                                </div>
+                                <div class="la-input-group">
+                                    <label for="input-2-2">비고</label>
+                                    <input type="text" id="input-2-2" class="la-input" style="width:130px;" />
+                                </div>
+                                <div class="la-input-group">
+                                    <label for="input-2-3">견적명</label>
+                                    <input type="text" id="input-2-3" class="la-input" style="width:130px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div data-splitter="{}"></div>
+            <div data-split-panel="{height: '*'}">
+
+                <div class="pad-cont full-height">
+                    <div class="pad" style="overflow: hidden;">
+                        <div class="pad-head">
+                            <div class="left"><span class="title">견적서 목록</span></div>
+                            <div class="right"><span class="desc"><strong>RealGrid 2</strong> - v1.1.18</span></div>
+                        </div>
+                        <div class="pad-body with-head">
+                            <style>
+                                .rg-root.rg-grid {border:none !important;}
+                            </style>
+                            <div id="realgrid-1" style="width:100%; height:100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div data-splitter="{}"></div>
+            <div data-split-panel="{height: '200', minHeight:50}">
+                <div class="pad-cont full-height">
+                    <div class="pad" style="overflow: hidden;">
+                        <div class="pad-head">
+                            <div class="left"><span class="title">견적서 세부항목</span></div>
+                            <div class="right"><span class="desc"><strong>RealGrid 2</strong> - v1.1.18</span></div>
+                        </div>
+                        <div class="pad-body with-head">
+                            <style>
+                                .rg-root.rg-grid {border:none !important;}
+                            </style>
+                            <div id="realgrid-2" style="width:100%; height:100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

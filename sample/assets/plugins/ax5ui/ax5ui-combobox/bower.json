@@ -1,0 +1,25 @@
+{
+	"name": "ax5ui-combobox",
+	"version": "1.4.131",
+	"description": "A combobox plugin that works with Bootstrap & jQuery",
+	"authors": [
+		"ThomasJ <tom@axisj.com>"
+	],
+	"main": "dist/ax5combobox.js",
+	"keywords": [
+		"bootstrap",
+		"jquery",
+		"ax5ui",
+		"plugin",
+		"bootstrap jQuery plugins",
+		"combobox",
+		"ax5ui-combobox",
+		"javascript ui"
+	],
+	"dependencies": {
+		"jquery": "",
+		"ax5core": ">=1.4.115"
+	},
+	"license": "MIT",
+	"homepage": "ax5.io"
+}

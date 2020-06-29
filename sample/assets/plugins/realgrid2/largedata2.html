@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<title>RealGrid2.0 Overview</title>
+<script type="text/javascript" src="./scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./scripts/domutils.js"></script>
+<script type="text/javascript" src="./lib/realgrid-lic.js"></script>
+<script type="text/javascript" src="./lib/realgrid.2.0.1.min.js"></script>
+<script type="text/javascript" src="./lib/rgutils.js"></script>
+<script type="text/javascript" src="./largedata2.js"></script>
+<link href="./realgrid_style.css" rel="stylesheet">
+<link href="./realgrid_form.css" rel="stylesheet">
+<link href="./style.css" rel="stylesheet">
+<script>
+
+	window.addEventListener('DOMContentLoaded', function () {
+		createGrid("realgrid");
+		setActions && setActions("actions");
+	});
+	
+</script>
+	
+<style>
+	html {
+		height: 100%;
+		margin: 0px;
+		overflow: hidden;
+	}
+	body {
+		height: 100%;
+		margin: 0px 0px 0px 0px;
+		overflow: hidden;
+	}
+	#actions {
+		height: 50px;
+	}
+	#realgrid {
+		width: 100%;
+		padding: 5 5 5 5;
+		margin: 5 5 5 5;
+		height: calc(100% - 50px - 10px); /* 10px는 margin */
+		height: -moz-calc(100% - 50px - 10px); /* for Firefox */
+		height: -webkit-calc(100% - 50px - 10px); /* for WebKit */
+		height: -o-calc(100% - 50px - 10px); /* for Opera */
+		height: expression(100% - 50px - 10px); /* IE Old */
+	}	
+	.rg-root {
+  		font-size: 14px;
+	}	
+	.small-font-size{
+		font-size: 12px;
+	}
+	.left-column{
+		text-align: left;
+	}
+	.left-column > div{
+		padding-left: 10px;		
+	}
+	.right-column{
+		text-align: right;
+	}
+	.center-column{
+		text-align: center;
+	}
+	.bold-column{
+		font-weight: bold;
+	}
+	.red-column{
+		color: red;
+	}
+	.right-column > div{
+		padding-right: 10px;		
+	}	
+	.test-style {
+		background: linear-gradient(to right, #96f58F,red);
+	}
+	.rg-signalbar-renderer-bar {
+    	fill: #ffa600;
+	}
+	.rg-bar-renderer > span{
+		transform: translate(0, -50%) !important;
+		right : unset !important;
+		left : 15px !important;
+		font-size: 11px;
+		font-weight: bold;
+		color: white;
+	}
+	.rg-bar-renderer-bar {
+		background: rgb(33, 189, 33);
+	}	
+	.proficiency-loss > .rg-bar-renderer > .rg-bar-renderer-bar {
+		background: #df2222;
+	}
+	.rg-icon-renderer > img{
+		cursor: pointer;
+	}
+	</style>
+	
+</head>
+
+<body>
+		<div id="actions">
+			<span id="ellapse" style="font-size:12px"></span>
+		</div>
+		<div id="realgrid"></div>
+</body>
+</html>

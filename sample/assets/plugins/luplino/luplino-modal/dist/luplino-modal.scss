@@ -1,0 +1,517 @@
+---
+---
+
+@import "luplino";
+@import "luplino-mixin";
+@import "luplino-utils";
+
+
+//== modal
+$lomodal-z-index: 2000 !default;
+$lomodal-box-model: border-box !default;
+$lomodal-bg: $panel-bg !default;
+$lomodal-border: 1px solid $panel-inner-border !default;
+$lomodal-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.60) !default;
+$lomodal-body-padding: 0px !default;
+$lomodal-header-padding: $panel-heading-padding !default;
+
+$lomodal-header-addon-padding: 10px 10px !default;
+$lomodal-header-addon-btn-padding: 0px 2px !default;
+
+$lomodal-border-radius: $panel-border-radius !default;
+$lomodal-easing-time-open: 0.3s !default;
+$lomodal-easing-time-close: 0.3s !default;
+$lomodal-easing-open: $ease-out-back !default;
+$lomodal-easing-close: $ease-out-back !default;
+
+//== modal resizer
+$lomodal-resizer-bg: #ccc !default;
+$lomodal-resizer-border: 1px solid #ff0000 !default;
+$lomodal-resizer-box-shaodw: 0px 0px 5px 0px rgba(0, 0, 0, 0.60) !default;
+$lomodal-resizer-opacity : 0.3 !default;
+
+//** Border color for elements within dialog
+$lomodal-default-text: $panel-default-text !default;
+$lomodal-default-border: 1px solid $panel-default-border !default;
+$lomodal-default-header-bg: $panel-default-heading-bg !default;
+
+$lomodal-primary-text: $panel-primary-text !default;
+$lomodal-primary-border: 1px solid $panel-primary-border !default;
+$lomodal-primary-header-bg: $panel-primary-heading-bg !default;
+
+$lomodal-success-text: $panel-success-text !default;
+$lomodal-success-border: 1px solid $panel-success-border !default;
+$lomodal-success-header-bg: $panel-success-heading-bg !default;
+
+$lomodal-info-text: $panel-info-text !default;
+$lomodal-info-border: 1px solid $panel-info-border !default;
+$lomodal-info-header-bg: $panel-info-heading-bg !default;
+
+$lomodal-warning-text: $panel-warning-text !default;
+$lomodal-warning-border: 1px solid $panel-warning-border !default;
+$lomodal-warning-header-bg: $panel-warning-heading-bg !default;
+
+$lomodal-danger-text: $panel-danger-text !default;
+$lomodal-danger-border: 1px solid $panel-danger-border !default;
+$lomodal-danger-header-bg: $panel-danger-heading-bg !default;
+
+@mixin lo-modal() {
+  box-sizing: border-box;
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  background-color: $lomodal-bg;
+  border: $lomodal-border;
+
+  @include lo-border-radius($lomodal-border-radius);
+  @include box-shadow($lomodal-box-shadow);
+
+  z-index: $lomodal-z-index;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  //overflow: hidden;
+  box-sizing: content-box;
+}
+
+@mixin lo-modal-section() {
+  .lo-modal-header {
+    user-select: none;
+    //font-size: 1em;
+    font-weight: 600;
+    padding: $lomodal-header-padding;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: $lomodal-border-radius;
+    border-top-right-radius: $lomodal-border-radius;
+
+    cursor: move;
+    .lo-modal-header-addon{
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      padding: $lomodal-header-addon-padding;
+      [data-modal-header-btn]{
+        border: 0;
+        padding: $lomodal-header-addon-btn-padding;
+        background: transparent;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        outline: 0;
+      }
+    }
+  }
+  .lo-modal-body {
+    border-bottom-left-radius: $lomodal-border-radius;
+    border-bottom-right-radius: $lomodal-border-radius;
+
+    padding: $lomodal-body-padding;
+    text-align: center;
+    @include flex(1);
+    position: relative;
+    overflow: hidden;
+
+    iframe {
+      border: 0 none;
+    }
+
+    .fadeIn{
+      @include animation(lo-modal-fade-in $lomodal-easing-time-open $ease-out-back forwards);
+    }
+    .fadeOut{
+      @include animation(lo-modal-fade-out $lomodal-easing-time-open $ease-out-back forwards);
+    }
+  }
+}
+
+@mixin modal-variant($text-color, $border, $header-bg-color) {
+  .lo-modal-header {
+    color: $text-color;
+    background: $header-bg-color;
+    .lo-modal-header-addon{
+      a{
+        color: $text-color;
+        outline: 0;
+      }
+    }
+  }
+  .lo-modal-body {
+
+  }
+}
+
+@include keyframes(lo-modal) {
+  0% {
+    opacity: 0.0;
+    //@include transform(translateY(20%));
+    @include transform(scale(0.8));
+  }
+  100% {
+    opacity: 1.0;
+    @include transform(scale(1.0));
+  }
+  /*
+  0% {
+      opacity: 0.0;
+      -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  0.1% {
+      opacity: 1.0;
+      -webkit-transform: matrix3d(0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  5.9% {
+      -webkit-transform: matrix3d(0.711, 0, 0, 0, 0, 0.742, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.711, 0, 0, 0, 0, 0.742, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  7.7% {
+      -webkit-transform: matrix3d(0.768, 0, 0, 0, 0, 0.812, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.768, 0, 0, 0, 0, 0.812, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  11.5% {
+      -webkit-transform: matrix3d(0.869, 0, 0, 0, 0, 0.935, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.869, 0, 0, 0, 0, 0.935, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  11.7% {
+      -webkit-transform: matrix3d(0.873, 0, 0, 0, 0, 0.94, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.873, 0, 0, 0, 0, 0.94, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  15.2% {
+      -webkit-transform: matrix3d(0.941, 0, 0, 0, 0, 1.014, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.941, 0, 0, 0, 0, 1.014, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  17.5% {
+      -webkit-transform: matrix3d(0.973, 0, 0, 0, 0, 1.045, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.973, 0, 0, 0, 0, 1.045, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  19% {
+      -webkit-transform: matrix3d(0.99, 0, 0, 0, 0, 1.058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.99, 0, 0, 0, 0, 1.058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  22.8% {
+      -webkit-transform: matrix3d(1.019, 0, 0, 0, 0, 1.071, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1.019, 0, 0, 0, 0, 1.071, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  23.2% {
+      -webkit-transform: matrix3d(1.021, 0, 0, 0, 0, 1.071, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1.021, 0, 0, 0, 0, 1.071, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  30.3% {
+      -webkit-transform: matrix3d(1.036, 0, 0, 0, 0, 1.049, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1.036, 0, 0, 0, 0, 1.049, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  30.4% {
+      -webkit-transform: matrix3d(1.036, 0, 0, 0, 0, 1.049, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1.036, 0, 0, 0, 0, 1.049, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  37.5% {
+      -webkit-transform: matrix3d(1.028, 0, 0, 0, 0, 1.016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1.028, 0, 0, 0, 0, 1.016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  44.6% {
+      -webkit-transform: matrix3d(1.016, 0, 0, 0, 0, 0.997, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1.016, 0, 0, 0, 0, 0.997, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  50.3% {
+      -webkit-transform: matrix3d(1.008, 0, 0, 0, 0, 0.992, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1.008, 0, 0, 0, 0, 0.992, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  51.7% {
+      -webkit-transform: matrix3d(1.006, 0, 0, 0, 0, 0.992, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1.006, 0, 0, 0, 0, 0.992, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  70.3% {
+      -webkit-transform: matrix3d(0.998, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.998, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  80.3% {
+      -webkit-transform: matrix3d(0.999, 0, 0, 0, 0, 1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(0.999, 0, 0, 0, 0, 1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  100% {
+      -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  */
+}
+
+@include keyframes(lo-modal-destroy) {
+  /*
+  from {
+      @include transform(scale(1));
+      opacity: 1.0;
+  }
+  to {
+      @include transform(scale(0.5));
+      opacity: 0.0;
+  }
+  */
+  100% {
+    opacity: 0.0;
+    @include transform(translateY(20%));
+  }
+  0% {
+    opacity: 1.0;
+    @include transform(translateY(0));
+  }
+
+}
+
+@include keyframes(lo-modal-fullscreen) {
+  0% {
+    @include transform(translateY(20%));
+  }
+  100% {
+    @include transform(translateY(0));
+  }
+}
+
+@include keyframes(lo-modal-fullscreen-destroy) {
+  0% {
+    @include transform(translateY(0));
+  }
+  100% {
+    @include transform(translateY(100%));
+  }
+}
+
+@include keyframes(lo-modal-fade-in){
+  0% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@include keyframes(lo-modal-fade-out){
+  0% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.0;
+  }
+}
+
+// mixins --------------------------------------------- end
+
+.lomodal {
+  * {
+    box-sizing: border-box;
+  }
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  @include animation(lo-modal $lomodal-easing-time-open $lomodal-easing-open forwards);
+  @include transform(translateZ(0px));
+  //@include transition(all $lomodal-easing-time-open linear);
+
+  @include lo-modal();
+  @include lo-modal-section();
+  @include modal-variant($lomodal-default-text, $lomodal-default-border, $lomodal-default-header-bg);
+
+  &.primary {
+    @include modal-variant($lomodal-primary-text, $lomodal-primary-border, $lomodal-primary-header-bg);
+  }
+  &.success {
+    @include modal-variant($lomodal-success-text, $lomodal-success-border, $lomodal-success-header-bg);
+  }
+  &.info {
+    @include modal-variant($lomodal-info-text, $lomodal-info-border, $lomodal-info-header-bg);
+  }
+  &.warning {
+    @include modal-variant($lomodal-warning-text, $lomodal-warning-border, $lomodal-warning-header-bg);
+  }
+  &.danger {
+    @include modal-variant($lomodal-danger-text, $lomodal-danger-border, $lomodal-danger-header-bg);
+  }
+
+  &.destroy {
+    @include animation(lo-modal-destroy $lomodal-easing-time-close $lomodal-easing-close forwards);
+  }
+
+  &.fullscreen {
+    border: 0px none;
+    @include lo-border-radius(0px);
+    @include box-shadow(none);
+    @include animation(lo-modal-fullscreen $lomodal-easing-time-open $ease-out-back forwards);
+
+    &.destroy {
+      @include animation(lo-modal-fullscreen-destroy $lomodal-easing-time-close $ease-out-expo forwards);
+    }
+  }
+
+  &.draged{
+    .lo-modal-header {
+      opacity: 0.5;
+    }
+    .lo-modal-body {
+      opacity: 0.5;
+    }
+  }
+  [data-lomodal-resizer]{
+    position: absolute;
+    display: block;
+    &:before{
+      position: absolute;
+      content: ' ';
+      display: block;
+      width: auto;
+      height: auto;
+      left: auto;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      //background: #ff3300;
+      //opacity: 0.3;
+    }
+
+    &[data-lomodal-resizer="top"]{
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 0;
+
+      &:before{
+        width: 100%;
+        height: 8px;
+        left: 0;
+        top: -4px;
+        cursor: row-resize;
+      }
+    }
+    &[data-lomodal-resizer="bottom"]{
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+
+      &:before{
+        width: 100%;
+        height: 8px;
+        left: 0;
+        top: -4px;
+        cursor: row-resize;
+      }
+    }
+    &[data-lomodal-resizer="left"]{
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+
+      &:before{
+        width: 8px;
+        height: 100%;
+        left: -4px;
+        top: 0;
+        cursor: col-resize;
+      }
+    }
+    &[data-lomodal-resizer="right"]{
+      right: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+
+      &:before{
+        width: 8px;
+        height: 100%;
+        left: -4px;
+        top: 0;
+        cursor: col-resize;
+      }
+    }
+    &[data-lomodal-resizer="top-left"]{
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+
+      &:before{
+        width: 8px;
+        height: 8px;
+        left: -4px;
+        top: -4px;
+        cursor: nwse-resize;
+      }
+    }
+    &[data-lomodal-resizer="top-right"]{
+      right: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+
+      &:before{
+        width: 8px;
+        height: 8px;
+        left: -4px;
+        top: -4px;
+        cursor: nesw-resize;
+      }
+    }
+    &[data-lomodal-resizer="bottom-left"]{
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+
+      &:before{
+        width: 8px;
+        height: 8px;
+        left: -4px;
+        top: -4px;
+        cursor: nesw-resize;
+      }
+    }
+    &[data-lomodal-resizer="bottom-right"]{
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+
+      &:before{
+        width: 8px;
+        height: 8px;
+        left: -4px;
+        top: -4px;
+        cursor: nwse-resize;
+      }
+    }
+  }
+}
+
+// resizer가 활성화 되면 리사이저 백그라운드도 함께 활성화 됩니다. 백그라운드는 페이지 전체를 투명 레이어로 덮어 리사이저가 자유롭게 활동 하도록 도와 줍니다.
+.lomodal-resizer-background{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: $lomodal-z-index;
+  //opacity: 0.1;
+  cursor: move;
+}
+.lomodal-resizer{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+
+  z-index: $lomodal-z-index + 1;
+  cursor: move;
+
+  box-sizing: $lomodal-box-model;
+  background-color: $lomodal-resizer-bg;
+  border: $lomodal-resizer-border;
+  opacity: $lomodal-resizer-opacity;
+
+  @include lo-border-radius($lomodal-border-radius);
+  @include box-shadow($lomodal-box-shadow);
+}

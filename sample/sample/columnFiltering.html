@@ -1,0 +1,73 @@
+---
+layout: default
+title : 'RealGrid2:ColumnFiltering'
+---
+
+<script type="text/javascript" src="/assets/plugins/realgrid/tests/samples-columnFiltering.js"></script>
+<script type="text/javascript" src="/assets/plugins/realgrid/data/seriesCol_json.js"></script>
+<script type="text/javascript" src="/assets/plugins/realgrid/columnFiltering.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        createGrid("realgrid");
+        setActions && setActions("actions");
+    });
+
+    function loadData(filename) {
+        var reqUrl = "/assets/plugins/realgrid/data/" + filename; // for S3
+        // let reqUrl = "/getData/fileName=" + fileName; // for node
+        $.ajax({
+            type: "GET",
+            url: reqUrl,
+            success: function(response)
+            {
+                dataProvider.setRows(response);
+                grid.refreshView();
+            }
+        });
+    }
+</script>
+
+<div class="grid-container">
+    <div class="layer-1">
+        <div class="cell">
+            <div id="actions">
+                <div id = 'realgrid-buttons'>
+                    <div>
+                        <button onclick={test_setColumnFilter()}> setFitler</button>
+                        <button onclick={test_clearColumnFilter()}> clearFilter</button>
+                        <button onclick={test_addColumnFilter()}>addFileter</button>
+                        <button onclick={test_removeColumnFilter()}>removeFileter</button>
+                    </div>
+                    <div>
+                        <button onclick={test_activateColumnFilters()}>activateFilters</button>
+                        <button onclick={test_deactivateColumnFilters()}>deactivateFileters</button>
+                        <button onclick={test_activateAllColumnFilters()}>activateAllFilters</button>
+                        <button onclick={test_deactivateAllColumnFilters()}>deactivateAllFilters</button>
+                    </div>
+                    <div>
+                        <button onclick={test_hideColumnFilters()}>hideColumnFilters</button>
+                        <button onclick={test_showColumnFilters()}>showColumnFilters</button>
+                        <button onclick={test_hideAllColumnFilters()}>hideAllColumnFilters</button>
+                        <button onclick={test_showAllColumnFilters()}>showAllColumnFilters</button>
+                    </div>
+                    <div>
+                        <button onclick={toggleFilters()}>toggleFilters</button>
+                        <button onclick={toggleAllFilters()}>toggleAllFilter</button>
+                    </div>
+                    <div>
+                        <button onclick={withFilterFunc()}>withFilterFunctuib</button>
+                        <button id='toauto' onclick={changeGrid()}>autoFilter example</button>
+                    </div>
+                </div>
+                <span id="ellapseTime" style="font-size:9px"></span>
+                <input id="txtMain" type="text" style="width:100px;display:none"></input>
+                <input id="txtSub" type="text" style="width:80px;display:none"></input>
+            </div>
+        </div>
+    </div>
+    <div class="layer-2">
+        <div class="cell">
+            <div id="realgrid"></div>
+        </div>
+    </div>
+</div>

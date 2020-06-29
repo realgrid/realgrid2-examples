@@ -1,0 +1,617 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    {% include luplina-head.html %}
+    <title>Hola Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-calendar/dist/luplino-calendar.css"/>
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fullcalendar/packages/core/main.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fullcalendar/packages/daygrid/main.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fullcalendar/packages/timegrid/main.css" />
+    <script src="/assets/plugins/fullcalendar/packages/core/main.js"></script>
+    <script src="/assets/plugins/fullcalendar/packages/core/locales/ko.js"></script>
+    <script src="/assets/plugins/fullcalendar/packages/daygrid/main.js"></script>
+    <script src="/assets/plugins/fullcalendar/packages/interaction/main.js"></script>
+    <script src="/assets/plugins/fullcalendar/packages/timegrid/main.js"></script>
+    <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
+    <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
+    <script src="/assets/plugins/luplino/luplino-calendar/dist/luplino-calendar.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/chartjs/dist/Chart.css" />
+    <script src="/assets/plugins/chartjs/dist/Chart.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+<!--    <script src="/assets/js/luplina.js"></script>-->
+    <script type="text/javascript">
+        $(document.body).ready(function(){
+            $('[data-lolayout]').lolayout();
+
+            /* Chart */
+            var ctx1 = document.getElementById('GOAL-CHART');
+            var ctx2 = document.getElementById('BUG-CHART');
+            var goalChart = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['RealGird1', 'RealGird2', 'RealPivot', 'RealDesk', 'LIMS', 'SeeReal'],
+                    datasets: [
+                        {
+                            label: '실적',
+                            data: [12, 19, 3, 5, 2, 3],
+                            backgroundColor: [
+                                'rgba(235, 104, 0, 0.5)',
+                                'rgba(235, 104, 0, 0.5)',
+                                'rgba(235, 104, 0, 0.5)',
+                                'rgba(59, 184, 192, 0.5)',
+                                'rgba(62, 92, 163, 0.5)',
+                                'rgba(65, 117, 5, 0.5)'
+                            ],
+                            borderColor: [
+                                'rgba(235, 104, 0, 1)',
+                                'rgba(235, 104, 0, 1)',
+                                'rgba(235, 104, 0, 1)',
+                                'rgba(59, 184, 192, 1)',
+                                'rgba(62, 92, 163, 1)',
+                                'rgba(65, 117, 5, 1)'
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label: '목표',
+                            fill: false,
+                            backgroundColor: "rgb(33, 33, 33)",
+                            borderColor: "rgb(33, 33, 33)",
+                            borderWidth: 1,
+                            data: [12, 30, 10, 12, 21, 31],
+
+                            // Changes this dataset to become a line
+                            type: 'line'
+                        }
+                    ]
+                },
+                options: {
+                    //responsive:false,
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes:[{
+                            barPercentage: 0.3,
+                            //categoryPercentage:0.4
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            var bugChart = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['RealGird1', 'RealGird2', 'RealPivot', 'RealDesk', 'LIMS', 'SeeReal'],
+                    datasets: [
+                        {
+                            label: '실적',
+                            data: [15, 12, 10, 4, 6, 5],
+                            backgroundColor: [
+                                'rgba(235, 104, 0, 0.5)',
+                                'rgba(235, 104, 0, 0.5)',
+                                'rgba(235, 104, 0, 0.5)',
+                                'rgba(59, 184, 192, 0.5)',
+                                'rgba(62, 92, 163, 0.5)',
+                                'rgba(65, 117, 5, 0.5)'
+                            ],
+                            borderColor: [
+                                'rgba(235, 104, 0, 1)',
+                                'rgba(235, 104, 0, 1)',
+                                'rgba(235, 104, 0, 1)',
+                                'rgba(59, 184, 192, 1)',
+                                'rgba(62, 92, 163, 1)',
+                                'rgba(65, 117, 5, 1)'
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label: '목표',
+                            fill: false,
+                            backgroundColor: "rgb(33, 33, 33)",
+                            borderColor: "rgb(33, 33, 33)",
+                            borderWidth: 1,
+                            data: [7, 11, 13, 6, 9, 11],
+                            // Changes this dataset to become a line
+                            type: 'line'
+                        }
+                    ]
+                },
+                options: {
+                    tooltips: {
+                        mode: 'index',
+                        intersect: true,
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var tooltipNum =  tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                if (tooltipItem.datasetIndex==0) {
+                                    return tooltipNum;
+                                }
+                                else {
+                                    return tooltipNum;
+                                }
+                            }
+                        }
+                    },
+                    //responsive:false,
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes:[{
+                            barPercentage: 0.3,
+                            //categoryPercentage:0.4
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                max:30,
+                                min:0
+                                // callback: function(value, index, values) {
+                                //     if(parseInt(value/1000) >= 1000){
+                                //         return parseInt(value/1000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                //     } else {
+                                //         return value/1000;
+                                //     }
+                                // }
+                            }
+                        }]
+                    }
+                }
+            });
+
+            /* LO Calendar */
+            var today = new Date(),
+                _c_date = luplino.util.date;
+            luplino.info.months = ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"];
+            luplino.info.weekNames = [
+                {label: "일"}, {label: "월"}, {label: "화"}, {label: "수"}, {label: "목"}, {label: "금"}, {label: "토"}
+            ];
+            window.myCalendar = new luplino.ui.calendar({
+                control: {
+                    left: '<i class="icon icon-chevron-small-left"></i>',
+                    yearTmpl: '%s년',
+                    monthTmpl: '%s',
+                    right: '<i class="icon icon-chevron-small-right"></i>',
+                    yearFirst: true
+                },
+
+                dimensions: {
+                    itemPadding: 1,
+                    height: 200,
+                    controlHeight: 30,
+                },
+                target: document.getElementById("LO-CALENDAR"),
+                displayDate: (new Date()),
+                startOfWeek: 0,
+                mode: "day",
+                selectMode: "day",
+                onClick: function () {
+                    console.log(myCalendar.getSelection());
+                },
+                onStateChanged: function(){
+                    console.log(this);
+                }
+                ,multipleSelect: 2
+            });
+
+            myCalendar.setSelection(['2016-04-11', '2016-04-12']);
+            myCalendar.setPeriod({
+                range: [
+                    {from: '2016-07-05', to: '2016-07-09', fromLabel: '시작', toLabel: '종료'},
+                    {from: '2016-07-11', to: '2016-07-15', fromLabel: '시작', toLabel: '종료'}
+                ]
+            });
+
+            /* Full Calendar */
+            var calendarEl = document.getElementById('FULL-CALENDAR');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
+                locale: 'ko',
+                height: "auto",
+                contentHeight: 100,
+                defaultView: 'dayGridMonth', //timeGridWeek
+                defaultDate: '2020-04-07',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                titleFormat: {
+                    month: 'long',
+                    year: 'numeric',
+                    day: 'numeric',
+                    weekday: 'short'
+                },
+                slotLabelFormat:[
+                ],
+                events: [
+                    {
+                        title: 'CE 전시회',
+                        color: '#FFE4CF', /* 배경색 */
+                        borderColor: '#EB6800',
+                        textColor: '#EB6800', /* 글자색 */
+                        start: '2020-04-01'
+                    },
+                    {
+                        title: '삼성전자 계약 미팅',
+                        start: '2020-04-07',
+                        end: '2020-04-10',
+                        color: '#FFE4CF',
+                        textColor:'#EB6800',
+                        borderColor:'#EB6800'
+                    },
+                    {
+                        groupId: '999',
+                        title: '정기회의',
+                        start: '2020-04-09T16:00:00',
+                        color: '#EFE9FF',
+                        textColor:'#865DD9',
+                        borderColor:'#865DD9'
+                    },
+                    {
+                        groupId: '999',
+                        title: '정기회의',
+                        start: '2020-04-16T16:00:00',
+                        color: '#EFE9FF',
+                        textColor:'#865DD9',
+                        borderColor:'#865DD9'
+                    },
+                    {
+                        title: '사전답사',
+                        start: '2020-04-11',
+                        end: '2020-04-13',
+                        color: '#E4F5FF',
+                        borderColor: '#5DA8C8',
+                        textColor:'#5DA8C8'
+                    },
+                    {
+                        title: '밴더사 미팅',
+                        start: '2020-04-12T10:30:00',
+                        end: '2020-04-12T12:30:00',
+                        color: '#E4F5FF',
+                        borderColor: '#5DA8C8',
+                        textColor:'#5DA8C8'
+                    },
+                    {
+                        title: '점심약속',
+                        start: '2020-04-12T12:00:00',
+                        color: '#E4F5FF',
+                        borderColor: '#5DA8C8',
+                        textColor:'#5DA8C8'
+                    },
+                    {
+                        title: '고객사 미팅',
+                        start: '2020-04-12T14:30:00',
+                        color: '#E4F5FF',
+                        borderColor: '#5DA8C8',
+                        textColor:'#5DA8C8'
+                    },
+                    {
+                        title: '전무님 생신',
+                        start: '2020-04-13T07:00:00',
+                        color: '#E4F5FF',
+                        borderColor: '#5DA8C8',
+                        textColor:'#5DA8C8'
+                    },
+                    {
+                        title: 'Google세미나(클릭)',
+                        url: 'http://google.com/',
+                        start: '2020-04-28',
+                        color: '#E6F7DC',
+                        borderColor: '#417505',
+                        textColor: '#417505'
+                    }
+                ]
+            });
+
+            calendar.render();
+
+        });
+
+
+    </script>
+</head>
+<body>
+
+<div class="page-root">
+    <div class="page-fixed">
+        <div data-lolayout="row-1" data-config="{layout:'split-panel', orientation: 'horizontal'}">
+            <div data-split-panel="{height: '220', minHeight: 120}">
+                <!-- s.layer-1 -->
+                <div data-lolayout="col-1" data-config="{layout:'split-panel', orientation: 'vertical'}">
+                    <div data-split-panel="{width: '*', minWidth: 200}">
+                        <div class="widget-cont full-height">
+                            <div class="widget-box">
+                                <div class="widget-head">
+                                    <div class="left"><span class="title">공지사항</span></div>
+                                    <div class="right"><a href="#"><i class="icon icon-plus"></i><span class="text">더보기</span></a></div>
+                                </div>
+                                <div class="widget-body with-head">
+                                    <ul class="widget-list">
+                                    <li>
+                                        <div class="left"><a href="#"><span class="badge-new">N</span></a>&nbsp;RealPivot 데모가 추가 되었습니다.</div>
+                                        <div class="right" style="width:80px;">2020-03-18</div>
+                                    </li>
+                                    <li>
+                                        <div class="left"><a href="#">튜토리얼 및 FAQ가 추가 되었습니다.</a></div>
+                                        <div class="right" style="width:80px;">2020-03-03</div>
+                                    </li>
+                                    <li>
+                                        <div class="left"><a href="#">RealPivot v1.0.3 버전이 Release 되었습니다.</a></div>
+                                        <div class="right" style="width:80px;">2020-03-03</div>
+                                    </li>
+                                    <li>
+                                        <div class="left"><a href="#">2019년 10월 31일 RealGrid v1.1.34 버전의 버그발견으로 긴급 배포 중단 안내합니다.</a></div>
+                                        <div class="right" style="width:80px;">2020-02-26</div>
+                                    </li>
+                                    <li>
+                                        <div class="left"><a href="#">RealGrid 웹사이트가 리뉴얼 되었습니다.</a></div>
+                                        <div class="right" style="width:80px;">2020-01-31</div>
+                                    </li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-splitter="{}"></div>
+                    <div data-split-panel="{width: '*'}">
+                        <div class="widget-cont full-height">
+                            <div class="widget-box">
+                                <div class="widget-head">
+                                    <div class="left"><span class="title">메모</span>&nbsp;<span class="desc">미확인 메모수</span>&nbsp;<span class="badge-num">2</span></div>
+                                    <div class="right"><a href="#"><i class="icon icon-plus"></i><span class="text">더보기</span></a></div>
+                                </div>
+                                <div class="widget-body with-head">
+                                    <ul class="widget-list">
+                                    <li>
+                                        <div class="left">
+                                            <input type="checkbox" class="memo-checkbox" id="cb1" checked="checked">
+                                            <label for="cb1">매출 / 고객사 : 쿠팡&nbsp;<a href="#"><i class="icon-forward"></i></a></label>
+                                        </div>
+                                        <div class="right" style="width:80px;">2020-03-18</div>
+                                    </li>
+                                    <li>
+                                        <div class="left">
+                                            <input type="checkbox" class="memo-checkbox" id="cb2" checked="checked">
+                                            <label for="cb2">오늘 저녁 회식 장소 설문조사&nbsp;<a href="#"><i class="icon-forward"></i></a></label>
+                                        </div>
+                                        <div class="right" style="width:80px;">2020-03-03</div>
+                                    </li>
+                                    <li>
+                                        <div class="left">
+                                            <input type="checkbox" class="memo-checkbox" id="cb3">
+                                            <label for="cb3">새로 추가된 맛집 리스트&nbsp;<a href="#"><i class="icon-forward"></i></a></label>
+                                        </div>
+                                        <div class="right" style="width:80px;">2020-03-03</div>
+                                    </li>
+                                    <li>
+                                        <div class="left">
+                                            <input type="checkbox" class="memo-checkbox" id="cb4" checked="checked">
+                                            <label for="cb4">오늘 보고서 제출 확인요&nbsp;<a href="#"><i class="icon-forward"></i></a></label>
+                                        </div>
+                                        <div class="right" style="width:80px;">2020-02-26</div>
+                                    </li>
+                                    <li>
+                                        <div class="left">
+                                            <input type="checkbox" class="memo-checkbox" id="cb5">
+                                            <label for="cb5">시스템 에러에 관한 사항 정리요망&nbsp;<a href="#"><i class="icon-forward"></i></a></label>
+                                        </div>
+                                        <div class="right" style="width:80px;">2020-01-31</div>
+                                    </li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-splitter="{}"></div>
+                    <div data-split-panel="{width: '*', minWidth: 200}">
+                        <div class="widget-cont full-height">
+                            <div class="widget-box">
+                                <div class="widget-head">
+                                    <div class="left"><span class="title">최신 견적</span>&nbsp;<span class="badge-num">3</span></div>
+                                    <div class="right"><a href="#"><i class="icon icon-plus"></i><span class="text">더보기</span></a></div>
+                                </div>
+                                <div class="widget-body with-head">
+                                    <ul class="widget-list">
+                                    <li>
+                                        <div class="left"><a href="#">비트컴퓨터 번들 견적서</a></div>
+                                        <div class="right" style="width:140px;">2020-03-18  ~ 2020-06-29</div>
+                                    </li>
+                                    <li>
+                                        <div class="left"><a href="#">삼성전자 이천 솔루션 납품 견적서</a></div>
+                                        <div class="right">2020-02-05 ~ 2020-07-10</div>
+                                    </li>
+                                    <li>
+                                        <div class="left"><a href="#">LG전자 시스템 납품 견적서</a></div>
+                                        <div class="right">2020-01-30 ~ 2020-03-20</div>
+                                    </li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- e.layer-1 -->
+            </div>
+            <div data-splitter="{}"></div>
+            <div data-split-panel="{height: '240', minHeight: 200}">
+                <!-- s.layer-2 -->
+                <div data-lolayout="col-2" data-config="{layout:'split-panel', orientation: 'vertical'}">
+                    <div data-split-panel="{width: '*', minWidth: 200}">
+                        <div class="widget-cont full-height">
+                            <div class="widget-box">
+<!--                                <div class="widget-head">-->
+<!--                                    <div class="left"><span class="title">목표대비 실적</span></div>-->
+<!--                                    <div class="right"><a href="#"><i class="icon icon-plus"></i><span class="text">더보기</span></a></div>-->
+<!--                                </div>-->
+                                <div class="widget-body">
+                                    <canvas id="GOAL-CHART" class="chartjs-render-monitor" style="width:100%; height:100%; min-height:200px; min-width:200px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-splitter="{}"></div>
+                    <div data-split-panel="{width: '*', minWidth: 200}">
+                        <div class="widget-cont full-height">
+                            <div class="widget-box">
+<!--                                <div class="widget-head">-->
+<!--                                    <div class="left"><span class="title">버그리포트</span></div>-->
+<!--                                    <div class="right"><a href="#"><i class="icon icon-plus"></i><span class="text">더보기</span></a></div>-->
+<!--                                </div>-->
+                                <div class="widget-body">
+                                    <canvas id="BUG-CHART" class="chartjs-render-monitor" style="width:100%; height:100%; min-height:200px; min-width:200px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- e.layer-2 -->
+            </div>
+            <div data-splitter="{}"></div>
+            <div data-split-panel="{height: '*', minHeight: 100}">
+                <!-- s.layer-3 -->
+                <div data-lolayout="col-1" data-config="{layout:'split-panel', orientation: 'vertical'}">
+                    <div data-split-panel="{width: '220', minWidth: 220}">
+                        <div class="widget-cont full-height">
+                            <div class="widget-box">
+                                <div class="widget-head">
+                                    <div class="left"><span class="title">일정</span></div>
+                                    <div class="right"><a href="#"><i class="icon icon-plus"></i><span class="text">더보기</span></a></div>
+                                </div>
+                                <div class="widget-body with-head">
+                                    <div id="LO-CALENDAR" style="width:100%;"></div>
+                                    <div class="widget-hr"></div>
+                                    <div class="widget-title">
+                                        <div class="left"><span class="title">달력 선택</span></div>
+                                        <div class="right">&nbsp;</div>
+                                    </div>
+                                    <ul class="widget-checkbox">
+                                        <li>
+                                            <input type="checkbox" class="lo-checkbox primary" id="lcb1" checked="checked">
+                                            <label for="lcb1">계약 미팅</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="lo-checkbox" id="lcb2">
+                                            <label for="lcb2">대한민국 달력</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="lo-checkbox skyblue" id="lcb3" checked="checked">
+                                            <label for="lcb3">개인 일정</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="lo-checkbox purple" id="lcb4" checked="checked">
+                                            <label for="lcb4">이벤트</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-splitter="{}"></div>
+                    <div data-split-panel="{width: '*', minWidth: 300}">
+                        <div class="widget-cont full-height">
+                            <div class="widget-box">
+                                <div class="widget-body" style="padding-top:10px; padding-bottom:10px;">
+                                    <div id='FULL-CALENDAR'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-splitter="{}"></div>
+                    <div data-split-panel="{width: '240', minWidth: 240}">
+                        <div class="widget-cont full-height">
+                            <div class="widget-box">
+                                <div class="widget-head">
+                                    <div class="left"><span class="title">오늘의 출장/휴가</span></div>
+                                    <div class="right"><a href="#"><i class="icon icon-plus"></i><span class="text">더보기</span></a></div>
+                                </div>
+                                <div class="widget-body with-head">
+                                    <table class="widget-table-1">
+                                        <colgroup>
+                                            <col />
+                                            <col width="50px" />
+                                            <col width="50px" />
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <td>부서</td>
+                                            <td class="center">출장</td>
+                                            <td class="center">휴가</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>영업부</td>
+                                            <td class="center">3</td>
+                                            <td class="center">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>경영지원부</td>
+                                            <td class="center">0</td>
+                                            <td class="center">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>관리부</td>
+                                            <td class="center">0</td>
+                                            <td class="center">0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>기술지원부</td>
+                                            <td class="center">1</td>
+                                            <td class="center">0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>공공사업부</td>
+                                            <td class="center">1</td>
+                                            <td class="center">0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>기업사업부</td>
+                                            <td class="center">0</td>
+                                            <td class="center">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>교육사업부</td>
+                                            <td class="center">0</td>
+                                            <td class="center">0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>TS</td>
+                                            <td class="center">0</td>
+                                            <td class="center">1</td>
+                                        </tr>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <td>합계</td>
+                                            <td class="center">5</td>
+                                            <td class="center">4</td>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- e.layer-3 -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

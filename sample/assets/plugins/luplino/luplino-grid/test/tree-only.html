@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <title>GRID</title>
+
+    <!--link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap/css/bootstrap.min.css"/-->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-mask/dist/luplino-mask.css"/>
+<!--    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-calendar/dist/luplino-calendar.css"/>-->
+<!--    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-picker/dist/luplino-picker.css"/>-->
+<!--    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-select/dist/luplino-select.css"/>-->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
+    <script src="/assets/plugins/luplino/luplino-formatter/dist/luplino-formatter.js"></script>
+<!--    <script src="/assets/plugins/luplino/luplino-calendar/dist/luplino-calendar.js"></script>-->
+<!--    <script src="/assets/plugins/luplino/luplino-picker/dist/luplino-picker.js"></script>-->
+<!--    <script src="/assets/plugins/luplino/luplino-select/dist/luplino-select.js"></script>-->
+    <script src="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.js"></script>
+    <style>
+        html, body{ height:100%; margin:0; padding:10px;}
+    </style>
+</head>
+<body>
+<div style="position: relative; height:100%;" id="grid-parent">
+    <div data-logrid="first-grid" data-logrid-config="{}" style="height: 100%"></div>
+</div>
+
+<TEXTAREA ID="holdtext" STYLE="position:absolute;top:-1000px;"></TEXTAREA>
+<script>
+    var firstGrid = new luplino.ui.grid();
+
+    var sampleData = [
+        {id: 0, name: "Thomas Jang", collapse: false},
+        {pid: "0", id: "2", name: "Seowoo"},
+        {pid: "0", id: "3", name: "Mondo"},
+        {pid: "0", id: "4", name: "Brant"},
+        {pid: "4", id: "5", name: "Tiffany"},
+        {pid: "4", id: "6", name: "Edward"},
+        {pid: "4", id: "7", name: "Bill"},
+        {pid: "0", id: "8", name: "Aeei"}
+    ];
+
+    ///
+    var gridView = {
+        initView: function () {
+            firstGrid.setConfig({
+                target: $('[data-logrid="first-grid"]'),
+                columns: [
+                    {key: "name", label: "필드B", align: "left", width: '100%', treeControl: true, editor: {type: "text"}}
+                ],
+                header:{
+                    columnHeight:0,
+                    columnBorderWidth:0
+                },
+                page:{
+                    height:0
+                },
+                tree: {
+                    use: true,
+                    indentWidth: 10,
+                    arrowWidth: 15,
+                    iconWidth: 18,
+                    icons: {
+                        openedArrow: '<i class="fa fa-caret-down" aria-hidden="true"></i>',
+                        collapsedArrow: '<i class="fa fa-caret-right" aria-hidden="true"></i>',
+                        groupIcon: '<i class="fa fa-folder-open" aria-hidden="true"></i>',
+                        collapsedGroupIcon: '<i class="fa fa-folder" aria-hidden="true"></i>',
+                        itemIcon: '<i class="fa fa-circle" aria-hidden="true"></i>'
+                    },
+                    columnKeys: {
+                        parentKey: "pid",
+                        selfKey: "id"
+                    }
+                },
+            });
+
+
+            return this;
+        },
+        setData: function (_pageNo) {
+            firstGrid.setData(sampleData);
+            return this;
+        }
+    };
+
+    $(document.body).ready(function () {
+        gridView.initView();
+        gridView.setData();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+---
+---
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    {% include luplina-head.html %}
+    <title>Hola Luplina!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/entypo-plus/entypo-plus.css" />
+    <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/luplina.js"></script>
+</head>
+
+<body>
+<div class="la-panel">
+    <div class="la-panel-box">
+        <div class="la-panel-head"><i class="svg icon-rg"></i> <span>리얼그리드 패널</span></div>
+        <div class="la-panel-body">
+            <div class="la-panel-list-group">
+                <div class="la-panel-list-index active">
+                    <div class="left">최신기능</div>
+                    <div class="right"><a href="#" class="la-panel-toggle"><i class="icon icon-chevron-down"></i><i class="icon icon-chevron-up"></i></a></div>
+                </div>
+                <ul class="la-panel-list">
+                    <li>
+                        <div class="left"><a href="#">상단에 합계 표시</a></div>
+                        <div class="right"><span class="version">1.1.19</span></div>
+                    </li>
+                    <li>
+                        <div class="left"><a href="#">오른쪽 컬럼 고정하기</a></div>
+                        <div class="right"><span class="version">1.1.17</span></div>
+                    </li>
+                    <li>
+                        <div class="left"><a href="#">컬럼 헤더 높이 조정</a></div>
+                        <div class="right"><span class="version">1.1.17</span></div>
+                    </li>
+                    <li>
+                        <div class="left"><a href="#">푸터 병합</a></div>
+                        <div class="right"><span class="version">1.1.16</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="la-panel-list-group">
+                <div class="la-panel-list-index active">
+                    <div class="left">주요기능</div>
+                    <div class="right"><a href="#" class="la-panel-toggle"><i class="icon icon-chevron-down"></i><i class="icon icon-chevron-up"></i></a></div>
+                </div>
+                <ul class="la-panel-list">
+                    <li><a href="#" target="_blank">툴팁기능</a></li>
+                    <li><a href="#" target="_blank">계산 필드</a></li>
+                    <li><a href="#" target="_blank">정규식 표현</a></li>
+                    <li><a href="#" target="_blank">프로바이더 공유하기</a></li>
+                    <li><a href="#" target="_blank">렌더러 동적 스타일</a></li>
+                    <li><a href="#" target="_blank">체크 렌더러</a></li>
+                    <li><a href="#" target="_blank">컨텍스트 메뉴</a></li>
+                    <li><a href="#" target="_blank">트리뷰(Treeview) 구현</a></li>
+                    <li><a href="#" target="_blank">페이징 처리(Pagination)</a></li>
+                    <li><a href="#" target="_blank">행 그룹</a></li>
+                    <li><a href="#" target="_blank">컬럼 높이 조정</a></li>
+                    <li><a href="#" target="_blank">엑셀 내보내기</a></li>
+                    <li><a href="#" target="_blank">컬럼 필터</a></li>
+                    <li><a href="#" target="_blank">컬럼 그룹</a></li>
+                    <li><a href="#" target="_blank">행/컬럼 고정</a></li>
+                    <li><a href="#" target="_blank">컬럼 푸터</a></li>
+                    <li><a href="#" target="_blank">컬럼 유효성 검사</a></li>
+                    <li><a href="#" target="_blank">조건부 동적 스타일</a></li>
+                    <li><a href="#" target="_blank">다양하나 편집기</a></li>
+                    <li><a href="#" target="_blank">사용자 지정 유효성 검사</a></li>
+                    <li><a href="#" target="_blank">바코드 셀</a></li>
+                    <li><a href="#" target="_blank">막대그래프 셀</a></li>
+                    <li><a href="#" target="_blank">아이콘 셀</a></li>
+                    <li><a href="#" target="_blank">쉐이프 셀</a></li>
+                    <li><a href="#" target="_blank">시그널 셀</a></li>
+                    <li><a href="#" target="_blank">시리즈 컬럼</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    let panelObj = {};
+
+    $(document.body).ready(function(){
+        panelObj.initPanel = function(){
+            let panelClass = "la-panel";
+            let panelListGroupClass = "la-panel-list-group";
+            let panelListIndexClass = "la-panel-list-index";
+            let panelListClass = "la-panel-list";
+            let panelToggleClass = "la-panel-toggle";
+            let panel_list = $("."+panelClass).find("."+panelListGroupClass);
+            $.each(panel_list, function(index, item){
+                let pli = $(item).find("."+panelListIndexClass);
+                let pl = $(item).find("."+panelListClass);
+                let pt = $(item).find("."+panelToggleClass);
+                $(pt).click(function () {
+                    $(pl).toggle();
+                    $(pli).toggleClass("active");
+
+                });
+
+                console.log(pli);
+                console.log(pl);
+
+            });
+        };
+        panelObj.initPanel();
+    });
+
+</script>
+</body>
+</html>

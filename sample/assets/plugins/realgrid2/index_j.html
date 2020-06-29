@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<title>RealGridDom TEST By flowmt</title>
+<style>
+html, body {
+	height: 100%;
+	margin: 0px 0px 0px 0px;
+	overflow: none;
+}
+</style>
+
+<script type="text/javascript" src="./scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./scripts/domutils.js"></script>
+<script type="text/javascript" src="./lib/realgrid-lic.js"></script>
+<script type="text/javascript" src="./lib/realgrid.2.0.1.min.js"></script>
+<script type="text/javascript" src="./tests/samples_j.js"></script> 
+<script>
+	var dataProvider, gridView;
+	window.addEventListener('DOMContentLoaded', function(event) {
+        dataProvider = new RealGrid.LocalDataProvider();
+        grid = new RealGrid.GridContainer('realgrid');
+		gridView = grid.gridView;
+		gridView.dataSource = dataProvider;
+
+		dataProvider.setFields(fields);
+		gridView.setColumns(columns)
+		dataProvider.setRows(data);
+	})
+</script>
+</head>
+<body>
+	<div id="actions" style="height:5%">
+		<input id="txtMain" type="text" style="width:100px;display:none"></input> 
+		<input id="txtSub" type="text" style="width:80px;display:none"></input> 
+	</div>
+	<div id="realgrid" style="width:100%;height:95%;"></div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<title>RealGridDom TEST</title>
+<style>
+html {
+	height: 100%;
+	margin: 5px 5px 0px 5px;
+	overflow: hidden;
+}
+body {
+	height: 100%;
+	margin: 0px 0px 0px 0px;
+	overflow: hidden;
+}
+#actions {
+	height: 50px;
+}
+#realgrid {
+	width: 100%;
+	height: calc(100% - 50px - 10px); /* 10px는 margin */
+	height: -moz-calc(100% - 50px - 10px); /* for Firefox */
+	height: -webkit-calc(100% - 50px - 10px); /* for WebKit */
+	height: -o-calc(100% - 50px - 10px); /* for Opera */
+	height: expression(100% - 50px - 10px); /* IE Old */
+}
+</style>
+
+<script type="text/javascript" src="./scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./scripts/domutils.js"></script>
+<script type="text/javascript" src="./lib/realgrid-lic.js"></script>
+<script type="text/javascript" src="./lib/realgrid.2.0.1.min.js"></script>
+<script type="text/javascript" src="./tests/samples-columns.js"></script>
+<script type="text/javascript" src="./data/json-array.js"></script>
+<script type="text/javascript" src="./data/areatree_json.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+	createGrid("realgrid");
+	setActions && setActions("actions");
+});
+
+function loadData(filename) {
+	var reqUrl = "./data/" + filename; // for S3
+	// let reqUrl = "/getData/fileName=" + fileName; // for node
+    $.ajax({
+        type: "GET",  
+        url: reqUrl,
+        success: function(response)  
+        {
+            dataProvider.setRows(response);
+            grid.refreshView();
+        }   
+    });
+}
+</script>
+<script type="text/javascript" src="./column-spans.js"></script>
+<link href="./realgrid_style.css" rel="stylesheet">
+<link href="./style.css" rel="stylesheet">
+</head>
+<body>
+	<div id="actions">
+		<span id="ellapseTime" style="font-size:9px"></span>
+		<input id="txtMain" type="text" style="width:100px;display:none"></input> 
+		<input id="txtSub" type="text" style="width:80px;display:none"></input> 
+	</div>
+	<div id="realgrid"></div>
+</body>
+</html>

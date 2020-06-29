@@ -1,0 +1,26 @@
+{
+	"name": "ax5ui-docker",
+	"version": "1.4.131",
+	"description": "A dashboard plugin that works with Bootstrap & jQuery",
+	"authors": [
+		"ThomasJ <tom@axisj.com>"
+	],
+	"main": "dist/ax5docker.js",
+	"keywords": [
+		"bootstrap",
+		"jquery",
+		"ax5ui",
+		"plugin",
+		"bootstrap jQuery plugins",
+		"uploader",
+		"ax5ui-docker",
+		"javascript ui"
+	],
+	"dependencies": {
+		"jquery": "",
+		"ax5core": ">=1.4.115",
+		"ax5ui-menu": ""
+	},
+	"license": "MIT",
+	"homepage": "ax5.io"
+}
