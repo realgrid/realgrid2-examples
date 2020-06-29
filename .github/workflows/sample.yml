@@ -1,0 +1,58 @@
+name: Deploy sample site
+
+on:
+  push:
+    paths:
+    - 'sample/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+
+    - name: Build Jekyll
+      env:
+        JEKYLL_ENV: production
+      run: |
+        gem install jekyll bundler
+        bundle install
+        bundle exec jekyll build trace
+      working-directory: sample
+
+    - name: Deploy to S3
+      uses: jakejarvis/s3-sync-action@v0.5.1
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'ap-northeast-2'
+        SOURCE_DIR: 'sample/_site'
+
+    - name: Notify slack success
+      if: success()
+      uses: voxmedia/github-action-slack-notify-build@v1
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      with:
+        channel: git-realgrid2-docs
+        status: SUCCESS
+        color: good 
+
+    - name: Notify slack fail
+      if: failure()
+      uses: voxmedia/github-action-slack-notify-build@v1
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      with:
+        channel: git-realgrid2-docs
+        status: FAILED
+        color: danger
