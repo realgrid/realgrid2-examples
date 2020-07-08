@@ -5,7 +5,6 @@ import './App.css';
 
 class App extends Component {
   loadDataClick = () => {
-
   this.dataProvider.setRows(rows);
   }
 
@@ -24,7 +23,7 @@ class App extends Component {
       <div className="App">
         <h2>RealGrid2 React Sample</h2>
         <div id='realgrid'></div>
-        <button id='loaddata' onClick={this.loadDataClick.bind(this)}>Load Data!</button>
+        <button id='loaddata' onClick={this.loadDataClick}>Load Data!</button>
       </div>
     ) 
   }
