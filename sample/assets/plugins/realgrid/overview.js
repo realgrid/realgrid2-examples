@@ -378,7 +378,7 @@ function createGrid(container) {
     grid.onSelectionChanged = function (grid) {
       $("#cellSummary").text(getSelectionSummary(grid).toLocaleString());
 
-      grid.columnByName("Address").footers.get(0).text = getSelectionSummary(grid).toLocaleString();
+      grid.columnByName("InterestRate").footers.get(0).text = getSelectionSummary(grid).toLocaleString();
       grid.refresh();
     }  
 
