@@ -79,8 +79,8 @@ var fields = [
       renderer: {
         type: "image",
         imageMap: {
-            "남": "images/man.png",
-            "여": "images/woman.png"
+            "남": "/assets/plugins/realgrid/images/man.png",
+            "여": "/assets/plugins/realgrid/images/woman.png"
         },
         titleField: "SexLabel",
         imageHeight: 24
@@ -240,7 +240,7 @@ var fields = [
       renderer: {
         type: "icon",
         iconCallback: function (grid, cell) {
-            return "images/location.png";
+            return "/assets/plugins/realgrid/images/location.png";
         },
         iconHeight: 14
       },
