@@ -19,7 +19,25 @@ function createGrid(container) {
         appendable : true
     });
 
+    grid.setGroupPanel({
+        minHeight: 30,
+        visible: true,
+        toast: {
+            visible : true
+        }
+    });
+  
+
     grid.groupingOptions.enabled = true;
+
+    grid.onContextMenuPopup = function (grid, x, y, elementName) {
+        console.log(arguments);
+        // realgrid-utils.js 기본 팝업 메뉴 생성
+        setContextMenu(grid);
+        
+      };
+    // realgrid-utils.js 기본 팝업 메뉴 실행
+    grid.onContextMenuItemClicked = onContextMenuClick;    
 
     grid.columnByName("EmployeeID").styleCallback = function (column, cell) {
         if (cell.value > 5) return "rg-data-cell bold-cell";
