@@ -431,7 +431,7 @@ var layout = [{
 ];
 
 function loadData(filename, ds) {
-	var reqUrl = "data/" + filename; 
+    var reqUrl = "/assets/plugins/realgrid/data/" + filename;
     $.ajax({
         type: "GET",  
         url: reqUrl,
