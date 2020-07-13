@@ -37,8 +37,8 @@ var fields = [
         }
     },  
     {
-      name: "KorName",
-      fieldName: "KorName",
+      name: "Address",
+      fieldName: "Address",
       type: "data",
       width: "500",
       header: {
@@ -52,7 +52,7 @@ var fields = [
 
  
 function loadData(filename) {
-	var reqUrl = "/assets/plugins/realgrid/data/" + filename;
+	var reqUrl = "/assets/plugins/realgrid/data/" + filename; 
     $.ajax({
         type: "GET",  
         url: reqUrl,        
@@ -149,6 +149,13 @@ function createGrid(container) {
             visible : true
         }
     });
+
+    grid.onContextMenuPopup = function (grid, x, y, elementName) {
+        // realgrid-utils.js 기본 팝업 메뉴 생성
+        setContextMenu(grid);
+      };
+        // realgrid-utils.js 기본 팝업 메뉴 실행
+    grid.onContextMenuItemClicked = onContextMenuClick;
 };
 
 function setActions(actionContainer) {
