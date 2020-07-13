@@ -15,66 +15,95 @@
     <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.css"/>
 
     <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/jszip.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/domutils.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid-lic.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid2.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid-utils.js"></script>
+    <link id="theme" href="/assets/plugins/realgrid/realgrid-style.css" rel="stylesheet">
+
     <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
     <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
     <script src="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.js"></script>
 
     <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
+
     <script type="text/javascript">
+        //realgrid...
+        window.addEventListener('DOMContentLoaded', function () {
+            
+            var ds = new RealGrid.LocalDataProvider();
+            var grid = new RealGrid.GridView("realgrid");
+            grid.setDataSource(ds);
 
-        var codeGrid = new luplino.ui.grid();
-        var gridList = [
-            {b1: "USER_STATUS", b2: "계정상태", c1:"NORMAL", c2:"활성", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "USER_STATUS", b2: "계정상태", c1:"ACCOUNT_LOCK", c2:"잠김", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "AUTH_GROUP", b2: "권한그룹", c1:"S0001", c2:"시스템관리자 그룹", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "AUTH_GROUP", b2: "권한그룹", c1:"S0002", c2:"사용자 그룹", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "LOCALE", b2: "로케일", c1:"ko_KR", c2:"대한민국", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "LOCALE", b2: "로케일", c1:"en_US", c2:"미국", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "MENU_GROUP", b2: "메뉴그룹", c1:"SYSTEM_MANAGER", c2:"시스템관리자 그룹", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "MENU_GROUP", b2: "메뉴그룹", c1:"USER", c2:"사용자 그룹", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "USE_YN", b2: "사용여부", c1:"Y", c2:"사용", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "USE_YN", b2: "사용여부", c1:"Y", c2:"사용안함", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "USE_ROLE", b2: "사용자 룰", c1:"ASP_ACCESS", c2:"관리시스템 접근 룰", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "USE_ROLE", b2: "사용자 룰", c1:"SYSTEM_MANAGER", c2:"시스템 관리자 룰", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "USE_ROLE", b2: "사용자 룰", c1:"ASP_MANAGER", c2:"일반관리자 룰", a:"3", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "USE_ROLE", b2: "사용자 룰", c1:"NORMAL_USER", c2:"일반 사용자 룰", a:"4", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "USE_ROLE", b2: "사용자 룰", c1:"API", c2:"API 접근 룰", a:"5", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "DEL_YN", b2: "삭제여부", c1:"N", c2:"미삭제", a:"1", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""},
-            {b1: "DEL_YN", b2: "삭제여부", c1:"Y", c2:"삭제", a:"2", u:"Y", x:"", d1:"", d2:"", d3:"", d4:""}
-        ];
+            // realgrid-utils.js 유틸 함수를 사용해 필드와 컬럼을 함께 생성할 수 있다.
+            setFieldsNColumns(ds, grid,
+                [
+                {"name": "분류코드", "width": "150"}, 
+                {"name": "분류명", "width": "180"}, 
+                {"name": "코드", "width": "150"}, 
+                {"name": "코드값", "width": "150"}, 
+                {"name": "정렬", "width": "50"},
+                {"name": "사용여부", "width": "50"},
+                {"name": "비고", "width": "100"}, 
+                {"name": "데이터1","width": "100"},
+                {"name": "데이터2", "width": "100"},
+                {"name": "데이터3","width": "100"},
+                {"name": "데이터4", "width": "100"}
+            ]
+            );
 
+            var gridList = [
+                {"분류코드": "USER_STATUS", "분류명": "계정상태", "코드":"NORMAL", "코드값":"활성", "정렬":"1", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "USER_STATUS", "분류명": "계정상태", "코드":"ACCOUNT_LOCK", "코드값":"잠김", "정렬":"2", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "AUTH_GROUP", "분류명": "권한그룹", "코드":"S0001", "코드값":"시스템관리자 그룹", "정렬":"1", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "AUTH_GROUP", "분류명": "권한그룹", "코드":"S0002", "코드값":"사용자 그룹", "정렬":"2", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "LOCALE", "분류명": "로케일", "코드":"ko_KR", "코드값":"대한민국", "정렬":"1", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "LOCALE", "분류명": "로케일", "코드":"en_US", "코드값":"미국", "정렬":"2", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "MENU_GROUP", "분류명": "메뉴그룹", "코드":"SYSTEM_MANAGER", "코드값":"시스템관리자 그룹", "정렬":"1", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "MENU_GROUP", "분류명": "메뉴그룹", "코드":"USER", "코드값":"사용자 그룹", "정렬":"2", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "USE_YN", "분류명": "사용여부", "코드":"Y", "코드값":"사용", "정렬":"1", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "USE_YN", "분류명": "사용여부", "코드":"Y", "코드값":"사용안함", "정렬":"2", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "USE_ROLE", "분류명": "사용자 룰", "코드":"ASP_ACCESS", "코드값":"관리시스템 접근 룰", "정렬":"1", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "USE_ROLE", "분류명": "사용자 룰", "코드":"SYSTEM_MANAGER", "코드값":"시스템 관리자 룰", "정렬":"2", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "USE_ROLE", "분류명": "사용자 룰", "코드":"ASP_MANAGER", "코드값":"일반관리자 룰", "정렬":"3", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "USE_ROLE", "분류명": "사용자 룰", "코드":"NORMAL_USER", "코드값":"일반 사용자 룰", "정렬":"4", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "USE_ROLE", "분류명": "사용자 룰", "코드":"API", "코드값":"API 접근 룰", "정렬":"5", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "DEL_YN", "분류명": "삭제여부", "코드":"N", "코드값":"미삭제", "정렬":"1", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""},
+                {"분류코드": "DEL_YN", "분류명": "삭제여부", "코드":"Y", "코드값":"삭제", "정렬":"2", "사용여부":"Y", "비고":"", "데이터1":"", "데이터2":"", "데이터3":"", "데이터4":""}
+            ];
+            
+            ds.setRows(gridList);            
+            
+            grid.filteringOptions.selector.showButtons = true;
+            grid.displayOptions.refreshMode = "visibleOnly";
+            grid.displayOptions.emptyMessage = "표시할 데이타가 없습니다.";
+            grid.sortingOptions.showSortOrder = true;
+            grid.sortingOptions.style = "reverse";
+            grid.displayOptions.rowHoverType = "row";    
+            grid.displayOptions.rowResizable = true;
 
+            grid.setEditOptions({
+                insertable: true,
+                appendable : true
+            });
+
+            grid.setEditorOptions({
+                viewGridInside: true
+            })
+
+            grid.onContextMenuPopup = function (grid, x, y, elementName) {
+                console.log(arguments);
+                // realgrid-utils.js 기본 팝업 메뉴 생성
+                setContextMenu(grid);
+                
+            };
+            // realgrid-utils.js 기본 팝업 메뉴 실행
+            grid.onContextMenuItemClicked = onContextMenuClick;          
+        });
+        
         $(document.body).ready(function() {
             $('[data-lolayout]').lolayout();
-
-            codeGrid.setConfig({
-                target: $('[data-logrid="code-grid"]'),
-                showLineNumber: true,
-                showRowSelector: true,
-                multipleSelect: true,
-                lineNumberColumnWidth:50,
-                rowSelectorColumnWidth:29,
-                sortable: true,
-                header: {align: 'center'},
-                body: {
-                    //columnHeight: 26
-                },
-                columns: [
-                    {key: "b1", label: "분류코드", width:150},
-                    {key: "b2", label: "분류명"},
-                    {key: "c1", label: "코드", width:150},
-                    {key: "c2", label: "코드값", width:150},
-                    {key: "a", label: "정렬", width:50, align:"center"},
-                    {key: "u", label: "사용여부", width:80, align:"center", editor:{type:"checkbox", config: {height: 17, trueValue: "Y", falseValue: "N"}}},
-                    {key: "x", label: "비고"},
-                    {key: "d1", label: "데이터1"},
-                    {key: "d2", label: "데이터2"},
-                    {key: "d3", label: "데이터3"},
-                    {key: "d4", label: "데이터4"}
-                ]
-            });
-            codeGrid.setData(gridList);
-
         });
     </script>
 </head>
@@ -129,11 +158,11 @@
                                 <a href="#"><i class="icon icon-circle-with-minus"></i>&nbsp;<span class="text">삭제</span></a>
                             </div>
                         </div>
-                        <div class="pad-body with-head">
+                        <div class="pad-body with-head">                            
                             <style>
-                                [data-logrid-container="root"] {border:none !important; }
+                                .rg-root.rg-grid {border:none !important;}
                             </style>
-                            <div data-logrid="code-grid" data-fit-height-content="code-grid" style="height:100%;"></div>
+                            <div id="realgrid" style="width:100%; height:100%;"></div>                            
                         </div>
                     </div>
                 </div>

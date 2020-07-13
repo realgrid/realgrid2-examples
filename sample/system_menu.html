@@ -163,11 +163,11 @@
             { id:23, pId:2, name:"레이아웃 사용자화"}
         ];
 
-        var appGrid = new luplino.ui.grid();
-        var gridList = [
-            {pcode: "S0001", gn: "시스템관리자 그룹", permit:"Y", search:"Y", save:"Y", excel:"Y", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N"},
-            {pcode: "S0002", gn: "사용자 권한그룹", permit:"N", search:"N", save:"N", excel:"Y", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N"}
-        ];
+        // var appGrid = new luplino.ui.grid();
+        // var gridList = [
+        //     {pcode: "S0001", gn: "시스템관리자 그룹", permit:"Y", search:"Y", save:"Y", excel:"Y", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N"},
+        //     {pcode: "S0002", gn: "사용자 권한그룹", permit:"N", search:"N", save:"N", excel:"Y", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N"}
+        // ];
 
         $(document.body).ready(function() {
             $('[data-lolayout]').lolayout();
@@ -175,35 +175,35 @@
 
             ztree.initView();
 
-            appGrid.setConfig({
-                target: $('[data-logrid="app-grid"]'),
-                showLineNumber: true,
-                showRowSelector: true,
-                multipleSelect: true,
-                lineNumberColumnWidth:50,
-                rowSelectorColumnWidth:29,
-                sortable: false,
-                header: {align: 'center'},
-                body: {
-                    onClick: function () {
-                        this.self.select(this.dindex, {selectedClear: true});
-                    }
-                },
-                columns: [
-                    {key: "pcode", label: "권한그룹 코드", width:150, align:"center"},
-                    {key: "gn", label: "권한그룹명", width:260},
-                    {key: "permit", label: "권한적용", width:80, align:"center", editor:{type:"checkbox", config: {height: 16, trueValue: "Y", falseValue: "N"}}},
-                    {key: "search", label: "조회", width:60, align:"center", editor:{type:"checkbox", config: {height: 16, trueValue: "Y", falseValue: "N"}}},
-                    {key: "save", label: "저장", width:60, align:"center", editor:{type:"checkbox", config: {height: 16, trueValue: "Y", falseValue: "N"}}},
-                    {key: "excel", label: "엑셀", width:60, align:"center"},
-                    {key: "del", label: "삭제", width:60, align:"center"},
-                    {key: "fn1", label: "FN1", width:60, align:"center"},
-                    {key: "fn2", label: "FN2", width:60, align:"center"},
-                    {key: "fn3", label: "FN3", width:60, align:"center"},
-                    {key: "fn4", label: "FN4", width:60, align:"center"}
-                ]
-            });
-            appGrid.setData(gridList);
+            // appGrid.setConfig({
+            //     target: $('[data-logrid="app-grid"]'),
+            //     showLineNumber: true,
+            //     showRowSelector: true,
+            //     multipleSelect: true,
+            //     lineNumberColumnWidth:50,
+            //     rowSelectorColumnWidth:29,
+            //     sortable: false,
+            //     header: {align: 'center'},
+            //     body: {
+            //         onClick: function () {
+            //             this.self.select(this.dindex, {selectedClear: true});
+            //         }
+            //     },
+            //     columns: [
+            //         {key: "pcode", label: "권한그룹 코드", width:150, align:"center"},
+            //         {key: "gn", label: "권한그룹명", width:260},
+            //         {key: "permit", label: "권한적용", width:80, align:"center", editor:{type:"checkbox", config: {height: 16, trueValue: "Y", falseValue: "N"}}},
+            //         {key: "search", label: "조회", width:60, align:"center", editor:{type:"checkbox", config: {height: 16, trueValue: "Y", falseValue: "N"}}},
+            //         {key: "save", label: "저장", width:60, align:"center", editor:{type:"checkbox", config: {height: 16, trueValue: "Y", falseValue: "N"}}},
+            //         {key: "excel", label: "엑셀", width:60, align:"center"},
+            //         {key: "del", label: "삭제", width:60, align:"center"},
+            //         {key: "fn1", label: "FN1", width:60, align:"center"},
+            //         {key: "fn2", label: "FN2", width:60, align:"center"},
+            //         {key: "fn3", label: "FN3", width:60, align:"center"},
+            //         {key: "fn4", label: "FN4", width:60, align:"center"}
+            //     ]
+            // });
+            // appGrid.setData(gridList);
         });
     </script>
 </head>

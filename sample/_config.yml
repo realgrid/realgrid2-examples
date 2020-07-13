@@ -97,3 +97,6 @@ kramdown:
 assets:
   sources:
     - assets
+
+#Windows
+parallel_localization: false
