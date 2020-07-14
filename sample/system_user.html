@@ -16,6 +16,13 @@
     <link rel="stylesheet" type="text/css" href="/assets/plugins/luplino/luplino-grid/dist/luplino-grid.css"/>
 
     <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/jszip.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/domutils.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid-lic.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid2.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid-utils.js"></script>
+    <link id="theme" href="/assets/plugins/realgrid/realgrid-style.css" rel="stylesheet">
+
     <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
     <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
     <script src="/assets/plugins/luplino/luplino-select/dist/luplino-select.js"></script>
@@ -25,66 +32,162 @@
 
 
     <script type="text/javascript">
-
-        var userGrid = new luplino.ui.grid();
+    window.addEventListener('DOMContentLoaded', function () {
         var userGridList = [
-            {uid: "system", uname: "시스템 관리자", lang:"대한민국", use:"Y"},
-            {uid: "guest", uname: "방문자", lang:"대한민국", use:"N"}
+            {"아이디": "system", "사용자명": "시스템 관리자", "언어":"대한민국", "사용여부":"True"},
+            {"아이디": "guest", "사용자명": "방문자", "언어":"대한민국", "사용여부":"N"}
         ];
 
-        var roleGrid = new luplino.ui.grid();
         var roleGridList = [
-            {rcode: "ASP_ACCESS", rname: "관리시스템 접근 롤"},
-            {rcode: "SYSTEM_MANAGER", rname: "시스템 관리자 롤"},
-            {rcode: "ASP_MANAGER", rname: "일반관리자 롤"},
-            {rcode: "NORMAL_USER", rname: "일반사용자 롤"}
+            {"역할코드": "ASP_ACCESS", "역할명": "관리시스템 접근 롤"},
+            {"역할코드": "SYSTEM_MANAGER", "역할명": "시스템 관리자 롤"},
+            {"역할코드": "ASP_MANAGER", "역할명": "일반관리자 롤"},
+            {"역할코드": "NORMAL_USER", "역할명": "일반사용자 롤"}
         ];
+        var userFields = [
+            { fieldName: "아이디",   dataType: "text"},
+            { fieldName: "사용자명", dataType: "text"},
+            { fieldName: "언어",     dataType: "text"},
+            { fieldName: "사용여부", dataType: "boolean"}
+        ];
+        var roleFields = [
+            { fieldName: "역할코드", dataType: "text"},
+            { fieldName: "역할명",   dataType: "text"}
+        ];
+        var userColumns = [
+            {
+                name: "아이디",
+                fieldName: "아이디",
+                type: "data",
+                width: "80",
+                header: {
+                    text: "아이디"
+                }
+            },
+            {
+                name: "사용자명",
+                fieldName: "사용자명",
+                type: "data",
+                width: "120",
+                header: {
+                    text: "사용자명"
+                }
+            },
+            {
+                name: "언어",
+                fieldName: "언어",
+                type: "data",
+                width: "60",
+                header: {
+                    text: "언어"
+                }
+            },
+            {
+                name: "사용여부",
+                fieldName: "사용여부",
+                type: "data",
+                width: "60",
+                editable: false,
+                renderer: {
+                    type: "check",
+                },
+                header: {
+                    text: "사용여부"
+                }
+            }
+        ];
+        var roleColumns = [
+            {
+                name: "역할코드",
+                fieldName: "역할코드",
+                type: "data",
+                width: "200",
+                header: {
+                    text: "역할코드"
+                }
+            },
+            {
+                name: "역할명",
+                fieldName: "역할명",
+                type: "data",
+                width: "300",
+                header: {
+                    text: "역할명"
+                }
+            }
+        ];
+        
+        var userData = new RealGrid.LocalDataProvider();
+        var userGrid = new RealGrid.GridView("usergrid");
+        userGrid.setDataSource(userData);
+        userData.setFields(userFields);
+        userGrid.setColumns(userColumns);
+        userData.setRows(userGridList);            
+        
+        userGrid.filteringOptions.selector.showButtons = true;
+        userGrid.displayOptions.refreshMode = "visibleOnly";
+        userGrid.displayOptions.emptyMessage = "표시할 데이타가 없습니다.";
+        userGrid.sortingOptions.showSortOrder = true;
+        userGrid.sortingOptions.style = "reverse";
+        userGrid.displayOptions.rowHoverType = "row";    
+        userGrid.displayOptions.rowResizable = true;
+
+        userGrid.setEditOptions({
+            insertable: true,
+            appendable : true
+        });
+
+        userGrid.setEditorOptions({
+            viewGridInside: true
+        })
+
+        userGrid.onContextMenuPopup = function (grid, x, y, elementName) {
+            console.log(arguments);
+            // realgrid-utils.js 기본 팝업 메뉴 생성
+            setContextMenu(grid);
+            
+        };
+        // realgrid-utils.js 기본 팝업 메뉴 실행
+        userGrid.onContextMenuItemClicked = onContextMenuClick;  
+
+        var roleData = new RealGrid.LocalDataProvider();
+        var roleGrid = new RealGrid.GridView("rolegrid");
+        roleGrid.setDataSource(roleData);
+        roleData.setFields(roleFields);
+        roleGrid.setColumns(roleColumns);
+        roleData.setRows(roleGridList);            
+        
+        roleGrid.filteringOptions.selector.showButtons = true;
+        roleGrid.displayOptions.refreshMode = "visibleOnly";
+        roleGrid.displayOptions.emptyMessage = "표시할 데이타가 없습니다.";
+        roleGrid.sortingOptions.showSortOrder = true;
+        roleGrid.sortingOptions.style = "reverse";
+        roleGrid.displayOptions.rowHoverType = "row";    
+        roleGrid.displayOptions.rowResizable = true;
+
+        roleGrid.setEditOptions({
+            insertable: true,
+            appendable : true
+        });
+
+        roleGrid.setEditorOptions({
+            viewGridInside: true
+        })
+
+        roleGrid.onContextMenuPopup = function (grid, x, y, elementName) {
+            console.log(arguments);
+            // realgrid-utils.js 기본 팝업 메뉴 생성
+            setContextMenu(grid);
+            
+        };
+        // realgrid-utils.js 기본 팝업 메뉴 실행
+        roleGrid.onContextMenuItemClicked = onContextMenuClick;          
+
+    });
 
         $(document.body).ready(function() {
             $('[data-lolayout]').lolayout();
             $('[data-lo-select]').loselect();
-
-            userGrid.setConfig({
-                target: $('[data-logrid="user-grid"]'),
-                showLineNumber: true,
-                multipleSelect: true,
-                lineNumberColumnWidth:30,
-                rowSelectorColumnWidth:29,
-                sortable: false,
-                header: {align: 'center'},
-                body: {
-                    onClick: function () {
-                        this.self.select(this.dindex, {selectedClear: true});
-                    }
-                },
-                columns: [
-                    {key: "uid", label: "아이디", width:80, align:"center"},
-                    {key: "uname", label: "사용자명", width:120, align:"center"},
-                    {key: "lang", label: "언어", width:80, align:"center"},
-                    {key: "use", label: "사용여부", width:50, align:"center"}
-                ]
-            });
-            userGrid.setData(userGridList);
-
-            roleGrid.setConfig({
-                target: $('[data-logrid="role-grid"]'),
-                showRowSelector: true,
-                multipleSelect: true,
-                lineNumberColumnWidth:30,
-                rowSelectorColumnWidth:29,
-                sortable: false,
-                header: {align: 'center'},
-                body: {
-                    onClick: function () {
-                        this.self.select(this.dindex, {selectedClear: true});
-                    }
-                },
-                columns: [
-                    {key: "rcode", label: "역할코드", width:200, align:"center"},
-                    {key: "rname", label: "역할명", width:300, align:"center"}
-                ]
-            });
-            roleGrid.setData(roleGridList);
         });
     </script>
 </head>
@@ -141,9 +244,9 @@
                                 </div>
                                 <div class="pad-body with-head">
                                     <style>
-                                        [data-logrid-container="root"] {border:none !important; }
+                                        .rg-root.rg-grid {border:none !important;}
                                     </style>
-                                    <div data-logrid="user-grid" data-fit-height-content="user-grid" style="height:100%;"></div>
+                                    <div id="usergrid" style="height:100%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -273,7 +376,10 @@
                                         </tr>
                                     </table>
                                     <div class="title-sub">역할 설정</div>
-                                    <div data-logrid="role-grid" data-fit-height-content="role-grid" style="height:200px; border-top:1px solid #BEBEBE;"></div>
+                                    <style>
+                                        .rg-root.rg-grid {border:none !important;}
+                                    </style>                                    
+                                    <div id="rolegrid" data-fit-height-content="role-grid" style="height:200px; border-top:1px solid #BEBEBE; border-bottom:1px solid #BEBEBE;"></div>
                                 </div>
                             </div>
                         </div>

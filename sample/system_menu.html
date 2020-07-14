@@ -17,6 +17,13 @@
     <link type="text/css" rel="stylesheet" href="/assets/plugins/ztree/css/entypoplus/entypoplus.css" />
 
     <script src="/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/jszip.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/scripts/domutils.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid-lic.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid2.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realgrid/lib/realgrid-utils.js"></script>
+    <link id="theme" href="/assets/plugins/realgrid/realgrid-style.css" rel="stylesheet">
+
     <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
     <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
     <script src="/assets/plugins/luplino/luplino-select/dist/luplino-select.js"></script>
@@ -29,8 +36,197 @@
 
 
     <script type="text/javascript">
+    //realgrid...
+    window.addEventListener('DOMContentLoaded', function () {
+        var gridList = [
+            {"권한그룹 코드": "S0001", "권한그룹명": "시스템관리자 그룹", "권한적용": "True", "조회": "True", "저장": "True", "엑셀": "True", "삭제": "N", "FN1": "N", "FN2": "N", "FN3": "N", "FN4": "N"},
+            {"권한그룹 코드": "S0002", "권한그룹명": "사용자 권한그룹", "권한적용": "N", "조회": "N", "저장": "N", "엑셀": "True", "삭제": "N", "FN1": "N", "FN2": "N", "FN3": "N", "FN4": "N"}
+        ];
+        var fields = [
+                { fieldName: "권한그룹 코드", dataType: "text"},
+                { fieldName: "권한그룹명",    dataType: "text"},
+                { fieldName: "권한적용",      dataType: "boolean"},
+                { fieldName: "조회",          dataType: "boolean"},
+                { fieldName: "저장",          dataType: "boolean"},
+                { fieldName: "삭제",          dataType: "boolean"},
+                { fieldName: "엑셀",          dataType: "boolean"},
+                { fieldName: "FN1",           dataType: "boolean"},
+                { fieldName: "FN2",           dataType: "boolean"},
+                { fieldName: "FN3",           dataType: "boolean"},
+                { fieldName: "FN4",           dataType: "boolean"}
+            ];
 
+            var columns = [
+                {
+                    name: "권한그룹 코드",
+                    fieldName: "권한그룹 코드",
+                    type: "data",
+                    width: "150",
+                    header: {
+                        text: "권한그룹 코드"
+                    }
+                },
+                {
+                    name: "권한그룹명",
+                    fieldName: "권한그룹명",
+                    type: "data",
+                    width: "260",
+                    header: {
+                        text: "권한그룹명"
+                    }
+                },
+                {
+                    name: "권한적용",
+                    fieldName: "권한적용",
+                    type: "data",
+                    width: "80",
+                    editable: false,
+                    renderer: {
+                        type: "check",
+                    },
+                    header: {
+                        text: "권한적용"
+                    }
+                },
+                {
+                    name: "조회",
+                    fieldName: "조회",
+                    type: "data",
+                    width: "60",
+                    editable: false,
+                    renderer: {
+                        type: "check",
+                    },
+                    header: {
+                        text: "조회"
+                    }
+                },
+                {
+                    name: "저장",
+                    fieldName: "저장",
+                    type: "data",
+                    width: "60",
+                    editable: false,
+                    renderer: {
+                        type: "check",
+                    },
+                    header: {
+                        text: "저장"
+                    }
+                },
+                {
+                    name: "삭제",
+                    fieldName: "삭제",
+                    type: "data",
+                    width: "60",
+                    editable: false,
+                    renderer: {
+                        type: "check",
+                    },
+                    header: {
+                        text: "삭제"
+                    }
+                },
+                {
+                    name: "엑셀",
+                    fieldName: "엑셀",
+                    type: "data",
+                    width: "60",
+                    editable: false,
+                    renderer: {
+                        type: "check",
+                    },
+                    header: {
+                        text: "엑셀"
+                    }
+                },
+                {
+                    name: "FN1",
+                    fieldName: "FN1",
+                    type: "data",
+                    width: "60",
+                    editable: false,
+                    renderer: {
+                        type: "check",
+                    },
+                    header: {
+                        text: "FN1"
+                    }
+                },
+                {
+                    name: "FN2",
+                    fieldName: "FN2",
+                    type: "data",
+                    width: "60",
+                    editable: false,
+                    renderer: {
+                        type: "check",
+                    },
+                    header: {
+                        text: "FN2"
+                    }
+                },
+                {
+                    name: "FN3",
+                    fieldName: "FN3",
+                    type: "data",
+                    width: "60",
+                    editable: false,
+                    renderer: {
+                        type: "check",
+                    },
+                    header: {
+                        text: "FN3"
+                    }
+                },
+                {
+                    name: "FN4",
+                    fieldName: "FN4",
+                    type: "data",
+                    width: "60",
+                    editable: false,
+                    renderer: {
+                        type: "check",
+                    },
+                    header: {
+                        text: "FN4"
+                    }
+                }
+            ];
+            var ds = new RealGrid.LocalDataProvider();
+            var grid = new RealGrid.GridView("realgrid");
+            grid.setDataSource(ds);
+            ds.setFields(fields);
+            grid.setColumns(columns);
+            ds.setRows(gridList);            
+            
+            grid.filteringOptions.selector.showButtons = true;
+            grid.displayOptions.refreshMode = "visibleOnly";
+            grid.displayOptions.emptyMessage = "표시할 데이타가 없습니다.";
+            grid.sortingOptions.showSortOrder = true;
+            grid.sortingOptions.style = "reverse";
+            grid.displayOptions.rowHoverType = "row";    
+            grid.displayOptions.rowResizable = true;
 
+            grid.setEditOptions({
+                insertable: true,
+                appendable : true
+            });
+
+            grid.setEditorOptions({
+                viewGridInside: true
+            })
+
+            grid.onContextMenuPopup = function (grid, x, y, elementName) {
+                console.log(arguments);
+                // realgrid-utils.js 기본 팝업 메뉴 생성
+                setContextMenu(grid);
+                
+            };
+            // realgrid-utils.js 기본 팝업 메뉴 실행
+            grid.onContextMenuItemClicked = onContextMenuClick;          
+
+    });
         var ztreeObj;
         var ztree = {
             initView:function(){
@@ -163,47 +359,11 @@
             { id:23, pId:2, name:"레이아웃 사용자화"}
         ];
 
-        var appGrid = new luplino.ui.grid();
-        var gridList = [
-            {pcode: "S0001", gn: "시스템관리자 그룹", permit:"Y", search:"Y", save:"Y", excel:"Y", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N"},
-            {pcode: "S0002", gn: "사용자 권한그룹", permit:"N", search:"N", save:"N", excel:"Y", del:"N", fn1:"N", fn2:"N", fn3:"N", fn4:"N"}
-        ];
-
         $(document.body).ready(function() {
             $('[data-lolayout]').lolayout();
             $('[data-lo-select]').loselect();
 
             ztree.initView();
-
-            appGrid.setConfig({
-                target: $('[data-logrid="app-grid"]'),
-                showLineNumber: true,
-                showRowSelector: true,
-                multipleSelect: true,
-                lineNumberColumnWidth:50,
-                rowSelectorColumnWidth:29,
-                sortable: false,
-                header: {align: 'center'},
-                body: {
-                    onClick: function () {
-                        this.self.select(this.dindex, {selectedClear: true});
-                    }
-                },
-                columns: [
-                    {key: "pcode", label: "권한그룹 코드", width:150, align:"center"},
-                    {key: "gn", label: "권한그룹명", width:260},
-                    {key: "permit", label: "권한적용", width:80, align:"center", editor:{type:"checkbox", config: {height: 16, trueValue: "Y", falseValue: "N"}}},
-                    {key: "search", label: "조회", width:60, align:"center", editor:{type:"checkbox", config: {height: 16, trueValue: "Y", falseValue: "N"}}},
-                    {key: "save", label: "저장", width:60, align:"center", editor:{type:"checkbox", config: {height: 16, trueValue: "Y", falseValue: "N"}}},
-                    {key: "excel", label: "엑셀", width:60, align:"center"},
-                    {key: "del", label: "삭제", width:60, align:"center"},
-                    {key: "fn1", label: "FN1", width:60, align:"center"},
-                    {key: "fn2", label: "FN2", width:60, align:"center"},
-                    {key: "fn3", label: "FN3", width:60, align:"center"},
-                    {key: "fn4", label: "FN4", width:60, align:"center"}
-                ]
-            });
-            appGrid.setData(gridList);
         });
     </script>
 </head>
@@ -321,9 +481,9 @@
                                 </div>
                                 <div class="pad-body with-head">
                                     <style>
-                                        [data-logrid-container="root"] {border:none !important; }
+                                        .rg-root.rg-grid {border:none !important;}
                                     </style>
-                                    <div data-logrid="app-grid" data-fit-height-content="app-grid" style="height:100%;"></div>
+                                    <div id="realgrid" style="width:100%; height:100%;"></div>
                                 </div>
                             </div>
                         </div>
