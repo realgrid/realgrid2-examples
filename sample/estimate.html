@@ -44,7 +44,7 @@
         var picker = new luplino.ui.picker();
 
         $(document.body).ready(function() {
-            $('[data-lolayout]').lolayout();
+            //$('[data-lolayout]').lolayout();
 
             picker.bind({
                 target: $('[data-lopicker="basic"]'),
@@ -98,9 +98,21 @@
         });
 
         //realgrid...
-        window.addEventListener('DOMContentLoaded', function () {
+        window.addEventListener('DOMContentLoaded', function () {            
             createGrid1("realgrid-1");
             createGrid2("realgrid-2");
+
+            $('[data-lolayout]').lolayout({
+                onResize:function(){
+                    //this.splitPanel의 배열값으로 저장됩니다. splitter값을 포함하여
+                    //3개의 패널이 있다면 splitter는 2개이기 때문에 배열값은 5개를 가집니다.
+                    //그리드가 위치한 패널이 만약 0번째의 사이즈를 알고 싶다면 아래와 같이 변경된 값을 반환합니다.
+                    //console.log(this.splitPanel[4].__width);
+                    grdMaster.refresh();
+                    grdDetail.refresh();
+                }
+            });
+
             //setActions && setActions("actions");
         });
     </script>
@@ -115,9 +127,9 @@
                 <a href="#" class="la-button large"><i class="icon icon-plus"></i>&nbsp;<span class="text">추가</span></a>
                 <a href="#" class="la-button large"><i class="icon icon-pencil"></i>&nbsp;<span class="text">수정</span></a>
                 <a href="#" class="la-button large"><i class="icon icon-clipboard"></i>&nbsp;<span class="text">복사</span></a>
-                <a href="#" class="la-button large"><i class="icon icon-print"></i>&nbsp;<span class="text">견적서 출력</span></a><!--
-                --><span class="group-hr"></span><!--
-                --><a href="#" class="la-button large danger"><i class="icon icon-trash"></i>&nbsp;<span class="text">삭제</span></a>
+                <a href="#" class="la-button large"><i class="icon icon-print"></i>&nbsp;<span class="text">견적서 출력</span></a>
+                <span class="group-hr"></span>
+                <a href="#" class="la-button large danger"><i class="icon icon-trash"></i>&nbsp;<span class="text">삭제</span></a>
             </div>
         </div>
     </div>
@@ -125,7 +137,6 @@
 
         <div data-lolayout="row-1" data-config="{layout:'split-panel', orientation: 'horizontal'}">
             <div data-split-panel="{height: '130', minHeight:50}">
-
                 <div class="pad-cont full-height">
                     <div class="pad">
                         <div class="pad-head">

@@ -84,7 +84,16 @@
         };
 
         $(document.body).ready(function() {
-            $('[data-lolayout]').lolayout();
+            $('[data-lolayout]').lolayout({
+                onResize:function(){
+                    //this.splitPanel의 배열값으로 저장됩니다. splitter값을 포함하여
+                    //3개의 패널이 있다면 splitter는 2개이기 때문에 배열값은 5개를 가집니다.
+                    //그리드가 위치한 패널이 만약 0번째의 사이즈를 알고 싶다면 아래와 같이 변경된 값을 반환합니다.
+                    //console.log(this.splitPanel[4].__width);
+                    grid.refresh();                    
+                }
+            });
+            
             $('[data-lo-select]').loselect();
 
             $('[data-btn-action]').click(function(){
