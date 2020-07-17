@@ -1,76 +1,5 @@
-﻿var gridn;
-var ds;
-var datas;
-
-
-function createGrid(container) {
-	ds = new RealGrid.LocalDataProvider();
-    ds.restoreMode = "explicit";
-    ds.setFields(fields);
-    // ds 커밋 이후에 undo 할 수 있다.
-    ds.setOptions({
-        undoable: true
-    });
-
-    grid = new RealGrid.GridView(container);
-    grid.filteringOptions.selector.showButtons = true;
-    grid.displayOptions.refreshMode = "visibleOnly";
-    grid.displayOptions.emptyMessage = "표시할 데이타가 없습니다.";
-    grid.sortingOptions.showSortOrder = true;
-    grid.sortingOptions.style = "reverse";
-    grid.displayOptions.rowHoverType = "row";    
-    grid.displayOptions.rowResizable = true;
-    // 셀 단위로 커밋한다.
-    grid.commitByCell = true;    
-    // 셀 수정 상태를 마커로 표시한다.
-    grid.displayOptions.showChangeMarker = true;
-    
-    grid.setDataSource(ds);
-    grid.setColumns(columns);
-    loadData(ds);
-
-    // ds 커밋 전에 undo 할 수 있다.
-    // ds undoable Option을 false로 하더라도 커밋 전까지는 뷰어가 데이터를 관리하므로
-    // 커밋 전에 undo를 하려면 그리드 옵션의 undoable을 true로 해야 한다.
-    grid.setOptions({
-      undoable: true
-    });
-
-    grid.setEditOptions({
-        insertable: true,
-        appendable : false
-    });
-
-    grid.setGroupPanel({
-      minHeight: 30,
-      visible: true,
-      toast: {
-          visible : true
-      }
-    });
-
-    grid.onContextMenuPopup = function (grid, x, y, elementName) {
-      console.log(arguments);
-      // realgrid-utils.js 기본 팝업 메뉴 생성
-      setContextMenu(grid);      
-    };
-      // realgrid-utils.js 기본 팝업 메뉴 실행
-    grid.onContextMenuItemClicked = onContextMenuClick;
-
-    grid.setHeader({
-        showTooltip: true
-    })    
-
-    grid.onShowTooltip = function(grid, index, value) {
-        return value;
-    };
-    
-    grid.onShowHeaderTooltip = function (grid, column, value) {
-        return value;
-    };
-
-    grid.setFocus();    
-};
+var ds, gridContainer, grid;
+var rows;
 
 var fields = [
     { fieldName: "구분",         dataType: "text"},
@@ -136,6 +65,60 @@ var columns = [
     { fieldName: "단위", name: "단위", type: "data", width: 80, header:{ text: "단위"} }
 ];  
 
+function createGrid(container) {
+    ds = new RealGrid.LocalDataProvider();
+    ds.setFields(fields);
+    
+    grid = new RealGrid.GridView(container);
+    grid.setDataSource(ds);
+    grid.setColumns(columns);
+
+    // ds 커밋 이후에 undo 할 수 있다.
+    ds.restoreMode = "explicit";
+    ds.setOptions({
+        undoable: true
+    });
+
+    grid.filteringOptions.selector.showButtons = true;
+    grid.displayOptions.refreshMode = "visibleOnly";
+    grid.displayOptions.emptyMessage = "표시할 데이타가 없습니다.";
+    grid.sortingOptions.showSortOrder = true;
+    grid.sortingOptions.style = "reverse";
+    grid.displayOptions.rowHoverType = "row";    
+    grid.displayOptions.rowResizable = true;
+    // 셀 단위로 커밋한다.
+    grid.commitByCell = true;    
+    // 셀 수정 상태를 마커로 표시한다.
+    grid.displayOptions.showChangeMarker = true;
+    
+    loadData(ds);
+    
+    grid.onContextMenuPopup = function (grid, x, y, elementName) {
+        console.log(arguments);
+        // realgrid-utils.js 기본 팝업 메뉴 생성
+        setContextMenu(grid);      
+    };
+    // realgrid-utils.js 기본 팝업 메뉴 실행
+    grid.onContextMenuItemClicked = onContextMenuClick;    
+
+    grid.setEditOptions({
+        insertable: true,
+        appendable : true
+    });
+
+    grid.setEditorOptions({
+        viewGridInside: true
+    })
+
+    
+    grid.columnByName("EmployeeID").styleCallback = function (column, cell) {
+        if (cell.value > 5) return "rg-data-cell bold-cell";
+    };
+    grid.setRowStyleCallback(function(grid, item) {
+        if (item.index % 2 == 0) return "alternate-row";
+    })
+};
+
 function StrToFloat(numText) {
     if (!numText) {
         return 0;
@@ -191,3 +174,16 @@ function loadData(provider) {
         }
     });
 };
+
+function setActions(actionContainer) {
+    createCheckBox(actionContainer, "CommitByCell", function (e) {
+        grid.setEditOptions({
+            commitByCell: e.currentTarget.checked
+        });
+    });
+    createCheckBox(actionContainer, "CommitWhenLeave", function (e) {
+        grid.setEditOptions({
+            commitWhenLeave: e.currentTarget.checked
+        });
+    });
+}

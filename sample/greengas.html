@@ -1,4 +1,4 @@
-﻿---
+---
 ---
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@
                     //3개의 패널이 있다면 splitter는 2개이기 때문에 배열값은 5개를 가집니다.
                     //그리드가 위치한 패널이 만약 0번째의 사이즈를 알고 싶다면 아래와 같이 변경된 값을 반환합니다.
                     //console.log(this.splitPanel[4].__width);
-                    //grid.refresh();                    
+                    grid.refresh();                    
                 }
             });
 
@@ -106,17 +106,33 @@
         //realgrid...
         window.addEventListener('DOMContentLoaded', function () {
             createGrid("realgrid");
-            //setActions && setActions("actions");
+            setActions && setActions("actions");
         });
+
+        // function loadData(filename) {
+        //     var reqUrl = "/assets/plugins/realgrid/data/" + filename; // for S3
+        //     // let reqUrl = "/getData/fileName=" + fileName; // for node
+        //     $.ajax({
+        //         type: "GET",
+        //         url: reqUrl,
+        //         success: function(response)
+        //         {
+        //             dataProvider.setRows(response);
+        //             grid.refreshView();
+        //         }
+        //     });
+        // }
     </script>
 </head>
 <body>
 
 <div class="page-root">
     <div class="page-title">
-        <div class="left"><i class="icon icon-open-book"></i>&nbsp;<h1>온실가시배출</h1></div>
+        <div class="left"><i class="icon icon-open-book"></i>&nbsp;<h1>온실가스배출</h1></div>
         <div class="right">
             <div class="la-button-group">
+                <span class="group-hr"></span><!--
+                --><a href="#" class="la-button large danger"><i class="icon icon-trash"></i>&nbsp;<span class="text">삭제</span></a>
             </div>
         </div>
     </div>
@@ -143,7 +159,7 @@
                                     <input type="text" id="input-1-1" class="la-input" style="width:130px;" />
                                 </div>
                                 <div class="la-input-group">
-                                    <label for="input-2-1">조사년도</label>
+                                    <label for="input-2-1">조사일</label>
                                     <div class="la-picker-group" data-lopicker="basic" id="input-2-1">
                                         <input type="text" class="form-control bor" placeholder="yyyy/mm/dd"><!--
                                         --><span class="input-group-addon">~</span><!--
@@ -156,7 +172,7 @@
                                 <div class="la-input-group">
                                     <label for="input-1-1">시설명</label>
                                     <input type="text" id="input-1-1" class="la-input" style="width:130px;" />
-                                    <a href="#" class="la-button primary"><i class="icon icon-magnifying-glass"></i>&nbsp;<span class="text">찾기</span></a>
+                                    <a href="#" class="la-button primary"><i class="icon icon-magnifying-glass"></i>&nbsp;<span class="text">시설명 찾기</span></a>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +186,7 @@
                 <div class="pad-cont full-height">
                     <div class="pad" style="overflow: hidden;">
                         <div class="pad-head">
-                            <div class="left"><span class="title">온실가스 배출 조회</span></div>
+                            <div class="left"><span class="title">배출량 목록</span></div>
                             <div class="right"><span class="desc"><strong>RealGrid 2</strong> - v2.0.3</span></div>
                         </div>
                         <div class="pad-body with-head">
