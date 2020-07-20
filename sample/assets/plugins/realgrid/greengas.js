@@ -93,6 +93,8 @@ function createGrid(container) {
     
     loadData(ds);
     
+    grid.columnByField("연료명").autoFilter = true;
+
     grid.onContextMenuPopup = function (grid, x, y, elementName) {
         console.log(arguments);
         // realgrid-utils.js 기본 팝업 메뉴 생성
