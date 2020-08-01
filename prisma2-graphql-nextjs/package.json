@@ -1,0 +1,44 @@
+{
+  "name": "hello-next",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
+    "generate:prisma": "prisma generate",
+    "generate:nexus": "ts-node --transpile-only -P nexus.tsconfig.json pages/api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/react-hooks": "4.0.0",
+    "@apollo/react-ssr": "4.0.0",
+    "@nexus/schema": "0.14.0",
+    "@prisma/client": "2.3.0",
+    "apollo-boost": "0.4.9",
+    "apollo-link-http": "1.5.17",
+    "apollo-link-schema": "1.2.5",
+    "apollo-server-micro": "2.16.1",
+    "express": "4.17.1",
+    "graphql": "15.3.0",
+    "graphql-iso-date": "3.6.1",
+    "graphql-tag": "2.11.0",
+    "next": "9.5.1",
+    "nexus-prisma": "^0.12.0",
+    "react": "16.13.1",
+    "react-apollo": "3.1.5",
+    "react-dom": "16.13.1",
+    "react-markdown": "4.3.1",
+    "realgrid": "^2.0.4"
+  },
+  "devDependencies": {
+    "@prisma/cli": "2.3.0",
+    "@types/graphql": "14.5.0",
+    "@types/node": "13.13.15",
+    "@types/react": "16.9.44",
+    "typescript": "3.9.6"
+  }
+}
