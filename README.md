@@ -12,4 +12,4 @@
 
 - [홈페이지](https://www.realgrid.com/)
 - [문서 사이트](https://docs.realgrid.com/)
-- [라이선스 발급](http://service.realgrid.com/)
+- [라이선스 발급](https://service.realgrid.com/)
