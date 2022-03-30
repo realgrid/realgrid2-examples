@@ -7,3 +7,9 @@
 각 프로젝트 서브 디렉토리에서 README를 확인하세요.
 
 ![](screenshot.png)
+
+## RealGrid2 관련 사이트
+
+- [홈페이지](https://www.realgrid.com/)
+- [문서 사이트](https://docs.realgrid.com/)
+- [라이선스 발급](https://service.realgrid.com/)

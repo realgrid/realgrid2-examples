@@ -3,7 +3,7 @@ import { GridView, LocalDataProvider } from 'realgrid';
 import { columns, fields, rows } from './realgrid-data';
 import './App.css';
 
-class App extends Component {
+class App extends Component {   
   loadDataClick = () => {
   this.dataProvider.setRows(rows);
   }
