@@ -25,10 +25,14 @@ jobs:
     - name: Build Jekyll
       env:
         JEKYLL_ENV: production
-      run: gem install jekyll bundler
-      run: bundle install
-      run: bundle exec jekyll build
+      run: |
+        gem install bundler
+        gem install jekyll
+        bundle install
+    
+    - name: Build Site
       working-directory: sample
+      run: bundle exec jekyll build
 
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@v0.5.1
