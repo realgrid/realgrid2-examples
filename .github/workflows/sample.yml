@@ -20,17 +20,18 @@ jobs:
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
+        ruby-version: 2.7
         bundler-cache: true
 
     - name: Build Jekyll
-      env:
-        JEKYLL_ENV: production
       run: |
         gem install bundler
         gem install jekyll
         bundle install
     
     - name: Build Site
+      env:
+        JEKYLL_ENV: production
       working-directory: sample
       run: bundle exec jekyll build
 
