@@ -25,6 +25,8 @@ jobs:
     - name: Build Jekyll
       env:
         JEKYLL_ENV: production
+      run: gem install jekyll bundler
+      run: bundle install
       run: bundle exec jekyll build
       working-directory: sample
 
