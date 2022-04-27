@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     
     steps:
     - name: Checkout
@@ -19,14 +19,13 @@ jobs:
 
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
+      with:
+        bundler-cache: true
 
     - name: Build Jekyll
       env:
         JEKYLL_ENV: production
-      run: |
-        gem install jekyll bundler
-        bundle install
-        bundle exec jekyll build trace
+      run: bundle exec jekyll build
       working-directory: sample
 
     - name: Deploy to S3
