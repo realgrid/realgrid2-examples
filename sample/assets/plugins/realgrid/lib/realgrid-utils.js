@@ -212,6 +212,7 @@ function setContextMenu(grid) {
         if (column.fieldName) {
             menuItem.label = column.header.text;
             menuItem.tag = column.name;
+            menuItem.type = "check";
             menuItem.checked = column.visible;
 
             visibleContextMenu.push(menuItem);
