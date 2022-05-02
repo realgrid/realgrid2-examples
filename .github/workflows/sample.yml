@@ -48,20 +48,18 @@ jobs:
 
     - name: Slack Notification Success
       if: success()
-      uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_COLOR: '#238636'
         SLACK_TITLE: '✅ 배포 성공 알림'
         SLACK_MESSAGE: '<https://sample.realgrid.com|그리드샘플사이트> 서비스가 정상적으로 배포되었습니다.'
         MSG_MINIMAL: true
         SLACK_USERNAME: github_action
-        # 웹 훅 경로에 채널 정보가 포함되어 채널을 조정 할 수 없다.
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_FOOTER: '<https://www.wooritech.com|wooritech>'
+      uses: rtCamp/action-slack-notify@v2
 
     - name: Slack Notification Failure
       if: failure()
-      uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_COLOR: '#ff0000'
         SLACK_TITLE: '❌ 배포 실패 알림'
@@ -69,3 +67,4 @@ jobs:
         SLACK_USERNAME: github_action
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_FOOTER: '<https://www.wooritech.com|wooritech>'
+      uses: rtCamp/action-slack-notify@v2
