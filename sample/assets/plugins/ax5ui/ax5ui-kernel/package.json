@@ -54,7 +54,7 @@
     "markdown-it": "~5.0.2",
     "marko": "^2.8.4",
     "mocha": "^3.1.0",
-    "node-sass": "^3.13.1",
+    "node-sass": "^7.0.0",
     "opencollective-postinstall": "^1.0.15",
     "phantomjs-prebuilt": "^2.1.13",
     "requirejs": "^2.3.2",
