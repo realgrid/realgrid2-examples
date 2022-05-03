@@ -318,7 +318,7 @@ function onContextMenuClick(grid, data, index) {
     // data.parent 에 Tag 속성이 없어 switch문 전에 확인한다.
     // parent에 Tag가 추가되면 switch 문에서 처리하자.
     if (data.parent.label == "컬럼") {
-        grid.setColumnProperty(data.tag, "visible", !data.checked);
+        grid.setColumnProperty(data.tag, "visible", data.checked);
     }
 
     switch (data.tag){
