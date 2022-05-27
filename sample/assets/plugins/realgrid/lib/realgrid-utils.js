@@ -384,7 +384,7 @@ function getSelectionSummary(grid) {
 
     for(var rows in selectData){        
       for(var col in selectData[rows]){
-        if(grid.columnByName(col).valueType == "number"){
+        if((col != "__rowId")&&(grid.columnByName(col).valueType == "number")){
           sum += selectData[rows][col];
           cnt ++;
         };          

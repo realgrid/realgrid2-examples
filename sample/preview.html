@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealReport Print Preview</title>
+    <link rel="shortcut icon" href="#">
+
+    <link href="assets/plugins/realreport/css/preview.css" rel="stylesheet">
+    <!-- 하이차트의 기본 스타일 변경하려면 아래 파일을 수정하면 됩니다. -->
+    <!-- <link href='js/highcharts/highcharts.css' rel='stylesheet' /> -->
+    <link href='assets/plugins/realreport/lib/realreport.css' rel='stylesheet' />
+    <script type="text/javascript" src="assets/plugins/realreport/pdfkit.js"></script>
+    <script type="text/javascript" src="assets/plugins/realreport/lib/realreport-lic.js"></script>    
+    <script type="text/javascript" src='assets/plugins/realreport/lib/realreport.js'></script>
+</head>
+<body>
+    <div class="root">
+        <div class="container">
+            <div class="main">
+                <div class="main-content">
+                    <div class="preview-toolbar">
+                        <div class="toolbar-left">
+                            <div class="toolbar-items">
+                                <a class="toolbar-icon-button" onclick="onClickZoomOut10();">
+                                    <div class="toolbar-icon icon preview-zoomout-png"></div>
+                                </a>
+                                <input part="input" type="text" value="100%" id="inputZoomScale" aria-label="Zoom Scale">
+                                <a class="toolbar-icon-button" onclick="onClickZoomIn10();">
+                                    <div class="toolbar-icon icon preview-zoomin-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickFitToWidth();">
+                                    <div class="toolbar-icon icon preview-fit-to-width-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickFitToHeight();">
+                                    <div class="toolbar-icon icon preview-fit-to-height-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickFitToPage();">
+                                    <div class="toolbar-icon icon preview-fit-to-page-png"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="toolbar-center">
+                            <div class="toolbar-items">
+                                <a class="toolbar-icon-button" onclick="onClickFirstPage();">
+                                    <div class="toolbar-icon icon preview-first-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickPrevPage();">
+                                    <div class="toolbar-icon icon preview-prev-png"></div>
+                                </a>
+                                <div class="toolbar-item">
+                                    <input part="input" type="text" value="1" id="inputPageNumber" aria-label="Page number" >
+                                    <span style="margin: 0 4px;">/</span>
+                                    <span style="margin: 0 4px;" id="totalpage">1</span>
+                                </div>
+                                <a class="toolbar-icon-button" onclick="onClickNextPage();">
+                                    <div class="toolbar-icon icon preview-next-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickLastPage();">
+                                    <div class="toolbar-icon icon preview-last-png"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="toolbar-right">
+                            <div class="toolbar-items">
+                                <a class="toolbar-icon-button" onclick="onClickPrintHiddenFrame()">
+                                    <div class="toolbar-icon icon preview-print-png"></div>
+                                </a>
+                            </div>
+                            <span class="vertical-separator"></span>
+                            <div class="toolbar-items">
+                                <a class="toolbar-icon-button" onclick="onClickExportPdf();">
+                                    <div class="toolbar-icon icon preview-pdf-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickExportDoc('docx');">
+                                    <div class="toolbar-icon icon preview-docx-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickExportDoc('hwp');">
+                                    <div class="toolbar-icon icon preview-hwp-png"></div>
+                                </a>
+                            </div>
+                            <span class="vertical-separator"></span>
+                            <div class="toolbar-items">
+                                <a class="toolbar-icon-button" onclick="onClickExportImage('png');">
+                                    <div class="toolbar-icon icon preview-png-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickExportImage('jpeg');">
+                                    <div class="toolbar-icon icon preview-jpeg-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickExportImage('gif');">
+                                    <div class="toolbar-icon icon preview-gif-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickExportImage('tiff', 'g3');">
+                                    <div class="toolbar-icon icon preview-tiffg3-png"></div>
+                                </a>
+                                <a class="toolbar-icon-button" onclick="onClickExportImage('tiff', 'g4');">
+                                    <div class="toolbar-icon icon preview-tiffg4-png"></div>
+                                </a>
+                            </div>
+                        </div>                                        
+                    </div>
+                    <div class="scroller">
+                        <div id="realreport"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">        
+        var realReportLic = 'upVcPE+wPOkcfqywe+clVN+UVTCvO3is+83EYTz6U/sTXJR8Yw8Y0WXyjOMqbrgv0x+/TjcSI78+p7IjzZ8+YTQR9hbhIVddO6pBj8PqGa1e7L7C4dZzvApmpp5wpkG7oVSTy1ohzbiY3nEiKYzppQ==';
+        var containerId = 'realreport';
+        var viewer;
+
+        //--------------------------------------------------------------------------------------------------
+        // public methods
+        //--------------------------------------------------------------------------------------------------
+        var clearReport = function () {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            delete viewer;
+        }
+        
+        const setHtml = function (id, value, prefix, surfix) {
+            if (id) {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = `${prefix}${value}${surfix}`;
+            }
+        }
+
+        const setTotalPage = function (id) {
+            if (viewer) {
+                setHtml(id, viewer.pageCount, '', '');
+            }
+        }
+
+        
+
+        var previewReport = function (reports) {
+            clearReport();
+            // console.log(reports);
+            if (Array.isArray(reports) && reports.length > 1) {
+                viewer = new RealReport.ReportCompositeViewer(containerId, reports);
+            } else {
+                const previewInfo = reports[0];
+                viewer = new RealReport.ReportViewer(containerId, previewInfo.form, previewInfo.dataSet);
+                // viewer = new RealReport.ReportViewer(containerId, reportForm, reportDataSet);
+            }
+
+            if (viewer) viewer.preview();
+
+            setTimeout(() => {
+                setTotalPage('totalpage');
+            }, 100);
+        }
+
+        //--------------------------------------------------------------------------------------------------
+        // 이벤트 핸들링
+        //--------------------------------------------------------------------------------------------------
+
+        const onClickZoom = (z) => {
+            if (viewer) {
+                viewer.zoom = z;
+            }
+        }
+
+        const onClickZoomIn10 = function () {
+            if (viewer) {
+                viewer.zoomIn();
+                setZoomScaleInputValue('inputZoomScale');
+            }
+        }
+
+        const onClickZoomOut10 = function () {
+            if (viewer) {
+                viewer.zoomOut();
+                setZoomScaleInputValue('inputZoomScale');
+            }
+        }
+
+        const onClickFitToHeight = function () {
+            if (viewer) {
+                viewer.fitToHeight();
+                setZoomScaleInputValue('inputZoomScale');
+            }
+        }
+
+        const onClickFitToWidth = function () {
+            if (viewer) {
+                viewer.fitToWidth();
+                setZoomScaleInputValue('inputZoomScale');
+            }
+        }
+
+        const onClickFitToPage = function () {
+            if (viewer) {
+                viewer.fitToPage();
+                setZoomScaleInputValue('inputZoomScale');
+            }
+        }
+
+        const onClickFirstPage = function () {
+            if (viewer) {
+                viewer.first();
+                setPageInputValue('inputPageNumber');
+            }
+        }
+
+        const onClickLastPage = function () {
+            if (viewer) {
+                viewer.last();
+                setPageInputValue('inputPageNumber');
+            }
+        }
+
+        const onClickPrevPage = function () {
+            if (viewer) {
+                viewer.prev();
+                setPageInputValue('inputPageNumber');
+            }
+        }
+
+        const onClickNextPage = function () {
+            if (viewer) {
+                viewer.next();
+                setPageInputValue('inputPageNumber');
+            }
+        }
+
+        async function base64convert (url, split) {
+            const data = await fetch(url);
+            const blob = await data.blob();
+            
+            return new Promise(resolve => {
+                const reader = new FileReader();
+                reader.readAsDataURL(blob);
+                reader.onloadend = () => {
+                const base64data = reader.result;
+                resolve(split ? base64data.split(',')[1] : base64data);
+                }    
+            });
+        }
+
+        const onClickExportPdf = function () {
+            base64convert('/assets/plugins/realreport/pdffonts/malgun.ttf', true).then(regualrFont => {
+                base64convert('/assets/plugins/realreport/pdffonts/malgunbd.ttf', true).then(boldFont => {
+                    if (regualrFont && boldFont) {
+                        const fonts = [{
+                            name: 'regular',
+                            content: regualrFont,
+                            style: 'normal',
+                            weight: 'normal',
+                        },
+                        {
+                            name: 'bold',
+                            content: boldFont,
+                            style: 'normal',
+                            weight: 'bold',
+                        }];
+                
+                        if (viewer) {
+                            viewer.exportPdf(fonts);
+                        }
+                    }
+                });
+            });
+        }
+
+        const onClickExportDoc = function (type) {
+            if (viewer) {
+                viewer.exportDocument({ type });
+            }
+        }
+
+        const onClickExportImage = function (type, encoding, fileName) {
+            if (viewer) {
+                var options = { type };
+                if (encoding) options.tiff = { encoding };
+                if (fileName) options.fileName = fileName;
+                viewer.exportImage(options);
+            }
+        }
+
+        // iFrame을 통해 바로 출력
+        const onClickPrintHiddenFrame = function () {
+            if (viewer) {
+                function closePrint () {
+                    document.body.removeChild(this.__container__);
+                }
+                
+                function setPrint () {
+                    this.contentWindow.__container__ = this;
+                    this.contentWindow.onbeforeunload = closePrint;
+                    this.contentWindow.onafterprint = closePrint;
+                    const dom = this.contentWindow.document.getElementById('realreport');
+                    dom.innerHTML = viewer.reportHtml;
+
+                    setTimeout(() => {
+                        this.contentWindow.focus(); // Required for IE
+                        this.contentWindow.print();                
+                    }, 1);
+                }
+                
+                function printPage (sURL) {
+                    var oHideFrame = document.createElement("iframe");
+                    oHideFrame.onload = setPrint;
+                    oHideFrame.style.position = "";
+                    oHideFrame.style.right = "0";
+                    oHideFrame.style.bottom = "0";
+                    oHideFrame.style.width = "0";
+                    oHideFrame.style.height = "0";
+                    oHideFrame.style.border = "0";
+                    oHideFrame.src = sURL;
+                    document.body.appendChild(oHideFrame);
+                }
+
+                printPage('./print.html');   
+            }
+        }
+
+
+        //--------------------------------------------------------------------------------------------------
+        // private methods
+        //--------------------------------------------------------------------------------------------------
+
+        const zoom = document.getElementById('inputZoomScale');
+        zoom.addEventListener('change', (e) => {
+            let zoom = e.target.value;
+            if (zoom.endsWith('%')) zoom = zoom.replace('%', '');
+            if (!isNaN(zoom)) {
+                viewer.zoom = zoom / 100;
+                setZoomScaleInputValue('inputZoomScale');
+            }
+        })
+
+        const page = document.getElementById('inputPageNumber');
+        page.addEventListener('change', (e) => {
+            const page = e.target.value;
+            if (!isNaN(page)) {
+                viewer.page = page;
+                setPageInputValue('inputPageNumber');
+            }
+        })
+
+        const setInputValue = function (id, value, prefix, surfix) {
+            if (id) {
+                const input = document.getElementById(id);
+                if (input) input.value = `${prefix||''}${value}${surfix||''}`;
+            }
+        }
+
+
+
+        const setZoomScaleInputValue = function (id) {
+            setInputValue(id, Math.trunc(viewer.zoom * 100), '', '%');
+        }
+
+        const setPageInputValue = function (id) {
+            if (viewer) {
+                setInputValue(id, viewer.page);
+            }
+        };
+    </script>
+</body>
+</html>

@@ -138,6 +138,7 @@ var fields = [
         tooltip: "회사 입사일"
       }
     },    
+    
     { name: "SaveCost",
       fieldName: "SaveCost",
       type: "data",      
