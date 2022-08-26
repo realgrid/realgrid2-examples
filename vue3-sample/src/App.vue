@@ -1,28 +1,24 @@
 <template>
-  <div id="app">
-    <h2>RealGrid Vue Sample</h2>
-    <RealGrid/>
-  </div>
+  <h2>RealGrid Vue3 Sample</h2>
+  <RealGrid />
 </template>
 
 <script>
 import RealGrid from './components/RealGrid.vue';
-
 export default {
   name: 'App',
   components: {
-    RealGrid
-  }
-}
+    RealGrid,
+  },
+};
 </script>
 
 <style>
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: left;
+  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
