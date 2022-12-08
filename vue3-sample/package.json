@@ -10,7 +10,7 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "realgrid": "^2.5.3",
-    "vue": "^3.2.13"
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
