@@ -1,0 +1,178 @@
+.icon {
+    min-width: var(--icon-size);
+    min-height: var(--icon-size);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: var(--toolbar-invert);
+}
+
+.icon.preview-docx-png:hover {
+    background-image: url("../img/preview/preview-docx-hover.png");
+}
+
+.icon.preview-docx-png {
+    background-image: url("../img/preview/preview-docx.png");
+}
+
+.icon.preview-first-png:hover {
+    background-image: url("../img/preview/preview-first-hover.png");
+}
+
+.icon.preview-first-png {
+    background-image: url("../img/preview/preview-first.png");
+}
+
+
+.icon.preview-fit-to-height-png:hover {
+    background-image: url("../img/preview/preview-fit-to-height-hover.png");
+}
+
+.icon.preview-fit-to-height-png {
+    background-image: url("../img/preview/preview-fit-to-height.png");
+}
+
+.icon.preview-fit-to-page-png:hover {
+    background-image: url("../img/preview/preview-fit-to-page-hover.png");
+}
+
+.icon.preview-fit-to-page-png {
+    background-image: url("../img/preview/preview-fit-to-page.png");
+}
+
+.icon.preview-fit-to-width-png:hover {
+    background-image: url("../img/preview/preview-fit-to-width-hover.png");
+}
+
+.icon.preview-fit-to-width-png {
+    background-image: url("../img/preview/preview-fit-to-width.png");
+}
+
+.icon.preview-gif-png:hover {
+    background-image: url("../img/preview/preview-gif-hover.png");
+}
+
+.icon.preview-gif-png {
+    background-image: url("../img/preview/preview-gif.png");
+}
+
+.icon.preview-hwp-png:hover {
+    background-image: url("../img/preview/preview-hwp-hover.png");
+}
+
+.icon.preview-hwp-png {
+    background-image: url("../img/preview/preview-hwp.png");
+}
+
+.icon.preview-jpeg-png:hover {
+    background-image: url("../img/preview/preview-jpeg-hover.png");
+}
+
+.icon.preview-jpeg-png {
+    background-image: url("../img/preview/preview-jpeg.png");
+}
+
+.icon.preview-last-png:hover {
+    background-image: url("../img/preview/preview-last-hover.png");
+}
+
+.icon.preview-last-png {
+    background-image: url("../img/preview/preview-last.png");
+}
+
+.icon.preview-next-png:hover {
+    background-image: url("../img/preview/preview-next-hover.png");
+}
+
+.icon.preview-next-png {
+    background-image: url("../img/preview/preview-next.png");
+}
+
+.icon.preview-pdf-png:hover {
+    background-image: url("../img/preview/preview-pdf-hover.png");
+}
+
+.icon.preview-pdf-png {
+    background-image: url("../img/preview/preview-pdf.png");
+}
+
+.icon.preview-png-png:hover {
+    background-image: url("../img/preview/preview-png-hover.png");
+}
+
+.icon.preview-png-png {
+    background-image: url("../img/preview/preview-png.png");
+}
+
+.icon.preview-prev-png:hover {
+    background-image: url("../img/preview/preview-prev-hover.png");
+}
+
+.icon.preview-prev-png {
+    background-image: url("../img/preview/preview-prev.png");
+}
+
+.icon.preview-print-png:hover {
+    background-image: url("../img/preview/preview-print-hover.png");
+}
+
+.icon.preview-print-png {
+    background-image: url("../img/preview/preview-print.png");
+}
+
+.icon.preview-tiffg3-png:hover {
+    background-image: url("../img/preview/preview-tiffg3-hover.png");
+}
+
+.icon.preview-tiffg3-png {
+    background-image: url("../img/preview/preview-tiffg3.png");
+}
+
+.icon.preview-tiffg4-png:hover {
+    background-image: url("../img/preview/preview-tiffg4-hover.png");
+}
+
+.icon.preview-tiffg4-png {
+    background-image: url("../img/preview/preview-tiffg4.png");
+}
+
+.icon.preview-zoomin-png:hover {
+    background-image: url("../img/preview/preview-zoomin-hover.png");
+}
+
+.icon.preview-zoomin-png {
+    background-image: url("../img/preview/preview-zoomin.png");
+}
+
+.icon.preview-zoomout-png:hover {
+    background-image: url("../img/preview/preview-zoomout-hover.png");
+}
+
+.icon.preview-zoomout-png {
+    background-image: url("../img/preview/preview-zoomout.png");
+}
+
+.icon.preview-popup-png:hover {
+    background-image: url("../img/preview/preview-popup-hover.png");
+}
+
+.icon.preview-popup-png {
+    background-image: url("../img/preview/preview-popup.png");
+}
+
+.icon.print-popup-png:hover {
+    background-image: url("../img/preview/print-popup-hover.png");
+}
+
+.icon.print-popup-png {
+    background-image: url("../img/preview/print-popup.png");
+}
+
+.icon.toggle-editor-png:hover {
+    background-image: url("../img/preview/toggle-editor-hover.png");
+}
+
+.icon.toggle-editor-png {
+    background-image: url("../img/preview/toggle-editor.png");
+}
+
