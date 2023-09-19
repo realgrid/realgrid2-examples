@@ -433,7 +433,8 @@ export default {
 
             //var column = grid.columnByName(grid.getCurrent().column);
             var columnName = grid.columnByName(grid.getCurrent().column);
-
+            
+            //context menu 속성
             var contextMenu = [
                 {
                     label: "고정",
@@ -504,9 +505,13 @@ export default {
                     tag: 'excelExport'
                 }
             ];     
+            //context menu 설정
+            //https://docs.realgrid.com/guides/grid-components/context-menu
             grid.setContextMenu(contextMenu);
         },
         exportExcel(grid){    
+            //excel download
+            //https://docs.realgrid.com/guides/excels/excel-export
             grid.exportGrid({
                 type: 'excel',
                 exportImage: true
@@ -514,16 +519,23 @@ export default {
             
         },
         addRow(){
+            //행 추가
+            //https://docs.realgrid.com/guides/crud/insert
             let dataRow = dataProvider.addRow({});
             gridView.setCurrent({dataRow: dataRow});
         },
         removeRow(){
+            //행 삭제
+            //https://docs.realgrid.com/guides/crud/delete
             dataProvider.removeRow(gridView.getCurrent().dataRow);
         },
         rows(){
+            //row 선택 
+            //https://docs.realgrid.com/guides/grid-components/selecting
             gridView.displayOptions.selectionStyle = "rows";
         },
         block(){
+            //지정 범위 선택
             gridView.displayOptions.selectionStyle = "block";
         },
         clear(){
@@ -547,15 +559,21 @@ export default {
         gridView.editOptions.commitWhenLeave = true;
         gridView.displayOptions.rowHeight = 35;
         //멀티정렬
+        //https://docs.realgrid.com/guides/column/column-sorting
         gridView.sortingOptions.style = "inclusive";
         //행그룹핑영역 표시
         gridView.groupPanel.visible = true;
         //다중셀렉션 모드 설정
+        //https://docs.realgrid.com/guides/grid-components/multi-selection
         gridView.displayOptions.selectionMode = "extended";
 
         dataProvider.softDeleting = true;
 
         ////////////콜백설정////////////
+        //스타일 동적 적용
+        //https://docs.realgrid.com/guides/grid-style/row-dynamic-style
+        //컬럼 동적 스타일 https://docs.realgrid.com/guides/grid-style/column-dynamic-style
+        //셀 동적 스타일 https://docs.realgrid.com/guides/grid-style/cell-dynamic-style
         gridView.setRowStyleCallback(function(grid, item, fixed) {
             switch (item.rowState) {
             case "created": 
@@ -567,6 +585,8 @@ export default {
             }
         });
 
+        //cell tooltip 이벤트 설정(툴팁 출력 옵션 column.renderer.showTooltip = true)
+        //https://docs.realgrid.com/guides/cell-components/tooltip
         gridView.onShowTooltip = function(grid, index, value) {
             var column = index.column;
             var itemIndex = index.itemIndex;
@@ -583,24 +603,30 @@ export default {
             }
             return tooltip;
         };
-
+        //컨텍스트 메뉴 
+        //https://docs.realgrid.com/guides/grid-components/context-menu
         gridView.onContextMenuPopup = (grid, x, y, elementName) => {
             console.log(arguments);
             this.setContextMenu(grid);
         };
 
+        //컨텍스트 메뉴 클릭 이벤트
         gridView.onContextMenuItemClicked = (grid, menuItem, clickData) => {
             var cell = grid.getCurrent();
             var col = grid.columnByName(cell.column);
 
             // data.parent 에 Tag 속성이 없어 switch문 전에 확인한다.
             // parent에 Tag가 추가되면 switch 문에서 처리하자.
+            //컬럼보이기 / 숨기기
+            //https://docs.realgrid.com/guides/column/column-properties
             if (menuItem.parent.label == "컬럼") {
                 grid.setColumnProperty(menuItem.tag, "visible", menuItem.checked);
             }
 
             switch (menuItem.tag){
                 case "1rowFixed" : 
+                    //행 고정
+                    //https://docs.realgrid.com/guides/grid-components/fixed-rows
                     grid.setFixedOptions({rowCount: 1});
                     break;
                 case "2rowFixed" :
@@ -610,6 +636,8 @@ export default {
                     grid.setFixedOptions({rowCount: cell.itemIndex + 1});            
                     break;
                 case "1colFixed" :
+                    //열 고정
+                    //https://docs.realgrid.com/guides/grid-components/fixed-columns
                     grid.setFixedOptions({colCount: 1});            
                     break;
                 case "2colFixed" :
@@ -619,6 +647,7 @@ export default {
                     grid.setFixedOptions({colCount: col.index + 1});            
                     break;
                 case "cancelFixed" :
+                    //고정 취소 (count 0설정)
                     grid.setFixedOptions({colCount: 0, rowCount: 0});            
                     break;
                 case "rowNormalHeight" :
@@ -634,6 +663,8 @@ export default {
                     this.exportExcel(grid);
                     break;
                 case "autoFilter" :
+                    //자동 필터링 적용
+                    //https://docs.realgrid.com/guides/column/column-auto-filtering
                     col.autoFilter = true;
                     grid.refresh();
                     break;

@@ -91,6 +91,8 @@ export const columns =  [
       text: "이름"
     },
     renderer:{
+      //툴팁 컬럼 적용
+      //https://docs.realgrid.com/guides/cell-components/tooltip
       showTooltip:true
     }
   },
@@ -102,6 +104,8 @@ export const columns =  [
     values: ['남','여'],
     labels: ['남자','여자'],
     editor: {
+      //dropdown편집기
+      //https://docs.realgrid.com/guides/editor/dropdown-editor
       type: "dropdown"
     },
     header: {
@@ -208,10 +212,14 @@ export const columns =  [
     },
     numberFormat: "#,##0",
     groupFooter: {
+      //그룹 푸터 자동 합계
+      //https://docs.realgrid.com/guides/row-group/row-grouping
       expression: "sum",
       numberFormat: "#,##0"
     },
     footer: {
+      //푸터 자동 합계
+      //https://docs.realgrid.com/guides/header-and-footer/column-footer
       expression: "sum",
       numberFormat: "#,##0"
     },
