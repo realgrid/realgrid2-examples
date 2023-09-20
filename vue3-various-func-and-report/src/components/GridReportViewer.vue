@@ -721,7 +721,7 @@ export default {
     text-align: center;
 }
 .modal-toolbar {
-    margin-top: 50px;
+    margin-top: 55px;
 }
 .close-button {
     float: right;
