@@ -76,6 +76,7 @@ export var reportOptions = {
             "KorCountry",
             "StartDate",
             "OrderDate",
+            "imageUrl1",
         ],
     },
 };

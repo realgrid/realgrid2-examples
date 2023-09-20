@@ -6,7 +6,7 @@
         <button class="close-button" id="closeModalButton" @click="closeModal">
             X
         </button>
-        <div class="preview-toolbar">
+        <div class="preview-toolbar modal-toolbar">
             <div class="toolbar-left">
                 <div class="toolbar-items">
                     <a class="toolbar-icon-button" @click="onClickZoomOut10()">
@@ -149,16 +149,15 @@
     <button @click="exportPdf">pdf 내보내기</button>
     <button @click="addRow">행 추가</button>
     <button @click="removeRow">행 삭제</button>
-    <br>
+    <br />
     <button @click="rows">선택모드=rows</button>
     <button @click="block">선택모드=block</button>
-    <br>
+    <br />
     <button @click="clear">Clear</button>
-
 </template>
 
 <script>
-import  JSZip from "jszip";
+import JSZip from "jszip";
 import { GridView, LocalDataProvider } from "realgrid";
 import { columns, fields } from "./realgrid-fieldcolumn";
 import { datas, reportOptions } from "./realgrid-data";
@@ -416,24 +415,24 @@ export default {
 
             visibleContextMenu.push(
                 {
-                        label: "-"
-                },    
-                {
-                    label: "컬럼 모두 보기",
-                    tag: 'columnShow'
+                    label: "-",
                 },
                 {
-                    label: "-"
-                },    
+                    label: "컬럼 모두 보기",
+                    tag: "columnShow",
+                },
+                {
+                    label: "-",
+                },
                 {
                     label: "현재 컬럼 필터 겨기",
-                    tag: 'autoFilter'
+                    tag: "autoFilter",
                 }
             );
 
             //var column = grid.columnByName(grid.getCurrent().column);
             var columnName = grid.columnByName(grid.getCurrent().column);
-            
+
             //context menu 속성
             var contextMenu = [
                 {
@@ -441,110 +440,114 @@ export default {
                     children: [
                         {
                             label: "행 1개",
-                            tag: '1rowFixed'
+                            tag: "1rowFixed",
                         },
                         {
                             label: "행 2개",
-                            tag: '2rowFixed'
-                        },            
-                        {
-                        label: "현재 행까지("+ row +")",
-                        tag: 'rowFixed'
+                            tag: "2rowFixed",
                         },
                         {
-                            label: "-"
-                        },    
+                            label: "현재 행까지(" + row + ")",
+                            tag: "rowFixed",
+                        },
+                        {
+                            label: "-",
+                        },
                         {
                             label: "첫번째 컬럼",
-                            tag: '1colFixed'
+                            tag: "1colFixed",
                         },
                         {
                             label: "두번째 컬럼",
-                            tag: '2colFixed'
-                        },            
-                        {
-                        label: "현재 컬럼까지("+ columnName.header.text +")",
-                        tag: 'colFixed'
+                            tag: "2colFixed",
                         },
                         {
-                            label: "-"
-                        },    
+                            label:
+                                "현재 컬럼까지(" + columnName.header.text + ")",
+                            tag: "colFixed",
+                        },
                         {
-                        label: "고정 취소",
-                        tag: 'cancelFixed',                    
-                        enabled: (grid.fixedOptions.rightCount + grid.fixedOptions.colCount + grid.fixedOptions.rowCount) != 0
-                        }]
-                },            
+                            label: "-",
+                        },
+                        {
+                            label: "고정 취소",
+                            tag: "cancelFixed",
+                            enabled:
+                                grid.fixedOptions.rightCount +
+                                    grid.fixedOptions.colCount +
+                                    grid.fixedOptions.rowCount !=
+                                0,
+                        },
+                    ],
+                },
                 {
                     label: "컬럼",
                     tag: "columnMenu",
-                    children: visibleContextMenu
-                },            
+                    children: visibleContextMenu,
+                },
                 {
                     label: "행 높이",
                     children: [
                         {
                             label: "보통 (28px)",
-                            tag: 'rowNormalHeight'
+                            tag: "rowNormalHeight",
                         },
                         {
                             label: "좁게 (20px)",
-                            tag: 'rowSmallHeight'
-                        },            
+                            tag: "rowSmallHeight",
+                        },
                         {
                             label: "넓게 (36px)",
-                            tag: 'rowLargeHeight'
-                        }
-                    ]
-                },            
+                            tag: "rowLargeHeight",
+                        },
+                    ],
+                },
                 {
-                    label: "-" // menu separator를 삽입합니다.
+                    label: "-", // menu separator를 삽입합니다.
                 },
                 {
                     label: "ExcelExport",
-                    tag: 'excelExport'
-                }
-            ];     
+                    tag: "excelExport",
+                },
+            ];
             //context menu 설정
             //https://docs.realgrid.com/guides/grid-components/context-menu
             grid.setContextMenu(contextMenu);
         },
-        exportExcel(grid){    
+        exportExcel(grid) {
             //excel download
             //https://docs.realgrid.com/guides/excels/excel-export
             grid.exportGrid({
-                type: 'excel',
-                exportImage: true
+                type: "excel",
+                exportImage: true,
             });
-            
         },
-        addRow(){
+        addRow() {
             //행 추가
             //https://docs.realgrid.com/guides/crud/insert
             let dataRow = dataProvider.addRow({});
-            gridView.setCurrent({dataRow: dataRow});
+            gridView.setCurrent({ dataRow: dataRow });
         },
-        removeRow(){
+        removeRow() {
             //행 삭제
             //https://docs.realgrid.com/guides/crud/delete
             dataProvider.removeRow(gridView.getCurrent().dataRow);
         },
-        rows(){
-            //row 선택 
+        rows() {
+            //row 선택
             //https://docs.realgrid.com/guides/grid-components/selecting
             gridView.displayOptions.selectionStyle = "rows";
         },
-        block(){
+        block() {
             //지정 범위 선택
             gridView.displayOptions.selectionStyle = "block";
         },
-        clear(){
+        clear() {
             dataProvider.clearRows();
-        }
+        },
     },
 
     mounted() {
-   
         window.JSZip = window.JSZip || JSZip;
 
         dataProvider = new LocalDataProvider(false);
@@ -574,36 +577,36 @@ export default {
         //https://docs.realgrid.com/guides/grid-style/row-dynamic-style
         //컬럼 동적 스타일 https://docs.realgrid.com/guides/grid-style/column-dynamic-style
         //셀 동적 스타일 https://docs.realgrid.com/guides/grid-style/cell-dynamic-style
-        gridView.setRowStyleCallback(function(grid, item, fixed) {
+        gridView.setRowStyleCallback(function (grid, item, fixed) {
             switch (item.rowState) {
-            case "created": 
-                return "lightskyblue-color";
-            case "deleted": 
-                return "lightpink-color";
-            case "updated": 
-                return "lightcyan-color";
+                case "created":
+                    return "lightskyblue-color";
+                case "deleted":
+                    return "lightpink-color";
+                case "updated":
+                    return "lightcyan-color";
             }
         });
 
         //cell tooltip 이벤트 설정(툴팁 출력 옵션 column.renderer.showTooltip = true)
         //https://docs.realgrid.com/guides/cell-components/tooltip
-        gridView.onShowTooltip = function(grid, index, value) {
+        gridView.onShowTooltip = function (grid, index, value) {
             var column = index.column;
             var itemIndex = index.itemIndex;
 
             var tooltip = value;
             if (column == "KorName") {
                 tooltip =
-                "이름: " +
-                value +
-                "\r\n성별: " +
-                grid.getValue(itemIndex, "Gender") +
-                "\r\n나이:" +
-                grid.getValue(itemIndex, "Age")
+                    "이름: " +
+                    value +
+                    "\r\n성별: " +
+                    grid.getValue(itemIndex, "Gender") +
+                    "\r\n나이:" +
+                    grid.getValue(itemIndex, "Age");
             }
             return tooltip;
         };
-        //컨텍스트 메뉴 
+        //컨텍스트 메뉴
         //https://docs.realgrid.com/guides/grid-components/context-menu
         gridView.onContextMenuPopup = (grid, x, y, elementName) => {
             console.log(arguments);
@@ -620,59 +623,63 @@ export default {
             //컬럼보이기 / 숨기기
             //https://docs.realgrid.com/guides/column/column-properties
             if (menuItem.parent.label == "컬럼") {
-                grid.setColumnProperty(menuItem.tag, "visible", menuItem.checked);
+                grid.setColumnProperty(
+                    menuItem.tag,
+                    "visible",
+                    menuItem.checked
+                );
             }
 
-            switch (menuItem.tag){
-                case "1rowFixed" : 
+            switch (menuItem.tag) {
+                case "1rowFixed":
                     //행 고정
                     //https://docs.realgrid.com/guides/grid-components/fixed-rows
-                    grid.setFixedOptions({rowCount: 1});
+                    grid.setFixedOptions({ rowCount: 1 });
                     break;
-                case "2rowFixed" :
-                    grid.setFixedOptions({rowCount: 2});            
+                case "2rowFixed":
+                    grid.setFixedOptions({ rowCount: 2 });
                     break;
-                case "rowFixed" :
-                    grid.setFixedOptions({rowCount: cell.itemIndex + 1});            
+                case "rowFixed":
+                    grid.setFixedOptions({ rowCount: cell.itemIndex + 1 });
                     break;
-                case "1colFixed" :
+                case "1colFixed":
                     //열 고정
                     //https://docs.realgrid.com/guides/grid-components/fixed-columns
-                    grid.setFixedOptions({colCount: 1});            
+                    grid.setFixedOptions({ colCount: 1 });
                     break;
-                case "2colFixed" :
-                    grid.setFixedOptions({colCount: 2});            
+                case "2colFixed":
+                    grid.setFixedOptions({ colCount: 2 });
                     break;
-                case "colFixed" :
-                    grid.setFixedOptions({colCount: col.index + 1});            
+                case "colFixed":
+                    grid.setFixedOptions({ colCount: col.index + 1 });
                     break;
-                case "cancelFixed" :
+                case "cancelFixed":
                     //고정 취소 (count 0설정)
-                    grid.setFixedOptions({colCount: 0, rowCount: 0});            
+                    grid.setFixedOptions({ colCount: 0, rowCount: 0 });
                     break;
-                case "rowNormalHeight" :
+                case "rowNormalHeight":
                     grid.displayOptions.rowHeight = 28;
                     break;
-                case "rowSmallHeight" :
+                case "rowSmallHeight":
                     grid.displayOptions.rowHeight = 20;
                     break;
-                case "rowLargeHeight" :
+                case "rowLargeHeight":
                     grid.displayOptions.rowHeight = 36;
                     break;
-                case "excelExport" :
+                case "excelExport":
                     this.exportExcel(grid);
                     break;
-                case "autoFilter" :
+                case "autoFilter":
                     //자동 필터링 적용
                     //https://docs.realgrid.com/guides/column/column-auto-filtering
                     col.autoFilter = true;
                     grid.refresh();
                     break;
-                case "columnHide" :
+                case "columnHide":
                     col.visible = false;
                     break;
-                case "columnShow" :
-                    grid.getColumns().forEach(v=>v.visible = true);
+                case "columnShow":
+                    grid.getColumns().forEach((v) => (v.visible = true));
                     break;
             }
         };
@@ -713,30 +720,33 @@ export default {
     margin: 0 auto;
     text-align: center;
 }
-
+.modal-toolbar {
+    margin-top: 50px;
+}
 .close-button {
+    float: right;
     margin: 10px;
-    background-color: #ff5733;
+    background-color: #4d2ce1;
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 7px 10px;
     border-radius: 3px;
     cursor: pointer;
     font-size: 14px;
 }
 
 .right-column {
-  text-align: right !important;
+    text-align: right !important;
 }
-.lightskyblue-color{
-  background: rgb(223, 241, 252);
-}
-
-.lightcyan-color{
-  background: lightcyan;
+.lightskyblue-color {
+    background: rgb(223, 241, 252);
 }
 
-.lightpink-color{
-  background: rgb(255, 236, 239);
+.lightcyan-color {
+    background: lightcyan;
+}
+
+.lightpink-color {
+    background: rgb(255, 236, 239);
 }
 </style>
