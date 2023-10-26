@@ -1,12 +1,10 @@
 import './App.css'
 import { GridView, LocalDataProvider } from 'realgrid'
 import { columns, fields, rows } from './realgrid-data'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import 'realgrid/dist/realgrid-style.css'
 
 function App() {
-  const [dataProvider, setDataProvider] = useState(null)
-  const [gridView, setGridView] = useState(null)
   const realgridElement = useRef(null)
 
   useEffect(() => {
@@ -19,8 +17,6 @@ function App() {
     gv.setColumns(columns)
     dp.setRows(rows)
 
-    setDataProvider(dp)
-    setGridView(gv)
 
     return () => {
       dp.clearRows()
