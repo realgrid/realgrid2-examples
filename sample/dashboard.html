@@ -25,8 +25,14 @@
     <script src="/assets/plugins/luplino/luplino-core/dist/luplino-core.js"></script>
     <script src="/assets/plugins/luplino/luplino-layout/dist/luplino-layout.js"></script>
     <script src="/assets/plugins/luplino/luplino-calendar/dist/luplino-calendar.js"></script>
-    <link type="text/css" rel="stylesheet" href="/assets/plugins/chartjs/dist/Chart.css" />
+
     <script src="/assets/plugins/chartjs/dist/Chart.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/chartjs/dist/Chart.css" />
+
+    <script src="/assets/plugins/realchart/realchart.js"></script>
+    <script src="/assets/plugins/realchart/realchart-lic.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/realchart/realchart-style.css" />
+    
     <link type="text/css" rel="stylesheet" href="/assets/css/luplina.css" />
 <!--    <script src="/assets/js/luplina.js"></script>-->
     <script type="text/javascript">
@@ -36,139 +42,196 @@
             /* Chart */
             var ctx1 = document.getElementById('GOAL-CHART');
             var ctx2 = document.getElementById('BUG-CHART');
-            var goalChart = new Chart(ctx1, {
-                type: 'bar',
-                data: {
-                    labels: ['RealGrid1', 'RealGrid2', 'RealPivot', 'RealDesk', 'LIMS', 'SeeReal'],
-                    datasets: [
-                        {
-                            label: '실적',
-                            data: [12, 19, 3, 5, 2, 3],
-                            backgroundColor: [
-                                'rgba(235, 104, 0, 0.5)',
-                                'rgba(235, 104, 0, 0.5)',
-                                'rgba(235, 104, 0, 0.5)',
-                                'rgba(59, 184, 192, 0.5)',
-                                'rgba(62, 92, 163, 0.5)',
-                                'rgba(65, 117, 5, 0.5)'
-                            ],
-                            borderColor: [
-                                'rgba(235, 104, 0, 1)',
-                                'rgba(235, 104, 0, 1)',
-                                'rgba(235, 104, 0, 1)',
-                                'rgba(59, 184, 192, 1)',
-                                'rgba(62, 92, 163, 1)',
-                                'rgba(65, 117, 5, 1)'
-                            ],
-                            borderWidth: 1
-                        },
-                        {
-                            label: '목표',
-                            fill: false,
-                            backgroundColor: "rgb(33, 33, 33)",
-                            borderColor: "rgb(33, 33, 33)",
-                            borderWidth: 1,
-                            data: [12, 30, 10, 12, 21, 31],
-
-                            // Changes this dataset to become a line
-                            type: 'line'
-                        }
-                    ]
+            
+            
+            var goalChart = RealChart.createChart(document, ctx1, {
+                title: {
+                    visible: false // 타이틀 숨김
                 },
+                legend: { location: "top" },
                 options: {
-                    //responsive:false,
-                    maintainAspectRatio: false,
-                    scales: {
-                        xAxes:[{
-                            barPercentage: 0.3,
-                            //categoryPercentage:0.4
-                        }],
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-            var bugChart = new Chart(ctx2, {
-                type: 'bar',
-                data: {
-                    labels: ['RealGrid1', 'RealGrid2', 'RealPivot', 'RealDesk', 'LIMS', 'SeeReal'],
-                    datasets: [
-                        {
-                            label: '실적',
-                            data: [15, 12, 10, 4, 6, 5],
-                            backgroundColor: [
-                                'rgba(235, 104, 0, 0.5)',
-                                'rgba(235, 104, 0, 0.5)',
-                                'rgba(235, 104, 0, 0.5)',
-                                'rgba(59, 184, 192, 0.5)',
-                                'rgba(62, 92, 163, 0.5)',
-                                'rgba(65, 117, 5, 0.5)'
-                            ],
-                            borderColor: [
-                                'rgba(235, 104, 0, 1)',
-                                'rgba(235, 104, 0, 1)',
-                                'rgba(235, 104, 0, 1)',
-                                'rgba(59, 184, 192, 1)',
-                                'rgba(62, 92, 163, 1)',
-                                'rgba(65, 117, 5, 1)'
-                            ],
-                            borderWidth: 1
-                        },
-                        {
-                            label: '목표',
-                            fill: false,
-                            backgroundColor: "rgb(33, 33, 33)",
-                            borderColor: "rgb(33, 33, 33)",
-                            borderWidth: 1,
-                            data: [7, 11, 13, 6, 9, 11],
-                            // Changes this dataset to become a line
-                            type: 'line'
-                        }
-                    ]
-                },
-                options: {
-                    tooltips: {
-                        mode: 'index',
-                        intersect: true,
-                        callbacks: {
-                            label: function(tooltipItem, data) {
-                                var tooltipNum =  tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                if (tooltipItem.datasetIndex==0) {
-                                    return tooltipNum;
-                                }
-                                else {
-                                    return tooltipNum;
-                                }
-                            }
-                        }
+                    credits:{
+                        verticalAlign: 'top', // realchart credit 위치
+                        floating: true // 영역을 차지 않지 않고 chart view에 표시 
                     },
-                    //responsive:false,
-                    maintainAspectRatio: false,
-                    scales: {
-                        xAxes:[{
-                            barPercentage: 0.3,
-                            //categoryPercentage:0.4
-                        }],
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                                max:30,
-                                min:0
-                                // callback: function(value, index, values) {
-                                //     if(parseInt(value/1000) >= 1000){
-                                //         return parseInt(value/1000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                //     } else {
-                                //         return value/1000;
-                                //     }
-                                // }
-                            }
-                        }]
-                    }
-                }
+                },
+                xAxis: {
+                    categories: [
+                        "RealGirdJS",
+                        "RealGrid2",
+                        "RealReport",
+                        "RealChart",
+                        "RealPivot",
+                        "RealGrid-Touch",
+                    ],
+                    grid: {
+                        visible: true,
+                    },
+                },
+                yAxis: {
+                    title: "",
+                    tick: {
+                        stepInterval: 5 // tick들 사이의 값 간격
+                    },
+                },
+            
+                series: [
+                    {
+                        name: "실적",
+                        pointPadding: 0.38, // bar 너비 조정
+                        colorByPoint: true,
+                        pointLabel: false,
+                        data: [12, 19, 3, 5, 2, 3],
+                    },
+                    {
+                        type: "line",
+                        lineType:"spline",
+                        name: "목표",
+                        style: {
+                            // strokeDasharray: "12 4",
+                            strokeWidth: "2px",
+                            fill: "#0056B3",
+                            stroke: "#0056B3",
+                        },
+                        yAxis: 1,
+                        data: [12, 30, 10, 12, 21, 31],
+                    },
+                ],
             });
+            var bugChart = RealChart.createChart(document, ctx2, {
+                title: {
+                    visible: false // 타이틀 숨김
+                },
+                legend: { location: "top" },
+                options: {
+                    credits:{
+                        verticalAlign: 'top', // realchart credit 위치
+                        floating: true // 영역을 차지 않지 않고 chart view에 표시 
+                    },
+                },
+                xAxis: {
+                    categories: [
+                        "RealGirdJS",
+                        "RealGrid2",
+                        "RealReport",
+                        "RealChart",
+                        "RealPivot",
+                        "RealGrid-Touch",
+                    ],
+                    grid: {
+                        visible: true,
+                    },
+                },
+                yAxis: {
+                    title: "",
+                    tick: {
+                        stepInterval: 5 // tick들 사이의 값 간격
+                    },
+                },
+            
+                series: [
+                    {
+                        name: "실적",
+                        pointPadding: 0.38, // bar 너비 조정
+                        colorByPoint: true,
+                        pointLabel: false,
+                        data: [15, 12, 10, 4, 6, 5],
+                    },
+                    {
+                        type: "line",
+                        lineType:"spline",
+                        name: "목표",
+                        style: {
+                            // strokeDasharray: "12 4",
+                            strokeWidth: "2px",
+                            fill: "#0056B3",
+                            stroke: "#0056B3",
+                        },
+                        yAxis: 1,
+                        data: [7, 11, 13, 6, 9, 11],
+                    },
+                ],
+            });
+
+
+            // var bugChart = new Chart(ctx2, {
+            //     type: 'bar',
+            //     data: {
+            //         labels: ['RealGrid1', 'RealGrid2', 'RealPivot', 'RealDesk', 'LIMS', 'SeeReal'],
+            //         datasets: [
+            //             {
+            //                 label: '실적',
+            //                 data: [15, 12, 10, 4, 6, 5],
+            //                 backgroundColor: [
+            //                     'rgba(235, 104, 0, 0.5)',
+            //                     'rgba(235, 104, 0, 0.5)',
+            //                     'rgba(235, 104, 0, 0.5)',
+            //                     'rgba(59, 184, 192, 0.5)',
+            //                     'rgba(62, 92, 163, 0.5)',
+            //                     'rgba(65, 117, 5, 0.5)'
+            //                 ],
+            //                 borderColor: [
+            //                     'rgba(235, 104, 0, 1)',
+            //                     'rgba(235, 104, 0, 1)',
+            //                     'rgba(235, 104, 0, 1)',
+            //                     'rgba(59, 184, 192, 1)',
+            //                     'rgba(62, 92, 163, 1)',
+            //                     'rgba(65, 117, 5, 1)'
+            //                 ],
+            //                 borderWidth: 1
+            //             },
+            //             {
+            //                 label: '목표',
+            //                 fill: false,
+            //                 backgroundColor: "rgb(33, 33, 33)",
+            //                 borderColor: "rgb(33, 33, 33)",
+            //                 borderWidth: 1,
+            //                 data: [7, 11, 13, 6, 9, 11],
+            //                 // Changes this dataset to become a line
+            //                 type: 'line'
+            //             }
+            //         ]
+            //     },
+            //     options: {
+            //         tooltips: {
+            //             mode: 'index',
+            //             intersect: true,
+            //             callbacks: {
+            //                 label: function(tooltipItem, data) {
+            //                     var tooltipNum =  tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            //                     if (tooltipItem.datasetIndex==0) {
+            //                         return tooltipNum;
+            //                     }
+            //                     else {
+            //                         return tooltipNum;
+            //                     }
+            //                 }
+            //             }
+            //         },
+            //         //responsive:false,
+            //         maintainAspectRatio: false,
+            //         scales: {
+            //             xAxes:[{
+            //                 barPercentage: 0.3,
+            //                 //categoryPercentage:0.4
+            //             }],
+            //             yAxes: [{
+            //                 ticks: {
+            //                     beginAtZero: true,
+            //                     max:30,
+            //                     min:0
+            //                     // callback: function(value, index, values) {
+            //                     //     if(parseInt(value/1000) >= 1000){
+            //                     //         return parseInt(value/1000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            //                     //     } else {
+            //                     //         return value/1000;
+            //                     //     }
+            //                     // }
+            //                 }
+            //             }]
+            //         }
+            //     }
+            // });
 
             /* LO Calendar */
             var today = new Date(),
@@ -457,7 +520,7 @@
 <!--                                    <div class="right"><a href="#"><i class="icon icon-plus"></i><span class="text">더보기</span></a></div>-->
 <!--                                </div>-->
                                 <div class="widget-body">
-                                    <canvas id="GOAL-CHART" class="chartjs-render-monitor" style="width:100%; height:100%; min-height:200px; min-width:200px;"></canvas>
+                                    <div id="GOAL-CHART" style="width:100%; height:100%; min-height:200px; min-width:200px;"></div>
                                 </div>
                             </div>
                         </div>
@@ -471,7 +534,7 @@
 <!--                                    <div class="right"><a href="#"><i class="icon icon-plus"></i><span class="text">더보기</span></a></div>-->
 <!--                                </div>-->
                                 <div class="widget-body">
-                                    <canvas id="BUG-CHART" class="chartjs-render-monitor" style="width:100%; height:100%; min-height:200px; min-width:200px;"></canvas>
+                                    <div id="BUG-CHART" style="width:100%; height:100%; min-height:200px; min-width:200px;"></div>
                                 </div>
                             </div>
                         </div>
