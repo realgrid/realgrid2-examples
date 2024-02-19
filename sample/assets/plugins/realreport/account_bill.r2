@@ -1,6 +1,7 @@
 {
   "report": {
     "name": "reportRoot",
+    "type": "report",
     "paperSize": "A4",
     "paperWidth": "210mm",
     "paperHeight": "297mm",
@@ -11,6 +12,7 @@
   },
   "page": {
     "name": "reportPage",
+    "type": "report",
     "pageHeader": {
       "name": "pageHeader",
       "visible": false
@@ -29,34 +31,74 @@
       "itemGap": "0px",
       "items": [
         {
-          "type": "stack",
+          "type": "table",
           "width": "100%",
           "name": "",
-          "styles": {
-            "paddingBottom": "2px",
-            "__tag_": {}
+          "rowCount": 1,
+          "fixed": false,
+          "cellStyles": {
+            "borderLeft": "none",
+            "borderRight": "none",
+            "borderTop": "none",
+            "borderBottom": "none"
           },
+          "rows": [
+            {
+              "height": "20px"
+            }
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
           "items": [
             {
               "type": "text",
               "name": "",
-              "left": 0,
+              "col": 0,
+              "row": 0,
               "text": "[별지 제 11호 서식] <개정  2009.3.26>",
               "styles": {
                 "fontSize": "12px",
-                "color": "red",
-                "__tag_": {}
+                "color": "red"
               }
             },
             {
               "type": "text",
               "name": "",
-              "right": 0,
+              "col": 1,
+              "row": 0,
               "text": "(적색)",
               "styles": {
                 "fontSize": "12px",
-                "color": "red",
-                "__tag_": {}
+                "color": "red"
               }
             }
           ]
@@ -66,6 +108,7 @@
           "width": "100%",
           "name": "",
           "rowCount": 1,
+          "fixed": false,
           "minRowHeight": "24px",
           "cellStyles": {
             "borderLeft": "",
@@ -314,6 +357,7 @@
           "width": "100%",
           "name": "",
           "rowCount": 4,
+          "fixed": false,
           "minRowHeight": "25px",
           "cellStyles": {
             "borderLeft": "solid 1px red",
@@ -1169,6 +1213,7 @@
           "width": "100%",
           "name": "",
           "rowCount": 3,
+          "fixed": false,
           "minRowHeight": "25px",
           "cellStyles": {
             "borderLeft": "solid 1px red",
@@ -2102,6 +2147,7 @@
             "height": "25px",
             "name": "",
             "rowCount": 1,
+            "fixed": false,
             "cellStyles": {
               "borderLeft": "solid 1px red",
               "borderRight": "solid 1px red",
@@ -2228,6 +2274,7 @@
             "name": "",
             "visible": false,
             "rowCount": 1,
+            "fixed": false,
             "cellStyles": {},
             "rows": [
               {}
@@ -2239,6 +2286,7 @@
             "height": "25px",
             "name": "",
             "rowCount": 1,
+            "fixed": false,
             "cellStyles": {
               "paddingLeft": "1px",
               "paddingRight": "1px",
@@ -2386,6 +2434,7 @@
           "width": "100%",
           "name": "",
           "rowCount": 2,
+          "fixed": false,
           "minRowHeight": "25px",
           "cellStyles": {
             "paddingLeft": "1px",
@@ -2667,19 +2716,60 @@
           ]
         },
         {
-          "type": "stack",
+          "type": "table",
           "width": "100%",
           "name": "",
-          "styles": {
-            "paddingTop": "2px",
-            "paddingBottom": "2px",
-            "__tag_": {}
+          "rowCount": 1,
+          "fixed": false,
+          "cellStyles": {
+            "borderLeft": "none",
+            "borderRight": "none",
+            "borderTop": "none",
+            "borderBottom": "dotted black",
+            "paddingBottom": "10px"
           },
+          "rows": [
+            {
+              "height": "20px"
+            }
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
           "items": [
             {
               "type": "text",
               "name": "",
-              "left": 0,
+              "col": 0,
+              "row": 0,
               "text": "210mm x 148.5mm",
               "styles": {
                 "fontSize": "12px",
@@ -2690,7 +2780,8 @@
             {
               "type": "text",
               "name": "",
-              "right": 0,
+              "col": 1,
+              "row": 0,
               "text": "(인쇄용지(특급)34g/㎡)",
               "styles": {
                 "fontSize": "12px",
@@ -2701,52 +2792,74 @@
           ]
         },
         {
-          "type": "text",
-          "width": "100%",
-          "height": "3mm",
-          "name": "",
-          "text": " ",
-          "styles": {
-            "borderBottom": "dotted black",
-            "__tag_": {}
-          }
-        },
-        {
-          "type": "text",
-          "width": "100%",
-          "height": "3mm",
-          "name": "",
-          "text": " "
-        },
-        {
-          "type": "stack",
+          "type": "table",
           "width": "100%",
           "name": "",
-          "styles": {
-            "paddingBottom": "2px",
-            "__tag_": {}
+          "rowCount": 1,
+          "fixed": false,
+          "minRowHeight": "20px",
+          "cellStyles": {
+            "borderLeft": "none",
+            "borderRight": "none",
+            "borderTop": "none",
+            "borderBottom": "none",
+            "paddingTop": "15px"
           },
+          "rows": [
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
           "items": [
             {
               "type": "text",
               "name": "",
-              "left": 0,
+              "col": 0,
+              "row": 0,
               "text": "[별지 제 11호 서식] <개정  2009.3.26>",
               "styles": {
                 "fontSize": "12px",
-                "color": "blue",
-                "__tag_": {}
+                "color": "blue"
               }
             },
             {
               "type": "text",
               "name": "",
-              "right": 0,
+              "col": 1,
+              "row": 0,
               "text": "(청색)",
               "styles": {
                 "fontSize": "12px",
-                "color": "blue",
-                "__tag_": {}
+                "color": "blue"
               }
             }
           ]
@@ -2756,6 +2869,7 @@
           "width": "100%",
           "name": "",
           "rowCount": 1,
+          "fixed": false,
           "minRowHeight": "24px",
           "cellStyles": {
             "borderLeft": "",
@@ -3025,6 +3139,7 @@
           "width": "100%",
           "name": "",
           "rowCount": 4,
+          "fixed": false,
           "minRowHeight": "25px",
           "cellStyles": {
             "borderLeft": "solid 1px blue",
@@ -3901,6 +4016,7 @@
           "width": "100%",
           "name": "",
           "rowCount": 3,
+          "fixed": false,
           "minRowHeight": "25px",
           "cellStyles": {
             "borderLeft": "solid 1px blue",
@@ -4834,6 +4950,7 @@
             "height": "25px",
             "name": "",
             "rowCount": 1,
+            "fixed": false,
             "cellStyles": {
               "borderLeft": "solid 1px blue",
               "borderRight": "solid 1px blue",
@@ -4960,6 +5077,7 @@
             "name": "",
             "visible": false,
             "rowCount": 1,
+            "fixed": false,
             "cellStyles": {},
             "rows": [
               {}
@@ -4971,6 +5089,7 @@
             "height": "25px",
             "name": "",
             "rowCount": 1,
+            "fixed": false,
             "cellStyles": {
               "paddingLeft": "1px",
               "paddingRight": "1px",
@@ -5118,6 +5237,7 @@
           "width": "100%",
           "name": "",
           "rowCount": 2,
+          "fixed": false,
           "minRowHeight": "25px",
           "cellStyles": {
             "paddingLeft": "1px",
@@ -5397,35 +5517,73 @@
           ]
         },
         {
-          "type": "stack",
+          "type": "table",
           "width": "100%",
           "name": "",
-          "styles": {
-            "paddingTop": "2px",
-            "paddingBottom": "2px",
-            "__tag_": {}
+          "rowCount": 1,
+          "fixed": false,
+          "minRowHeight": "20px",
+          "cellStyles": {
+            "borderLeft": "none",
+            "borderRight": "none",
+            "borderTop": "none",
+            "borderBottom": "none"
           },
+          "rows": [
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
           "items": [
             {
               "type": "text",
               "name": "",
-              "left": 0,
+              "col": 0,
+              "row": 0,
               "text": "210mm x 148.5mm",
               "styles": {
                 "fontSize": "12px",
-                "color": "blue",
-                "__tag_": {}
+                "color": "blue"
               }
             },
             {
               "type": "text",
               "name": "",
-              "right": 0,
+              "col": 1,
+              "row": 0,
               "text": "(인쇄용지(특급)34g/㎡)",
               "styles": {
                 "fontSize": "12px",
-                "color": "blue",
-                "__tag_": {}
+                "color": "blue"
               }
             }
           ]
@@ -5433,6 +5591,7 @@
       ]
     },
     "styles": {
+      "fontFamily": "Tahoma",
       "__tag_": {}
     }
   },

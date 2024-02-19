@@ -1,7 +1,7 @@
 /// <reference types="pdfkit" />
 /** 
-* RealReport v1.8.3
-* commit 14f0316
+* RealReport v1.8.4
+* commit 4cbf910
 
 * Copyright (C) 2013-2024 WooriTech Inc.
 	https://real-report.com
@@ -9,10 +9,10 @@
 */
 
 /** 
-* RealReport Core v1.8.3
+* RealReport Core v1.8.4
 * Copyright (C) 2013-2024 WooriTech Inc.
 * All Rights Reserved.
-* commit 6185f3910212c822e985b530dac2452edcb86bd8
+* commit 40d5438857ce09d15cfc240c2056d7d8ebee963f
 */
 type ConfigObject$1 = {
     [key: string]: any;
@@ -3468,6 +3468,7 @@ declare abstract class ReportItemElement<T extends ReportItem> extends ReportEle
     findElementOf(dom: HTMLElement): ReportItemElement<ReportItem>;
     getPrintValue(ctx: PrintContext, m: ReportItem, defaultValue?: any): any;
     getPrintLinkValue(ctx: PrintContext, m: ReportItem): any;
+    private $_getContextDataIndexValue;
     protected _doModelChanged(oldModel: T): void;
     protected _setX(dom: HTMLElement, x: number): void;
     protected _setY(dom: HTMLElement, y: number): void;
