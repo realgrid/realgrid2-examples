@@ -70,13 +70,53 @@
             var dataset = {
                 "bill-main": {
                     "type": "simple",
-                    "values": { "supplierNo": "1234567890", "supplierName": "(주)우리테크 인터내셔날", "supplierPresident": "나현호", "supplierAddress": "성남시 분당구 운중로 135 더원스퀘어 304호", "supplierType": "소프트웨어", "supplierKind": "소프트웨어", "suppliedNo": "1000000001", "suppliedName": "(주)한국 전자", "suppliedPresident": "홍길동", "suppliedType": "제조", "suppliedKind": "전기전자", "Year": "2005", "Month": "04", "Day": "11", "Amount": 16500000, "totalPrice": 15000000, "Type": "영수" }
+                    "values": {
+                        "supplierNo": "1234567890",
+                        "supplierName": "(주)우리테크 인터내셔날",
+                        "supplierPresident": "나현호",
+                        "supplierAddress": "성남시 분당구 운중로 135 더원스퀘어 304호",
+                        "supplierType": "소프트웨어",
+                        "supplierKind": "소프트웨어",
+                        "suppliedNo": "1000000001",
+                        "suppliedName": "(주)한국 전자",
+                        "suppliedPresident": "홍길동",
+                        "suppliedType": "제조",
+                        "suppliedKind": "전기전자",
+                        "Year": "2005",
+                        "Month": "04",
+                        "Day": "11",
+                        "Amount": 16500000,
+                        "Type": "영수",
+                        "TotalPrice": 16500000
+                    }
                 },
                 "bill-detail": {
                     "type": "band",
-                    "values": [{ "Month": "04", "Day": "11", "Item": "02월기술서비스", "Unit": "EA", "Quantity": 1, "UnitPrice": 5000000, "Amount": 5000000, "Tax": 500000 }, { "Month": "04", "Day": "11", "Item": "03월기술서비스", "Unit": "EA", "Quantity": 2, "UnitPrice": 5000000, "Amount": 10000000, "Tax": 1000000 }]
+                    "values": [
+                        {
+                            "Month": "04",
+                            "Day": "11",
+                            "Item": "02월기술서비스",
+                            "Unit": "EA",
+                            "Quantity": 1,
+                            "UnitPrice": 5000000,
+                            "Amount": 5000000,
+                            "Tax": 500000
+                        },
+                        {
+                            "Month": "04",
+                            "Day": "11",
+                            "Item": "03월기술서비스",
+                            "Unit": "EA",
+                            "Quantity": 2,
+                            "UnitPrice": 5000000,
+                            "Amount": 10000000,
+                            "Tax": 1000000
+                        }
+                    ]
                 }
             };
+
             const reports = [{
                 form: reportJson,
                 dataSet: dataset

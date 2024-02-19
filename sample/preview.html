@@ -8,6 +8,22 @@
     <title>RealReport Print Preview</title>
     <link rel="shortcut icon" href="#">
 
+    <!-- PDF 내보내기 시 맑은고딕 폰트 사용중이므로 미리보기 시점에서도 동일하게 적용 -->
+    <link rel="preload" href="/assets/plugins/realreport/pdffonts/malgun.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/plugins/realreport/pdffonts/malgunbd.ttf" as="font" type="font/ttf" crossorigin>
+    <style>
+        @font-face {
+            font-family: "Malgun Gothic";
+            src: url("/assets/plugins/realreport/pdffonts/malgun.ttf");
+        }
+
+        @font-face {
+            font-family: "Malgun Gothic";
+            src: url("/assets/plugins/realreport/pdffonts/malgunbd.ttf");
+            font-weight: 900
+        }
+    </style>
+
     <link href="/assets/plugins/realreport/css/preview.css" rel="stylesheet">
     <!-- 하이차트의 기본 스타일 변경하려면 아래 파일을 수정하면 됩니다. -->
     <!-- <link href='js/highcharts/highcharts.css' rel='stylesheet' /> -->
@@ -138,8 +154,6 @@
             }
         }
 
-
-
         var previewReport = function (reports) {
             clearReport();
             // console.log(reports);
@@ -161,7 +175,6 @@
         //--------------------------------------------------------------------------------------------------
         // 이벤트 핸들링
         //--------------------------------------------------------------------------------------------------
-
         const onClickZoom = (z) => {
             if (viewer) {
                 viewer.zoom = z;
