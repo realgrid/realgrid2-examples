@@ -61,7 +61,7 @@
     "should": "^11.1.0",
     "strip-indent": "^1.0.1",
     "version": "^0.1.2",
-    "webdriverio": "^4.6.1"
+    "webdriverio": "^4.14.4"
   },
   "collective": {
     "type": "opencollective",
