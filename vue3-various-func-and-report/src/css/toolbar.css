@@ -1,0 +1,146 @@
+@import "icons.css";
+@import "preview.css";
+input {
+    background: rgba(0, 0, 0, 0.5);
+    max-height: 20px;
+    /* filter: var(--toolbar-invert); */
+    border: 1px solid;
+}
+
+.header {
+    --active-button-bg: rgba(255, 255, 255, 0.24);
+    z-index: 1;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.toolbar {
+    align-items: center;
+    background-color: var(--toolbar-background-color);
+    color: white;
+    display: flex;
+    height: var(--toolbar-height);
+    padding: 0 16px;
+}
+
+.toolbar-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-inline-end: 20px;
+}
+
+.toolbar-center {
+    display: flex;
+    align-items: center;
+    transition: opacity 100ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.toolbar-items {
+    display: inline-flex;
+    align-items: center;
+    /* padding: 0 4px; */
+}
+
+.toolbar-item {
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    padding: var(--toolbar-item-padding-vertical)
+        var(--toolbar-item-padding-horizontal);
+}
+
+.toolbar-items > :last-child {
+    padding-right: 0;
+}
+
+.toolbar-icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--icon-button-size);
+    width: var(--icon-button-size);
+    fill: var(--icon-button-fill);
+    cursor: pointer;
+}
+
+.toolbar-icon {
+    height: var(--icon-size);
+    width: var(--icon-size);
+    fill: white;
+}
+
+.toolbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-inline-start: 20px;
+    text-align: end;
+    align-items: center;
+    white-space: nowrap;
+    transition: opacity 100ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.toolbar-brand {
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    height: 2rem;
+    margin-right: 1rem;
+    min-width: 0;
+    color: var(--toolbar-link-color);
+}
+
+.toolbar-title {
+    flex: 1 1 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.toolbar-logo {
+    height: 100%;
+    margin-right: 0.5rem;
+}
+
+.toolbar-link {
+    font-weight: var(--font-weight-semibold);
+    color: var(--toolbar-link-color);
+}
+
+.icon-external-link {
+    margin-left: 0.3rem;
+    position: relative;
+    top: 1px;
+}
+
+.toolbar-link-active,
+.toolbar-link:hover {
+    color: var(--toolbar-link-hover-color);
+    text-decoration: none;
+}
+
+.vertical-separator {
+    background: rgba(255, 255, 255, 0.3);
+    height: 15px;
+    width: 1px;
+    filter: var(--toolbar-invert);
+}
+
+.preview-toolbar {
+    display: flex;
+    height: 38px;
+    padding: 5px;
+    align-items: center;
+    background-color: var(--preview-toolbar-background-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#inputZoomScale {
+    width: 5ch;
+}
+
+#inputPageNumber {
+    width: 3ch;
+}

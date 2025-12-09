@@ -1,0 +1,31 @@
+.sidenav-container {
+    overflow: hidden;
+    transition: transform 250ms cubic-bezier(.6, 0, 0, 1), visibility 250ms;
+    visibility: visible;
+    width: var(--viewer-pdf-sidenav-width);
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar-link,
+a.sidebar-link {
+    cursor: pointer;
+    display: block;
+}
+
+.nav-icons {
+    display: flex;
+    flex-direction: column;
+    min-width: 64px;
+}
+
+.sidenav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 100vh;
+    padding-top: var(--ifm-navbar-height);
+    position: sticky;
+    top: 0;
+    transition: opacity 50ms;
+    width: var(--sidebar-width);
+}
