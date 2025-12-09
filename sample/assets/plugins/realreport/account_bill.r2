@@ -1,6 +1,7 @@
 {
   "report": {
     "name": "reportRoot",
+    "type": "report",
     "paperSize": "A4",
     "paperWidth": "210mm",
     "paperHeight": "297mm",
@@ -11,6 +12,7 @@
   },
   "page": {
     "name": "reportPage",
+    "type": "report",
     "pageHeader": {
       "name": "pageHeader",
       "visible": false
@@ -26,224 +28,336 @@
       "visible": false
     },
     "body": {
-      "itemGap": 0,
+      "itemGap": "0px",
       "items": [
         {
-          "type": "stack",
+          "type": "table",
           "width": "100%",
           "name": "",
-          "styles": {
-            "paddingBottom": "2px",
-            "__tag_": {}
+          "rowCount": 1,
+          "fixed": false,
+          "cellStyles": {
+            "borderLeft": "none",
+            "borderRight": "none",
+            "borderTop": "none",
+            "borderBottom": "none"
           },
-          "items": [
+          "rows": [
             {
-              "type": "text",
-              "name": "",
-              "left": 0,
-              "text": "[별지 제 11호 서식] <개정  2009.3.26>"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "right": 0,
-              "text": "(적색)"
+              "height": "20px"
             }
-          ]
-        },
-        {
-          "type": "stack",
-          "width": "100%",
-          "height": "70px",
-          "name": "",
-          "styles": {
-            "border": "solid 1px red",
-            "borderBottom": "none",
-            "__tag_": {}
-          },
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
           "items": [
             {
-              "type": "rbox",
+              "type": "text",
               "name": "",
-              "itemGap": 0,
-              "items": [
-                {
-                  "type": "text",
-                  "name": "",
-                  "text": "세    금    계    산    서",
-                  "styles": {
-                    "fontSize": "17px",
-                    "fontWeight": "bold",
-                    "textAlign": "right",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "text": "(공급자 보관용)",
-                  "styles": {
-                    "paddingLeft": "10px",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            },
-            {
-              "type": "rbox",
-              "name": "",
-              "right": "35px",
-              "top": "10px",
-              "itemGap": 0,
-              "items": [
-                {
-                  "type": "text",
-                  "width": "70px",
-                  "name": "",
-                  "text": "책  번  호",
-                  "styles": {
-                    "paddingRight": "10px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": 40,
-                  "height": "20px",
-                  "name": "",
-                  "text": "권",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px red",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "42px",
-                  "height": "20px",
-                  "name": "",
-                  "text": "호",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px red",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            },
-            {
-              "type": "rbox",
-              "name": "",
-              "right": "35px",
-              "bottom": "10px",
-              "itemGap": 0,
+              "col": 0,
+              "row": 0,
+              "text": "[별지 제 11호 서식] <개정  2009.3.26>",
               "styles": {
-                "paddingBottom": "1px",
-                "__tag_": {}
-              },
-              "items": [
-                {
-                  "type": "text",
-                  "width": "70px",
-                  "name": "",
-                  "text": "일련 번호",
-                  "styles": {
-                    "paddingRight": "10px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "center",
-                    "border": "solid 1px red",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px red",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "text": "-",
-                  "styles": {
-                    "paddingLeft": "2px",
-                    "paddingRight": "2px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px red",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px red",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px red",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px red",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                }
-              ]
+                "fontSize": "12px",
+                "color": "red"
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 0,
+              "text": "(적색)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red"
+              }
             }
           ]
         },
         {
           "type": "table",
-          "name": "supplierMain",
+          "width": "100%",
+          "name": "",
+          "rowCount": 1,
+          "fixed": false,
+          "minRowHeight": "24px",
+          "cellStyles": {
+            "borderLeft": "",
+            "borderRight": "",
+            "borderTop": ""
+          },
+          "rows": [
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "center",
+                "borderLeft": "solid 1px red",
+                "borderRight": "none",
+                "borderTop": "solid 1px red",
+                "borderBottom": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "paddingTop": "010px",
+                "paddingBottom": "10px",
+                "borderLeft": "none",
+                "borderRight": "solid 1px red",
+                "borderTop": "solid 1px red",
+                "borderBottom": "none"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "70%"
+            },
+            {
+              "width": "30%"
+            }
+          ],
+          "items": [
+            {
+              "type": "cbox",
+              "width": "100%",
+              "name": "",
+              "col": 1,
+              "row": 0,
+              "itemGap": "15px",
+              "items": [
+                {
+                  "type": "rbox",
+                  "name": "",
+                  "right": "15px",
+                  "itemGap": "15px",
+                  "items": [
+                    {
+                      "type": "text",
+                      "name": "",
+                      "text": "책  번  호",
+                      "styles": {
+                        "fontSize": "12px",
+                        "color": "red",
+                        "__tag_": {}
+                      }
+                    },
+                    {
+                      "type": "rbox",
+                      "name": "",
+                      "itemGap": 0,
+                      "items": [
+                        {
+                          "type": "text",
+                          "width": "50px",
+                          "height": "20px",
+                          "name": "",
+                          "text": "권",
+                          "styles": {
+                            "fontSize": "12px",
+                            "color": "red",
+                            "textAlign": "right",
+                            "border": "solid 1px red",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "50px",
+                          "height": "20px",
+                          "name": "",
+                          "text": "호",
+                          "styles": {
+                            "fontSize": "12px",
+                            "color": "red",
+                            "textAlign": "right",
+                            "border": "solid 1px red",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rbox",
+                  "name": "",
+                  "right": "15px",
+                  "itemGap": "15px",
+                  "items": [
+                    {
+                      "type": "text",
+                      "name": "",
+                      "text": "일련번호",
+                      "styles": {
+                        "fontSize": "12px",
+                        "color": "red",
+                        "__tag_": {}
+                      }
+                    },
+                    {
+                      "type": "rbox",
+                      "name": "",
+                      "itemGap": 0,
+                      "items": [
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "center",
+                            "border": "solid 1px red",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px red",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "name": "",
+                          "text": "-",
+                          "styles": {
+                            "fontSize": "12px",
+                            "color": "red",
+                            "paddingLeft": "2px",
+                            "paddingRight": "2px",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px red",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px red",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px red",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px red",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "text": "세금계산서 (공급자보관용)",
+              "styles": {
+                "fontSize": "18px",
+                "fontWeight": "bold",
+                "color": "red",
+                "__tag_": {}
+              }
+            }
+          ]
+        },
+        {
+          "type": "table",
           "data": "bill-main",
           "width": "100%",
-          "rowCount": 6,
+          "name": "",
+          "rowCount": 4,
+          "fixed": false,
           "minRowHeight": "25px",
           "cellStyles": {
             "borderLeft": "solid 1px red",
@@ -252,8 +366,6 @@
             "borderBottom": "solid 1px red"
           },
           "rows": [
-            {},
-            {},
             {},
             {},
             {},
@@ -267,426 +379,211 @@
             },
             {
               "r": 0,
-              "c": 2,
-              "colspan": 3
-            },
-            {
-              "r": 0,
-              "c": 5,
+              "c": 14,
               "rowspan": 4
             },
             {
-              "r": 0,
+              "r": 1,
+              "c": 1,
+              "styles": {
+                "paddingBottom": "5px"
+              }
+            },
+            {
+              "r": 1,
+              "c": 2,
+              "colspan": 5
+            },
+            {
+              "r": 1,
               "c": 7,
               "colspan": 3
             },
             {
               "r": 1,
-              "c": 8,
-              "styles": {
-                "cellAlign": "left"
-              }
+              "c": 10,
+              "colspan": 4
+            },
+            {
+              "r": 1,
+              "c": 16,
+              "colspan": 5
+            },
+            {
+              "r": 1,
+              "c": 21,
+              "colspan": 3
+            },
+            {
+              "r": 1,
+              "c": 24,
+              "colspan": 4
             },
             {
               "r": 2,
               "c": 2,
-              "colspan": 3
+              "colspan": 12
             },
             {
               "r": 2,
+              "c": 16,
+              "colspan": 12
+            },
+            {
+              "r": 3,
+              "c": 2,
+              "colspan": 5
+            },
+            {
+              "r": 3,
               "c": 7,
               "colspan": 3
             },
             {
-              "r": 4,
-              "c": 0,
-              "colspan": 2
-            },
-            {
-              "r": 4,
-              "c": 2,
+              "r": 3,
+              "c": 10,
               "colspan": 4
             },
             {
-              "r": 4,
-              "c": 6,
-              "colspan": 4
+              "r": 3,
+              "c": 16,
+              "colspan": 5
             },
             {
-              "r": 5,
-              "c": 0,
-              "colspan": 2
+              "r": 3,
+              "c": 21,
+              "colspan": 3
             },
             {
-              "r": 5,
-              "c": 2,
-              "colspan": 4
-            },
-            {
-              "r": 5,
-              "c": 6,
+              "r": 3,
+              "c": 24,
               "colspan": 4
             }
           ],
-          "colCount": 10,
+          "colCount": 28,
           "columns": [
             {
               "width": "3%"
             },
             {
-              "width": "11%"
-            },
-            {
-              "width": "16%"
-            },
-            {
-              "width": "7%"
-            },
-            {
-              "width": "13%"
+              "width": "8%"
             },
             {
               "width": "3%"
             },
             {
-              "width": "11%"
+              "width": "3%"
             },
             {
-              "width": "15%"
+              "width": "3%"
             },
             {
-              "width": "7%"
+              "width": "3%"
             },
             {
-              "width": "14%"
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "8%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
             }
           ],
           "items": [
             {
               "type": "text",
-              "name": "",
-              "col": 0,
-              "row": 0,
-              "wrap": true,
-              "text": "공급자"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 5,
-              "row": 0,
-              "wrap": true,
-              "text": "공급받는자"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 1,
-              "row": 0,
-              "text": "등록번호"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 1,
-              "row": 1,
-              "text": "상호(법인명)"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 1,
-              "row": 2,
-              "text": "사업장 주소"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 1,
-              "row": 3,
-              "text": "업태"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 0,
-              "row": 4,
-              "text": "작성"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 2,
-              "row": 4,
-              "text": "공급가액"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 4,
-              "text": "비고"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 0,
-              "text": "등록번호"
-            },
-            {
-              "type": "table",
               "width": "100%",
               "name": "",
-              "col": 7,
+              "col": 14,
               "row": 0,
-              "rowCount": 1,
-              "cellStyles": {
-                "borderLeft": "solid 1px red",
-                "borderRight": "solid 1px red",
-                "borderTop": "solid 1px red",
-                "borderBottom": "solid 1px red"
-              },
-              "rows": [
-                {
-                  "height": "25px"
-                }
-              ],
-              "cells": [],
-              "colCount": 12,
-              "columns": [
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                }
-              ],
-              "items": [
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(0, 1);",
-                  "col": 0,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(1, 2);",
-                  "col": 1,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 3,
-                  "row": 0,
-                  "text": "-",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(3, 4);",
-                  "col": 4,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(4, 5);",
-                  "col": 5,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 6,
-                  "row": 0,
-                  "text": "-",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(5, 6);",
-                  "col": 7,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(6, 7);",
-                  "col": 8,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(7, 8);",
-                  "col": 9,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(8, 9);",
-                  "col": 10,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(9, 10);",
-                  "col": 11,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(2, 3);",
-                  "col": 2,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 1,
-              "text": "상호(법인명)"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 2,
-              "text": "사업장 주소"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 3,
-              "text": "업태"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 8,
-              "row": 1,
-              "wrap": true,
               "multiLine": true,
-              "text": "성명<br>(대표자)",
+              "text": "공\n급\n받\n는\n자",
               "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 0,
+              "text": "등록번호",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 1,
+              "multiLine": true,
+              "text": "상호<br>(법인명)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
                 "textAlign": "center",
                 "__tag_": {}
               }
@@ -694,53 +591,129 @@
             {
               "type": "text",
               "name": "",
-              "col": 8,
+              "col": 1,
+              "row": 2,
+              "multiLine": true,
+              "text": "사업장<br>주   소",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
               "row": 3,
-              "text": "종목"
+              "text": "업태",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 0,
+              "text": "등록번호",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 1,
+              "multiLine": true,
+              "text": "상호<br>(법인명)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "textAlign": "center",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 3,
+              "text": "업태",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 21,
+              "row": 3,
+              "text": "종목",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "value": "suppliedKind",
               "name": "",
-              "col": 9,
+              "col": 24,
               "row": 3,
-              "text": "Text"
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "value": "suppliedAddress",
               "name": "",
-              "col": 7,
+              "col": 16,
               "row": 2,
               "wrap": true,
-              "text": "Text"
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "value": "supplierName",
+              "width": "100%",
               "name": "",
               "col": 2,
               "row": 1,
               "wrap": true,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "width": 46,
-              "name": "",
-              "col": 3,
-              "row": 1,
-              "wrap": true,
-              "text": " 성명 (대표자)"
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "name": "suppName1",
               "value": "supplierPresident",
               "width": "130px",
-              "col": 4,
+              "col": 10,
               "row": 1,
-              "text": "Text"
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
@@ -749,7 +722,11 @@
               "col": 2,
               "row": 2,
               "wrap": true,
-              "text": "Text"
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
@@ -757,836 +734,1368 @@
               "name": "",
               "col": 2,
               "row": 3,
-              "text": "Text"
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "name": "",
-              "col": 3,
+              "col": 7,
               "row": 3,
-              "text": "종목"
+              "text": "종목",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "value": "supplierKind",
               "name": "",
-              "col": 4,
+              "col": 10,
               "row": 3,
-              "text": "Text"
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "value": "suppliedName",
               "name": "",
-              "col": 7,
+              "col": 16,
               "row": 1,
               "wrap": true,
-              "text": "Text"
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "value": "suppliedType",
               "name": "",
-              "col": 7,
+              "col": 16,
               "row": 3,
-              "text": "Text"
-            },
-            {
-              "type": "table",
-              "width": "100%",
-              "name": "",
-              "col": 2,
-              "row": 0,
-              "rowCount": 1,
-              "cellStyles": {
-                "borderLeft": "solid 1px red",
-                "borderRight": "solid 1px red",
-                "borderTop": "solid 1px red",
-                "borderBottom": "solid 1px red"
-              },
-              "rows": [
-                {
-                  "height": "25px"
-                }
-              ],
-              "cells": [],
-              "colCount": 12,
-              "columns": [
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                }
-              ],
-              "items": [
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(0, 1);",
-                  "col": 0,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(1, 2);",
-                  "col": 1,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(2, 3);",
-                  "col": 2,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 3,
-                  "row": 0,
-                  "text": "-",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(3, 4);",
-                  "col": 4,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(4, 5);",
-                  "col": 5,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 6,
-                  "row": 0,
-                  "text": "-",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(5, 6);",
-                  "col": 7,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(6, 7);",
-                  "col": 8,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(7, 8);",
-                  "col": 9,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(8, 9);",
-                  "col": 10,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(9, 10);",
-                  "col": 11,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            },
-            {
-              "type": "table",
-              "width": "100%",
-              "name": "",
-              "col": 0,
-              "row": 5,
-              "rowCount": 2,
-              "minRowHeight": "25px",
-              "cellStyles": {
-                "paddingTop": "",
-                "paddingBottom": "",
-                "borderLeft": "solid 1px red",
-                "borderRight": "solid 1px red",
-                "borderTop": "solid 1px red",
-                "borderBottom": "solid 1px red"
-              },
-              "rows": [
-                {},
-                {}
-              ],
-              "cells": [
-                {
-                  "r": 0,
-                  "c": 0,
-                  "styles": {
-                    "borderLeft": "none",
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 1,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 2,
-                  "styles": {
-                    "borderRight": "none",
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 0,
-                  "styles": {
-                    "borderLeft": "none",
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 1,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 2,
-                  "styles": {
-                    "borderRight": "none",
-                    "borderBottom": "none"
-                  }
-                }
-              ],
-              "colCount": 3,
-              "columns": [
-                {
-                  "width": "50%"
-                },
-                {
-                  "width": "25%"
-                },
-                {
-                  "width": "25%"
-                }
-              ],
-              "items": [
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 0,
-                  "row": 0,
-                  "text": "년"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 1,
-                  "row": 0,
-                  "text": "월"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 2,
-                  "row": 0,
-                  "text": "일"
-                },
-                {
-                  "type": "text",
-                  "value": "Year",
-                  "name": "",
-                  "col": 0,
-                  "row": 1,
-                  "text": "Text"
-                },
-                {
-                  "type": "text",
-                  "value": "Month",
-                  "name": "",
-                  "col": 1,
-                  "row": 1,
-                  "text": "Text"
-                },
-                {
-                  "type": "text",
-                  "value": "Day",
-                  "name": "",
-                  "col": 2,
-                  "row": 1,
-                  "text": "Text"
-                }
-              ]
-            },
-            {
-              "type": "table",
-              "width": "100%",
-              "name": "",
-              "col": 2,
-              "row": 5,
-              "rowCount": 2,
-              "minRowHeight": "25px",
-              "cellStyles": {
-                "borderLeft": "solid 1px red",
-                "borderRight": "solid 1px red",
-                "borderTop": "solid 1px red",
-                "borderBottom": "solid 1px red"
-              },
-              "rows": [
-                {},
-                {}
-              ],
-              "cells": [
-                {
-                  "r": 0,
-                  "c": 0,
-                  "styles": {
-                    "borderLeft": "none",
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 1,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 2,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 3,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 4,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 5,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 6,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 7,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 8,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 9,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 10,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 11,
-                  "styles": {
-                    "borderRight": "none",
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 0,
-                  "styles": {
-                    "borderLeft": "none",
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 1,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 2,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 3,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 4,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 5,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 6,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 7,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 8,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 9,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 10,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 11,
-                  "styles": {
-                    "borderRight": "none",
-                    "borderBottom": "none"
-                  }
-                }
-              ],
-              "colCount": 12,
-              "columns": [
-                {
-                  "width": "12%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                }
-              ],
-              "items": [
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 0,
-                  "row": 0,
-                  "text": "공란수"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 1,
-                  "row": 0,
-                  "text": "백"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 2,
-                  "row": 0,
-                  "text": "십"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 3,
-                  "row": 0,
-                  "text": "억"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 4,
-                  "row": 0,
-                  "text": "천"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 5,
-                  "row": 0,
-                  "text": "백"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 6,
-                  "row": 0,
-                  "text": "십"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 7,
-                  "row": 0,
-                  "text": "만"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 8,
-                  "row": 0,
-                  "text": "천"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 9,
-                  "row": 0,
-                  "text": "백"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 10,
-                  "row": 0,
-                  "text": "십"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 11,
-                  "row": 0,
-                  "text": "원"
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var v = Math.floor(value) % 10;\n  return v;",
-                  "col": 11,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 10;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 10,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 100;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 9,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 1000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 8,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 10000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 7,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 100000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 6,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 1000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 5,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 10000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 4,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 100000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 3,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 1000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 2,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 10000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 1,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "30px",
-                  "name": "",
-                  "onGetValue": "return 11 - String(value).length;",
-                  "col": 0,
-                  "row": 1,
-                  "text": ""
-                }
-              ]
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "value": "suppliedPresident",
               "name": "",
+              "col": 24,
+              "row": 1,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 7,
+              "row": 1,
+              "multiLine": true,
+              "text": "성명<br>(대표자)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "textAlign": "center",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 2,
+              "multiLine": true,
+              "text": "사업장<br>주   소",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "cbox",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "itemGap": "15px",
+              "items": [
+                {
+                  "type": "text",
+                  "name": "",
+                  "text": "공",
+                  "styles": {
+                    "fontSize": "12px",
+                    "color": "red",
+                    "__tag_": {}
+                  }
+                },
+                {
+                  "type": "text",
+                  "name": "",
+                  "text": "급",
+                  "styles": {
+                    "fontSize": "12px",
+                    "color": "red",
+                    "__tag_": {}
+                  }
+                },
+                {
+                  "type": "text",
+                  "name": "",
+                  "text": "자",
+                  "styles": {
+                    "fontSize": "12px",
+                    "color": "red",
+                    "__tag_": {}
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 21,
+              "row": 1,
+              "multiLine": true,
+              "text": "성명<br>(대표자)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "textAlign": "center",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(0, 1);",
+              "col": 2,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(1, 2);",
+              "col": 3,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(2, 3);",
+              "col": 4,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 5,
+              "row": 0,
+              "text": "-",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(3, 4);",
+              "col": 6,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(4, 5);",
+              "col": 7,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 8,
+              "row": 0,
+              "text": "-",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(5, 6);",
+              "col": 9,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(6, 7);",
+              "col": 10,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(7, 8);",
+              "col": 11,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(8, 9);",
+              "col": 12,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(9, 10);",
+              "col": 13,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(0, 1);",
+              "col": 16,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(1, 2);",
+              "col": 17,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(2, 3);",
+              "col": 18,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 19,
+              "row": 0,
+              "text": "-",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(3, 4);",
+              "col": 20,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(4, 5);",
+              "col": 21,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 22,
+              "row": 0,
+              "text": "-",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(5, 6);",
+              "col": 23,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(6, 7);",
+              "col": 24,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(7, 8);",
+              "col": 25,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(8, 9);",
+              "col": 26,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(9, 10);",
+              "col": 27,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "data": "bill-main",
+          "width": "100%",
+          "name": "",
+          "rowCount": 3,
+          "fixed": false,
+          "minRowHeight": "25px",
+          "cellStyles": {
+            "borderLeft": "solid 1px red",
+            "borderRight": "solid 1px red",
+            "borderTop": "solid 1px red",
+            "borderBottom": "solid 1px red"
+          },
+          "rows": [
+            {},
+            {},
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "colspan": 3,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 3,
+              "colspan": 13,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 16,
+              "colspan": 11,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 27,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 1,
+              "c": 27,
+              "rowspan": 2
+            }
+          ],
+          "colCount": 28,
+          "columns": [
+            {
+              "width": "6%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "9%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "20%"
+            }
+          ],
+          "items": [
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "30px",
+              "name": "",
+              "onGetValue": "return 11 - String(value).length;",
+              "col": 3,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 5,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 6,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 7,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 8,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 9,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 10,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 11,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 12,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 13,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 14,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var v = Math.floor(value) % 10;\n  return v;",
+              "col": 15,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 1,
+              "text": "년",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 1,
+              "text": "월",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 2,
+              "row": 1,
+              "text": "일",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 3,
+              "row": 1,
+              "text": "공란수",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 4,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 5,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 6,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 7,
+              "row": 1,
+              "text": "억",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 8,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
               "col": 9,
               "row": 1,
-              "text": "Text"
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 10,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 11,
+              "row": 1,
+              "text": "만",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 12,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 13,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 1,
+              "text": "일",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 14,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 16,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 18,
+              "row": 1,
+              "text": "억",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 17,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 19,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 20,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 21,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 22,
+              "row": 1,
+              "text": "만",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 23,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 24,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 25,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 26,
+              "row": 1,
+              "text": "일",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Year",
+              "name": "",
+              "col": 0,
+              "row": 2,
+              "numberFormat": "###0",
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Month",
+              "name": "",
+              "col": 1,
+              "row": 2,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Day",
+              "name": "",
+              "col": 2,
+              "row": 2,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 27,
+              "row": 0,
+              "text": "비고",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "text": "작성",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 3,
+              "row": 0,
+              "text": "공 급 가 액",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 16,
+              "row": 0,
+              "text": "세 액",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 4,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var v = Math.floor(value) % 10;\n  return v;",
+              "col": 26,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 25,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 24,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 23,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 22,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 21,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 20,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 19,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 18,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 17,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 16,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             }
           ]
         },
@@ -1595,15 +2104,15 @@
           "data": "bill-detail",
           "width": "100%",
           "name": "",
-          "maxRowsPerPage": 4,
-          "maxEndRowCount": 4,
+          "maxRowsPerPage": 3,
+          "maxEndRowCount": 3,
           "detail": {
             "type": "detail",
             "width": "100%",
             "name": "",
             "visible": false
           },
-          "colCount": 8,
+          "colCount": 9,
           "columns": [
             {
               "width": "5%"
@@ -1618,23 +2127,27 @@
               "width": "10%"
             },
             {
-              "width": "5%"
-            },
-            {
-              "width": "15%"
+              "width": "10%"
             },
             {
               "width": "15%"
             },
             {
               "width": "20%"
+            },
+            {
+              "width": "15%"
+            },
+            {
+              "width": "5%"
             }
           ],
           "header": {
-            "name": "bandHeader",
             "width": "100%",
             "height": "25px",
+            "name": "",
             "rowCount": 1,
+            "fixed": false,
             "cellStyles": {
               "borderLeft": "solid 1px red",
               "borderRight": "solid 1px red",
@@ -1651,64 +2164,117 @@
                 "name": "",
                 "col": 0,
                 "row": 0,
-                "text": "월"
+                "text": "월",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "red",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
                 "name": "",
                 "col": 1,
                 "row": 0,
-                "text": "일"
+                "text": "일",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "red",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
                 "name": "",
                 "col": 2,
                 "row": 0,
-                "text": "품목"
+                "text": "품목",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "red",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
                 "name": "",
                 "col": 3,
                 "row": 0,
-                "text": "규격"
+                "text": "규격",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "red",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
                 "name": "",
                 "col": 4,
                 "row": 0,
-                "text": "수량"
+                "text": "수량",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "red",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
                 "name": "",
                 "col": 5,
                 "row": 0,
-                "text": "단가"
+                "text": "단가",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "red",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
                 "name": "",
                 "col": 6,
                 "row": 0,
-                "text": "공급가액"
+                "text": "공급가액",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "red",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "name": "",
+                "col": 8,
+                "row": 0,
+                "text": "비고",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "red",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
                 "name": "",
                 "col": 7,
                 "row": 0,
-                "text": "비고"
+                "text": "세액",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "red",
+                  "__tag_": {}
+                }
               }
             ]
           },
           "footer": {
-            "name": "bandFooter",
             "width": "100%",
+            "name": "",
             "visible": false,
             "rowCount": 1,
+            "fixed": false,
             "cellStyles": {},
             "rows": [
               {}
@@ -1716,10 +2282,11 @@
             "cells": []
           },
           "dataRow": {
-            "name": "dataRow",
             "width": "100%",
             "height": "25px",
+            "name": "",
             "rowCount": 1,
+            "fixed": false,
             "cellStyles": {
               "paddingLeft": "1px",
               "paddingRight": "1px",
@@ -1768,7 +2335,11 @@
                 "name": "",
                 "col": 0,
                 "row": 0,
-                "text": "Text"
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
@@ -1776,7 +2347,11 @@
                 "name": "",
                 "col": 1,
                 "row": 0,
-                "text": "Text"
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
@@ -1784,7 +2359,11 @@
                 "name": "",
                 "col": 2,
                 "row": 0,
-                "text": "Text"
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
@@ -1792,7 +2371,11 @@
                 "name": "",
                 "col": 3,
                 "row": 0,
-                "text": "Text"
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
@@ -1800,7 +2383,11 @@
                 "name": "",
                 "col": 4,
                 "row": 0,
-                "text": "Text"
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
@@ -1808,7 +2395,11 @@
                 "name": "",
                 "col": 5,
                 "row": 0,
-                "text": "Text"
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
               },
               {
                 "type": "text",
@@ -1816,7 +2407,23 @@
                 "name": "",
                 "col": 6,
                 "row": 0,
-                "text": "Text"
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "value": "Tax",
+                "name": "",
+                "col": 7,
+                "row": 0,
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
               }
             ]
           }
@@ -1827,6 +2434,8 @@
           "width": "100%",
           "name": "",
           "rowCount": 2,
+          "fixed": false,
+          "minRowHeight": "25px",
           "cellStyles": {
             "paddingLeft": "1px",
             "paddingRight": "1px",
@@ -1884,2028 +2493,17 @@
               }
             },
             {
-              "r": 1,
-              "c": 0,
+              "r": 0,
+              "c": 6,
               "styles": {
-                "cellAlign": "right"
+                "borderLeft": "none",
+                "borderRight": "none",
+                "borderTop": "none"
               }
-            }
-          ],
-          "colCount": 6,
-          "columns": [
-            {
-              "width": "16%"
-            },
-            {
-              "width": "16%"
-            },
-            {
-              "width": "16%"
-            },
-            {
-              "width": "16%"
-            },
-            {
-              "width": "16%"
-            },
-            {
-              "width": "20%"
-            }
-          ],
-          "items": [
-            {
-              "type": "text",
-              "name": "",
-              "col": 0,
-              "row": 0,
-              "text": "합계금액"
-            },
-            {
-              "type": "text",
-              "value": "totalPrice",
-              "name": "",
-              "col": 0,
-              "row": 1,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 1,
-              "row": 0,
-              "text": "현  금"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 2,
-              "row": 0,
-              "text": "수  표"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 3,
-              "row": 0,
-              "text": "어  음"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 4,
-              "row": 0,
-              "text": "외상미수금"
-            },
-            {
-              "type": "stack",
-              "width": 136,
-              "height": "45px",
-              "name": "",
-              "col": 5,
-              "row": 0,
-              "items": [
-                {
-                  "type": "text",
-                  "name": "",
-                  "text": "이 금액을              함"
-                },
-                {
-                  "type": "text",
-                  "width": 30,
-                  "name": "",
-                  "onGetStyles": "",
-                  "left": 70,
-                  "top": "3px",
-                  "text": "영수",
-                  "styleCallback": null
-                },
-                {
-                  "type": "text",
-                  "width": "30px",
-                  "name": "",
-                  "onGetStyles": "",
-                  "left": "70px",
-                  "bottom": "3px",
-                  "text": "청구",
-                  "styleCallback": null
-                },
-                {
-                  "type": "shape",
-                  "width": "30px",
-                  "height": 19,
-                  "name": "",
-                  "onGetStyles": "if (item.getValue(row, 'Type') == '영수') {\n    return { \"stroke\": \"red\", \"stroke-width\": \"2px\" };\n  }",
-                  "left": "69px",
-                  "top": "2px",
-                  "shape": "ellipse",
-                  "styles": {
-                    "fill": "none",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "shape",
-                  "width": "30px",
-                  "height": 19,
-                  "name": "",
-                  "onGetStyles": "if (item.getValue(row, 'Type') == '청구') {\n    return { \"stroke\": \"red\", \"stroke-width\": \"2px\"};\n  }",
-                  "left": "69px",
-                  "bottom": "2px",
-                  "shape": "ellipse",
-                  "styles": {
-                    "fill": "none",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "stack",
-          "width": "100%",
-          "name": "",
-          "styles": {
-            "paddingBottom": "2px",
-            "__tag_": {}
-          },
-          "items": [
-            {
-              "type": "text",
-              "name": "",
-              "left": 0,
-              "text": "210mm x 148.5mm"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "right": 0,
-              "text": "(인쇄용지(특급)34g/㎡)"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "width": "100%",
-          "height": "4mm",
-          "name": "",
-          "text": " ",
-          "styles": {
-            "borderBottom": "dotted black",
-            "__tag_": {}
-          }
-        },
-        {
-          "type": "text",
-          "width": "100%",
-          "height": "5mm",
-          "name": "",
-          "text": " "
-        },
-        {
-          "type": "stack",
-          "width": "100%",
-          "name": "",
-          "styles": {
-            "paddingBottom": "2px",
-            "__tag_": {}
-          },
-          "items": [
-            {
-              "type": "text",
-              "name": "",
-              "left": 0,
-              "text": "[별지 제 11호 서식] <개정  2009.3.26>"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "right": 0,
-              "text": "(청색)"
-            }
-          ]
-        },
-        {
-          "type": "stack",
-          "width": "100%",
-          "height": "70px",
-          "name": "",
-          "styles": {
-            "border": "solid 1px blue",
-            "borderBottom": "none",
-            "__tag_": {}
-          },
-          "items": [
-            {
-              "type": "rbox",
-              "name": "",
-              "itemGap": 0,
-              "items": [
-                {
-                  "type": "text",
-                  "name": "",
-                  "text": "세    금    계    산    서",
-                  "styles": {
-                    "fontSize": "17px",
-                    "fontWeight": "bold",
-                    "textAlign": "right",
-                    "paddingLeft": "20px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "text": "(공급받는자 보관용)",
-                  "styles": {
-                    "paddingLeft": "10px",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            },
-            {
-              "type": "rbox",
-              "name": "",
-              "right": "35px",
-              "top": "10px",
-              "itemGap": 0,
-              "items": [
-                {
-                  "type": "text",
-                  "width": "70px",
-                  "name": "",
-                  "text": "책  번  호",
-                  "styles": {
-                    "paddingRight": "10px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": 40,
-                  "height": "20px",
-                  "name": "",
-                  "text": "권",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px blue",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "42px",
-                  "height": "20px",
-                  "name": "",
-                  "text": "호",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px blue",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            },
-            {
-              "type": "rbox",
-              "name": "",
-              "right": "35px",
-              "bottom": "10px",
-              "itemGap": 0,
-              "styles": {
-                "paddingBottom": "1px",
-                "__tag_": {}
-              },
-              "items": [
-                {
-                  "type": "text",
-                  "width": "70px",
-                  "name": "",
-                  "text": "일련 번호",
-                  "styles": {
-                    "paddingRight": "10px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "center",
-                    "border": "solid 1px blue",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px blue",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "text": "-",
-                  "styles": {
-                    "paddingLeft": "2px",
-                    "paddingRight": "2px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px blue",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px blue",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px blue",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "width": "12px",
-                  "name": "",
-                  "text": " ",
-                  "styles": {
-                    "textAlign": "right",
-                    "border": "solid 1px blue",
-                    "borderLeft": "none",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "table",
-          "name": "supplierMain",
-          "data": "bill-main",
-          "width": "100%",
-          "rowCount": 6,
-          "minRowHeight": "25px",
-          "cellStyles": {
-            "borderLeft": "solid 1px blue",
-            "borderRight": "solid 1px blue",
-            "borderTop": "solid 1px blue",
-            "borderBottom": "solid 1px blue"
-          },
-          "rows": [
-            {},
-            {},
-            {},
-            {},
-            {},
-            {}
-          ],
-          "cells": [
-            {
-              "r": 0,
-              "c": 0,
-              "rowspan": 4
-            },
-            {
-              "r": 0,
-              "c": 2,
-              "colspan": 3
-            },
-            {
-              "r": 0,
-              "c": 5,
-              "rowspan": 4
             },
             {
               "r": 0,
               "c": 7,
-              "colspan": 3
-            },
-            {
-              "r": 2,
-              "c": 2,
-              "colspan": 3
-            },
-            {
-              "r": 2,
-              "c": 7,
-              "colspan": 3
-            },
-            {
-              "r": 4,
-              "c": 0,
-              "colspan": 2
-            },
-            {
-              "r": 4,
-              "c": 2,
-              "colspan": 4
-            },
-            {
-              "r": 4,
-              "c": 6,
-              "colspan": 4
-            },
-            {
-              "r": 5,
-              "c": 0,
-              "colspan": 2
-            },
-            {
-              "r": 5,
-              "c": 2,
-              "colspan": 4
-            },
-            {
-              "r": 5,
-              "c": 6,
-              "colspan": 4
-            }
-          ],
-          "colCount": 10,
-          "columns": [
-            {
-              "width": "3%"
-            },
-            {
-              "width": "11%"
-            },
-            {
-              "width": "16%"
-            },
-            {
-              "width": "7%"
-            },
-            {
-              "width": "13%"
-            },
-            {
-              "width": "3%"
-            },
-            {
-              "width": "11%"
-            },
-            {
-              "width": "15%"
-            },
-            {
-              "width": "7%"
-            },
-            {
-              "width": "14%"
-            }
-          ],
-          "items": [
-            {
-              "type": "text",
-              "name": "",
-              "col": 0,
-              "row": 0,
-              "wrap": true,
-              "text": "공급자"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 5,
-              "row": 0,
-              "wrap": true,
-              "text": "공급받는자"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 1,
-              "row": 0,
-              "text": "등록번호"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 1,
-              "row": 1,
-              "text": "상호(법인명)"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 1,
-              "row": 2,
-              "text": "사업장 주소"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 1,
-              "row": 3,
-              "text": "업태"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 0,
-              "row": 4,
-              "text": "작성"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 2,
-              "row": 4,
-              "text": "공급가액"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 4,
-              "text": "비고"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 0,
-              "text": "등록번호"
-            },
-            {
-              "type": "table",
-              "width": "100%",
-              "name": "",
-              "col": 7,
-              "row": 0,
-              "rowCount": 1,
-              "cellStyles": {
-                "borderLeft": "solid 1px blue",
-                "borderRight": "solid 1px blue",
-                "borderTop": "solid 1px blue",
-                "borderBottom": "solid 1px blue"
-              },
-              "rows": [
-                {
-                  "height": "25px"
-                }
-              ],
-              "cells": [],
-              "colCount": 12,
-              "columns": [
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                }
-              ],
-              "items": [
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(0, 1);",
-                  "col": 0,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(1, 2);",
-                  "col": 1,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 3,
-                  "row": 0,
-                  "text": "-",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(3, 4);",
-                  "col": 4,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(4, 5);",
-                  "col": 5,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 6,
-                  "row": 0,
-                  "text": "-",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(5, 6);",
-                  "col": 7,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(6, 7);",
-                  "col": 8,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(7, 8);",
-                  "col": 9,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(8, 9);",
-                  "col": 10,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(9, 10);",
-                  "col": 11,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(2, 3);",
-                  "col": 2,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 1,
-              "text": "상호(법인명)"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 2,
-              "text": "사업장 주소"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 6,
-              "row": 3,
-              "text": "업태"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 8,
-              "row": 1,
-              "wrap": true,
-              "multiLine": true,
-              "text": "성명<br>(대표자)",
-              "styles": {
-                "textAlign": "center",
-                "__tag_": {}
-              }
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 8,
-              "row": 3,
-              "text": "종목"
-            },
-            {
-              "type": "text",
-              "value": "suppliedKind",
-              "name": "",
-              "col": 9,
-              "row": 3,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "value": "suppliedPresident",
-              "name": "",
-              "col": 9,
-              "row": 1,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "value": "suppliedAddress",
-              "name": "",
-              "col": 7,
-              "row": 2,
-              "wrap": true,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "value": "supplierName",
-              "name": "",
-              "col": 2,
-              "row": 1,
-              "wrap": true,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "width": 46,
-              "name": "",
-              "col": 3,
-              "row": 1,
-              "wrap": true,
-              "text": " 성명 (대표자)"
-            },
-            {
-              "type": "text",
-              "name": "suppName2",
-              "value": "supplierPresident",
-              "width": "130px",
-              "col": 4,
-              "row": 1,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "value": "supplierAddress",
-              "name": "",
-              "col": 2,
-              "row": 2,
-              "wrap": true,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "value": "supplierType",
-              "name": "",
-              "col": 2,
-              "row": 3,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "name": "",
-              "col": 3,
-              "row": 3,
-              "text": "종목"
-            },
-            {
-              "type": "text",
-              "value": "supplierKind",
-              "name": "",
-              "col": 4,
-              "row": 3,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "value": "suppliedName",
-              "name": "",
-              "col": 7,
-              "row": 1,
-              "wrap": true,
-              "text": "Text"
-            },
-            {
-              "type": "text",
-              "value": "suppliedType",
-              "name": "",
-              "col": 7,
-              "row": 3,
-              "text": "Text"
-            },
-            {
-              "type": "table",
-              "width": "100%",
-              "name": "",
-              "col": 2,
-              "row": 0,
-              "rowCount": 1,
-              "cellStyles": {
-                "borderLeft": "solid 1px blue",
-                "borderRight": "solid 1px blue",
-                "borderTop": "solid 1px blue",
-                "borderBottom": "solid 1px blue"
-              },
-              "rows": [
-                {
-                  "height": "25px"
-                }
-              ],
-              "cells": [],
-              "colCount": 12,
-              "columns": [
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                },
-                {
-                  "width": "20%"
-                }
-              ],
-              "items": [
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(0, 1);",
-                  "col": 0,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "suppliedNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(1, 2);",
-                  "col": 1,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(2, 3);",
-                  "col": 2,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 3,
-                  "row": 0,
-                  "text": "-",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(3, 4);",
-                  "col": 4,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(4, 5);",
-                  "col": 5,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 6,
-                  "row": 0,
-                  "text": "-",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(5, 6);",
-                  "col": 7,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(6, 7);",
-                  "col": 8,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(7, 8);",
-                  "col": 9,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(8, 9);",
-                  "col": 10,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": "supplierNo",
-                  "width": "10px",
-                  "name": "",
-                  "onGetValue": "return !value ? '' : String(value).substring(9, 10);",
-                  "col": 11,
-                  "row": 0,
-                  "text": "0",
-                  "styles": {
-                    "fontSize": "15px",
-                    "__tag_": {}
-                  }
-                }
-              ]
-            },
-            {
-              "type": "table",
-              "width": "100%",
-              "name": "",
-              "col": 0,
-              "row": 5,
-              "rowCount": 2,
-              "minRowHeight": "25px",
-              "cellStyles": {
-                "paddingTop": "",
-                "paddingBottom": "",
-                "borderLeft": "solid 1px blue",
-                "borderRight": "solid 1px blue",
-                "borderTop": "solid 1px blue",
-                "borderBottom": "solid 1px blue"
-              },
-              "rows": [
-                {},
-                {}
-              ],
-              "cells": [
-                {
-                  "r": 0,
-                  "c": 0,
-                  "styles": {
-                    "borderLeft": "none",
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 1,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 2,
-                  "styles": {
-                    "borderRight": "none",
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 0,
-                  "styles": {
-                    "borderLeft": "none",
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 1,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 2,
-                  "styles": {
-                    "borderRight": "none",
-                    "borderBottom": "none"
-                  }
-                }
-              ],
-              "colCount": 3,
-              "columns": [
-                {
-                  "width": "50%"
-                },
-                {
-                  "width": "25%"
-                },
-                {
-                  "width": "25%"
-                }
-              ],
-              "items": [
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 0,
-                  "row": 0,
-                  "text": "년"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 1,
-                  "row": 0,
-                  "text": "월"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 2,
-                  "row": 0,
-                  "text": "일"
-                },
-                {
-                  "type": "text",
-                  "value": "Year",
-                  "name": "",
-                  "col": 0,
-                  "row": 1,
-                  "text": "Text"
-                },
-                {
-                  "type": "text",
-                  "value": "Month",
-                  "name": "",
-                  "col": 1,
-                  "row": 1,
-                  "text": "Text"
-                },
-                {
-                  "type": "text",
-                  "value": "Day",
-                  "name": "",
-                  "col": 2,
-                  "row": 1,
-                  "text": "Text"
-                }
-              ]
-            },
-            {
-              "type": "table",
-              "width": "100%",
-              "name": "",
-              "col": 2,
-              "row": 5,
-              "rowCount": 2,
-              "minRowHeight": "25px",
-              "cellStyles": {
-                "borderLeft": "solid 1px blue",
-                "borderRight": "solid 1px blue",
-                "borderTop": "solid 1px blue",
-                "borderBottom": "solid 1px blue"
-              },
-              "rows": [
-                {},
-                {}
-              ],
-              "cells": [
-                {
-                  "r": 0,
-                  "c": 0,
-                  "styles": {
-                    "borderLeft": "none",
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 1,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 2,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 3,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 4,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 5,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 6,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 7,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 8,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 9,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 10,
-                  "styles": {
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 0,
-                  "c": 11,
-                  "styles": {
-                    "borderRight": "none",
-                    "borderTop": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 0,
-                  "styles": {
-                    "borderLeft": "none",
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 1,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 2,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 3,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 4,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 5,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 6,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 7,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 8,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 9,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 10,
-                  "styles": {
-                    "borderBottom": "none"
-                  }
-                },
-                {
-                  "r": 1,
-                  "c": 11,
-                  "styles": {
-                    "borderRight": "none",
-                    "borderBottom": "none"
-                  }
-                }
-              ],
-              "colCount": 12,
-              "columns": [
-                {
-                  "width": "12%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                },
-                {
-                  "width": "8%"
-                }
-              ],
-              "items": [
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 0,
-                  "row": 0,
-                  "text": "공란수"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 1,
-                  "row": 0,
-                  "text": "백"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 2,
-                  "row": 0,
-                  "text": "십"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 3,
-                  "row": 0,
-                  "text": "억"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 4,
-                  "row": 0,
-                  "text": "천"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 5,
-                  "row": 0,
-                  "text": "백"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 6,
-                  "row": 0,
-                  "text": "십"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 7,
-                  "row": 0,
-                  "text": "만"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 8,
-                  "row": 0,
-                  "text": "천"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 9,
-                  "row": 0,
-                  "text": "백"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 10,
-                  "row": 0,
-                  "text": "십"
-                },
-                {
-                  "type": "text",
-                  "name": "",
-                  "col": 11,
-                  "row": 0,
-                  "text": "원"
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var v = Math.floor(value) % 10;\n  return v;",
-                  "col": 11,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 10;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 10,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 100;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 9,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 1000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 8,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 10000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 7,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 100000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 6,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 1000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 5,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 10000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 4,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 100000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 3,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 1000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 2,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "15px",
-                  "name": "",
-                  "onGetValue": "var digit = 10000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
-                  "col": 1,
-                  "row": 1,
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "value": "Amount",
-                  "width": "30px",
-                  "name": "",
-                  "onGetValue": "return 11 - String(value).length;",
-                  "col": 0,
-                  "row": 1,
-                  "text": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "tableband",
-          "data": "bill-detail",
-          "width": "100%",
-          "name": "",
-          "rowsPerPage": 4,
-          "endRowCount": 4,
-          "detail": {
-            "type": "detail",
-            "width": "100%",
-            "name": "",
-            "visible": false
-          },
-          "colCount": 8,
-          "columns": [
-            {
-              "width": "5%"
-            },
-            {
-              "width": "5%"
-            },
-            {
-              "width": "25%"
-            },
-            {
-              "width": "10%"
-            },
-            {
-              "width": "5%"
-            },
-            {
-              "width": "15%"
-            },
-            {
-              "width": "15%"
-            },
-            {
-              "width": "20%"
-            }
-          ],
-          "header": {
-            "name": "bandHeader1",
-            "width": "100%",
-            "height": "25px",
-            "rowCount": 1,
-            "cellStyles": {
-              "borderLeft": "solid 1px blue",
-              "borderRight": "solid 1px blue",
-              "borderTop": "none",
-              "borderBottom": "solid 1px blue"
-            },
-            "rows": [
-              {}
-            ],
-            "cells": [],
-            "items": [
-              {
-                "type": "text",
-                "name": "",
-                "col": 0,
-                "row": 0,
-                "text": "월"
-              },
-              {
-                "type": "text",
-                "name": "",
-                "col": 1,
-                "row": 0,
-                "text": "일"
-              },
-              {
-                "type": "text",
-                "name": "",
-                "col": 2,
-                "row": 0,
-                "text": "품목"
-              },
-              {
-                "type": "text",
-                "name": "",
-                "col": 3,
-                "row": 0,
-                "text": "규격"
-              },
-              {
-                "type": "text",
-                "name": "",
-                "col": 4,
-                "row": 0,
-                "text": "수량"
-              },
-              {
-                "type": "text",
-                "name": "",
-                "col": 5,
-                "row": 0,
-                "text": "단가"
-              },
-              {
-                "type": "text",
-                "name": "",
-                "col": 6,
-                "row": 0,
-                "text": "공급가액"
-              },
-              {
-                "type": "text",
-                "name": "",
-                "col": 7,
-                "row": 0,
-                "text": "비고"
-              }
-            ]
-          },
-          "footer": {
-            "name": "bandFooter1",
-            "width": "100%",
-            "visible": false,
-            "rowCount": 1,
-            "cellStyles": {},
-            "rows": [
-              {}
-            ],
-            "cells": []
-          },
-          "dataRow": {
-            "name": "dataRow1",
-            "width": "100%",
-            "height": "25px",
-            "rowCount": 1,
-            "cellStyles": {
-              "paddingLeft": "1px",
-              "paddingRight": "1px",
-              "borderLeft": "solid 1px blue",
-              "borderRight": "solid 1px blue",
-              "borderTop": "none",
-              "borderBottom": "solid 1px blue"
-            },
-            "rows": [
-              {}
-            ],
-            "cells": [
-              {
-                "r": 0,
-                "c": 2,
-                "styles": {
-                  "cellAlign": "left"
-                }
-              },
-              {
-                "r": 0,
-                "c": 4,
-                "styles": {
-                  "cellAlign": "right"
-                }
-              },
-              {
-                "r": 0,
-                "c": 5,
-                "styles": {
-                  "cellAlign": "right"
-                }
-              },
-              {
-                "r": 0,
-                "c": 6,
-                "styles": {
-                  "cellAlign": "right"
-                }
-              }
-            ],
-            "items": [
-              {
-                "type": "text",
-                "value": "Month",
-                "name": "",
-                "col": 0,
-                "row": 0,
-                "text": "Text"
-              },
-              {
-                "type": "text",
-                "value": "Day",
-                "name": "",
-                "col": 1,
-                "row": 0,
-                "text": "Text"
-              },
-              {
-                "type": "text",
-                "value": "Item",
-                "name": "",
-                "col": 2,
-                "row": 0,
-                "text": "Text"
-              },
-              {
-                "type": "text",
-                "value": "Unit",
-                "name": "",
-                "col": 3,
-                "row": 0,
-                "text": "Text"
-              },
-              {
-                "type": "text",
-                "value": "Quantity",
-                "name": "",
-                "col": 4,
-                "row": 0,
-                "text": "Text"
-              },
-              {
-                "type": "text",
-                "value": "UnitPrice",
-                "name": "",
-                "col": 5,
-                "row": 0,
-                "text": "Text"
-              },
-              {
-                "type": "text",
-                "value": "Amount",
-                "name": "",
-                "col": 6,
-                "row": 0,
-                "text": "Text"
-              }
-            ]
-          }
-        },
-        {
-          "type": "table",
-          "data": "bill-main",
-          "width": "100%",
-          "name": "",
-          "rowCount": 2,
-          "cellStyles": {
-            "paddingLeft": "1px",
-            "paddingRight": "1px",
-            "borderLeft": "solid 1px blue",
-            "borderRight": "solid 1px blue",
-            "borderTop": "solid 1px blue",
-            "borderBottom": "solid 1px blue"
-          },
-          "rows": [
-            {},
-            {}
-          ],
-          "cells": [
-            {
-              "r": 0,
-              "c": 0,
-              "styles": {
-                "borderTop": "none"
-              }
-            },
-            {
-              "r": 0,
-              "c": 1,
-              "styles": {
-                "borderTop": "none"
-              }
-            },
-            {
-              "r": 0,
-              "c": 2,
-              "styles": {
-                "borderTop": "none"
-              }
-            },
-            {
-              "r": 0,
-              "c": 3,
-              "styles": {
-                "borderTop": "none"
-              }
-            },
-            {
-              "r": 0,
-              "c": 4,
-              "styles": {
-                "borderTop": "none"
-              }
-            },
-            {
-              "r": 0,
-              "c": 5,
               "rowspan": 2,
               "styles": {
                 "borderTop": "none"
@@ -3917,9 +2515,17 @@
               "styles": {
                 "cellAlign": "right"
               }
+            },
+            {
+              "r": 1,
+              "c": 6,
+              "styles": {
+                "borderLeft": "none",
+                "borderRight": "none"
+              }
             }
           ],
-          "colCount": 6,
+          "colCount": 8,
           "columns": [
             {
               "width": "16%"
@@ -3937,7 +2543,13 @@
               "width": "16%"
             },
             {
-              "width": "20%"
+              "width": "10%"
+            },
+            {
+              "width": "8.2%"
+            },
+            {
+              "width": "4.8%"
             }
           ],
           "items": [
@@ -3946,99 +2558,109 @@
               "name": "",
               "col": 0,
               "row": 0,
-              "text": "합계금액"
+              "text": "합계금액",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
-              "value": "totalPrice",
+              "value": "TotalPrice",
               "name": "",
               "col": 0,
               "row": 1,
-              "text": "Text"
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "name": "",
               "col": 1,
               "row": 0,
-              "text": "현  금"
+              "text": "현  금",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "name": "",
               "col": 2,
               "row": 0,
-              "text": "수  표"
+              "text": "수  표",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "name": "",
               "col": 3,
               "row": 0,
-              "text": "어  음"
+              "text": "어  음",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
             },
             {
               "type": "text",
               "name": "",
               "col": 4,
               "row": 0,
-              "text": "외상미수금"
+              "text": "외상미수금",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 5,
+              "row": 0,
+              "text": "이 금액을",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
             },
             {
               "type": "stack",
-              "width": 136,
-              "height": 45,
               "name": "",
-              "col": 5,
+              "col": 6,
               "row": 0,
               "items": [
                 {
                   "type": "text",
                   "name": "",
-                  "text": "이 금액을              함"
-                },
-                {
-                  "type": "text",
-                  "width": 30,
-                  "name": "",
                   "onGetStyles": "",
-                  "left": 70,
-                  "top": "3px",
                   "text": "영수",
-                  "styleCallback": null
-                },
-                {
-                  "type": "text",
-                  "width": "30px",
-                  "name": "",
-                  "onGetStyles": "",
-                  "left": "70px",
-                  "bottom": "3px",
-                  "text": "청구",
-                  "styleCallback": null
-                },
-                {
-                  "type": "shape",
-                  "width": "30px",
-                  "height": 19,
-                  "name": "",
-                  "onGetStyles": "if (item.getValue(row, 'Type') == '영수') {\n    return { \"stroke\": \"blue\", \"stroke-width\": \"2px\" };\n  }",
-                  "left": "69px",
-                  "top": "2px",
-                  "shape": "ellipse",
                   "styles": {
-                    "fill": "none",
+                    "fontSize": "12px",
+                    "color": "red",
                     "__tag_": {}
-                  }
+                  },
+                  "styleCallback": null
                 },
                 {
                   "type": "shape",
                   "width": "30px",
-                  "height": 19,
+                  "height": "19px",
                   "name": "",
-                  "onGetStyles": "if (item.getValue(row, 'Type') == '청구') {\n    return { \"stroke\": \"blue\", \"stroke-width\": \"2px\"};\n  }",
-                  "left": "69px",
-                  "bottom": "2px",
+                  "onGetStyles": "if (item.getValue(row, 'Type') == '영수') {\n    return { \"stroke\": \"red\", \"stroke-width\": \"2px\" };\n  }",
                   "shape": "ellipse",
                   "styles": {
                     "fill": "none",
@@ -4046,29 +2668,451 @@
                   }
                 }
               ]
-            }
-          ]
-        },
-        {
-          "type": "stack",
-          "width": "100%",
-          "name": "",
-          "styles": {
-            "paddingBottom": "2px",
-            "__tag_": {}
-          },
-          "items": [
+            },
             {
-              "type": "text",
+              "type": "stack",
               "name": "",
-              "left": 0,
-              "text": "210mm x 148.5mm"
+              "col": 6,
+              "row": 1,
+              "items": [
+                {
+                  "type": "shape",
+                  "width": "30px",
+                  "height": 19,
+                  "name": "",
+                  "onGetStyles": "if (item.getValue(row, 'Type') == '청구') {\n    return { \"stroke\": \"blue\", \"stroke-width\": \"2px\"};\n  }",
+                  "shape": "ellipse",
+                  "styles": {
+                    "fill": "none",
+                    "__tag_": {}
+                  }
+                },
+                {
+                  "type": "text",
+                  "name": "",
+                  "onGetStyles": "",
+                  "text": "청구",
+                  "styles": {
+                    "fontSize": "12px",
+                    "color": "red",
+                    "__tag_": {}
+                  },
+                  "styleCallback": null
+                }
+              ]
             },
             {
               "type": "text",
               "name": "",
-              "right": 0,
-              "text": "(인쇄용지(특급)34g/㎡)"
+              "col": 7,
+              "row": 0,
+              "text": "함",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "width": "100%",
+          "name": "",
+          "rowCount": 1,
+          "fixed": false,
+          "cellStyles": {
+            "borderLeft": "none",
+            "borderRight": "none",
+            "borderTop": "none",
+            "borderBottom": "dotted black",
+            "paddingBottom": "10px"
+          },
+          "rows": [
+            {
+              "height": "20px"
+            }
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "items": [
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "text": "210mm x 148.5mm",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 0,
+              "text": "(인쇄용지(특급)34g/㎡)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "red",
+                "__tag_": {}
+              }
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "width": "100%",
+          "name": "",
+          "rowCount": 1,
+          "fixed": false,
+          "minRowHeight": "20px",
+          "cellStyles": {
+            "borderLeft": "none",
+            "borderRight": "none",
+            "borderTop": "none",
+            "borderBottom": "none",
+            "paddingTop": "15px"
+          },
+          "rows": [
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "items": [
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "text": "[별지 제 11호 서식] <개정  2009.3.26>",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue"
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 0,
+              "text": "(청색)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue"
+              }
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "width": "100%",
+          "name": "",
+          "rowCount": 1,
+          "fixed": false,
+          "minRowHeight": "24px",
+          "cellStyles": {
+            "borderLeft": "",
+            "borderRight": "",
+            "borderTop": ""
+          },
+          "rows": [
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "center",
+                "borderLeft": "solid 1px blue",
+                "borderRight": "none",
+                "borderTop": "solid 1px blue",
+                "borderBottom": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "paddingTop": "10px",
+                "paddingBottom": "10px",
+                "borderLeft": "none",
+                "borderRight": "solid 1px blue",
+                "borderTop": "solid 1px blue",
+                "borderBottom": "none"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "70%"
+            },
+            {
+              "width": "30%"
+            }
+          ],
+          "items": [
+            {
+              "type": "cbox",
+              "width": "100%",
+              "name": "",
+              "col": 1,
+              "row": 0,
+              "itemGap": "15px",
+              "styles": {
+                "color": "blue",
+                "__tag_": {}
+              },
+              "items": [
+                {
+                  "type": "rbox",
+                  "name": "",
+                  "right": "15px",
+                  "itemGap": "15px",
+                  "items": [
+                    {
+                      "type": "text",
+                      "name": "",
+                      "text": "책  번  호",
+                      "styles": {
+                        "fontSize": "12px",
+                        "color": "blue",
+                        "__tag_": {}
+                      }
+                    },
+                    {
+                      "type": "rbox",
+                      "name": "",
+                      "itemGap": 0,
+                      "items": [
+                        {
+                          "type": "text",
+                          "width": "50px",
+                          "height": "20px",
+                          "name": "",
+                          "text": "권",
+                          "styles": {
+                            "fontSize": "12px",
+                            "color": "blue",
+                            "textAlign": "right",
+                            "border": "solid 1px blue",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "50px",
+                          "height": "20px",
+                          "name": "",
+                          "text": "호",
+                          "styles": {
+                            "fontSize": "12px",
+                            "color": "blue",
+                            "textAlign": "right",
+                            "border": "solid 1px blue",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rbox",
+                  "name": "",
+                  "right": "15px",
+                  "itemGap": "15px",
+                  "items": [
+                    {
+                      "type": "text",
+                      "name": "",
+                      "text": "일련번호",
+                      "styles": {
+                        "fontSize": "12px",
+                        "color": "blue",
+                        "__tag_": {}
+                      }
+                    },
+                    {
+                      "type": "rbox",
+                      "name": "",
+                      "itemGap": 0,
+                      "items": [
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "center",
+                            "border": "solid 1px blue",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px blue",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "name": "",
+                          "text": "-",
+                          "styles": {
+                            "fontSize": "12px",
+                            "color": "blue",
+                            "paddingLeft": "2px",
+                            "paddingRight": "2px",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px blue",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px blue",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px blue",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "width": "15px",
+                          "height": "20px",
+                          "name": "",
+                          "text": " ",
+                          "styles": {
+                            "fontSize": "12px",
+                            "textAlign": "right",
+                            "border": "solid 1px blue",
+                            "borderLeft": "none",
+                            "__tag_": {}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "text": "세금계산서 (공급자보관용)",
+              "styles": {
+                "fontSize": "18px",
+                "fontWeight": "bold",
+                "color": "blue",
+                "__tag_": {}
+              }
             }
           ]
         },
@@ -4090,6 +3134,866 @@
           ]
         },
         {
+          "type": "table",
+          "data": "bill-main",
+          "width": "100%",
+          "name": "",
+          "rowCount": 4,
+          "fixed": false,
+          "minRowHeight": "25px",
+          "cellStyles": {
+            "borderLeft": "solid 1px blue",
+            "borderRight": "solid 1px blue",
+            "borderTop": "solid 1px blue",
+            "borderBottom": "solid 1px blue"
+          },
+          "rows": [
+            {},
+            {},
+            {},
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "rowspan": 4
+            },
+            {
+              "r": 0,
+              "c": 14,
+              "rowspan": 4
+            },
+            {
+              "r": 1,
+              "c": 1,
+              "styles": {
+                "paddingBottom": "5px"
+              }
+            },
+            {
+              "r": 1,
+              "c": 2,
+              "colspan": 5
+            },
+            {
+              "r": 1,
+              "c": 7,
+              "colspan": 3
+            },
+            {
+              "r": 1,
+              "c": 10,
+              "colspan": 4
+            },
+            {
+              "r": 1,
+              "c": 16,
+              "colspan": 5
+            },
+            {
+              "r": 1,
+              "c": 21,
+              "colspan": 3
+            },
+            {
+              "r": 1,
+              "c": 24,
+              "colspan": 4
+            },
+            {
+              "r": 2,
+              "c": 2,
+              "colspan": 12
+            },
+            {
+              "r": 2,
+              "c": 16,
+              "colspan": 12
+            },
+            {
+              "r": 3,
+              "c": 2,
+              "colspan": 5
+            },
+            {
+              "r": 3,
+              "c": 7,
+              "colspan": 3
+            },
+            {
+              "r": 3,
+              "c": 10,
+              "colspan": 4
+            },
+            {
+              "r": 3,
+              "c": 16,
+              "colspan": 5
+            },
+            {
+              "r": 3,
+              "c": 21,
+              "colspan": 3
+            },
+            {
+              "r": 3,
+              "c": 24,
+              "colspan": 4
+            }
+          ],
+          "colCount": 28,
+          "columns": [
+            {
+              "width": "3%"
+            },
+            {
+              "width": "8%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "8%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            }
+          ],
+          "items": [
+            {
+              "type": "text",
+              "width": "100%",
+              "name": "",
+              "col": 14,
+              "row": 0,
+              "multiLine": true,
+              "text": "공<br>급<br>받<br>는<br>자",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 0,
+              "text": "등록번호",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 1,
+              "multiLine": true,
+              "text": "상호<br>(법인명)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "textAlign": "center",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 2,
+              "multiLine": true,
+              "text": "사업장<br>주   소",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 3,
+              "text": "업태",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 0,
+              "text": "등록번호",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 1,
+              "multiLine": true,
+              "text": "상호<br>(법인명)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "textAlign": "center",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 3,
+              "text": "업태",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 21,
+              "row": 3,
+              "text": "종목",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedKind",
+              "name": "",
+              "col": 24,
+              "row": 3,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedAddress",
+              "name": "",
+              "col": 16,
+              "row": 2,
+              "wrap": true,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierName",
+              "width": "100%",
+              "name": "",
+              "col": 2,
+              "row": 1,
+              "wrap": true,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "suppName2",
+              "value": "supplierPresident",
+              "width": "130px",
+              "col": 10,
+              "row": 1,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierAddress",
+              "name": "",
+              "col": 2,
+              "row": 2,
+              "wrap": true,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierType",
+              "name": "",
+              "col": 2,
+              "row": 3,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 7,
+              "row": 3,
+              "text": "종목",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierKind",
+              "name": "",
+              "col": 10,
+              "row": 3,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedName",
+              "name": "",
+              "col": 16,
+              "row": 1,
+              "wrap": true,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedType",
+              "name": "",
+              "col": 16,
+              "row": 3,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedPresident",
+              "name": "",
+              "col": 24,
+              "row": 1,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 7,
+              "row": 1,
+              "multiLine": true,
+              "text": "성명<br>(대표자)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "textAlign": "center",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 2,
+              "multiLine": true,
+              "text": "사업장<br>주   소",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "cbox",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "itemGap": "15px",
+              "styles": {
+                "color": "blue",
+                "__tag_": {}
+              },
+              "items": [
+                {
+                  "type": "text",
+                  "name": "",
+                  "text": "공",
+                  "styles": {
+                    "fontSize": "12px",
+                    "color": "blue",
+                    "__tag_": {}
+                  }
+                },
+                {
+                  "type": "text",
+                  "name": "",
+                  "text": "급",
+                  "styles": {
+                    "fontSize": "12px",
+                    "color": "blue",
+                    "__tag_": {}
+                  }
+                },
+                {
+                  "type": "text",
+                  "name": "",
+                  "text": "자",
+                  "styles": {
+                    "fontSize": "12px",
+                    "color": "blue",
+                    "__tag_": {}
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 21,
+              "row": 1,
+              "multiLine": true,
+              "text": "성명<br>(대표자)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "textAlign": "center",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(0, 1);",
+              "col": 2,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(1, 2);",
+              "col": 3,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(2, 3);",
+              "col": 4,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 5,
+              "row": 0,
+              "text": "-",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(3, 4);",
+              "col": 6,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(4, 5);",
+              "col": 7,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 8,
+              "row": 0,
+              "text": "-",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(5, 6);",
+              "col": 9,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(6, 7);",
+              "col": 10,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(7, 8);",
+              "col": 11,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(8, 9);",
+              "col": 12,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "supplierNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(9, 10);",
+              "col": 13,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(0, 1);",
+              "col": 16,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(1, 2);",
+              "col": 17,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(2, 3);",
+              "col": 18,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 19,
+              "row": 0,
+              "text": "-",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(3, 4);",
+              "col": 20,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(4, 5);",
+              "col": 21,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 22,
+              "row": 0,
+              "text": "-",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(5, 6);",
+              "col": 23,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(6, 7);",
+              "col": 24,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(7, 8);",
+              "col": 25,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(8, 9);",
+              "col": 26,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "suppliedNo",
+              "width": "100%",
+              "name": "",
+              "onGetValue": "return !value ? '' : String(value).substring(9, 10);",
+              "col": 27,
+              "row": 0,
+              "text": "0",
+              "styles": {
+                "fontSize": "15px",
+                "__tag_": {}
+              }
+            }
+          ]
+        },
+        {
           "type": "floating",
           "width": "50px",
           "height": "50px",
@@ -4103,6 +4007,1584 @@
               "height": "50px",
               "name": "",
               "image": "stamp"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "data": "bill-main",
+          "width": "100%",
+          "name": "",
+          "rowCount": 3,
+          "fixed": false,
+          "minRowHeight": "25px",
+          "cellStyles": {
+            "borderLeft": "solid 1px blue",
+            "borderRight": "solid 1px blue",
+            "borderTop": "solid 1px blue",
+            "borderBottom": "solid 1px blue"
+          },
+          "rows": [
+            {},
+            {},
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "colspan": 3,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 3,
+              "colspan": 13,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 16,
+              "colspan": 11,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 27,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 1,
+              "c": 27,
+              "rowspan": 2
+            }
+          ],
+          "colCount": 28,
+          "columns": [
+            {
+              "width": "6%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "9%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "3%"
+            },
+            {
+              "width": "20%"
+            }
+          ],
+          "items": [
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "30px",
+              "name": "",
+              "onGetValue": "return 11 - String(value).length;",
+              "col": 3,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 5,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 6,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 7,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 8,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 9,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 10,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 11,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 12,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 13,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 14,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var v = Math.floor(value) % 10;\n  return v;",
+              "col": 15,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 1,
+              "text": "년",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 1,
+              "text": "월",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 2,
+              "row": 1,
+              "text": "일",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 3,
+              "row": 1,
+              "text": "공란수",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 4,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 5,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 6,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 7,
+              "row": 1,
+              "text": "억",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 8,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 9,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 10,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 11,
+              "row": 1,
+              "text": "만",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 12,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 13,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 15,
+              "row": 1,
+              "text": "일",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 14,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 16,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 18,
+              "row": 1,
+              "text": "억",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 17,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 19,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 20,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 21,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 22,
+              "row": 1,
+              "text": "만",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 23,
+              "row": 1,
+              "text": "천",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 24,
+              "row": 1,
+              "text": "백",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 25,
+              "row": 1,
+              "text": "십",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 26,
+              "row": 1,
+              "text": "일",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Year",
+              "name": "",
+              "col": 0,
+              "row": 2,
+              "numberFormat": "###0",
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Month",
+              "name": "",
+              "col": 1,
+              "row": 2,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Day",
+              "name": "",
+              "col": 2,
+              "row": 2,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 27,
+              "row": 0,
+              "text": "비고",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "text": "작성",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 3,
+              "row": 0,
+              "text": "공 급 가 액",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 16,
+              "row": 0,
+              "text": "세 액",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "Amount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 4,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var v = Math.floor(value) % 10;\n  return v;",
+              "col": 26,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 25,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 24,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 23,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 22,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 21,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 20,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 19,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 100000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 18,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 1000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 17,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TaxAmount",
+              "width": "15px",
+              "name": "",
+              "onGetValue": "var digit = 10000000000;\n\tvar v = Math.floor(value / digit) % 10;\n  return v == 0 && value < digit ? '' : v;",
+              "col": 16,
+              "row": 2,
+              "text": "",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            }
+          ]
+        },
+        {
+          "type": "tableband",
+          "data": "bill-detail",
+          "width": "100%",
+          "name": "",
+          "maxRowsPerPage": 3,
+          "maxEndRowCount": 3,
+          "detail": {
+            "type": "detail",
+            "width": "100%",
+            "name": "",
+            "visible": false
+          },
+          "colCount": 9,
+          "columns": [
+            {
+              "width": "5%"
+            },
+            {
+              "width": "5%"
+            },
+            {
+              "width": "25%"
+            },
+            {
+              "width": "10%"
+            },
+            {
+              "width": "10%"
+            },
+            {
+              "width": "15%"
+            },
+            {
+              "width": "20%"
+            },
+            {
+              "width": "15%"
+            },
+            {
+              "width": "5%"
+            }
+          ],
+          "header": {
+            "width": "100%",
+            "height": "25px",
+            "name": "",
+            "rowCount": 1,
+            "fixed": false,
+            "cellStyles": {
+              "borderLeft": "solid 1px blue",
+              "borderRight": "solid 1px blue",
+              "borderTop": "none",
+              "borderBottom": "solid 1px blue"
+            },
+            "rows": [
+              {}
+            ],
+            "cells": [],
+            "items": [
+              {
+                "type": "text",
+                "name": "",
+                "col": 0,
+                "row": 0,
+                "text": "월",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "blue",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "name": "",
+                "col": 1,
+                "row": 0,
+                "text": "일",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "blue",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "name": "",
+                "col": 2,
+                "row": 0,
+                "text": "품목",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "blue",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "name": "",
+                "col": 3,
+                "row": 0,
+                "text": "규격",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "blue",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "name": "",
+                "col": 4,
+                "row": 0,
+                "text": "수량",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "blue",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "name": "",
+                "col": 5,
+                "row": 0,
+                "text": "단가",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "blue",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "name": "",
+                "col": 6,
+                "row": 0,
+                "text": "공급가액",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "blue",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "name": "",
+                "col": 8,
+                "row": 0,
+                "text": "비고",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "blue",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "name": "",
+                "col": 7,
+                "row": 0,
+                "text": "세액",
+                "styles": {
+                  "fontSize": "12px",
+                  "color": "blue",
+                  "__tag_": {}
+                }
+              }
+            ]
+          },
+          "footer": {
+            "width": "100%",
+            "name": "",
+            "visible": false,
+            "rowCount": 1,
+            "fixed": false,
+            "cellStyles": {},
+            "rows": [
+              {}
+            ],
+            "cells": []
+          },
+          "dataRow": {
+            "width": "100%",
+            "height": "25px",
+            "name": "",
+            "rowCount": 1,
+            "fixed": false,
+            "cellStyles": {
+              "paddingLeft": "1px",
+              "paddingRight": "1px",
+              "borderLeft": "solid 1px blue",
+              "borderRight": "solid 1px blue",
+              "borderTop": "none",
+              "borderBottom": "solid 1px blue"
+            },
+            "rows": [
+              {}
+            ],
+            "cells": [
+              {
+                "r": 0,
+                "c": 2,
+                "styles": {
+                  "cellAlign": "left"
+                }
+              },
+              {
+                "r": 0,
+                "c": 4,
+                "styles": {
+                  "cellAlign": "right"
+                }
+              },
+              {
+                "r": 0,
+                "c": 5,
+                "styles": {
+                  "cellAlign": "right"
+                }
+              },
+              {
+                "r": 0,
+                "c": 6,
+                "styles": {
+                  "cellAlign": "right"
+                }
+              }
+            ],
+            "items": [
+              {
+                "type": "text",
+                "value": "Month",
+                "name": "",
+                "col": 0,
+                "row": 0,
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "value": "Day",
+                "name": "",
+                "col": 1,
+                "row": 0,
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "value": "Item",
+                "name": "",
+                "col": 2,
+                "row": 0,
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "value": "Unit",
+                "name": "",
+                "col": 3,
+                "row": 0,
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "value": "Quantity",
+                "name": "",
+                "col": 4,
+                "row": 0,
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "value": "UnitPrice",
+                "name": "",
+                "col": 5,
+                "row": 0,
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "value": "Amount",
+                "name": "",
+                "col": 6,
+                "row": 0,
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
+              },
+              {
+                "type": "text",
+                "value": "Tax",
+                "name": "",
+                "col": 7,
+                "row": 0,
+                "text": "Text",
+                "styles": {
+                  "fontSize": "12px",
+                  "__tag_": {}
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "data": "bill-main",
+          "width": "100%",
+          "name": "",
+          "rowCount": 2,
+          "fixed": false,
+          "minRowHeight": "25px",
+          "cellStyles": {
+            "paddingLeft": "1px",
+            "paddingRight": "1px",
+            "borderLeft": "solid 1px blue",
+            "borderRight": "solid 1px blue",
+            "borderTop": "solid 1px blue",
+            "borderBottom": "solid 1px blue"
+          },
+          "rows": [
+            {},
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 2,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 3,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 4,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 5,
+              "rowspan": 2,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 6,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 0,
+              "c": 7,
+              "rowspan": 2,
+              "styles": {
+                "borderTop": "none"
+              }
+            },
+            {
+              "r": 1,
+              "c": 0,
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "colCount": 8,
+          "columns": [
+            {
+              "width": "16%"
+            },
+            {
+              "width": "16%"
+            },
+            {
+              "width": "16%"
+            },
+            {
+              "width": "16%"
+            },
+            {
+              "width": "16%"
+            },
+            {
+              "width": "10%"
+            },
+            {
+              "width": "8.2%"
+            },
+            {
+              "width": "4.8%"
+            }
+          ],
+          "items": [
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "text": "합계금액",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "value": "TotalPrice",
+              "name": "",
+              "col": 0,
+              "row": 1,
+              "text": "Text",
+              "styles": {
+                "fontSize": "12px",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 0,
+              "text": "현  금",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 2,
+              "row": 0,
+              "text": "수  표",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 3,
+              "row": 0,
+              "text": "어  음",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 4,
+              "row": 0,
+              "text": "외상미수금",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 5,
+              "row": 0,
+              "text": "이 금액을",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            },
+            {
+              "type": "stack",
+              "name": "",
+              "col": 6,
+              "row": 0,
+              "styles": {
+                "color": "blue",
+                "__tag_": {}
+              },
+              "items": [
+                {
+                  "type": "text",
+                  "name": "",
+                  "onGetStyles": "",
+                  "text": "영수",
+                  "styles": {
+                    "fontSize": "12px",
+                    "color": "blue",
+                    "__tag_": {}
+                  },
+                  "styleCallback": null
+                },
+                {
+                  "type": "shape",
+                  "width": "30px",
+                  "height": "19px",
+                  "name": "",
+                  "onGetStyles": "if (item.getValue(row, 'Type') == '영수') {\n    return { \"stroke\": \"red\", \"stroke-width\": \"2px\" };\n  }",
+                  "shape": "ellipse",
+                  "styles": {
+                    "fill": "none",
+                    "__tag_": {}
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "name": "",
+              "col": 6,
+              "row": 1,
+              "styles": {
+                "color": "blue",
+                "__tag_": {}
+              },
+              "items": [
+                {
+                  "type": "shape",
+                  "width": "30px",
+                  "height": 19,
+                  "name": "",
+                  "onGetStyles": "if (item.getValue(row, 'Type') == '청구') {\n    return { \"stroke\": \"red\", \"stroke-width\": \"2px\"};\n  }",
+                  "shape": "ellipse",
+                  "styles": {
+                    "fill": "none",
+                    "__tag_": {}
+                  }
+                },
+                {
+                  "type": "text",
+                  "name": "",
+                  "onGetStyles": "",
+                  "text": "청구",
+                  "styles": {
+                    "fontSize": "12px",
+                    "color": "blue",
+                    "__tag_": {}
+                  },
+                  "styleCallback": null
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 7,
+              "row": 0,
+              "text": "함",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue",
+                "__tag_": {}
+              }
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "width": "100%",
+          "name": "",
+          "rowCount": 1,
+          "fixed": false,
+          "minRowHeight": "20px",
+          "cellStyles": {
+            "borderLeft": "none",
+            "borderRight": "none",
+            "borderTop": "none",
+            "borderBottom": "none"
+          },
+          "rows": [
+            {}
+          ],
+          "cells": [
+            {
+              "r": 0,
+              "c": 0,
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "r": 0,
+              "c": 1,
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "colCount": 2,
+          "columns": [
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "left"
+              }
+            },
+            {
+              "width": "50%",
+              "styles": {
+                "cellAlign": "right"
+              }
+            }
+          ],
+          "items": [
+            {
+              "type": "text",
+              "name": "",
+              "col": 0,
+              "row": 0,
+              "text": "210mm x 148.5mm",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue"
+              }
+            },
+            {
+              "type": "text",
+              "name": "",
+              "col": 1,
+              "row": 0,
+              "text": "(인쇄용지(특급)34g/㎡)",
+              "styles": {
+                "fontSize": "12px",
+                "color": "blue"
+              }
             }
           ]
         }
@@ -4123,6 +5605,28 @@
     ]
   },
   "data": {
+    "bill-main": {
+      "type": "simple",
+      "sample": {
+        "supplierNo": 1234567890,
+        "supplierName": "(주)우리테크 인터내셔날",
+        "supplierPresident": "나현호",
+        "supplierAddress": "성남시 분당구 운중로 135 더원스퀘어 304호",
+        "supplierType": "소프트웨어",
+        "supplierKind": "소프트웨어",
+        "suppliedNo": 1000000001,
+        "suppliedName": "(주)한국 전자",
+        "suppliedPresident": "홍길동",
+        "suppliedType": "제조",
+        "suppliedKind": "전기전자",
+        "Year": 2005,
+        "Month": 4,
+        "Day": 11,
+        "Amount": 16500000,
+        "Type": "영수",
+        "TaxAmount": 1650000
+      }
+    },
     "bill-detail": {
       "type": "band",
       "fields": [
@@ -4183,28 +5687,7 @@
           "dateReader": null
         }
       ]
-    },
-    "bill-main": {
-      "type": "simple",
-      "sample": {
-        "supplierNo": 1234567890,
-        "supplierName": "(주)우리테크 인터내셔날",
-        "supplierPresident": "나현호",
-        "supplierAddress": "성남시 분당구 운중로 135 더원스퀘어 304호",
-        "supplierType": "소프트웨어",
-        "supplierKind": "소프트웨어",
-        "suppliedNo": 1000000001,
-        "suppliedName": "(주)한국 전자",
-        "suppliedPresident": "홍길동",
-        "suppliedType": "제조",
-        "suppliedKind": "전기전자",
-        "Year": 2005,
-        "Month": 4,
-        "Day": 11,
-        "Amount": 16500000,
-        "Type": "영수"
-      }
     }
   },
-  "guid": "977c6009-1625-455c-bd5f-81e79204795d"
+  "guid": "1a0c310a-e884-4d3d-a512-1a756f165daa"
 }
