@@ -1,12 +1,12 @@
 import Head from 'next/head';
-
-import '../public/realgrid.2.0.4/realgrid-style.css';
+import Script from 'next/script';
+import 'realgrid/dist/realgrid-style.css'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <script src="/realgrid.2.0.4/realgrid-lic.js" />
+        <script src='/realgrid-lic.js'/>
       </Head>
       <Component {...pageProps} />
     </>

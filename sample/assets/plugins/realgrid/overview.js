@@ -299,6 +299,7 @@ function createGrid(container) {
     grid.sortingOptions.style = "reverse";
     grid.displayOptions.rowHoverType = "row";    
     grid.displayOptions.rowResizable = true;
+    grid.fixedOptions.exceptFromSorting = false;
     // 셀 단위로 커밋한다.
     grid.commitByCell = true;    
     // 셀 수정 상태를 마커로 표시한다.
