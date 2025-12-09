@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,31 @@
     <title>RealReport Print Preview</title>
     <link rel="shortcut icon" href="#">
 
-    <link href="assets/plugins/realreport/css/preview.css" rel="stylesheet">
+    <!-- PDF 내보내기 시 맑은고딕 폰트 사용중이므로 미리보기 시점에서도 동일하게 적용 -->
+    <link rel="preload" href="/assets/plugins/realreport/pdffonts/malgun.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/plugins/realreport/pdffonts/malgunbd.ttf" as="font" type="font/ttf" crossorigin>
+    <style>
+        @font-face {
+            font-family: "Malgun Gothic";
+            src: url("/assets/plugins/realreport/pdffonts/malgun.ttf");
+        }
+
+        @font-face {
+            font-family: "Malgun Gothic";
+            src: url("/assets/plugins/realreport/pdffonts/malgunbd.ttf");
+            font-weight: 900
+        }
+    </style>
+
+    <link href="/assets/plugins/realreport/css/preview.css" rel="stylesheet">
     <!-- 하이차트의 기본 스타일 변경하려면 아래 파일을 수정하면 됩니다. -->
     <!-- <link href='js/highcharts/highcharts.css' rel='stylesheet' /> -->
-    <link href='assets/plugins/realreport/lib/realreport.css' rel='stylesheet' />
-    <script type="text/javascript" src="assets/plugins/realreport/pdfkit.js"></script>
-    <script type="text/javascript" src="assets/plugins/realreport/lib/realreport-lic.js"></script>    
-    <script type="text/javascript" src='assets/plugins/realreport/lib/realreport.js'></script>
+    <link href='/assets/plugins/realreport/lib/realreport.css' rel='stylesheet' />
+    <script type="text/javascript" src="/assets/plugins/realreport/pdfkit.js"></script>
+    <script type="text/javascript" src="/assets/plugins/realreport/lib/realreport-lic.js"></script>
+    <script type="text/javascript" src='/assets/plugins/realreport/lib/realreport.js'></script>
 </head>
+
 <body>
     <div class="root">
         <div class="container">
@@ -26,7 +44,8 @@
                                 <a class="toolbar-icon-button" onclick="onClickZoomOut10();">
                                     <div class="toolbar-icon icon preview-zoomout-png"></div>
                                 </a>
-                                <input part="input" type="text" value="100%" id="inputZoomScale" aria-label="Zoom Scale">
+                                <input part="input" type="text" value="100%" id="inputZoomScale"
+                                    aria-label="Zoom Scale">
                                 <a class="toolbar-icon-button" onclick="onClickZoomIn10();">
                                     <div class="toolbar-icon icon preview-zoomin-png"></div>
                                 </a>
@@ -50,7 +69,8 @@
                                     <div class="toolbar-icon icon preview-prev-png"></div>
                                 </a>
                                 <div class="toolbar-item">
-                                    <input part="input" type="text" value="1" id="inputPageNumber" aria-label="Page number" >
+                                    <input part="input" type="text" value="1" id="inputPageNumber"
+                                        aria-label="Page number">
                                     <span style="margin: 0 4px;">/</span>
                                     <span style="margin: 0 4px;" id="totalpage">1</span>
                                 </div>
@@ -64,7 +84,7 @@
                         </div>
                         <div class="toolbar-right">
                             <div class="toolbar-items">
-                                <a class="toolbar-icon-button" onclick="onClickPrintHiddenFrame()">
+                                <a class="toolbar-icon-button" onclick="onPrint()">
                                     <div class="toolbar-icon icon preview-print-png"></div>
                                 </a>
                             </div>
@@ -98,7 +118,7 @@
                                     <div class="toolbar-icon icon preview-tiffg4-png"></div>
                                 </a>
                             </div>
-                        </div>                                        
+                        </div>
                     </div>
                     <div class="scroller">
                         <div id="realreport"></div>
@@ -108,8 +128,7 @@
         </div>
     </div>
 
-    <script type="text/javascript">        
-        var realReportLic = 'upVcPE+wPOkcfqywe+clVN+UVTCvO3is+83EYTz6U/sTXJR8Yw8Y0WXyjOMqbrgv0x+/TjcSI78+p7IjzZ8+YTQR9hbhIVddO6pBj8PqGa1e7L7C4dZzvApmpp5wpkG7oVSTy1ohzbiY3nEiKYzppQ==';
+    <script type="text/javascript">
         var containerId = 'realreport';
         var viewer;
 
@@ -121,7 +140,7 @@
             container.innerHTML = '';
             delete viewer;
         }
-        
+
         const setHtml = function (id, value, prefix, surfix) {
             if (id) {
                 const el = document.getElementById(id);
@@ -134,8 +153,6 @@
                 setHtml(id, viewer.pageCount, '', '');
             }
         }
-
-        
 
         var previewReport = function (reports) {
             clearReport();
@@ -158,7 +175,6 @@
         //--------------------------------------------------------------------------------------------------
         // 이벤트 핸들링
         //--------------------------------------------------------------------------------------------------
-
         const onClickZoom = (z) => {
             if (viewer) {
                 viewer.zoom = z;
@@ -228,27 +244,27 @@
             }
         }
 
-        async function base64convert (url, split) {
+        async function base64convert(url, split) {
             const data = await fetch(url);
             const blob = await data.blob();
-            
+
             return new Promise(resolve => {
                 const reader = new FileReader();
                 reader.readAsDataURL(blob);
                 reader.onloadend = () => {
-                const base64data = reader.result;
-                resolve(split ? base64data.split(',')[1] : base64data);
-                }    
+                    const base64data = reader.result;
+                    resolve(split ? base64data.split(',')[1] : base64data);
+                }
             });
         }
 
         const onClickExportPdf = function () {
-            base64convert('/assets/plugins/realreport/pdffonts/malgun.ttf', true).then(regualrFont => {
+            base64convert('/assets/plugins/realreport/pdffonts/malgun.ttf', true).then(regularFont => {
                 base64convert('/assets/plugins/realreport/pdffonts/malgunbd.ttf', true).then(boldFont => {
-                    if (regualrFont && boldFont) {
+                    if (regularFont && boldFont) {
                         const fonts = [{
                             name: 'regular',
-                            content: regualrFont,
+                            content: regularFont,
                             style: 'normal',
                             weight: 'normal',
                         },
@@ -258,9 +274,27 @@
                             style: 'normal',
                             weight: 'bold',
                         }];
-                
+
                         if (viewer) {
-                            viewer.exportPdf(fonts);
+                            const options = {
+                                fonts,
+                                filename: 'bill-report-sample',
+                                preview: false,
+                                // ownerPassword: '!QAZXSW2', // 소유자 암호
+                                // userPassword: '1qazxsw2', // 사용자 암호
+                                permissions: {
+                                    printing: 'highResolution', // 'lowResolution' | 'highResolution' 인쇄 허용 여부
+                                    modifying: true, // 파일 수정 허용 여부
+                                    copying: true, // 텍스트 또는 그래픽 복사 허용 여부
+                                    annotating: true, // 주석 및 양식 작성 허용 여부
+                                    fillingForms: true, // 양식 작성 및 서명 허용 여부
+                                    contentAccessibility: true, // 접근성을 위한 텍스트 복사 허용 여부
+                                    documentAssembly: true,
+                                },
+                                pdfVersion: '1.7ext3'  // '1.3' | '1.4' | '1.5' | '1.6' | '1.7' | '1.7ext3'
+                            }
+                            viewer.zoom = 1
+                            viewer.exportPdf(options);
                         }
                     }
                 });
@@ -283,40 +317,8 @@
         }
 
         // iFrame을 통해 바로 출력
-        const onClickPrintHiddenFrame = function () {
-            if (viewer) {
-                function closePrint () {
-                    document.body.removeChild(this.__container__);
-                }
-                
-                function setPrint () {
-                    this.contentWindow.__container__ = this;
-                    this.contentWindow.onbeforeunload = closePrint;
-                    this.contentWindow.onafterprint = closePrint;
-                    const dom = this.contentWindow.document.getElementById('realreport');
-                    dom.innerHTML = viewer.reportHtml;
-
-                    setTimeout(() => {
-                        this.contentWindow.focus(); // Required for IE
-                        this.contentWindow.print();                
-                    }, 1);
-                }
-                
-                function printPage (sURL) {
-                    var oHideFrame = document.createElement("iframe");
-                    oHideFrame.onload = setPrint;
-                    oHideFrame.style.position = "";
-                    oHideFrame.style.right = "0";
-                    oHideFrame.style.bottom = "0";
-                    oHideFrame.style.width = "0";
-                    oHideFrame.style.height = "0";
-                    oHideFrame.style.border = "0";
-                    oHideFrame.src = sURL;
-                    document.body.appendChild(oHideFrame);
-                }
-
-                printPage('./print.html');   
-            }
+        const onPrint = function () {
+            viewer.print();
         }
 
 
@@ -346,7 +348,7 @@
         const setInputValue = function (id, value, prefix, surfix) {
             if (id) {
                 const input = document.getElementById(id);
-                if (input) input.value = `${prefix||''}${value}${surfix||''}`;
+                if (input) input.value = `${prefix || ''}${value}${surfix || ''}`;
             }
         }
 
@@ -363,4 +365,5 @@
         };
     </script>
 </body>
+
 </html>

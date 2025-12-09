@@ -15,6 +15,7 @@ export default {
   },
   methods: {
     loadData() {
+      console.log('done!')
       dataProvider.setRows(rows);
     },
   },
